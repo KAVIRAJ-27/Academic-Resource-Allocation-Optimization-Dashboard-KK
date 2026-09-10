@@ -20,6 +20,7 @@ public class CorsConfig {
     private String allowedOrigins;
 
     @Bean
+    @org.springframework.context.annotation.Primary
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         List<String> origins = Arrays.asList(allowedOrigins.split(","));

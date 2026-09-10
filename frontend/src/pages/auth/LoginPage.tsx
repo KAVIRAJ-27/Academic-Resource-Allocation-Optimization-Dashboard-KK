@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { useNavigate, useLocation, Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
-import { ROLES, UserRole, ROLE_LABELS } from '../../constants/roles';
+import { ROLES, UserRole } from '../../constants/roles';
 import { Button } from '../../components/ui/Button';
 import { Input } from '../../components/ui/Input';
-import { Shield, Sparkles, ArrowRight, AlertCircle, CheckCircle2, Lock, User as UserIcon } from 'lucide-react';
+import { Shield, ArrowRight, AlertCircle } from 'lucide-react';
 
 interface SeedCredential {
   role: UserRole;
@@ -24,8 +24,7 @@ const SEED_CREDENTIALS: Record<UserRole, SeedCredential> = {
 
 export const LoginPage: React.FC = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-  const { login, loginAs, isLoading } = useAuth();
+  const { login } = useAuth();
 
   const [selectedRole, setSelectedRole] = useState<UserRole>(ROLES.ADMIN);
   const [identifier, setIdentifier] = useState('admin');
@@ -55,20 +54,21 @@ export const LoginPage: React.FC = () => {
       const targetRole = (loggedUser.role || selectedRole).toLowerCase();
       navigate(`/${targetRole}/dashboard`);
     } catch (err: unknown) {
-      const errorObj = err as { message?: string; error?: string };
-      setErrorMessage(
-        errorObj.message ||
-        errorObj.error ||
-        'Authentication failed. Please verify your credentials or server connectivity.'
-      );
+      const errorObj = err as { status?: number; message?: string; error?: string };
+      let userFriendlyMessage = 'Unable to connect to the server.';
+      if (errorObj.status === 401) {
+        userFriendlyMessage = 'Invalid email or password.';
+      } else if (errorObj.status === 403) {
+        userFriendlyMessage = 'You are not authorized to access this application.';
+      } else if (errorObj.status === 500) {
+        userFriendlyMessage = 'Authentication service is temporarily unavailable.';
+      } else if (errorObj.message && !errorObj.message.includes('status code')) {
+        userFriendlyMessage = errorObj.message;
+      }
+      setErrorMessage(userFriendlyMessage);
     } finally {
       setIsSubmitting(false);
     }
-  };
-
-  const handleSandboxBypass = () => {
-    loginAs(selectedRole);
-    navigate(`/${selectedRole.toLowerCase()}/dashboard`);
   };
 
   return (
@@ -91,7 +91,7 @@ export const LoginPage: React.FC = () => {
           </p>
           <div className="flex items-center justify-center gap-2 mt-2">
             <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-teal-500/10 text-teal-300 border border-teal-500/30">
-              Phase 2: JWT Authentication Active
+              AHRAO • Authentication Secure
             </span>
           </div>
         </div>
@@ -104,15 +104,6 @@ export const LoginPage: React.FC = () => {
               <div className="flex-1">
                 <span className="font-semibold block mb-0.5">Authentication Issue</span>
                 <span>{errorMessage}</span>
-                <div className="mt-2">
-                  <button
-                    type="button"
-                    onClick={handleSandboxBypass}
-                    className="text-[11px] underline hover:text-red-300 font-medium cursor-pointer"
-                  >
-                    Click here to enter Sandbox Mode (Offline Simulation)
-                  </button>
-                </div>
               </div>
             </div>
           )}
@@ -169,25 +160,18 @@ export const LoginPage: React.FC = () => {
                 type="submit"
                 variant="primary"
                 size="lg"
-                isLoading={isSubmitting || isLoading}
+                isLoading={isSubmitting}
                 className="w-full flex items-center justify-center gap-2"
               >
-                <span>Sign In with JWT</span>
+                <span>Sign In with Secure JWT</span>
                 <ArrowRight className="w-4 h-4" />
               </Button>
             </div>
           </form>
 
-          {/* Quick Sandbox Bypass button for demo convenience */}
-          <div className="mt-3 pt-3 border-t border-white/5 flex items-center justify-between text-xs">
-            <button
-              type="button"
-              onClick={handleSandboxBypass}
-              className="text-gray-400 hover:text-teal-400 transition-colors flex items-center gap-1 text-[11px]"
-            >
-              <Sparkles className="w-3.5 h-3.5 text-teal-400" />
-              <span>Simulated Sandbox Bypass</span>
-            </button>
+          {/* User registration link */}
+          <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs">
+            <span className="text-gray-400 text-[11px]">Production Authentication</span>
             <Link
               to="/register"
               className="text-teal-400 hover:text-teal-300 font-medium text-[11px] hover:underline"

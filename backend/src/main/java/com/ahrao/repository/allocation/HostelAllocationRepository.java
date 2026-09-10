@@ -12,21 +12,44 @@ import java.util.Optional;
 @Repository
 public interface HostelAllocationRepository extends JpaRepository<HostelAllocation, Long>, JpaSpecificationExecutor<HostelAllocation> {
     List<HostelAllocation> findByStudentId(Long studentId);
-    List<HostelAllocation> findByHostelBedId(Long hostelBedId);
+
+    @org.springframework.data.jpa.repository.Query("SELECT ha FROM HostelAllocation ha WHERE ha.bed.id = :hostelBedId")
+    List<HostelAllocation> findByHostelBedId(@org.springframework.data.repository.query.Param("hostelBedId") Long hostelBedId);
+
     List<HostelAllocation> findByStatus(AllocationStatus status);
     Optional<HostelAllocation> findByStudentIdAndStatus(Long studentId, AllocationStatus status);
-    Optional<HostelAllocation> findByHostelBedIdAndStatus(Long hostelBedId, AllocationStatus status);
+
+    @org.springframework.data.jpa.repository.Query("SELECT ha FROM HostelAllocation ha WHERE ha.bed.id = :hostelBedId AND ha.status = :status")
+    Optional<HostelAllocation> findByHostelBedIdAndStatus(@org.springframework.data.repository.query.Param("hostelBedId") Long hostelBedId, @org.springframework.data.repository.query.Param("status") AllocationStatus status);
+
     List<HostelAllocation> findByAcademicYearId(Long academicYearId);
     long countByStatus(AllocationStatus status);
-    boolean existsByHostelBedId(Long hostelBedId);
-    boolean existsByHostelBedRoomId(Long roomId);
-    boolean existsByHostelBedIdAndStatus(Long hostelBedId, AllocationStatus status);
+
+    @org.springframework.data.jpa.repository.Query("SELECT COUNT(ha) > 0 FROM HostelAllocation ha WHERE ha.bed.id = :hostelBedId")
+    boolean existsByHostelBedId(@org.springframework.data.repository.query.Param("hostelBedId") Long hostelBedId);
+
+    @org.springframework.data.jpa.repository.Query("SELECT COUNT(ha) > 0 FROM HostelAllocation ha WHERE ha.bed.room.id = :roomId")
+    boolean existsByHostelBedRoomId(@org.springframework.data.repository.query.Param("roomId") Long roomId);
+
+    @org.springframework.data.jpa.repository.Query("SELECT COUNT(ha) > 0 FROM HostelAllocation ha WHERE ha.bed.id = :hostelBedId AND ha.status = :status")
+    boolean existsByHostelBedIdAndStatus(@org.springframework.data.repository.query.Param("hostelBedId") Long hostelBedId, @org.springframework.data.repository.query.Param("status") AllocationStatus status);
+
     boolean existsByStudentIdAndStatus(Long studentId, AllocationStatus status);
-    long countByHostelBedRoomIdAndStatus(Long roomId, AllocationStatus status);
-    long countByHostelBedRoomFloorBlockHostelIdAndStatus(Long hostelId, AllocationStatus status);
-    long countByHostelBedRoomFloorBlockHostelIdInAndStatus(java.util.Collection<Long> hostelIds, AllocationStatus status);
-    List<HostelAllocation> findByHostelBedRoomIdAndStatus(Long roomId, AllocationStatus status);
-    List<HostelAllocation> findByHostelBedRoomFloorBlockHostelIdAndStatus(Long hostelId, AllocationStatus status);
+
+    @org.springframework.data.jpa.repository.Query("SELECT COUNT(ha) FROM HostelAllocation ha WHERE ha.bed.room.id = :roomId AND ha.status = :status")
+    long countByHostelBedRoomIdAndStatus(@org.springframework.data.repository.query.Param("roomId") Long roomId, @org.springframework.data.repository.query.Param("status") AllocationStatus status);
+
+    @org.springframework.data.jpa.repository.Query("SELECT COUNT(ha) FROM HostelAllocation ha WHERE ha.bed.room.floor.block.hostel.id = :hostelId AND ha.status = :status")
+    long countByHostelBedRoomFloorBlockHostelIdAndStatus(@org.springframework.data.repository.query.Param("hostelId") Long hostelId, @org.springframework.data.repository.query.Param("status") AllocationStatus status);
+
+    @org.springframework.data.jpa.repository.Query("SELECT COUNT(ha) FROM HostelAllocation ha WHERE ha.bed.room.floor.block.hostel.id IN :hostelIds AND ha.status = :status")
+    long countByHostelBedRoomFloorBlockHostelIdInAndStatus(@org.springframework.data.repository.query.Param("hostelIds") java.util.Collection<Long> hostelIds, @org.springframework.data.repository.query.Param("status") AllocationStatus status);
+
+    @org.springframework.data.jpa.repository.Query("SELECT ha FROM HostelAllocation ha WHERE ha.bed.room.id = :roomId AND ha.status = :status")
+    List<HostelAllocation> findByHostelBedRoomIdAndStatus(@org.springframework.data.repository.query.Param("roomId") Long roomId, @org.springframework.data.repository.query.Param("status") AllocationStatus status);
+
+    @org.springframework.data.jpa.repository.Query("SELECT ha FROM HostelAllocation ha WHERE ha.bed.room.floor.block.hostel.id = :hostelId AND ha.status = :status")
+    List<HostelAllocation> findByHostelBedRoomFloorBlockHostelIdAndStatus(@org.springframework.data.repository.query.Param("hostelId") Long hostelId, @org.springframework.data.repository.query.Param("status") AllocationStatus status);
 
     @org.springframework.data.jpa.repository.Query("SELECT ha FROM HostelAllocation ha " +
            "WHERE ha.bed.id = :bedId " +

@@ -112,13 +112,11 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(() => {
-    const saved = authStorage.getUser<User>();
-    if (saved) return saved;
-    return SEED_USERS[ROLES.ADMIN];
+    return authStorage.getUser<User>() || null;
   });
 
   const [token, setToken] = useState<string | null>(() => {
-    return authStorage.getToken() || 'mock-jwt-token';
+    return authStorage.getToken() || null;
   });
 
   const [isLoading, setIsLoading] = useState<boolean>(false);

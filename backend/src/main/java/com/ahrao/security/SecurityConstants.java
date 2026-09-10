@@ -19,6 +19,8 @@ public final class SecurityConstants {
         "/health/**",
         "/health",
         "/api/auth/**",
+        "/actuator/**",
+        "/actuator/health/**",
         "/error"
     };
 
