@@ -15,6 +15,9 @@ public final class SecurityConstants {
 
     public static final String[] PUBLIC_URLS = {
         "/api/health/**",
+        "/api/health",
+        "/health/**",
+        "/health",
         "/api/auth/**",
         "/error"
     };

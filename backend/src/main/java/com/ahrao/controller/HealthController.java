@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Health check endpoint for AHRAO system.
  */
 @RestController
-@RequestMapping("/api/health")
+@RequestMapping({"/api/health", "/health"})
 public class HealthController {
 
     private final HealthService healthService;
