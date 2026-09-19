@@ -9,3 +9,6 @@ org.eclipse.jdt.core.compiler.problem.redundantNullAnnotation=ignore
 org.eclipse.jdt.core.compiler.problem.redundantNullCheck=ignore
 org.eclipse.jdt.core.compiler.problem.uncheckedTypeOperation=ignore
 org.eclipse.jdt.core.compiler.problem.rawTypeReference=ignore
+org.eclipse.jdt.core.compiler.problem.suppressWarningsNotAnalysed=ignore
+org.eclipse.jdt.core.compiler.problem.unusedWarningToken=ignore
+org.eclipse.jdt.core.compiler.problem.unhandledWarningToken=ignore

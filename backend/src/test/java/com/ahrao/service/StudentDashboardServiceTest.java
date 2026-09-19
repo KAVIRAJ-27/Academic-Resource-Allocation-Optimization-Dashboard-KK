@@ -7,6 +7,7 @@ import com.ahrao.entity.academic.Department;
 import com.ahrao.entity.academic.Program;
 import com.ahrao.entity.academic.Section;
 import com.ahrao.entity.academic.Student;
+import com.ahrao.entity.academic.Subject;
 import com.ahrao.entity.allocation.HostelAllocation;
 import com.ahrao.entity.enums.AllocationStatus;
 import com.ahrao.entity.enums.DegreeType;
