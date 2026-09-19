@@ -333,11 +333,9 @@ public class VsbDemoDataServiceImpl implements VsbDemoDataService {
 
         Long yearId = null;
         try (BufferedReader br = new BufferedReader(new FileReader(file, StandardCharsets.UTF_8))) {
-            String header = br.readLine();
+            br.readLine();
             String line;
-            int row = 1;
             while ((line = br.readLine()) != null) {
-                row++;
                 List<String> tokens = parseCsvLine(line);
                 if (tokens.size() < 4) continue;
 
@@ -407,9 +405,7 @@ public class VsbDemoDataServiceImpl implements VsbDemoDataService {
         try (BufferedReader br = new BufferedReader(new FileReader(file, StandardCharsets.UTF_8))) {
             br.readLine(); // Header
             String line;
-            int row = 1;
             while ((line = br.readLine()) != null) {
-                row++;
                 List<String> tokens = parseCsvLine(line);
                 if (tokens.size() < 3) continue;
 
@@ -594,9 +590,7 @@ public class VsbDemoDataServiceImpl implements VsbDemoDataService {
             try (BufferedReader br = new BufferedReader(new FileReader(roomsFile, StandardCharsets.UTF_8))) {
                 br.readLine();
                 String line;
-                int row = 1;
                 while ((line = br.readLine()) != null) {
-                    row++;
                     List<String> tokens = parseCsvLine(line);
                     if (tokens.size() < 6) continue;
 
@@ -640,9 +634,7 @@ public class VsbDemoDataServiceImpl implements VsbDemoDataService {
             try (BufferedReader br = new BufferedReader(new FileReader(labsFile, StandardCharsets.UTF_8))) {
                 br.readLine();
                 String line;
-                int row = 1;
                 while ((line = br.readLine()) != null) {
-                    row++;
                     List<String> tokens = parseCsvLine(line);
                     if (tokens.size() < 4) continue;
 
@@ -1024,9 +1016,7 @@ public class VsbDemoDataServiceImpl implements VsbDemoDataService {
         try (BufferedReader br = new BufferedReader(new FileReader(file, StandardCharsets.UTF_8))) {
             br.readLine();
             String line;
-            int row = 1;
             while ((line = br.readLine()) != null) {
-                row++;
                 List<String> tokens = parseCsvLine(line);
                 if (tokens.size() < 5) continue;
 
@@ -1459,7 +1449,7 @@ public class VsbDemoDataServiceImpl implements VsbDemoDataService {
         ensureUser("admin_vsb", "admin@vsb-demo.local", "VSB", "Admin", passwordHash, roleMap.get("ADMIN"));
 
         // 2. Principal
-        Long pUserId = ensureUser("principal_vsb", "principal@vsb-demo.local", "VSB", "Principal", passwordHash, roleMap.get("PRINCIPAL"));
+        ensureUser("principal_vsb", "principal@vsb-demo.local", "VSB", "Principal", passwordHash, roleMap.get("PRINCIPAL"));
         Long anyFacId = querySingleLong("SELECT id FROM faculty ORDER BY id ASC LIMIT 1");
         if (anyFacId != null) {
             Long pAssignId = querySingleLong("SELECT id FROM principal_assignments WHERE institution_id = ? AND status = 'ACTIVE'", instId);
