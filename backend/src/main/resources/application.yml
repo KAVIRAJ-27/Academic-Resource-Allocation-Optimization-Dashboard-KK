@@ -47,6 +47,10 @@ ahrao:
     connect-timeout-ms: ${AI_CONNECT_TIMEOUT_MS:3000}
     read-timeout-ms: ${AI_READ_TIMEOUT_MS:8000}
     min-training-records: ${AI_MIN_TRAINING_RECORDS:5}
+  demo:
+    vsb:
+      data-dir: ${VSB_DEMO_DATA_DIR:C:/Users/KAVIRAJ/Downloads/AHRAO_VSB_College_Demo_Data}
+      auto-import: ${VSB_DEMO_AUTO_IMPORT:false}
 
 logging:
   level:
