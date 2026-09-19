@@ -1,12 +1,13 @@
 # Phase 16: Student Hostel Requests & Complaints Module
 
-**Academic & Hostel Resource Allocation Optimization Dashboard (AHRAO)**
+### Academic & Hostel Resource Allocation Optimization Dashboard (AHRAO)
 
 ---
 
 ## 1. Executive Summary
 
 Phase 16 delivers the **Student Hostel Requests & Complaints Module** within the AHRAO portal. This module equips enrolled residential students with self-service capabilities to:
+
 - Review and lodge residential accommodation requests (room change, facility requirements, special requests).
 - Review and register maintenance/service complaints (electrical, plumbing, room furniture, cleanliness, Wi-Fi connectivity, security).
 - Track real-time status progressions across both domains.
@@ -19,7 +20,7 @@ All operations enforce **zero-trust ownership validation** derived purely from J
 
 ## 2. Architecture & Data Flow
 
-```
+```text
 [Authenticated Student Browser]
           │
           │ Bearer JWT (ROLE_STUDENT)
@@ -47,6 +48,7 @@ All operations enforce **zero-trust ownership validation** derived purely from J
 ## 3. Scope & Boundaries
 
 ### Included (Strict Phase 16 Scope)
+
 - Student-scoped querying of personal hostel requests and complaints.
 - Paginated requests list with status, type/category, and search filters.
 - Real aggregation summary counts (`total`, `pending`/`open`, `approved`/`inProgress`, `rejected`, `cancelled`/`closed`, `completed`/`resolved`).
@@ -57,6 +59,7 @@ All operations enforce **zero-trust ownership validation** derived purely from J
 - Audit logging of all request/complaint creations and cancellations.
 
 ### Strictly Excluded (Deferred to Later Phases)
+
 - Hostel allocation optimization algorithm.
 - Bed assignment/reassignment engines.
 - AI complaint classification or chatbot assistance.
@@ -70,7 +73,7 @@ All operations enforce **zero-trust ownership validation** derived purely from J
 ### 4.1 Student Hostel Requests (`/api/student/hostel/requests`)
 
 | Method | Endpoint | Description | Auth & Roles |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `GET` | `/api/student/hostel/requests` | Paginated listing of student's hostel requests | `ROLE_STUDENT` |
 | `GET` | `/api/student/hostel/requests/summary` | Live summary counts across all request statuses | `ROLE_STUDENT` |
 | `GET` | `/api/student/hostel/requests/{id}` | Detailed view of specific hostel request with ownership check | `ROLE_STUDENT` |
@@ -78,6 +81,7 @@ All operations enforce **zero-trust ownership validation** derived purely from J
 | `PATCH` | `/api/student/hostel/requests/{id}/cancel` | Cancel an eligible `PENDING` request | `ROLE_STUDENT` |
 
 #### Request Creation Payload
+
 ```json
 {
   "requestType": "ROOM_CHANGE",
@@ -89,13 +93,14 @@ All operations enforce **zero-trust ownership validation** derived purely from J
 ### 4.2 Student Hostel Complaints (`/api/student/hostel/complaints`)
 
 | Method | Endpoint | Description | Auth & Roles |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `GET` | `/api/student/hostel/complaints` | Paginated listing of student's hostel complaints | `ROLE_STUDENT` |
 | `GET` | `/api/student/hostel/complaints/summary` | Live summary counts across all complaint statuses | `ROLE_STUDENT` |
 | `GET` | `/api/student/hostel/complaints/{id}` | Detailed view of specific complaint with ownership check | `ROLE_STUDENT` |
 | `POST` | `/api/student/hostel/complaints` | Lodge new hostel complaint with automated room mapping | `ROLE_STUDENT` |
 
 #### Complaint Creation Payload
+
 ```json
 {
   "category": "ELECTRICAL",
@@ -119,7 +124,7 @@ All operations enforce **zero-trust ownership validation** derived purely from J
 ## 6. Audit Logging Events
 
 | Event Action | Trigger | Entity Type | Details Recorded |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `STUDENT_HOSTEL_REQUEST_CREATED` | Student creates hostel request | `HOSTEL_REQUEST` | Request ID, Type, Priority, Hostel ID |
 | `STUDENT_HOSTEL_REQUEST_CANCELLED` | Student cancels pending request | `HOSTEL_REQUEST` | Request ID, Cancelled status |
 | `STUDENT_HOSTEL_COMPLAINT_CREATED` | Student lodges hostel complaint | `HOSTEL_COMPLAINT` | Complaint ID, Category, Priority, Hostel ID, Room ID |

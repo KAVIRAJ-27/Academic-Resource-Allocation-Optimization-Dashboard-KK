@@ -1,9 +1,11 @@
 # Student Profile & Dashboard Module (Phase 12)
 
 ## 1. Overview
+
 The **Student Profile & Dashboard Module** (Phase 12 of the Academic & Hostel Resource Allocation Optimization Dashboard - AHRAO) provides enrolled students with a personalized, secure, role-restricted dashboard and identity profile.
 
 The module allows students to:
+
 1. Inspect verified academic enrollment details, departmental hierarchy, and semester context.
 2. View designated residential hostel accommodations (hostel, block, floor, room, and bed space).
 3. Safely update allowed contact information (phone, first name, last name).
@@ -20,13 +22,15 @@ The module allows students to:
 
 2. **Strict Backend Ownership Validation**:
    - The user identity is retrieved exclusively from Spring Security's authenticated context:
-     ```
+
+```text
      SecurityUtils.getCurrentUserId()
               ↓
      User entity
               ↓
      Student linked to User
      ```
+
    - Endpoints do **NOT** accept arbitrary `studentId` or `userId` query/body parameters.
    - Cross-student access or modification is architecturally impossible.
 
@@ -62,6 +66,7 @@ The module allows students to:
 ## 4. Data Models
 
 ### `StudentDashboardDto`
+
 ```json
 {
   "student": {
@@ -110,6 +115,7 @@ The module allows students to:
 ```
 
 ### `StudentProfileDto`
+
 ```json
 {
   "studentId": 101,
@@ -155,6 +161,7 @@ The module allows students to:
 ---
 
 ## 5. Verification & Test Suite
+
 - **Backend Tests (21 passing)**:
   - `StudentProfileSecurityTest`: 5 unit tests verifying role authorization, unauthenticated access rejection (401), and update execution.
   - `StudentDashboardServiceTest`: 5 unit tests verifying profile resolution, real database metric calculations, empty hostel state handling, and audit logging.

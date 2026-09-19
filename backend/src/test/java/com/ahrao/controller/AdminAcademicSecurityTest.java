@@ -2,13 +2,9 @@ package com.ahrao.controller;
 
 import com.ahrao.dto.ApiResponse;
 import com.ahrao.dto.academic.AcademicReferenceDataResponse;
-import com.ahrao.dto.academic.AcademicYearSummaryResponse;
 import com.ahrao.dto.academic.DepartmentSummaryResponse;
 import com.ahrao.dto.academic.InstitutionResponse;
 import com.ahrao.dto.academic.ProgramSummaryResponse;
-import com.ahrao.dto.academic.SectionSummaryResponse;
-import com.ahrao.dto.academic.SemesterSummaryResponse;
-import com.ahrao.dto.academic.SubjectSummaryResponse;
 import com.ahrao.dto.common.PagedResponse;
 import com.ahrao.entity.enums.UserStatus;
 import com.ahrao.security.CustomUserDetails;

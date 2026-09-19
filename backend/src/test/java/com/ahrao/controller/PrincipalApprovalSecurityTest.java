@@ -5,7 +5,6 @@ import com.ahrao.dto.common.PagedResponse;
 import com.ahrao.dto.principal.approval.PrincipalApprovalActionRequest;
 import com.ahrao.dto.principal.approval.PrincipalApprovalDetailDto;
 import com.ahrao.dto.principal.approval.PrincipalApprovalSummaryDto;
-import com.ahrao.entity.enums.ApprovalStatus;
 import com.ahrao.entity.enums.UserStatus;
 import com.ahrao.exception.ConflictException;
 import com.ahrao.exception.ForbiddenException;

@@ -2,16 +2,11 @@ package com.ahrao.service.analytics;
 
 import com.ahrao.dto.analytics.*;
 import com.ahrao.entity.academic.Department;
-import com.ahrao.entity.enums.ConflictCode;
-import com.ahrao.entity.enums.ConflictSeverity;
 import com.ahrao.exception.ForbiddenException;
 import com.ahrao.repository.analytics.AnalyticsQueryRepository;
-import com.ahrao.repository.audit.AuditLogRepository;
 import com.ahrao.security.SecurityUtils;
 import com.ahrao.service.hod.HodDepartmentResolver;
 import com.ahrao.service.warden.WardenScopeService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,22 +16,17 @@ import java.util.*;
 @Transactional(readOnly = true)
 public class AnalyticsServiceImpl implements AnalyticsService {
 
-    private static final Logger log = LoggerFactory.getLogger(AnalyticsServiceImpl.class);
-
     private final AnalyticsQueryRepository queryRepo;
     private final HodDepartmentResolver hodDepartmentResolver;
     private final WardenScopeService wardenScopeService;
-    private final AuditLogRepository auditLogRepository;
 
     public AnalyticsServiceImpl(
             AnalyticsQueryRepository queryRepo,
             HodDepartmentResolver hodDepartmentResolver,
-            WardenScopeService wardenScopeService,
-            AuditLogRepository auditLogRepository) {
+            WardenScopeService wardenScopeService) {
         this.queryRepo = queryRepo;
         this.hodDepartmentResolver = hodDepartmentResolver;
         this.wardenScopeService = wardenScopeService;
-        this.auditLogRepository = auditLogRepository;
     }
 
     // =========================================================================

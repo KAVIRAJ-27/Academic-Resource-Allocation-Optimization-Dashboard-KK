@@ -1,11 +1,14 @@
 # AHRAO Phase 5 — Admin Dashboard & Overall System Overview
 
 ## 1. Dashboard Purpose
+
 The Admin Dashboard is the central institution-wide command center for AHRAO (Academic & Hostel Resource Allocation Optimization Dashboard). It provides an aggregated, real-time operational overview across both operational pillars:
+
 1. **Academic Resource Management** (Users, Departments, Classrooms, Laboratories, Requests, Allocations, Approvals)
 2. **Hostel Resource Management** (Hostel Buildings, Blocks, Rooms, Beds, Capacity, Complaints, Maintenance)
 
 It delivers immediate answers to essential institutional governance questions:
+
 - How many total users are registered across all six roles?
 - What is the current status of academic infrastructure and its utilization?
 - What is the usable residential bed capacity and occupancy rate?
@@ -16,6 +19,7 @@ It delivers immediate answers to essential institutional governance questions:
 ---
 
 ## 2. Authorization Requirements
+
 - **Role Requirement**: `ROLE_ADMIN`
 - **Backend Protection**:
   - Class-level `@PreAuthorize("hasRole('ADMIN')")` on `AdminDashboardController`
@@ -30,9 +34,11 @@ It delivers immediate answers to essential institutional governance questions:
 ## 3. API Endpoints
 
 ### 3.1 Primary Overview Endpoint
+
 - **URL**: `GET /api/admin/dashboard/overview`
 - **Produces**: `application/json`
 - **Response Structure**:
+
 ```json
 {
   "success": true,
@@ -120,6 +126,7 @@ It delivers immediate answers to essential institutional governance questions:
 ```
 
 ### 3.2 Auxiliary Sub-Endpoints
+
 - `GET /api/admin/dashboard/user-distribution`
 - `GET /api/admin/dashboard/academic-summary`
 - `GET /api/admin/dashboard/hostel-summary`
@@ -129,7 +136,7 @@ It delivers immediate answers to essential institutional governance questions:
 ## 4. KPI Definitions & Calculations
 
 | Metric | Database Source | Calculation Rule |
-|---|---|---|
+| --- | --- | --- |
 | **Total Users** | `users` table | `COUNT(*)` across all active/inactive users |
 | **Total Departments** | `departments` table | `COUNT(*)` across all departments |
 | **Active Departments** | `departments` table | `COUNT(*) WHERE status = 'ACTIVE'` |
@@ -148,12 +155,14 @@ It delivers immediate answers to essential institutional governance questions:
 ## 5. Resource & Bed Status Definitions
 
 ### 5.1 Academic ResourceStatus (`ResourceStatus` enum)
+
 - `AVAILABLE`: Space or equipment ready for allocation.
 - `ALLOCATED`: Space actively booked for classes, labs, or events.
 - `MAINTENANCE`: Hardware damaged or undergoing physical repair.
 - `INACTIVE`: Decommissioned or off-season asset.
 
 ### 5.2 Hostel BedStatus (`HostelBedStatus` enum)
+
 - `AVAILABLE`: Vacant and verified for student assignment.
 - `OCCUPIED`: Actively assigned to a registered student resident.
 - `RESERVED`: Held for incoming cohort or administrative quota.
@@ -163,7 +172,8 @@ It delivers immediate answers to essential institutional governance questions:
 ---
 
 ## 6. Frontend Component Hierarchy
-```
+
+```text
 AdminDashboard.tsx
 ├── PageHeader (Breadcrumbs, title, telemetry badge, refresh button, export report)
 ├── AdminKpiGrid (4 Headline StatCards with real counts and skeleton loaders)
@@ -181,6 +191,7 @@ AdminDashboard.tsx
 ---
 
 ## 7. No Fake Analytics Policy Verification
+
 - If database tables contain 0 records, the dashboard displays `"0"` or `"No data available"` without errors.
 - Utilization and occupancy percentages calculate strictly from non-zero denominators.
 - No static or fabricated percentage arrays are hardcoded in charts or KPI cards.

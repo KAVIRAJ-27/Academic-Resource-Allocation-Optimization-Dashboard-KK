@@ -6,7 +6,7 @@ The **Conflict Detection & Constraint Management Framework** provides an enterpr
 
 ### Architectural Flow
 
-```
+```text
 Allocation Request (Preview or Commit)
                   ↓
        Pre-Constraint Validation
@@ -101,6 +101,7 @@ Implemented in `HostelConflictValidator.java`:
 ## 5. Preview & Transactional Concurrency Safety
 
 ### 1. Preview Integration (Zero Mutation)
+
 - Preview endpoints:
   - `POST /api/academic/resource-allocations/preview`
   - `POST /api/hostel/resource-allocations/preview`
@@ -111,9 +112,11 @@ Implemented in `HostelConflictValidator.java`:
   - Changing request state
 
 ### 2. Double-Check Under Lock (Concurrency Recheck)
+
 Between the moment an administrator or warden previews an allocation and the moment they click **Allocate**, another concurrent process or user might book the same resource or bed.
 
 To prevent race conditions:
+
 1. The final allocation service acquires a database lock on the target entity (`Pessimistic Write Lock` on `HostelBed` / `Resource`).
 2. Inside the `@Transactional` boundary, the `ConflictDetectionService` re-evaluates all constraints against the locked entity state.
 3. If any `ERROR` level conflict is detected, the transaction rolls back immediately and throws a `ConflictException` with the structured list of conflicts.

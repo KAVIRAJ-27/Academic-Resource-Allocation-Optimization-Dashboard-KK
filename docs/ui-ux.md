@@ -1,7 +1,9 @@
 # AHRAO Phase 4 — Common UI/UX Design System & Dashboard Framework
 
 ## 1. Overview
+
 Phase 4 establishes the common, production-grade visual design system, reusable component library, responsive layout shell, and dashboard framework across all six AHRAO institutional roles:
+
 - **Admin** (`ROLE_ADMIN`)
 - **Principal** (`ROLE_PRINCIPAL`)
 - **Head of Department** (`ROLE_HOD`)
@@ -16,8 +18,9 @@ All components adhere to a modern dark SaaS enterprise aesthetic without relying
 ## 2. Design Tokens (`src/theme/tokens.ts`)
 
 ### 2.1 Surfaces & Canvas
+
 | Token | Hex / Value | Purpose |
-|---|---|---|
+| --- | --- | --- |
 | `background.base` | `#080A0F` | Global dark application canvas |
 | `background.surface` | `#11141C` | Primary cards, panels, and sidebars |
 | `background.secondary` | `#171A23` | Elevated card surfaces, inputs, search |
@@ -28,8 +31,9 @@ All components adhere to a modern dark SaaS enterprise aesthetic without relying
 | `border.focus` | `#0D9488` | Active focus indicator (Teal) |
 
 ### 2.2 Brand Accents & Role Emphasis
+
 | Role | Accent Color | Glow Aura | Badge Variant |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `ADMIN` | `#0D9488` (Teal) | `rgba(13, 148, 136, 0.15)` | `teal` |
 | `PRINCIPAL` | `#3B82F6` (Blue) | `rgba(59, 130, 246, 0.15)` | `blue` |
 | `HOD` | `#8B5CF6` (Purple) | `rgba(139, 92, 246, 0.15)` | `purple` |
@@ -38,6 +42,7 @@ All components adhere to a modern dark SaaS enterprise aesthetic without relying
 | `WARDEN` | `#F97316` (Orange) | `rgba(249, 115, 22, 0.15)` | `orange` |
 
 ### 2.3 Typography Scale
+
 - **Display**: `text-3xl font-extrabold tracking-tight`
 - **Page Title**: `text-2xl font-bold tracking-tight`
 - **Section Title**: `text-sm font-bold text-gray-200 uppercase tracking-wider font-mono`
@@ -52,7 +57,7 @@ All components adhere to a modern dark SaaS enterprise aesthetic without relying
 ## 3. Global Component Library (`src/components/ui/`)
 
 | Component | Features / Variants | Location |
-|---|---|---|
+| --- | --- | --- |
 | `Button` | Variants: `primary`, `secondary`, `outline`, `ghost`, `danger`, `success`, `link`. Sizes: `xs`, `sm`, `md`, `lg`. Supports `leftIcon`, `rightIcon`, `loading`. | `src/components/ui/Button.tsx` |
 | `Input` | Icon slots (left/right), error states, helper text, required markers, accessibility labels. | `src/components/ui/Input.tsx` |
 | `Textarea` | Auto-adjusting dark input with label, validation states, and counter support. | `src/components/ui/Textarea.tsx` |
@@ -86,7 +91,8 @@ All components adhere to a modern dark SaaS enterprise aesthetic without relying
 ## 4. Application Layout Primitives (`src/components/layout/`)
 
 ### 4.1 Layout Shell Architecture
-```
+
+```text
 +-------------------------------------------------------------------------------+
 | Topbar (Header): Hamburger | Context Title | Search Bar | Role Badge | Profile|
 +-------------------+-----------------------------------------------------------+
@@ -104,6 +110,7 @@ All components adhere to a modern dark SaaS enterprise aesthetic without relying
 ```
 
 ### 4.2 Shared Primitives
+
 - **`DashboardShell`**: Unified container handling role themes, desktop sidebar, mobile drawer, sticky header, and content routing via `<Outlet />`.
 - **`PageHeader`**: Standardized header with automatic or explicit breadcrumbs, title, description, badge, and primary/secondary action button slots.
 - **`Breadcrumbs`**: Accessible route breadcrumb automatically derived from router pathnames or configured explicitly.
@@ -116,7 +123,7 @@ All components adhere to a modern dark SaaS enterprise aesthetic without relying
 ## 5. Responsive Behavior
 
 | Viewport | Width Range | Layout Behavior |
-|---|---|---|
+| --- | --- | --- |
 | **Desktop** | `>= 1024px` | Persistent 256px sidebar, multi-column grids (4 stats, 2 charts), visible search bar |
 | **Tablet** | `768px - 1023px` | Collapsible sidebar drawer, 2-column stat cards, single-column charts, compact header |
 | **Mobile** | `< 768px` | Slide-in drawer with overlay, hamburger menu button, 1-column stat cards and charts, stacked page headers |
@@ -124,6 +131,7 @@ All components adhere to a modern dark SaaS enterprise aesthetic without relying
 ---
 
 ## 6. Accessibility Foundation
+
 - **Semantic Tags**: Semantic `<main>`, `<aside>`, `<header>`, `<section>`, `<nav>`, `<ol>`, `<li>`, `<button>`.
 - **Visible Focus Rings**: `focus:outline-none focus:ring-2 focus:ring-teal-500/50` across all interactive elements.
 - **ARIA Attributes**: `aria-label` on icon-only buttons, `aria-expanded` on dropdowns and drawers, `aria-current="page"` on breadcrumbs and active links.
@@ -133,7 +141,9 @@ All components adhere to a modern dark SaaS enterprise aesthetic without relying
 ---
 
 ## 7. Role Dashboard Framework Demonstration
+
 Each of the 6 roles has a dedicated dashboard page adhering strictly to the no-fake-data policy:
+
 1. **Admin**: `/admin/dashboard`
 2. **Principal**: `/principal/dashboard`
 3. **HOD**: `/hod/dashboard`

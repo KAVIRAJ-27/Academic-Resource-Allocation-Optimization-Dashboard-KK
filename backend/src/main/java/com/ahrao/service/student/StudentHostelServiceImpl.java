@@ -12,13 +12,9 @@ import com.ahrao.repository.allocation.HostelAllocationRepository;
 import com.ahrao.repository.hostel.HostelBedRepository;
 import com.ahrao.repository.hostel.HostelFacilityRepository;
 import com.ahrao.repository.hostel.WardenRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
@@ -26,8 +22,6 @@ import java.util.stream.Collectors;
 
 @Service
 public class StudentHostelServiceImpl implements StudentHostelService {
-
-    private static final Logger logger = LoggerFactory.getLogger(StudentHostelServiceImpl.class);
 
     private final StudentRepository studentRepository;
     private final HostelAllocationRepository hostelAllocationRepository;

@@ -2,9 +2,6 @@ package com.ahrao.service.staff.impl;
 
 import com.ahrao.dto.staff.StaffReferenceDataResponse;
 import com.ahrao.entity.academic.Department;
-import com.ahrao.entity.academic.Faculty;
-import com.ahrao.entity.academic.Institution;
-import com.ahrao.entity.hostel.Hostel;
 import com.ahrao.entity.user.User;
 import com.ahrao.repository.academic.DepartmentRepository;
 import com.ahrao.repository.academic.FacultyRepository;

@@ -2,7 +2,6 @@ package com.ahrao.service.hostel;
 
 import com.ahrao.dto.hostel.allocation.HostelAllocationConflictDto;
 import com.ahrao.entity.academic.Student;
-import com.ahrao.entity.allocation.HostelAllocation;
 import com.ahrao.entity.enums.AllocationStatus;
 import com.ahrao.entity.enums.HostelBedStatus;
 import com.ahrao.entity.enums.RequestStatus;
@@ -21,12 +20,9 @@ import com.ahrao.exception.ForbiddenException;
 import com.ahrao.exception.ResourceNotFoundException;
 import com.ahrao.repository.academic.StudentRepository;
 import com.ahrao.repository.allocation.HostelAllocationRepository;
-import com.ahrao.repository.hostel.HostelBedRepository;
 import com.ahrao.repository.hostel.HostelRepository;
 import com.ahrao.repository.request.HostelRequestRepository;
 import com.ahrao.service.warden.WardenScopeService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -36,11 +32,8 @@ import java.util.Set;
 @Service
 public class HostelAllocationValidationServiceImpl implements HostelAllocationValidationService {
 
-    private static final Logger log = LoggerFactory.getLogger(HostelAllocationValidationServiceImpl.class);
-
     private final StudentRepository studentRepository;
     private final HostelRepository hostelRepository;
-    private final HostelBedRepository hostelBedRepository;
     private final HostelAllocationRepository hostelAllocationRepository;
     private final HostelRequestRepository hostelRequestRepository;
     private final WardenScopeService wardenScopeService;
@@ -48,13 +41,11 @@ public class HostelAllocationValidationServiceImpl implements HostelAllocationVa
     public HostelAllocationValidationServiceImpl(
             StudentRepository studentRepository,
             HostelRepository hostelRepository,
-            HostelBedRepository hostelBedRepository,
             HostelAllocationRepository hostelAllocationRepository,
             HostelRequestRepository hostelRequestRepository,
             WardenScopeService wardenScopeService) {
         this.studentRepository = studentRepository;
         this.hostelRepository = hostelRepository;
-        this.hostelBedRepository = hostelBedRepository;
         this.hostelAllocationRepository = hostelAllocationRepository;
         this.hostelRequestRepository = hostelRequestRepository;
         this.wardenScopeService = wardenScopeService;

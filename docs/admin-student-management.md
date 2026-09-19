@@ -8,9 +8,11 @@
 ---
 
 ## 1. Overview & Purpose
+
 The Admin Student Management module provides centralized governance over student academic records, program enrollments, semester standing, and academic section assignments across the entire institution.
 
 Core capabilities:
+
 - **Registry Viewing & Server-Side Pagination:** Efficient, parameter-bound database pagination (`GET /api/admin/students?page=0&size=20`).
 - **Server-Side Multi-Criteria Search:** Fast querying by register number, student name, username, or email.
 - **Hierarchical Server-Side Filtering:** Multi-criteria filtering across Department, Program/Course, Section, and Status.
@@ -29,7 +31,7 @@ Core capabilities:
 All endpoints require a valid JWT Bearer token possessing the `ROLE_ADMIN` authority. Unauthenticated requests receive `401 Unauthorized`; non-admin roles receive `403 Forbidden`.
 
 | Method | Endpoint | Description | Request Body | Response Body | Status Codes |
-|---|---|---|---|---|---|
+| --- | --- | --- | --- | --- | --- |
 | `GET` | `/api/admin/students` | List students with server-side search, filtering, and pagination | Query params: `search`, `departmentId`, `programId`, `sectionId`, `status`, `page`, `size`, `sort` | `ApiResponse<PagedResponse<StudentSummaryResponse>>` | 200, 401, 403 |
 | `GET` | `/api/admin/students/{id}` | Retrieve comprehensive student profile, academic structure, and account metadata | None | `ApiResponse<StudentDetailsResponse>` | 200, 401, 403, 404 |
 | `GET` | `/api/admin/students/reference-data` | Retrieve consolidated departments, programs, sections, and unassigned student users | None | `ApiResponse<StudentReferenceDataResponse>` | 200, 401, 403 |
@@ -42,7 +44,9 @@ All endpoints require a valid JWT Bearer token possessing the `ROLE_ADMIN` autho
 ## 3. Data Transfer Objects (DTOs)
 
 ### `StudentSummaryResponse`
+
 Flat tabular representation optimized for directory rendering:
+
 ```json
 {
   "id": 1,
@@ -71,7 +75,9 @@ Flat tabular representation optimized for directory rendering:
 ```
 
 ### `StudentDetailsResponse`
+
 Full academic and account identity profile:
+
 ```json
 {
   "id": 1,
@@ -106,7 +112,9 @@ Full academic and account identity profile:
 ```
 
 ### `CreateStudentRequest`
+
 Supports both creating a new user or linking an existing one:
+
 ```json
 {
   "registerNumber": "23CS002",
@@ -128,7 +136,9 @@ Supports both creating a new user or linking an existing one:
 ```
 
 ### `UpdateStudentRequest`
+
 Allows updating academic allocations and non-sensitive profile attributes:
+
 ```json
 {
   "registerNumber": "23CS001",
@@ -151,12 +161,17 @@ Allows updating academic allocations and non-sensitive profile attributes:
 ## 4. Query Optimization & Search Architecture
 
 1. **JPA Specifications:**
+
    Search queries use parameterized JPA Specifications (`StudentSpecification`) to ensure queries execute directly in the database without SQL injection vulnerabilities:
+
    - Case-insensitive search: `registerNumber LIKE %term% OR user.username LIKE %term% OR user.email LIKE %term% OR CONCAT(user.firstName, ' ', user.lastName) LIKE %term%`.
    - Filters: exact match on `department.id`, `program.id`, `section.id`, and `status`.
 2. **Server-Side Pagination:**
+
    `findAll(Specification, Pageable)` pushes `LIMIT` and `OFFSET` queries to MySQL, returning `PagedResponse` with complete pagination metadata (`content`, `page`, `size`, `totalElements`, `totalPages`, `first`, `last`).
+
 3. **No In-Memory Filtering:**
+
    Zero database dumps to memory. Zero client-side filtering.
 
 ---
@@ -164,43 +179,55 @@ Allows updating academic allocations and non-sensitive profile attributes:
 ## 5. Relationship Validation & Integrity Safeguards
 
 ### Academic Structure Validation
+
 When provisioning or updating a student:
+
 - Department must exist (`departmentRepository.findById`).
 - Program must exist (`programRepository.findById`).
 - **Hierarchy Integrity Check 1:** Selected Program must belong to the selected Department:
+
   ```java
   if (!program.getDepartment().getId().equals(department.getId())) {
       throw new BadRequestException("Program " + program.getName() + " does not belong to Department " + department.getName());
   }
   ```
+
 - **Hierarchy Integrity Check 2:** If Section is provided, Section must belong to the selected Program:
+
   ```java
   if (!section.getProgram().getId().equals(program.getId())) {
       throw new BadRequestException("Section " + section.getName() + " does not belong to Program " + program.getName());
   }
   ```
+
 Violations immediately return `400 Bad Request` with a safe, descriptive message.
 
 ### Register Number Uniqueness
+
 - Register number uniqueness is enforced before insert/update:
+
   ```java
   if (studentRepository.existsByRegisterNumber(registerNumber)) {
       throw new ConflictException("Register number '" + registerNumber + "' already exists.");
   }
   ```
+
 - Duplicate attempts return `409 Conflict`. Raw database constraint exceptions are never exposed to clients.
 
 ### User-Student Relationship Integrity
+
 - A User can be linked to at most ONE Student record (1:1 mapping).
 - If linking an existing user:
   - User must exist.
   - User must possess the `STUDENT` role (cannot assign Admin, HOD, Faculty, Principal, or Warden).
   - User must not already be linked to another Student:
+
     ```java
     if (studentRepository.existsByUserId(userId)) {
         throw new ConflictException("User account is already linked to another student record.");
     }
     ```
+
 - If provisioning a new user:
   - Unique username and email checks are enforced (`existsByUsername`, `existsByEmail`).
   - Password hashed using `BCryptPasswordEncoder`.
@@ -211,12 +238,15 @@ Violations immediately return `400 Bad Request` with a safe, descriptive message
 ## 6. Security & Audit Logging
 
 ### Authorization
+
 - Class-level and method-level `@PreAuthorize("hasRole('ADMIN')")`.
 - JWT access tokens must contain `ROLE_ADMIN` in authorities.
 - Passwords and password hashes are never included in DTO responses or log entries.
 
 ### Immutable Audit Trail
+
 Meaningful administrative events are logged to the `audit_logs` table with username, client IP, User-Agent, and metadata:
+
 - `STUDENT_CREATED`: Provisioning of student record, register number, department, and linked user ID.
 - `STUDENT_UPDATED`: Modification of academic allocation or profile details.
 - `STUDENT_STATUS_CHANGED`: Academic status transitions (`ACTIVE` <-> `INACTIVE` <-> `SUSPENDED`).

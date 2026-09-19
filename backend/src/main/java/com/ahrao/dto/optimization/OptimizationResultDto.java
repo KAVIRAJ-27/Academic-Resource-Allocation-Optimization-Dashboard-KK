@@ -30,9 +30,10 @@ public class OptimizationResultDto {
         result.setSuccess(true);
         result.setRequestId(requestId);
         result.setTotalCandidatesEvaluated(evaluated);
-        result.setValidCandidates(recommendations != null ? recommendations.size() : 0);
-        result.setRecommendations(recommendations != null ? recommendations : new ArrayList<>());
-        result.setMessage(message != null ? message : recommendations.size() + " suitable allocation candidates found.");
+        List<OptimizationRecommendationDto> safeRecommendations = recommendations != null ? recommendations : new ArrayList<>();
+        result.setValidCandidates(safeRecommendations.size());
+        result.setRecommendations(safeRecommendations);
+        result.setMessage(message != null ? message : safeRecommendations.size() + " suitable allocation candidates found.");
         return result;
     }
 

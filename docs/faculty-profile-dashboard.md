@@ -1,8 +1,11 @@
 # Faculty Profile & Dashboard Module (Phase 17)
+
 PROJECT: Academic & Hostel Resource Allocation Optimization Dashboard (AHRAO)
 
 ## 1. Overview
+
 The **Faculty Profile & Dashboard Module** delivers a role-restricted, production-grade portal for authenticated faculty members (`ROLE_FACULTY`). It allows faculty to:
+
 1. Review verified academic credentials, employment lineage, designation, and department details.
 2. Safely update permitted contact and personal information (`firstName`, `lastName`, `phone`, `qualification`).
 3. View real-time database telemetry on the **Faculty Dashboard** (`GET /api/faculty/dashboard`), including:
@@ -18,8 +21,10 @@ The **Faculty Profile & Dashboard Module** delivers a role-restricted, productio
 ## 2. Security & Ownership Model
 
 ### A. Zero-Trust Identity Resolution
+
 All faculty endpoints reject arbitrary `facultyId` or `userId` parameters from the client. Identity is derived strictly from Spring Security's authenticated JWT principal:
-```
+
+```text
 JWT Authenticated Principal
              ↓
   SecurityUtils.getCurrentUserId()
@@ -30,9 +35,11 @@ JWT Authenticated Principal
 ```
 
 ### B. Role Enforcement
+
 - All endpoints require `ROLE_FACULTY`. Unauthenticated requests receive `401 Unauthorized`. Users of other roles (`ROLE_STUDENT`, etc.) receive `403 Forbidden`.
 
 ### C. Permitted vs Protected Profile Fields
+
 - **Permitted Self-Editable Fields**:
   - `firstName` (`@NotBlank`, `@Size(min = 1, max = 50)`)
   - `lastName` (`@NotBlank`, `@Size(min = 1, max = 50)`)
@@ -48,7 +55,9 @@ JWT Authenticated Principal
   - `roles` & `accountStatus`
 
 ### D. Audit Logging
+
 Every profile modification creates an audit record:
+
 - Action: `FACULTY_PROFILE_UPDATED`
 - Entity: `FACULTY` (with faculty ID)
 - Old and new values captured
@@ -59,9 +68,11 @@ Every profile modification creates an audit record:
 ## 3. API Endpoints
 
 ### 1. GET `/api/faculty/profile`
+
 - **Role Required**: `ROLE_FACULTY`
 - **Description**: Returns full profile of authenticated faculty member.
 - **Response**: `200 OK`
+
 ```json
 {
   "success": true,
@@ -92,9 +103,11 @@ Every profile modification creates an audit record:
 ```
 
 ### 2. PUT `/api/faculty/profile`
+
 - **Role Required**: `ROLE_FACULTY`
 - **Description**: Updates safe personal profile fields for the authenticated faculty member.
 - **Request Body**:
+
 ```json
 {
   "firstName": "Alan",
@@ -103,6 +116,7 @@ Every profile modification creates an audit record:
   "qualification": "Ph.D. Mathematics, FRS"
 }
 ```
+
 - **Validation**:
   - `firstName`: Not blank, 1-50 chars
   - `lastName`: Not blank, 1-50 chars
@@ -111,9 +125,11 @@ Every profile modification creates an audit record:
 - **Response**: `200 OK` with updated `FacultyProfileDto`.
 
 ### 3. GET `/api/faculty/dashboard`
+
 - **Role Required**: `ROLE_FACULTY`
 - **Description**: Aggregated real database telemetry for faculty dashboard.
 - **Response**: `200 OK`
+
 ```json
 {
   "success": true,
@@ -218,7 +234,9 @@ Every profile modification creates an audit record:
 ## 4. Frontend Architecture
 
 ### Design System & Theme
+
 Built according to the AHRAO SaaS aesthetic:
+
 - **Root Background**: `#080A0F`
 - **Surface Cards**: `#11141C` with border `#1E2330`
 - **Elevated/Selected**: `#171A23`
@@ -226,6 +244,7 @@ Built according to the AHRAO SaaS aesthetic:
 - **Typography**: Clean sans-serif and tabular monospace numerals
 
 ### Components Created
+
 1. `FacultyProfileCard.tsx`: Compact overview card displaying designation, employee ID, department, email, phone, and a "View Full Profile" action.
 2. `FacultyKpiCards.tsx`: 4 live database metrics: Assigned Subjects, Weekly Instruction Hours, Scheduled Classes, and Pending Requisitions.
 3. `FacultySubjectsCard.tsx`: Read-only course assignments or clean empty state ("No subject assignments found.").
@@ -239,6 +258,7 @@ Built according to the AHRAO SaaS aesthetic:
 ---
 
 ## 5. Verification & Test Coverage
+
 - **Backend Tests**: 55 automated unit & security tests passing (100% pass rate).
   - `FacultyProfileSecurityTest`: 4 tests
   - `FacultyDashboardSecurityTest`: 2 tests

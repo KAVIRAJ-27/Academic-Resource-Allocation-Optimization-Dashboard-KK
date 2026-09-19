@@ -6,7 +6,6 @@ import com.ahrao.entity.enums.DegreeType;
 import com.ahrao.entity.enums.SubjectType;
 import com.ahrao.repository.academic.AcademicYearRepository;
 import com.ahrao.repository.academic.DepartmentRepository;
-import com.ahrao.repository.academic.InstitutionRepository;
 import com.ahrao.repository.academic.ProgramRepository;
 import com.ahrao.repository.academic.SemesterRepository;
 import com.ahrao.service.academic.AcademicReferenceService;

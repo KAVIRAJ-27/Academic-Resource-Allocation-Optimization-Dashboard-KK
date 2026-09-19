@@ -10,8 +10,6 @@ import com.ahrao.entity.hostel.HostelFloor;
 import com.ahrao.entity.hostel.HostelRoom;
 import com.ahrao.repository.allocation.HostelAllocationRepository;
 import com.ahrao.repository.hostel.HostelBedRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,8 +20,6 @@ import java.util.Set;
 
 @Service
 public class HostelCandidateServiceImpl implements HostelCandidateService {
-
-    private static final Logger log = LoggerFactory.getLogger(HostelCandidateServiceImpl.class);
 
     private final HostelBedRepository hostelBedRepository;
     private final HostelAllocationRepository hostelAllocationRepository;

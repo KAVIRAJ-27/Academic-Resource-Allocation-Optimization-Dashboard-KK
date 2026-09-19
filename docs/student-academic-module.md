@@ -1,6 +1,7 @@
 # Student Academic Module (Phase 13)
 
 ## 1. Overview
+
 The **Student Academic Module** (Phase 13 of the Academic & Hostel Resource Allocation Optimization Dashboard - AHRAO) delivers a unified, strictly **read-only** interface for enrolled students to inspect their institutional academic identity, curriculum hierarchy, enrolled course subjects, faculty instructor assignments, and weekly class timetable.
 
 This module enforces strict zero-trust contextual security: students can only access academic telemetry, courses, and timetables corresponding strictly to their authenticated account's registered academic program and cohort section.
@@ -10,6 +11,7 @@ This module enforces strict zero-trust contextual security: students can only ac
 ## 2. Core Functional Requirements & Architecture
 
 ### A. Academic Identity & Enrollment Overview
+
 - Displays the student's full name, registration number, roll number, admission batch, and enrollment status (`ACTIVE`).
 - Displays institutional hierarchy:
   - **Institution Profile**: University root and campus identification.
@@ -20,6 +22,7 @@ This module enforces strict zero-trust contextual security: students can only ac
   - **Credit Summary**: Real-time aggregated registered credits and enrolled subject count.
 
 ### B. Curriculum & Enrolled Subjects
+
 - Tabular and responsive card views of all subjects registered under the student's program and semester.
 - Subject metadata:
   - Subject Code (e.g., `CS301`)
@@ -39,6 +42,7 @@ This module enforces strict zero-trust contextual security: students can only ac
   - Deep-dive subject modal with complete syllabus and instructor overview.
 
 ### C. Weekly Class Timetable
+
 - Day-by-day weekly schedule (`MONDAY` through `SATURDAY`) mapped directly to the student's assigned Section.
 - Each timetable entry displays:
   - Day of Week and Time Interval (Start Time – End Time)
@@ -81,6 +85,7 @@ This module enforces strict zero-trust contextual security: students can only ac
 ## 5. DTO Data Models
 
 ### `StudentAcademicOverviewDto`
+
 ```json
 {
   "studentId": 101,
@@ -109,6 +114,7 @@ This module enforces strict zero-trust contextual security: students can only ac
 ```
 
 ### `StudentSubjectDto`
+
 ```json
 {
   "id": 401,
@@ -127,6 +133,7 @@ This module enforces strict zero-trust contextual security: students can only ac
 ```
 
 ### `StudentTimetableEntryDto`
+
 ```json
 {
   "id": 801,
@@ -149,6 +156,7 @@ This module enforces strict zero-trust contextual security: students can only ac
 ---
 
 ## 6. Verification & Validation
+
 - **Backend Unit & Security Tests**:
   - `StudentAcademicSecurityTest`: 5 integration tests validating RBAC rejection of unauthenticated users and non-student roles (`ADMIN`), and successful resolution of student endpoints.
   - `StudentAcademicServiceTest`: 6 service unit tests validating overview resolution, subject and credit aggregation, section timetable retrieval, and unauthorized subject detail boundary protection.

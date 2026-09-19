@@ -11,8 +11,6 @@ import com.ahrao.exception.UnauthorizedException;
 import com.ahrao.security.SecurityUtils;
 import com.ahrao.service.principal.PrincipalApprovalService;
 import jakarta.validation.Valid;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -27,8 +25,6 @@ import java.time.LocalDate;
 @RequestMapping("/api/principal/approvals")
 @PreAuthorize("hasRole('PRINCIPAL')")
 public class PrincipalApprovalController {
-
-    private static final Logger log = LoggerFactory.getLogger(PrincipalApprovalController.class);
 
     private final PrincipalApprovalService approvalService;
 

@@ -16,7 +16,6 @@ import com.ahrao.entity.user.User;
 import com.ahrao.exception.BadRequestException;
 import com.ahrao.exception.ConflictException;
 import com.ahrao.exception.ForbiddenException;
-import com.ahrao.exception.ResourceNotFoundException;
 import com.ahrao.repository.academic.FacultyRepository;
 import com.ahrao.repository.academic.FacultySubjectAssignmentRepository;
 import com.ahrao.repository.academic.SectionRepository;
@@ -44,6 +43,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
+import org.mockito.ArgumentMatchers;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
@@ -135,11 +135,12 @@ class FacultyResourceRequestServiceTest {
         mockRequest.setStatus(RequestStatus.PENDING);
     }
 
+    @SuppressWarnings("unchecked")
     @Test
     @DisplayName("getMyRequests returns paged requests for authenticated faculty")
     void testGetMyRequests_Success() {
         Page<AcademicResourceRequest> page = new PageImpl<>(List.of(mockRequest));
-        when(requestRepository.findAll(any(Specification.class), any(Pageable.class))).thenReturn(page);
+        when(requestRepository.findAll(ArgumentMatchers.<Specification<AcademicResourceRequest>>any(), any(Pageable.class))).thenReturn(page);
 
         PagedResponse<FacultyResourceRequestDto> response = service.getMyRequests(
                 10L, null, null, null, null, 0, 10, "createdAt", "desc");

@@ -2,7 +2,6 @@ package com.ahrao.controller;
 
 import com.ahrao.controller.warden.*;
 import com.ahrao.dto.ApiResponse;
-import com.ahrao.dto.common.PagedResponse;
 import com.ahrao.dto.warden.CreateHostelAllocationRequest;
 import com.ahrao.dto.warden.WardenAllocationDetailDto;
 import com.ahrao.dto.warden.WardenAllocationSummaryDto;

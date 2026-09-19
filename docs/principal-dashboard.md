@@ -24,17 +24,20 @@ Unlike the HOD dashboard which is scoped to a specific academic department, the 
 
 ## 3. Backend API
 
-### Endpoint:
+### Endpoint
+
 ```http
 GET /api/principal/dashboard
 ```
 
-### Authorization:
+### Authorization
+
 - Authenticated JWT token
 - Role requirement: `ROLE_PRINCIPAL` (`@PreAuthorize("hasRole('PRINCIPAL')")`)
 - Zero-trust frontend parameters: The Principal's authorized institution is strictly determined on the backend via `SecurityUtils.getCurrentUserId()` and resolved using `PrincipalInstitutionResolver`.
 
-### Conceptual Response Structure:
+### Conceptual Response Structure
+
 ```json
 {
   "success": true,
@@ -103,7 +106,7 @@ GET /api/principal/dashboard
 
 All database queries strictly resolve through the authenticated Principal's authorized `institution_id`:
 
-```
+```text
 JWT Token
    ↓
 Authenticated Principal (User ID via SecurityUtils)
@@ -162,6 +165,7 @@ If total usable beds is 0, the metric is reported as `null` and displayed cleanl
 ## 7. Limitations & Exclusions (Strict Scope)
 
 The following capabilities are **explicitly excluded** from Phase 23 and reserved for subsequent phases:
+
 - ❌ Principal approval workflows and action triggers (e.g. Approve / Reject buttons). These belong to Phase 24.
 - ❌ Resource allocation optimization algorithms and timetable generation engines.
 - ❌ Automatic conflict detection and predictive analytics.
@@ -173,7 +177,8 @@ The following capabilities are **explicitly excluded** from Phase 23 and reserve
 
 ## 8. Verification & Tests
 
-### Backend Unit & Security Tests:
+### Backend Unit & Security Tests
+
 1. `PrincipalDashboardSecurityTest`:
    - Validates that an authenticated Principal receives HTTP 200 with structured dashboard response.
    - Validates that unauthenticated requests throw `UnauthorizedException` (HTTP 401).
@@ -184,5 +189,6 @@ The following capabilities are **explicitly excluded** from Phase 23 and reserve
 3. Regression Test:
    - All HOD dashboard and security tests (`HodDashboardSecurityTest`, `HodDashboardServiceTest`) remain passing with 0 failures.
 
-### Frontend Verification:
+### Frontend Verification
+
 - TypeScript compilation (`tsc -b`) and Vite production build (`vite build`) completed with 0 errors.

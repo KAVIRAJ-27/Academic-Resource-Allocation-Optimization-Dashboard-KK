@@ -4,7 +4,6 @@ import com.ahrao.dto.ApiResponse;
 import com.ahrao.dto.common.PagedResponse;
 import com.ahrao.dto.student.academic.StudentAcademicOverviewDto;
 import com.ahrao.dto.student.academic.StudentAcademicResponse;
-import com.ahrao.dto.student.academic.StudentSubjectDetailsDto;
 import com.ahrao.dto.student.academic.StudentSubjectDto;
 import com.ahrao.dto.student.academic.StudentTimetableEntryDto;
 import com.ahrao.entity.enums.UserStatus;

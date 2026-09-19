@@ -1,15 +1,20 @@
 # AHRAO Phase 21 — HOD Faculty, Students & Workload Management
 
 ## 1. Module Purpose & Department Scope
+
 Phase 21 establishes the dedicated department-level management and oversight module for the Head of Department (HOD) within the AHRAO system. It provides high-efficiency administration across:
+
 1. **Department Faculty Management (`/hod/faculty`)**: Directory of teaching faculty affiliated with the HOD's department, comprehensive profile and assigned subjects detail view, and permitted status and profile updates.
 2. **Department Student Management (`/hod/students`)**: Roster of enrolled students across departmental degree programs and cohort sections, dependent multi-level filtering, academic placement detail view, and permitted enrollment status and cohort updates.
 3. **Faculty Workload & Academic Allocations (`/hod/workload`)**: Strictly read-only department workload overview, workload equilibrium distribution visualization (via Recharts), per-faculty teaching hours breakdown, and comprehensive faculty-course teaching assignment records.
 
 ### Critical Boundary Conditions & Security Model
+
 - **Department Isolation**: The HOD is restricted exclusively to data belonging to their authorized department. Any attempt to inspect or mutate records belonging to a foreign department returns `403 Forbidden`.
 - **Zero Frontend Parameter Trust**: The backend never accepts `hodId` or `departmentId` from query parameters, path variables, or request bodies. Identity and department authorization are derived strictly from the authenticated Spring Security JWT context:
+
   $$\text{JWT Principal} \longrightarrow \text{userId} \longrightarrow \text{Faculty} \longrightarrow \text{Active DepartmentHOD} \longrightarrow \text{Department}$$
+
 - **Workload Read-Only Integrity**: In accordance with the Phase 21 specification, the workload module is strictly read-only. No manual workload overrides or artificial schema alterations are permitted.
 - **Audit Logging**: Permitted modifications (`HOD_FACULTY_STATUS_CHANGED`, `HOD_FACULTY_UPDATED`, `HOD_STUDENT_STATUS_CHANGED`, `HOD_STUDENT_UPDATED`) create audit log records capturing the actor, target entity, previous/new states, and justifications.
 
@@ -17,7 +22,7 @@ Phase 21 establishes the dedicated department-level management and oversight mod
 
 ## 2. Security Architecture & Scoping
 
-```
+```text
 ┌────────────────────────────────────────────────────────┐
 │              Authenticated HTTP Request                │
 │             Authorization: Bearer <JWT>                │
@@ -68,6 +73,7 @@ Phase 21 establishes the dedicated department-level management and oversight mod
 | `/api/hod/faculty/{id}` | `PUT` | `ROLE_HOD` | Update permitted profile fields (`designation`, `qualification`, `specialization`, `phone`) |
 
 #### Sample Request: Update Faculty Status
+
 ```http
 PATCH /api/hod/faculty/12/status
 Content-Type: application/json
@@ -92,7 +98,9 @@ Authorization: Bearer <JWT>
 | `/api/hod/students/{id}` | `PUT` | `ROLE_HOD` | Update permitted student academic placement (`currentSemester`, `sectionId`, `rollNumber`) |
 
 #### Dependent Filter Validation Rule
+
 When a program or section filter is provided:
+
 ```java
 if (programId != null) {
     Program program = programRepository.findById(programId)
@@ -118,18 +126,20 @@ if (programId != null) {
 ## 4. Frontend Architecture
 
 ### 4.1 Routes & Navigation
+
 - `/hod/faculty` &rarr; `HODFacultyPage` (mounted inside existing `HODLayout`)
 - `/hod/students` &rarr; `HODStudentsPage` (mounted inside existing `HODLayout`)
 - `/hod/workload` &rarr; `HODWorkloadPage` (mounted inside existing `HODLayout`)
 
 ### 4.2 Custom React Hooks
+
 - `useHodFaculty`: Manages server-side pagination, debounced text search, status filtering, profile updates, status updates, and detail modal state.
 - `useHodStudents`: Manages server-side pagination, debounced search, dependent program/section filters, reference data caching, status updates, placement updates, and detail modal state.
 - `useHodWorkload`: Manages department workload metrics, distribution chart data, assignment list, and selected faculty workload breakdown modal.
 
 ### 4.3 UI Component Library
 
-```
+```text
 frontend/src/components/hod/
 ├── faculty/
 │   ├── HodFacultyKpiCards.tsx       # 4 summary metrics (Total, Active, Courses, Avg Workload)
@@ -159,7 +169,9 @@ frontend/src/components/hod/
 ## 5. Verification & Test Suite
 
 ### 5.1 Backend Security & Unit Tests
+
 All 35 HOD tests passed with zero failures and zero errors:
+
 - `HodDashboardSecurityTest`: Role enforcement and JWT authentication verification.
 - `HodFacultySecurityTest`: Role verification and unauthorized rejection on `/api/hod/faculty/**`.
 - `HodStudentSecurityTest`: Role verification and unauthorized rejection on `/api/hod/students/**`.
@@ -170,5 +182,6 @@ All 35 HOD tests passed with zero failures and zero errors:
 - `HodWorkloadServiceTest`: Department-scoped workload telemetry, cross-department workload inspection rejection (`403`), and assignment querying tests.
 
 ### 5.2 Frontend Build & TypeScript Validation
+
 - `tsc -b`: Passed with zero TypeScript errors.
 - `vite build`: Successfully bundled production assets (`dist/assets/index-*.js`, `dist/assets/index-*.css`).

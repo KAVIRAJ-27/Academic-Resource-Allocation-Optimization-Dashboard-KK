@@ -16,7 +16,6 @@ import com.ahrao.entity.hostel.HostelRoom;
 import com.ahrao.entity.request.HostelComplaint;
 import com.ahrao.entity.user.User;
 import com.ahrao.exception.BadRequestException;
-import com.ahrao.exception.ResourceNotFoundException;
 import com.ahrao.repository.academic.StudentRepository;
 import com.ahrao.repository.allocation.HostelAllocationRepository;
 import com.ahrao.repository.audit.AuditLogRepository;
@@ -34,7 +33,6 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)

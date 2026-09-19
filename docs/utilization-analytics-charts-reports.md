@@ -1,9 +1,10 @@
 # Phase 33: Utilization Analytics, Charts & Reports
 
 ## 1. Executive Summary
+
 Phase 33 delivers a production-grade, read-only analytics, interactive charting, and reporting engine for the Academic & Hostel Resource Allocation Optimization Dashboard (AHRAO). All metrics, percentages, time series, and distributions are calculated directly from real database records using database-level SQL/JPA aggregation (`COUNT`, `SUM`, `AVG`, `GROUP BY`) rather than in-memory record loading. Strictly NO mock, random, or placeholder data is used, and NO AI/ML is included (reserved for Phase 34).
 
-```
+```text
 Frontend (Analytics Dashboard / Reports Hub)
      ↓
 Analytics API Client (`analyticsApi.ts`)
@@ -43,27 +44,34 @@ MySQL 8.0 Database (Aggregated via SQL)
 ## 3. Mathematical Formulas
 
 ### Academic Resource Utilization
+
 $$\text{Utilization \%} = \frac{\text{Allocated Resources}}{\text{Active Resources}} \times 100$$
 *(Active Resources = Total Resources $-$ Under Maintenance $-$ Inactive)*
 
 ### Classroom Capacity Utilization
+
 $$\text{Capacity Load \%} = \text{AVG}\left(\frac{\text{Allocated Students Quantity}}{\text{Classroom Capacity}}\right) \times 100$$
 
 ### Laboratory Utilization
+
 $$\text{Lab Utilization \%} = \frac{\text{Allocated Labs}}{\text{Total Available Labs}} \times 100$$
 
 ### Equipment Utilization
+
 $$\text{Equipment Utilization \%} = \frac{\text{Total Quantity} - \text{Available Quantity}}{\text{Total Quantity}} \times 100$$
 
 ### Hostel Bed Occupancy & Availability
+
 $$\text{Occupancy \%} = \frac{\text{Occupied Beds}}{\text{Active Beds}} \times 100$$
 $$\text{Availability \%} = \frac{\text{Available Beds}}{\text{Active Beds}} \times 100$$
 *(Active Beds = Occupied Beds $+$ Available Beds; inactive and maintenance beds are excluded from capacity)*
 
 ### Request Approval Rate
+
 $$\text{Approval Rate \%} = \frac{\text{Approved Requests}}{\text{Total Processed Requests}} \times 100$$
 
 ### Grievance Resolution Velocity
+
 $$\text{Resolution Rate \%} = \frac{\text{Resolved Complaints} + \text{Closed Complaints}}{\text{Total Complaints}} \times 100$$
 
 ---
@@ -96,6 +104,7 @@ $$\text{Resolution Rate \%} = \frac{\text{Resolved Complaints} + \text{Closed Co
 ## 5. Report Generation & CSV Export
 
 The system provides 1-click audit-ready CSV report generation for 7 core domains:
+
 1. `ACADEMIC_RESOURCES`: Resource name, code, category, type, department, capacity, active allocations, utilization %.
 2. `ACADEMIC_ALLOCATIONS`: Allocation categories and volume.
 3. `DEPARTMENT_SUMMARY`: Students, faculty, courses, resources, allocations, and average workload per department.
@@ -105,7 +114,9 @@ The system provides 1-click audit-ready CSV report generation for 7 core domains
 7. `MAINTENANCE_REQUESTS`: Maintenance work orders by status.
 
 ### Audit Trail
+
 Every report download invokes `AuditLogRepository.save()`:
+
 - `action`: `REPORT_EXPORT`
 - `entityType`: `ANALYTICS_REPORT`
 - `newValue`: JSON string detailing `reportType`, `rowCount`, and `exportedAt` timestamp.
@@ -115,6 +126,7 @@ Every report download invokes `AuditLogRepository.save()`:
 ## 6. Frontend Analytics Experience
 
 The frontend at `/analytics` provides a dark SaaS workspace with 7 navigation tabs:
+
 - **System Overview**: Top KPI cards, cross-domain telemetry, live status pulses.
 - **Academic Resources**: Classroom capacity metrics, laboratory utilization, top & bottom utilized resources table.
 - **Allocations & Requests**: Request pipeline donut chart, allocation status distributions, conflict severity bar chart, and monthly trends.
@@ -126,6 +138,7 @@ The frontend at `/analytics` provides a dark SaaS workspace with 7 navigation ta
 ---
 
 ## 7. Verification & Test Suite
+
 - `AnalyticsServiceTest`: 5 unit tests validating calculations, zero denominators, and category rankings.
 - `AnalyticsSecurityTest`: 3 unit tests verifying class-level `@PreAuthorize`, controller delegation, and HTTP headers.
 - `ReportExportServiceTest`: 2 unit tests verifying CSV formatting, RFC-4180 escaping, and audit logging.

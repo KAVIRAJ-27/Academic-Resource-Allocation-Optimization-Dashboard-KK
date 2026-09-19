@@ -1,9 +1,11 @@
 # Admin Academic Structure & Curriculum Management
 
 ## 1. Overview
+
 The **Academic Structure & Curriculum Management** module (Phase 9 of the Academic & Hostel Resource Allocation Optimization Dashboard - AHRAO) delivers a centralized administrative control plane for defining, structuring, and maintaining the core institutional hierarchy.
 
 This module establishes the foundational master data consumed by subsequent academic modules:
+
 - Classrooms & Laboratories Master (Phase 10)
 - Timetable & Scheduling Matrix (Phase 11)
 - Faculty Workload Optimization (Phase 12)
@@ -13,7 +15,7 @@ This module establishes the foundational master data consumed by subsequent acad
 
 ## 2. Master Data Hierarchy
 
-```
+```text
 +-----------------------------------------------------------------------------------+
 |                                INSTITUTION PROFILE                                |
 +-----------------------------------------+-----------------------------------------+
@@ -40,7 +42,8 @@ This module establishes the foundational master data consumed by subsequent acad
                                +---------------------+ +---------------------+
 ```
 
-### Hierarchy Constraints & Cascade Rules:
+### Hierarchy Constraints & Cascade Rules
+
 1. **Institution**:
    - Single institutional profile root (`Apex Institute of Technology`).
    - Central contact information, accreditation code, and address.
@@ -86,12 +89,14 @@ To ensure referential and operational consistency across the institution, physic
 All academic administrative endpoints are protected with `@PreAuthorize("hasRole('ADMIN')")`.
 
 ### 4.1 Institution Profile
+
 - `GET /api/admin/institution`
   - Returns institution profile, contact details, and institutional rollup metrics.
 - `PUT /api/admin/institution`
   - Updates institution name, code, contact phone, contact email, website, and campus address.
 
 ### 4.2 Department Registry
+
 - `GET /api/admin/departments`
   - Query parameters: `search`, `status` (`ACTIVE`/`INACTIVE`), `page`, `size`, `sortBy`, `sortDir`.
   - Returns paginated `DepartmentSummaryResponse` with programs count, faculty count, students count, and active HOD name.
@@ -107,6 +112,7 @@ All academic administrative endpoints are protected with `@PreAuthorize("hasRole
   - Deletes department if no dependent programs, students, or faculty exist.
 
 ### 4.3 Academic Years
+
 - `GET /api/admin/academic-years`
   - Query parameters: `search`, `status`, `page`, `size`, `sortBy`, `sortDir`.
 - `GET /api/admin/academic-years/{id}`
@@ -123,6 +129,7 @@ All academic administrative endpoints are protected with `@PreAuthorize("hasRole
   - Deletes academic year if no dependent semesters or allocations exist.
 
 ### 4.4 Semesters
+
 - `GET /api/admin/semesters`
   - Query parameters: `search`, `academicYearId`, `status`, `page`, `size`, `sortBy`, `sortDir`.
 - `GET /api/admin/semesters/{id}`
@@ -137,6 +144,7 @@ All academic administrative endpoints are protected with `@PreAuthorize("hasRole
   - Deletes semester if no linked sections or allocations exist.
 
 ### 4.5 Programs / Degree Courses
+
 - `GET /api/admin/programs`
   - Query parameters: `search`, `departmentId`, `programType` (`UG`/`PG`/`DIPLOMA`/`PHD`), `status`, `page`, `size`, `sortBy`, `sortDir`.
 - `GET /api/admin/programs/{id}`
@@ -151,6 +159,7 @@ All academic administrative endpoints are protected with `@PreAuthorize("hasRole
   - Deletes program if no dependent students, subjects, or sections exist.
 
 ### 4.6 Curricular Subjects
+
 - `GET /api/admin/subjects`
   - Query parameters: `search`, `departmentId`, `programId`, `semesterNumber`, `type` (`THEORY`/`PRACTICAL`/`HYBRID`), `status`, `page`, `size`, `sortBy`, `sortDir`.
 - `GET /api/admin/subjects/{id}`
@@ -165,6 +174,7 @@ All academic administrative endpoints are protected with `@PreAuthorize("hasRole
   - Deletes subject if no dependent allocations or enrollments exist.
 
 ### 4.7 Class Sections
+
 - `GET /api/admin/sections`
   - Query parameters: `search`, `departmentId`, `programId`, `semesterId`, `status`, `page`, `size`, `sortBy`, `sortDir`.
 - `GET /api/admin/sections/{id}`
@@ -179,13 +189,16 @@ All academic administrative endpoints are protected with `@PreAuthorize("hasRole
   - Deletes section if no enrolled students or allocations exist.
 
 ### 4.8 Unified Academic Reference Data
+
 - `GET /api/admin/academic/reference-data`
   - Returns active departments, academic years, semesters, programs, program types, and subject types in a single request for fast UI dropdown hydration.
 
 ---
 
 ## 5. Audit Logging Architecture
+
 All state-modifying actions (create, update, status change, academic year activation, delete) across every academic tier automatically record an immutable `AuditLog` entry:
+
 - `user`: Injected from Spring Security `Authentication.getName()`
 - `action`: `CREATE_DEPARTMENT`, `UPDATE_DEPARTMENT`, `CHANGE_DEPARTMENT_STATUS`, `DELETE_DEPARTMENT`, `ACTIVATE_ACADEMIC_YEAR`, `CREATE_PROGRAM`, `CREATE_SUBJECT`, `CREATE_SECTION`, etc.
 - `entityType`: `Department`, `AcademicYear`, `Semester`, `Program`, `Subject`, `Section`, `Institution`
@@ -198,8 +211,11 @@ All state-modifying actions (create, update, status change, academic year activa
 ## 6. Frontend Architecture & User Experience
 
 ### 6.1 Unified Administration Hub (`AcademicManagementPage.tsx`)
+
 - Mounted at `/admin/academic` with query-synced tabs:
+
   `?tab=institution`, `?tab=departments`, `?tab=years`, `?tab=semesters`, `?tab=programs`, `?tab=subjects`, `?tab=sections`.
+
 - Alias route `/admin/departments` automatically mounts `<AcademicManagementPage initialTab="departments" />`.
 - KPI metric cards show real-time totals for Departments, Programs, Active Academic Year, Subjects, Sections, and Students.
 - Cascading dropdown filters ensure valid selection sets:

@@ -1,6 +1,7 @@
 # Student Hostel Module (Phase 15)
 
 ## 1. Overview & Purpose
+
 The **Student Hostel Module** (Phase 15 of the Academic & Hostel Resource Allocation Optimization Dashboard - AHRAO) delivers a unified, strictly **read-only** interface for enrolled students to inspect their institutional residential status, assigned hostel building, block hierarchy, room specifications, allocated bedspace, common facilities, and designated warden contact details.
 
 > [!IMPORTANT]
@@ -40,6 +41,7 @@ graph TD
 ```
 
 Example:
+
 - **Hostel**: Nilgiri Boys Hostel (`HSTL-NB-01`, Type: `BOYS`)
 - **Block**: Block A (`BLK-A`, 4 Floors)
 - **Floor**: Second Floor (Level 2)
@@ -53,7 +55,7 @@ Example:
 All student hostel endpoints are prefixed with `/api/student/hostel`:
 
 | Method | Endpoint | Description | Security |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `GET` | `/api/student/hostel` | Retrieve current hostel allocation, 5-tier hierarchy, room capacity/occupancy, active facilities, assigned wardens, and historical records | `ROLE_STUDENT`, Own Records |
 | `GET` | `/api/student/hostel/history` | Retrieve student's past residential tenure records | `ROLE_STUDENT`, Own Records |
 
@@ -77,9 +79,11 @@ All student hostel endpoints are prefixed with `/api/student/hostel`:
 
 - Room capacity is loaded directly from `HostelRoom.capacity`.
 - Current room occupancy is computed via a targeted query on `HostelBedRepository`:
+
   ```java
   long occupiedBeds = hostelBedRepository.countByRoomIdAndStatus(roomId, HostelBedStatus.OCCUPIED);
   ```
+
 - **Performance**: Eliminates $N+1$ queries and prevents loading all student entity records into memory.
 
 ---
@@ -87,6 +91,7 @@ All student hostel endpoints are prefixed with `/api/student/hostel`:
 ## 7. Empty State Handling (Day Scholars & Unallocated Students)
 
 If an enrolled student does not have an active `HostelAllocation`:
+
 - The API responds with `allocated: false` and empty nested structures (no fake data or mock hostels).
 - The frontend presents a clean status card indicating *"NOT ALLOCATED"* and an informative empty state explaining Day Scholar status.
 - If the student previously held a hostel room in an earlier semester, previous allocations are rendered in the **Historical Allocation Records** table.
@@ -96,6 +101,7 @@ If an enrolled student does not have an active `HostelAllocation`:
 ## 8. Limitations & Strict Boundaries
 
 The following features belong to later phases and are **strictly excluded** from Phase 15:
+
 - ❌ Automatic bed / room allocation algorithm
 - ❌ Hostel application or room request submissions
 - ❌ Bed reassignment or room swap workflows

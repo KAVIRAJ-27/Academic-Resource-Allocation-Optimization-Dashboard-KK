@@ -24,7 +24,6 @@ import com.ahrao.entity.user.User;
 import com.ahrao.exception.BadRequestException;
 import com.ahrao.exception.ConflictException;
 import com.ahrao.exception.ForbiddenException;
-import com.ahrao.exception.ResourceNotFoundException;
 import com.ahrao.repository.academic.AcademicYearRepository;
 import com.ahrao.repository.academic.StudentRepository;
 import com.ahrao.repository.allocation.HostelAllocationRepository;
@@ -41,7 +40,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 

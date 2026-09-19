@@ -23,7 +23,6 @@ import com.ahrao.repository.academic.SectionRepository;
 import com.ahrao.repository.academic.SubjectRepository;
 import com.ahrao.repository.audit.AuditLogRepository;
 import com.ahrao.repository.request.AcademicResourceRequestRepository;
-import com.ahrao.repository.resource.ResourceCategoryRepository;
 import com.ahrao.repository.resource.ResourceRepository;
 import jakarta.persistence.criteria.Join;
 import jakarta.persistence.criteria.JoinType;
@@ -57,7 +56,6 @@ public class FacultyResourceRequestServiceImpl implements FacultyResourceRequest
 
     private final AcademicResourceRequestRepository requestRepository;
     private final ResourceRepository resourceRepository;
-    private final ResourceCategoryRepository categoryRepository;
     private final FacultyRepository facultyRepository;
     private final FacultySubjectAssignmentRepository assignmentRepository;
     private final SubjectRepository subjectRepository;
@@ -67,7 +65,6 @@ public class FacultyResourceRequestServiceImpl implements FacultyResourceRequest
     public FacultyResourceRequestServiceImpl(
             AcademicResourceRequestRepository requestRepository,
             ResourceRepository resourceRepository,
-            ResourceCategoryRepository categoryRepository,
             FacultyRepository facultyRepository,
             FacultySubjectAssignmentRepository assignmentRepository,
             SubjectRepository subjectRepository,
@@ -75,7 +72,6 @@ public class FacultyResourceRequestServiceImpl implements FacultyResourceRequest
             AuditLogRepository auditLogRepository) {
         this.requestRepository = requestRepository;
         this.resourceRepository = resourceRepository;
-        this.categoryRepository = categoryRepository;
         this.facultyRepository = facultyRepository;
         this.assignmentRepository = assignmentRepository;
         this.subjectRepository = subjectRepository;

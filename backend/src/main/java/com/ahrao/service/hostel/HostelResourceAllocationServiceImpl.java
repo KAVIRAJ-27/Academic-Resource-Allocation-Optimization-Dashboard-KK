@@ -19,14 +19,12 @@ import com.ahrao.entity.user.Role;
 import com.ahrao.entity.user.User;
 import com.ahrao.exception.BadRequestException;
 import com.ahrao.exception.ConflictException;
-import com.ahrao.exception.ForbiddenException;
 import com.ahrao.exception.ResourceNotFoundException;
 import com.ahrao.repository.academic.AcademicYearRepository;
 import com.ahrao.repository.academic.StudentRepository;
 import com.ahrao.repository.allocation.HostelAllocationRepository;
 import com.ahrao.repository.audit.AuditLogRepository;
 import com.ahrao.repository.hostel.HostelBedRepository;
-import com.ahrao.repository.hostel.HostelRepository;
 import com.ahrao.repository.request.HostelRequestRepository;
 import com.ahrao.service.warden.WardenScopeService;
 import jakarta.persistence.criteria.Join;
@@ -55,7 +53,6 @@ public class HostelResourceAllocationServiceImpl implements HostelResourceAlloca
     private final HostelAllocationRepository hostelAllocationRepository;
     private final HostelBedRepository hostelBedRepository;
     private final StudentRepository studentRepository;
-    private final HostelRepository hostelRepository;
     private final HostelRequestRepository hostelRequestRepository;
     private final AcademicYearRepository academicYearRepository;
     private final AuditLogRepository auditLogRepository;
@@ -68,7 +65,6 @@ public class HostelResourceAllocationServiceImpl implements HostelResourceAlloca
             HostelAllocationRepository hostelAllocationRepository,
             HostelBedRepository hostelBedRepository,
             StudentRepository studentRepository,
-            HostelRepository hostelRepository,
             HostelRequestRepository hostelRequestRepository,
             AcademicYearRepository academicYearRepository,
             AuditLogRepository auditLogRepository,
@@ -79,7 +75,6 @@ public class HostelResourceAllocationServiceImpl implements HostelResourceAlloca
         this.hostelAllocationRepository = hostelAllocationRepository;
         this.hostelBedRepository = hostelBedRepository;
         this.studentRepository = studentRepository;
-        this.hostelRepository = hostelRepository;
         this.hostelRequestRepository = hostelRequestRepository;
         this.academicYearRepository = academicYearRepository;
         this.auditLogRepository = auditLogRepository;
@@ -654,19 +649,19 @@ public class HostelResourceAllocationServiceImpl implements HostelResourceAlloca
     private void logAudit(User actor, String action, String entityType, Long entityId,
                           String oldValue, String newValue, String ipAddress, String userAgent) {
         try {
-            AuditLog log = new AuditLog();
-            log.setUser(actor);
-            log.setAction(action);
-            log.setEntityType(entityType);
-            log.setEntityId(entityId);
-            log.setOldValue(oldValue);
-            log.setNewValue(newValue);
-            log.setIpAddress(ipAddress != null ? ipAddress : "127.0.0.1");
-            log.setUserAgent(userAgent != null ? userAgent : "AHRAO-Hostel-Engine");
-            log.setCreatedAt(Instant.now());
-            auditLogRepository.save(log);
+            AuditLog auditLog = new AuditLog();
+            auditLog.setUser(actor);
+            auditLog.setAction(action);
+            auditLog.setEntityType(entityType);
+            auditLog.setEntityId(entityId);
+            auditLog.setOldValue(oldValue);
+            auditLog.setNewValue(newValue);
+            auditLog.setIpAddress(ipAddress != null ? ipAddress : "127.0.0.1");
+            auditLog.setUserAgent(userAgent != null ? userAgent : "AHRAO-Hostel-Engine");
+            auditLog.setCreatedAt(Instant.now());
+            auditLogRepository.save(auditLog);
         } catch (Exception e) {
-            this.log.warn("Failed to write audit log for action: {}", action, e);
+            log.warn("Failed to write audit log for action: {}", action, e);
         }
     }
 

@@ -82,6 +82,9 @@ public class PrincipalApprovalServiceImpl implements PrincipalApprovalService {
         }
 
         Specification<Approval> spec = (root, query, cb) -> {
+            if (query == null) {
+                return cb.conjunction();
+            }
             List<Predicate> predicates = new ArrayList<>();
 
             // Institution Scoping via AcademicResourceRequest subquery

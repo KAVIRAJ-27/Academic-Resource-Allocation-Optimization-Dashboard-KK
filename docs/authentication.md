@@ -91,6 +91,7 @@ AHRAO uses a normalized many-to-many role-permission mapping (`roles`, `permissi
 ### Method Security Annotations
 
 Controllers enforce authorization using Spring's `@PreAuthorize`:
+
 ```java
 // Role Check
 @PreAuthorize("hasRole('ADMIN')")
@@ -125,16 +126,20 @@ Only accounts with status **`ACTIVE`** are permitted to authenticate. All other 
 ## 5. Authentication REST APIs
 
 ### 1. User Login
+
 - **Endpoint**: `POST /api/auth/login`
 - **Access**: Public
 - **Request Body**:
+
   ```json
   {
     "usernameOrEmail": "admin",
     "password": "Admin@123"
   }
   ```
+
 - **Success Response (`200 OK`)**:
+
   ```json
   {
     "success": true,
@@ -157,9 +162,11 @@ Only accounts with status **`ACTIVE`** are permitted to authenticate. All other 
   ```
 
 ### 2. Current User Profile
+
 - **Endpoint**: `GET /api/auth/me`
 - **Access**: Authenticated (Requires `Bearer <JWT>`)
 - **Success Response (`200 OK`)**:
+
   ```json
   {
     "success": true,
@@ -180,9 +187,11 @@ Only accounts with status **`ACTIVE`** are permitted to authenticate. All other 
   ```
 
 ### 3. User Registration
+
 - **Endpoint**: `POST /api/auth/register`
 - **Access**: Public
 - **Request Body**:
+
   ```json
   {
     "username": "elena_r",
@@ -194,16 +203,20 @@ Only accounts with status **`ACTIVE`** are permitted to authenticate. All other 
     "role": "FACULTY"
   }
   ```
+
 - **Success Response (`201 Created`)**
 
 ### 4. Logout
+
 - **Endpoint**: `POST /api/auth/logout`
 - **Access**: Authenticated (Client clears `authStorage` token and session)
 
 ### 5. Change Password
+
 - **Endpoint**: `POST /api/auth/change-password`
 - **Access**: Authenticated
 - **Request Body**:
+
   ```json
   {
     "currentPassword": "OldPassword@123",
@@ -216,13 +229,16 @@ Only accounts with status **`ACTIVE`** are permitted to authenticate. All other 
 ## 6. Frontend Token Management & Route Guards
 
 ### Centralized `authStorage.ts`
+
 All token access is strictly encapsulated:
+
 - `authStorage.getToken()`
 - `authStorage.setToken(token)`
 - `authStorage.removeToken()`
 - `authStorage.clearAuth()`
 
 ### Route Guards
+
 - `<ProtectedRoute>`: Enforces active authentication session. Redirects to `/login` if unauthenticated.
 - `<RoleGuard allowedRoles={[ROLES.ADMIN]}>`: Enforces institutional role membership. Redirects to `/unauthorized` if forbidden.
 - `<PermissionGuard permission="ACADEMIC_ALLOCATE">`: Evaluates fine-grained privilege markers.

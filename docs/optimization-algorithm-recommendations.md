@@ -1,9 +1,10 @@
 # Phase 31: Optimization Algorithm & Recommended Allocation
 
 ## 1. Executive Summary
+
 Phase 31 implements an explainable, deterministic optimization and recommendation framework for AHRAO (Academic & Hostel Resource Allocation Optimization Dashboard). It bridges the gap between raw candidate evaluation and final allocation by providing transparent recommendations ranked by multi-factor mathematical scores.
 
-```
+```text
 Request
    ↓
 Generate Candidates (Scope & Category Filtered)
@@ -28,6 +29,7 @@ Final Allocation Commit
 ---
 
 ## 2. Core Design Principles
+
 1. **Explainable & Deterministic**: Pure mathematical formulas with normalized factor scores (0–100), transparent weights, and human-readable rationales. Strictly NO black-box AI, Machine Learning, Neural Networks, or Genetic Algorithms.
 2. **Hard Constraints Priority**: The optimizer **never** recommends an invalid candidate. Hard constraints strictly gate candidates before scoring. Any candidate failing Phase 30 validation with `canAllocate = false` or `severity = ERROR` is disqualified.
 3. **Read-Only Simulation**: Optimization preview endpoints do not alter database entities, create bookings, or lock resources.
@@ -38,6 +40,7 @@ Final Allocation Commit
 ## 3. Hard vs Soft Constraints
 
 ### Hard Constraints (Strict Exclusion Filter)
+
 | Domain | Constraint | Disqualification Rule |
 | :--- | :--- | :--- |
 | **Academic** | Status & Maintenance | Resource status must not be `INACTIVE` or `MAINTENANCE` |
@@ -55,6 +58,7 @@ Final Allocation Commit
 ### Soft Constraints (Optimization Scoring Factors)
 
 #### Academic Resource Allocation Scoring (Default Weights = 100)
+
 1. **Resource Suitability (Weight: 30)**:
    - Evaluates match between requested category and candidate resource category.
    - Exact category match: $100\%$.
@@ -72,6 +76,7 @@ Final Allocation Commit
    - Checks faculty teaching load from `FacultyWorkload`: $95\%$ for `BALANCED`, $85\%$ for `UNDERLOADED`, $45\%$ for `OVERLOADED`. Defaults to $75\%$ (neutral) if unassigned. Never fabricates workload data.
 
 #### Hostel Bed Allocation Scoring (Default Weights = 100)
+
 1. **Hostel Preference (Weight: 30)**:
    - Matches student's preferred hostel requested in `HostelRequest`: $100\%$ on match; $35\%$ on alternative; $80\%$ if no preference stated.
 2. **Occupancy Balancing (Weight: 25)**:
@@ -88,8 +93,11 @@ Final Allocation Commit
 ---
 
 ## 4. Deterministic Ranking & Tie Breaking
+
 1. Candidates are sorted by aggregated weighted score descending:
+
    $$\text{Total Score} = \sum (\text{Raw Score}_i \times \frac{\text{Weight}_i}{100})$$
+
 2. Ties are broken deterministically by primary database key ascending (`resource.id ASC` or `bed.id ASC`).
 3. Ranks are assigned as integers: $1, 2, \dots, N$.
 
@@ -98,9 +106,12 @@ Final Allocation Commit
 ## 5. REST API Specifications
 
 ### Academic Optimization Preview
+
 `POST /api/academic/resource-allocations/optimize`
+
 - **Security**: `@PreAuthorize("hasAnyRole('ADMIN', 'PRINCIPAL', 'HOD', 'FACULTY')")`
 - **Request Body**:
+
   ```json
   {
     "requestId": 101,
@@ -108,7 +119,9 @@ Final Allocation Commit
     "requestedCapacity": 40
   }
   ```
+
 - **Response**:
+
   ```json
   {
     "success": true,
@@ -161,16 +174,21 @@ Final Allocation Commit
   ```
 
 ### Hostel Optimization Preview
+
 `POST /api/hostel/resource-allocations/optimize`
+
 - **Security**: `@PreAuthorize("hasAnyRole('ADMIN', 'PRINCIPAL', 'HOD', 'WARDEN')")`
 - **Request Body**:
+
   ```json
   {
     "hostelRequestId": 201,
     "hostelId": 10
   }
   ```
+
 - **Response**:
+
   ```json
   {
     "success": true,
@@ -209,6 +227,7 @@ Final Allocation Commit
 ---
 
 ## 6. Frontend UI Components
+
 - **`OptimizationRecommendationCard`**: Luxury SaaS card with rank medal badge (#1 Highlight), total score bar, human-readable checkmark reasons, expandable 5-factor breakdown, and "Use Recommendation" CTA.
 - **`OptimizationComparisonTable`**: Responsive comparison table allowing side-by-side assessment of candidates across capacity, location, scores, and selection status.
 - **Integrated Modals**: `AcademicAllocationModal` and `HostelAllocationModal` include dedicated "Optimize & Recommend" workflows with "Finding best allocation..." loaders and graceful stale allocation recovery.

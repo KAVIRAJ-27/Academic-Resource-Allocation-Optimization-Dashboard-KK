@@ -9,7 +9,6 @@ import com.ahrao.entity.enums.UserStatus;
 import com.ahrao.entity.user.Role;
 import com.ahrao.entity.user.User;
 import com.ahrao.exception.ConflictException;
-import com.ahrao.exception.ResourceNotFoundException;
 import com.ahrao.repository.audit.AuditLogRepository;
 import com.ahrao.repository.user.RoleRepository;
 import com.ahrao.repository.user.UserRepository;
@@ -31,6 +30,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
+import org.mockito.ArgumentMatchers;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
@@ -74,13 +74,14 @@ class AdminUserServiceTest {
         sampleUser.setRoles(new HashSet<>(Collections.singletonList(adminRole)));
     }
 
+    @SuppressWarnings("unchecked")
     @Test
     @DisplayName("Should return paginated users with proper metadata")
     void testGetUsers_Pagination() {
         Pageable pageable = PageRequest.of(0, 10);
         Page<User> mockPage = new PageImpl<>(Collections.singletonList(sampleUser), pageable, 1);
 
-        when(userRepository.findAll(any(Specification.class), eq(pageable))).thenReturn(mockPage);
+        when(userRepository.findAll(ArgumentMatchers.<Specification<User>>any(), eq(pageable))).thenReturn(mockPage);
 
         PagedResponse<UserSummaryResponse> response = userService.getUsers("test", "ADMIN", UserStatus.ACTIVE, pageable);
 

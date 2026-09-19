@@ -5,7 +5,6 @@ import com.ahrao.dto.student.resource.CreateStudentResourceRequest;
 import com.ahrao.dto.student.resource.StudentResourceRequestDto;
 import com.ahrao.dto.student.resource.StudentResourceRequestSummaryCountsDto;
 import com.ahrao.dto.student.resource.StudentResourceSummaryDto;
-import com.ahrao.entity.academic.Department;
 import com.ahrao.entity.academic.Student;
 import com.ahrao.entity.audit.AuditLog;
 import com.ahrao.entity.enums.PriorityLevel;
@@ -22,9 +21,7 @@ import com.ahrao.exception.ResourceNotFoundException;
 import com.ahrao.repository.academic.StudentRepository;
 import com.ahrao.repository.audit.AuditLogRepository;
 import com.ahrao.repository.request.AcademicResourceRequestRepository;
-import com.ahrao.repository.resource.ResourceCategoryRepository;
 import com.ahrao.repository.resource.ResourceRepository;
-import com.ahrao.repository.user.UserRepository;
 import jakarta.persistence.criteria.Join;
 import jakarta.persistence.criteria.JoinType;
 import jakarta.persistence.criteria.Predicate;
@@ -51,23 +48,17 @@ public class StudentResourceRequestServiceImpl implements StudentResourceRequest
 
     private final AcademicResourceRequestRepository requestRepository;
     private final ResourceRepository resourceRepository;
-    private final ResourceCategoryRepository categoryRepository;
     private final StudentRepository studentRepository;
-    private final UserRepository userRepository;
     private final AuditLogRepository auditLogRepository;
 
     public StudentResourceRequestServiceImpl(
             AcademicResourceRequestRepository requestRepository,
             ResourceRepository resourceRepository,
-            ResourceCategoryRepository categoryRepository,
             StudentRepository studentRepository,
-            UserRepository userRepository,
             AuditLogRepository auditLogRepository) {
         this.requestRepository = requestRepository;
         this.resourceRepository = resourceRepository;
-        this.categoryRepository = categoryRepository;
         this.studentRepository = studentRepository;
-        this.userRepository = userRepository;
         this.auditLogRepository = auditLogRepository;
     }
 

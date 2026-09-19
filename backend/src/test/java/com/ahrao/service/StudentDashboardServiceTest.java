@@ -45,6 +45,7 @@ import java.util.Optional;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
+import org.mockito.ArgumentMatchers;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
@@ -136,13 +137,14 @@ class StudentDashboardServiceTest {
         mockStudent.setStatus("ACTIVE");
     }
 
+    @SuppressWarnings("unchecked")
     @Test
     @DisplayName("getDashboard succeeds with real data aggregation")
     void testGetDashboardSuccess() {
         when(studentRepository.findByUserId(10L)).thenReturn(Optional.of(mockStudent));
         when(hostelAllocationRepository.findByStudentIdAndStatus(any(), eq(AllocationStatus.ACTIVE)))
                 .thenReturn(Optional.empty());
-        when(subjectRepository.count(any(Specification.class))).thenReturn(6L);
+        when(subjectRepository.count(ArgumentMatchers.<Specification<Subject>>any())).thenReturn(6L);
         when(timetableEntryRepository.findBySectionId(any())).thenReturn(Collections.emptyList());
         when(resourceAllocationRepository.findByAllocatedToUserId(10L)).thenReturn(Collections.emptyList());
         when(auditLogRepository.findByUserIdOrderByCreatedAtDesc(eq(10L), any(Pageable.class)))
@@ -159,6 +161,7 @@ class StudentDashboardServiceTest {
         assertEquals(6, result.getMetrics().getEnrolledCoursesCount());
     }
 
+    @SuppressWarnings("unchecked")
     @Test
     @DisplayName("getDashboard populates active hostel allocation details")
     void testGetDashboardWithHostel() {
@@ -185,7 +188,7 @@ class StudentDashboardServiceTest {
         when(studentRepository.findByUserId(10L)).thenReturn(Optional.of(mockStudent));
         when(hostelAllocationRepository.findByStudentIdAndStatus(any(), eq(AllocationStatus.ACTIVE)))
                 .thenReturn(Optional.of(allocation));
-        when(subjectRepository.count(any(Specification.class))).thenReturn(5L);
+        when(subjectRepository.count(ArgumentMatchers.<Specification<Subject>>any())).thenReturn(5L);
         when(timetableEntryRepository.findBySectionId(any())).thenReturn(Collections.emptyList());
         when(resourceAllocationRepository.findByAllocatedToUserId(10L)).thenReturn(Collections.emptyList());
         when(auditLogRepository.findByUserIdOrderByCreatedAtDesc(eq(10L), any(Pageable.class)))

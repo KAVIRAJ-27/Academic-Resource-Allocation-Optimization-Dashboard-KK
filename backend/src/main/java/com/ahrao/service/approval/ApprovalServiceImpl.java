@@ -23,7 +23,6 @@ import com.ahrao.entity.resource.Resource;
 import com.ahrao.entity.user.User;
 import com.ahrao.exception.BadRequestException;
 import com.ahrao.exception.ConflictException;
-import com.ahrao.exception.ForbiddenException;
 import com.ahrao.exception.ResourceNotFoundException;
 import com.ahrao.repository.approval.ApprovalRepository;
 import com.ahrao.repository.audit.AuditLogRepository;
@@ -337,8 +336,9 @@ public class ApprovalServiceImpl implements ApprovalService {
                 throw new BadRequestException("A target resource ID must be specified for allocation.");
             }
 
-            Resource resource = resourceRepository.findById(targetResourceId)
-                    .orElseThrow(() -> new ResourceNotFoundException("Resource not found with ID: " + targetResourceId));
+            if (!resourceRepository.existsById(targetResourceId)) {
+                throw new ResourceNotFoundException("Resource not found with ID: " + targetResourceId);
+            }
 
             // 4a. Critical Phase 30 Conflict Re-validation immediately before allocation
             ConflictCheckRequestDto conflictCheck = new ConflictCheckRequestDto();
@@ -504,6 +504,9 @@ public class ApprovalServiceImpl implements ApprovalService {
     // --- Specification Builder for Role-Scoped Approvals Query ---
     private Specification<Approval> buildScopedSpecification(ApprovalFilterParams params, User actor, boolean pendingOnly) {
         return (root, query, cb) -> {
+            if (query == null) {
+                return cb.conjunction();
+            }
             List<Predicate> predicates = new ArrayList<>();
 
             if (pendingOnly || (params != null && params.getStatus() == ApprovalStatus.PENDING)) {

@@ -10,6 +10,7 @@
 ## 1. Executive Summary
 
 This report documents the automated and manual verification results across the complete AHRAO software architecture:
+
 - **Backend Test Suite (Spring Boot 3.3 / Java 17):** 466 tests executed via Apache Maven 3.9.16 with Surefire JUnit 5 runner. 100% pass rate (0 failures, 0 errors, 0 skipped).
 - **Machine Learning Intelligence Service (Python 3.10 / FastAPI):** 9 tests executed via Pytest. 100% pass rate.
 - **Frontend SPA (React 18 / TypeScript / Vite):** Full strict TypeScript compilation (`tsc -b`) with 0 errors, bundled 2,643 modules in 32.01s.
@@ -67,7 +68,8 @@ This report documents the automated and manual verification results across the c
 ## 3. Automated Test Execution Outputs
 
 ### Backend Maven Surefire Summary
-```
+
+```text
 [INFO] Results:
 [INFO] Tests run: 466, Failures: 0, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
@@ -77,7 +79,8 @@ This report documents the automated and manual verification results across the c
 ```
 
 ### Python Pytest Summary
-```
+
+```text
 ============================= test session starts =============================
 platform win32 -- Python 3.10.0, pytest-9.1.1, pluggy-1.6.0
 rootdir: C:\Users\KAVIRAJ\Desktop\PROJECT\Mini project-KK\ai-service
@@ -96,7 +99,8 @@ tests/test_training.py::test_model_training_and_listing PASSED           [100%]
 ```
 
 ### Frontend Build Summary
-```
+
+```text
 > ahrao-frontend@1.0.0 build
 > tsc -b && vite build
 

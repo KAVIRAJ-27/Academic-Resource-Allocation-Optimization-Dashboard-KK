@@ -30,7 +30,6 @@ import com.ahrao.service.warden.WardenScopeService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -88,7 +87,6 @@ public class HostelResourceAllocationServiceTest {
         validationService = new HostelAllocationValidationServiceImpl(
                 studentRepository,
                 hostelRepository,
-                hostelBedRepository,
                 hostelAllocationRepository,
                 hostelRequestRepository,
                 wardenScopeService
@@ -117,7 +115,6 @@ public class HostelResourceAllocationServiceTest {
                 hostelAllocationRepository,
                 hostelBedRepository,
                 studentRepository,
-                hostelRepository,
                 hostelRequestRepository,
                 academicYearRepository,
                 auditLogRepository,

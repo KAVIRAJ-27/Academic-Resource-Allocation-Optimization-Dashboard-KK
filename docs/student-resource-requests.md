@@ -1,6 +1,7 @@
 # Student Resource Requests (Phase 14)
 
 ## 1. Overview & Purpose
+
 The **Student Resource Requests Module** (Phase 14 of the Academic & Hostel Resource Allocation Optimization Dashboard - AHRAO) provides an authenticated, controlled workflow allowing enrolled students to request access to academic venues and assets—including lecture classrooms, computing laboratories, and specialized educational equipment.
 
 > [!IMPORTANT]
@@ -47,7 +48,8 @@ stateDiagram-v2
     COMPLETED --> [*]
 ```
 
-### Cancellation Eligibility:
+### Cancellation Eligibility
+
 - A student may cancel a request **ONLY IF** its status is `PENDING`.
 - Attempts to cancel requests in `APPROVED`, `REJECTED`, `CANCELLED`, or `COMPLETED` states are rejected with `400 Bad Request`.
 
@@ -58,7 +60,7 @@ stateDiagram-v2
 All endpoints are prefixed with `/api/student/resource-requests`:
 
 | Method | Endpoint | Description | Security |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `GET` | `/api/student/resource-requests` | Retrieve paginated list of own requests with search & status filters | `ROLE_STUDENT`, Own Records |
 | `GET` | `/api/student/resource-requests/summary` | Real-time counts (Total, Pending, Approved, Rejected, Cancelled, Completed) | `ROLE_STUDENT`, Own Records |
 | `GET` | `/api/student/resource-requests/resources` | List eligible resources available for student requisition | `ROLE_STUDENT` |
@@ -125,6 +127,7 @@ All endpoints are prefixed with `/api/student/resource-requests`:
 ## 7. Limitations & Strict Boundaries
 
 The following capabilities belong to subsequent phases and are **strictly excluded** from Phase 14:
+
 - ❌ Automatic resource allocation algorithm
 - ❌ Resource optimization engine
 - ❌ Timetable conflict detection engine

@@ -44,6 +44,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
+import org.mockito.ArgumentMatchers;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
@@ -133,11 +134,12 @@ class StudentResourceRequestServiceTest {
         mockRequest.setStatus(RequestStatus.PENDING);
     }
 
+    @SuppressWarnings("unchecked")
     @Test
     @DisplayName("getMyRequests should return paged student requests")
     void testGetMyRequests() {
         Page<AcademicResourceRequest> page = new PageImpl<>(List.of(mockRequest));
-        when(requestRepository.findAll(any(Specification.class), any(Pageable.class))).thenReturn(page);
+        when(requestRepository.findAll(ArgumentMatchers.<Specification<AcademicResourceRequest>>any(), any(Pageable.class))).thenReturn(page);
 
         PagedResponse<StudentResourceRequestDto> response = service.getMyRequests(
                 10L, null, null, null, null, 0, 10, "createdAt", "desc");
@@ -334,10 +336,11 @@ class StudentResourceRequestServiceTest {
         assertEquals(0L, counts.getCompleted());
     }
 
+    @SuppressWarnings("unchecked")
     @Test
     @DisplayName("getAvailableResources should return resources eligible for requests")
     void testGetAvailableResources() {
-        when(resourceRepository.findAll(any(Specification.class), any(Sort.class))).thenReturn(List.of(mockResource));
+        when(resourceRepository.findAll(ArgumentMatchers.<Specification<Resource>>any(), any(Sort.class))).thenReturn(List.of(mockResource));
 
         List<StudentResourceSummaryDto> resources = service.getAvailableResources(10L, null);
 

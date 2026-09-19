@@ -81,7 +81,7 @@ public class UserServiceImpl implements UserService {
                 predicates.add(cb.equal(root.get("status"), statusFilter));
             }
 
-            if (!Long.class.equals(query.getResultType()) && !long.class.equals(query.getResultType())) {
+            if (query != null && !Long.class.equals(query.getResultType()) && !long.class.equals(query.getResultType())) {
                 query.distinct(true);
             }
 

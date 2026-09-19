@@ -17,7 +17,6 @@ import com.ahrao.entity.hostel.Warden;
 import com.ahrao.entity.request.MaintenanceRequest;
 import com.ahrao.entity.resource.Resource;
 import com.ahrao.entity.user.User;
-import com.ahrao.exception.BadRequestException;
 import com.ahrao.exception.ConflictException;
 import com.ahrao.exception.ForbiddenException;
 import com.ahrao.exception.ResourceNotFoundException;

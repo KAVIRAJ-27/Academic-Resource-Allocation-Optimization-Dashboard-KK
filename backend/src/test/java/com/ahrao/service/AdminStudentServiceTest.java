@@ -39,6 +39,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
+import org.mockito.ArgumentMatchers;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
@@ -122,13 +123,14 @@ class AdminStudentServiceTest {
         student.setStatus("ACTIVE");
     }
 
+    @SuppressWarnings("unchecked")
     @Test
     @DisplayName("Should return paginated student list with correct metadata")
     void testGetStudents_Pagination() {
         Pageable pageable = PageRequest.of(0, 10);
         Page<Student> mockPage = new PageImpl<>(Collections.singletonList(student), pageable, 1);
 
-        when(studentRepository.findAll(any(Specification.class), eq(pageable))).thenReturn(mockPage);
+        when(studentRepository.findAll(ArgumentMatchers.<Specification<Student>>any(), eq(pageable))).thenReturn(mockPage);
 
         PagedResponse<StudentSummaryResponse> response = adminStudentService.getStudents(
                 "23CS001", 1L, 2L, 3L, "ACTIVE", pageable);

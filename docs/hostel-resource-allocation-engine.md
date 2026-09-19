@@ -16,7 +16,7 @@ The **Hostel Resource Allocation Engine (Phase 29)** provides an enterprise-grad
 
 The engine transforms unstructured hostel demand into conflict-free, concurrency-safe, auditable bed assignments without relying on stochastic, genetic, or machine learning algorithms:
 
-```
+```text
 Hostel Request
       ↓
 Eligibility Validation
@@ -69,7 +69,9 @@ graph TD
 ## 4. Allocation Lifecycles & Validation Rules
 
 ### 4.1 Strict Eligibility Validations
+
 Before committing any allocation, the backend validates:
+
 1. **Student Active**: `Student` entity and linked `User` account must have `ACTIVE` status. Otherwise rejected with `STUDENT_INACTIVE`.
 2. **Single Active Allocation**: A student can possess at most one `ACTIVE` hostel allocation campus-wide. Violations throw `STUDENT_ALREADY_ALLOCATED`.
 3. **Hierarchy Integrity**: Bed must belong to specified Room, Room to Floor, Floor to Block, Block to Hostel. Inactive blocks, floors, or rooms fail with `HOSTEL_BLOCK_INACTIVE`, `HOSTEL_FLOOR_INACTIVE`, or `ROOM_INACTIVE`.
@@ -99,7 +101,9 @@ Before committing any allocation, the backend validates:
 ## 6. Sample Request & Response Payloads
 
 ### 6.1 Preview Allocation (`POST /api/hostel/resource-allocations/preview`)
-**Request:**
+
+### Request:
+
 ```json
 {
   "studentId": 100,
@@ -107,7 +111,9 @@ Before committing any allocation, the backend validates:
   "hostelId": 10
 }
 ```
-**Success Response:**
+
+### Success Response:
+
 ```json
 {
   "success": true,
@@ -137,7 +143,9 @@ Before committing any allocation, the backend validates:
 ```
 
 ### 6.2 Manual Allocation (`POST /api/hostel/resource-allocations/manual`)
-**Request:**
+
+### Request:
+
 ```json
 {
   "studentId": 100,
@@ -149,7 +157,9 @@ Before committing any allocation, the backend validates:
   "endDate": "2027-05-31"
 }
 ```
-**Response (`201 Created`):**
+
+### Response (`201 Created`):
+
 ```json
 {
   "success": true,
@@ -183,7 +193,9 @@ Before committing any allocation, the backend validates:
 ```
 
 ### 6.3 Release Allocation (`POST /api/hostel/resource-allocations/{id}/release`)
-**Response:**
+
+### Response:
+
 ```json
 {
   "success": true,
@@ -201,6 +213,7 @@ Before committing any allocation, the backend validates:
 ## 7. Audit Logging
 
 Every state transition generates an immutable `AuditLog` entry:
+
 - `MANUAL_HOSTEL_ALLOCATION`: Manual bed assignment record with actor, student, bed, and room telemetry.
 - `AUTO_HOSTEL_ALLOCATION`: Automated candidate selection and reservation record.
 - `HOSTEL_ALLOCATION_RELEASED`: Completion and checkout event restoring bed to `AVAILABLE`.

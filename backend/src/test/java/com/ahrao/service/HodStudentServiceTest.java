@@ -5,7 +5,6 @@ import com.ahrao.dto.hod.HodStudentDetailDto;
 import com.ahrao.dto.hod.HodStudentReferenceDataDto;
 import com.ahrao.dto.hod.HodStudentSummaryDto;
 import com.ahrao.dto.hod.HodUpdateStatusRequest;
-import com.ahrao.dto.hod.HodUpdateStudentRequest;
 import com.ahrao.entity.academic.*;
 import com.ahrao.entity.audit.AuditLog;
 import com.ahrao.entity.user.User;
@@ -36,6 +35,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
+import org.mockito.ArgumentMatchers;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
@@ -142,6 +142,7 @@ class HodStudentServiceTest {
         studentB.setStatus("ACTIVE");
     }
 
+    @SuppressWarnings("unchecked")
     @Test
     @DisplayName("HOD can retrieve paged students belonging to own department")
     void testGetStudents_Success() {
@@ -149,7 +150,7 @@ class HodStudentServiceTest {
         when(hodDepartmentResolver.resolveHodDepartment(hodUserId)).thenReturn(departmentA);
 
         Page<Student> page = new PageImpl<>(List.of(studentA), PageRequest.of(0, 20), 1);
-        when(studentRepository.findAll(any(Specification.class), any(Pageable.class))).thenReturn(page);
+        when(studentRepository.findAll(ArgumentMatchers.<Specification<Student>>any(), any(Pageable.class))).thenReturn(page);
 
         PagedResponse<HodStudentSummaryDto> response =
                 hodStudentService.getStudents(hodUserId, "Grace", null, null, null, "ACTIVE", PageRequest.of(0, 20));

@@ -1,15 +1,11 @@
 package com.ahrao.service.conflict;
 
 import com.ahrao.dto.conflict.ConflictCheckRequestDto;
-import com.ahrao.dto.conflict.ConflictItemDto;
 import com.ahrao.dto.conflict.ConflictResultDto;
 import com.ahrao.entity.academic.Department;
 import com.ahrao.entity.academic.Faculty;
-import com.ahrao.entity.academic.Section;
 import com.ahrao.entity.academic.TimeSlot;
 import com.ahrao.entity.academic.TimetableEntry;
-import com.ahrao.entity.allocation.ResourceAllocation;
-import com.ahrao.entity.enums.AllocationStatus;
 import com.ahrao.entity.enums.ConflictCode;
 import com.ahrao.entity.enums.ConflictSeverity;
 import com.ahrao.entity.enums.ResourceStatus;
@@ -35,11 +31,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
 
-import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Collections;
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 

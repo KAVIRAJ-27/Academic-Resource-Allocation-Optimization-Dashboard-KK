@@ -29,7 +29,6 @@ import com.ahrao.repository.academic.StudentRepository;
 import com.ahrao.repository.allocation.HostelAllocationRepository;
 import com.ahrao.repository.audit.AuditLogRepository;
 import com.ahrao.repository.hostel.HostelBedRepository;
-import com.ahrao.security.SecurityUtils;
 import jakarta.persistence.criteria.Join;
 import jakarta.persistence.criteria.Predicate;
 import org.slf4j.Logger;

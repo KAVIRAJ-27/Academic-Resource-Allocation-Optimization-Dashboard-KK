@@ -2,7 +2,6 @@ package com.ahrao.service.academic.allocation;
 
 import com.ahrao.dto.academic.allocation.AcademicAllocationPreviewDto;
 import com.ahrao.dto.academic.allocation.AcademicResourceCandidateDto;
-import com.ahrao.entity.academic.Institution;
 import com.ahrao.entity.academic.TimeSlot;
 import com.ahrao.entity.request.AcademicResourceRequest;
 import com.ahrao.entity.resource.Classroom;

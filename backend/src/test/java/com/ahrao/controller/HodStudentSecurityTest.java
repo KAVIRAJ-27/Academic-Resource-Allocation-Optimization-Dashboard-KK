@@ -2,11 +2,9 @@ package com.ahrao.controller;
 
 import com.ahrao.dto.ApiResponse;
 import com.ahrao.dto.common.PagedResponse;
-import com.ahrao.dto.hod.HodStudentDetailDto;
 import com.ahrao.dto.hod.HodStudentReferenceDataDto;
 import com.ahrao.dto.hod.HodStudentSummaryDto;
 import com.ahrao.dto.hod.HodUpdateStatusRequest;
-import com.ahrao.dto.hod.HodUpdateStudentRequest;
 import com.ahrao.entity.enums.UserStatus;
 import com.ahrao.exception.UnauthorizedException;
 import com.ahrao.security.CustomUserDetails;

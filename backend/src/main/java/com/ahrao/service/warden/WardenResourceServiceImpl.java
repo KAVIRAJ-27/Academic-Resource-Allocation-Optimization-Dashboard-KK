@@ -8,7 +8,6 @@ import com.ahrao.entity.audit.AuditLog;
 import com.ahrao.entity.hostel.Hostel;
 import com.ahrao.entity.hostel.HostelFacility;
 import com.ahrao.entity.hostel.Warden;
-import com.ahrao.entity.user.User;
 import com.ahrao.exception.BadRequestException;
 import com.ahrao.exception.ForbiddenException;
 import com.ahrao.repository.audit.AuditLogRepository;

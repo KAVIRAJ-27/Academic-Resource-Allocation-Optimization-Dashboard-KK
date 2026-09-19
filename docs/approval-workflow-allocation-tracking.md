@@ -1,9 +1,10 @@
 # Phase 32: Approval Workflow & Allocation Tracking
 
 ## 1. Executive Summary
+
 Phase 32 implements a centralized, transparent Approval Workflow and Allocation Tracking system for the Academic & Hostel Resource Allocation Optimization Dashboard (AHRAO). It connects resource requests, constraint management (Phase 30), explainable optimization (Phase 31), and transactional allocation engines (Phase 28 & 29) into an auditable lifecycle.
 
-```
+```text
 Request (Faculty / Student / Warden / HOD)
       ↓
 Routing & Scope Determination (HOD / Warden / Principal / Admin)
@@ -67,7 +68,7 @@ Status: ALLOCATED / ACTIVE / COMPLETED / CANCELLED
 
 The unified timeline compiles chronological milestones across requests, approvals, allocations, and audit logs into an interactive visualization:
 
-```
+```text
 [1. REQUESTED]
    └── Timestamp, Requester name/role, Department/Hostel, Initial justification
             ↓
@@ -100,7 +101,9 @@ The unified timeline compiles chronological milestones across requests, approval
 ## 5. Live Conflict Detection & Stale Recommendation Handling
 
 ### Live Conflict Detection Preview
+
 When an approver opens an approval item for review:
+
 1. `ApprovalService.getApprovalById(id)` looks up the candidate resource and requested time slot / bed.
 2. It executes Phase 30 `ConflictDetectionService.checkAcademicConflicts()` or `checkHostelConflicts()` in read-only preview mode.
 3. The response details whether the resource is still free (`conflictStatus: "SAFE"`), or whether an overlap has occurred (`conflictStatus: "CONFLICT_DETECTED"`).
@@ -109,6 +112,7 @@ When an approver opens an approval item for review:
    - 🔴 **Conflict Detected**: Overlapping reservation or status change identified, warning the approver.
 
 ### Atomic Re-Validation Upon Approval
+
 1. Approver submits `POST /api/approvals/{id}/approve` with comments.
 2. Service validates that approver is not self-approving.
 3. Service checks that approver role and scope match the request target.
@@ -127,6 +131,7 @@ When an approver opens an approval item for review:
 ## 6. REST API Endpoints
 
 ### 1. Approvals API (`/api/approvals`)
+
 - `GET /api/approvals`: Paged listing of approvals with optional filters (`status`, `requestType`, `startDate`, `endDate`).
 - `GET /api/approvals/pending`: Quick filter for pending approvals requiring the caller's action.
 - `GET /api/approvals/{id}`: Detailed approval information with candidate details and real-time Phase 30 conflict analysis.
@@ -135,6 +140,7 @@ When an approver opens an approval item for review:
 - `GET /api/approvals/{id}/timeline`: Retrieve full chronological lifecycle history for the approval.
 
 ### 2. Allocation Timeline Endpoints
+
 - `GET /api/academic/allocations/{id}/timeline`: Retrieve chronological lifecycle milestones for an academic allocation.
 - `GET /api/hostel/resource-allocations/{id}/timeline`: Retrieve chronological lifecycle milestones for a hostel bed allocation.
 
@@ -143,6 +149,7 @@ When an approver opens an approval item for review:
 ## 7. Frontend User Interface
 
 ### Approval Center Dashboard (`/approvals`)
+
 - **Metric Cards**:
   - `Pending Approvals`: Real-time badge counter of items awaiting review.
   - `Approved Requests`: Total successfully approved and allocated items.
@@ -176,6 +183,7 @@ When an approver opens an approval item for review:
 ---
 
 ## 9. Verification & Test Suite
+
 - `ApprovalRoutingServiceTest`: Verifies routing rules, scope barriers, and anti-self-approval rejection.
 - `ApprovalServiceTest`: Verifies atomic approval flow, conflict aborts, Phase 28/29 dispatch, and rejection handling.
 - `ApprovalSecurityTest`: Validates 401 Unauthorized, 403 Forbidden for unauthorized roles, and anti-self-approval blocking.

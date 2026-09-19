@@ -1,8 +1,6 @@
 package com.ahrao.service;
 
-import com.ahrao.dto.dashboard.AcademicResourceOverviewDto;
 import com.ahrao.dto.dashboard.AdminDashboardOverviewResponse;
-import com.ahrao.dto.dashboard.HostelResourceOverviewDto;
 import com.ahrao.dto.dashboard.UserDistributionDto;
 import com.ahrao.entity.audit.AuditLog;
 import com.ahrao.entity.enums.*;
@@ -22,7 +20,6 @@ import com.ahrao.repository.request.MaintenanceRequestRepository;
 import com.ahrao.repository.resource.ResourceRepository;
 import com.ahrao.repository.user.UserRepository;
 import com.ahrao.service.impl.AdminDashboardServiceImpl;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

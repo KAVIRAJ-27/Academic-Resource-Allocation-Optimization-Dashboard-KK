@@ -1,8 +1,11 @@
 # Faculty Workload & Resource Requests Module (Phase 19)
+
 PROJECT: Academic & Hostel Resource Allocation Optimization Dashboard (AHRAO)
 
 ## 1. Overview
+
 The **Faculty Workload & Resource Requests Module** provides a role-scoped, auditable interface for authenticated faculty members (`ROLE_FACULTY`). It delivers:
+
 1. **Teaching Workload Telemetry** (`/faculty/workload`):
    - Current workload summary cards (Total hours, teaching hours, lab hours, other duties, balance status, subject & section counts, weekly limits).
    - Subject-wise weekly instruction load visualization using Recharts.
@@ -21,8 +24,10 @@ The **Faculty Workload & Resource Requests Module** provides a role-scoped, audi
 ## 2. Security & Ownership Architecture
 
 ### A. Zero-Trust Identity Resolution
+
 In adherence to strict project security guidelines, faculty endpoints **never** accept or trust a `facultyId` or `userId` from the frontend client. Identity is derived strictly from Spring Security's authenticated JWT principal:
-```
+
+```text
 JWT Authenticated Principal
              ↓
   SecurityUtils.getCurrentUserId()
@@ -33,6 +38,7 @@ JWT Authenticated Principal
 ```
 
 ### B. Ownership Enforcement & Isolation
+
 - A faculty member can only query and view their own workload summary and breakdown records (`GET /api/faculty/workload`).
 - Requisition listing (`GET /api/faculty/resource-requests`) applies a mandatory database specification filter: `requester.id = :userId`.
 - Requisition inspection (`GET /api/faculty/resource-requests/{id}`) verifies `request.getRequester().getId().equals(userId)`. Non-owners receive an immediate `403 Forbidden` response.
@@ -42,7 +48,9 @@ JWT Authenticated Principal
 ---
 
 ## 3. Database Schema Reuse
+
 Phase 19 reuses existing schema entities without schema alterations or destructive DDL:
+
 - `FacultyWorkload`: Tracks `faculty`, `academicYear`, `semester`, `totalHours`, `teachingHours`, `labHours`, `otherHours`, `workloadStatus`, `calculatedAt`.
 - `FacultySubjectAssignment`: Links `faculty`, `subject`, `section`, `academicYear`, `semester`, `hoursPerWeek`, `status`.
 - `AcademicResourceRequest`: Tracks `requester`, `requestedResource`, `category`, `department`, `purpose`, `requestedDate`, `startTime`, `endTime`, `quantity`, `priority`, `status`, `description`.
@@ -55,12 +63,14 @@ Phase 19 reuses existing schema entities without schema alterations or destructi
 ## 4. Backend API Specifications
 
 ### Workload Endpoints
+
 - `GET /api/faculty/workload`
   - **Security**: Authenticated `ROLE_FACULTY`.
   - **Behavior**: Retrieves current workload metrics, breakdown across active teaching assignments, and historical records for the authenticated faculty.
   - **Response**: `ApiResponse<FacultyWorkloadResponseDto>`
 
 ### Resource Request Endpoints
+
 - `GET /api/faculty/resource-requests`
   - **Security**: Authenticated `ROLE_FACULTY`.
   - **Query Parameters**: `status`, `categoryId`, `date`, `search`, `page`, `size`, `sortBy`, `sortDirection`.
@@ -99,7 +109,9 @@ Phase 19 reuses existing schema entities without schema alterations or destructi
 ---
 
 ## 5. Audit Logging Events
+
 All requisition lifecycle events are automatically persisted to the centralized `audit_logs` table:
+
 - `FACULTY_RESOURCE_REQUEST_CREATED`: Records the request ID, resource name, scheduled date, time window, client IP, and user-agent.
 - `FACULTY_RESOURCE_REQUEST_CANCELLED`: Records the state transition from `PENDING` to `CANCELLED` with audit metadata.
 
@@ -108,8 +120,9 @@ All requisition lifecycle events are automatically persisted to the centralized 
 ## 6. Frontend Architecture & Routing
 
 ### Routes
+
 | Route | Component | Description |
-|---|---|---|
+| --- | --- | --- |
 | `/faculty/workload` | `FacultyWorkloadPage` | Workload summaries, Recharts distribution, assigned breakdown, and history |
 | `/faculty/resource-requests` | `FacultyResourceRequestsPage` | Requisition ledger with summary counts, status filters, and cancellation |
 | `/faculty/resource-requests/new` | `CreateFacultyResourceRequestPage` | Multi-section form with resource and subject selector |
@@ -117,6 +130,7 @@ All requisition lifecycle events are automatically persisted to the centralized 
 | `/faculty/requests` | Redirect | Backward-compatible alias redirecting to `/faculty/resource-requests` |
 
 ### Design System Adherence
+
 - Base Canvas: `#080A0F`
 - Card Surfaces: `#11141C` with `#1E2330` borders and subtle box-shadows.
 - Accents: Emerald/Teal primary actions, Purple curriculum indicators, Amber warnings, Rose cancellations.

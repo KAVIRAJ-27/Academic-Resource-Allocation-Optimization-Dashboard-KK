@@ -16,6 +16,7 @@ The **AHRAO AI Service** is a dedicated Python FastAPI intelligence layer design
 ---
 
 ## 1. Tech Stack
+
 - **Framework**: FastAPI
 - **Server**: Uvicorn
 - **Machine Learning**: Scikit-learn (`RandomForestRegressor`, `IsolationForest`)
@@ -34,10 +35,13 @@ uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
 Healthcheck:
+
 ```bash
 curl http://localhost:8000/health
 ```
+
 Response:
+
 ```json
 {
   "status": "UP",

@@ -138,7 +138,6 @@ public class FacultyManagementServiceImpl implements FacultyManagementService {
                 .orElseThrow(() -> new ResourceNotFoundException("Department not found with ID: " + request.getDepartmentId()));
 
         User user;
-        boolean isNewUser = false;
 
         Role facultyRole = roleRepository.findByName("FACULTY")
                 .orElseThrow(() -> new ResourceNotFoundException("Role 'FACULTY' not configured in system."));
@@ -177,7 +176,6 @@ public class FacultyManagementServiceImpl implements FacultyManagementService {
             user.setStatus(UserStatus.ACTIVE);
             user.setRoles(new HashSet<>(List.of(facultyRole)));
             user = userRepository.save(user);
-            isNewUser = true;
 
             logAudit(adminUsername, "USER_CREATED", "User", user.getId(), null,
                     "{\"username\":\"" + username + "\",\"role\":\"FACULTY\"}", ipAddress, userAgent);

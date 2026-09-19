@@ -4,7 +4,6 @@ import com.ahrao.dto.resource.*;
 import com.ahrao.entity.academic.Department;
 import com.ahrao.entity.academic.Institution;
 import com.ahrao.entity.academic.TimeSlot;
-import com.ahrao.entity.enums.ResourceStatus;
 import com.ahrao.entity.enums.ResourceType;
 import com.ahrao.entity.resource.*;
 import com.ahrao.exception.BadRequestException;
@@ -27,11 +26,9 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalTime;
-import java.util.Collections;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)

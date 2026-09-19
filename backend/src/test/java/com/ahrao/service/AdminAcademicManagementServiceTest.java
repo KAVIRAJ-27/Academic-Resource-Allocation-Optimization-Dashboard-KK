@@ -53,7 +53,6 @@ class AdminAcademicManagementServiceTest {
     @Mock
     private UserRepository userRepository;
 
-    private InstitutionManagementServiceImpl institutionService;
     private DepartmentManagementServiceImpl departmentService;
     private AcademicYearManagementServiceImpl academicYearService;
     private SemesterManagementServiceImpl semesterService;
@@ -65,7 +64,6 @@ class AdminAcademicManagementServiceTest {
 
     @BeforeEach
     void setUp() {
-        institutionService = new InstitutionManagementServiceImpl(institutionRepository, userRepository, auditLogRepository);
         departmentService = new DepartmentManagementServiceImpl(
                 departmentRepository, institutionRepository, programRepository, facultyRepository,
                 studentRepository, subjectRepository, departmentHODRepository, auditLogRepository, userRepository);

@@ -19,7 +19,6 @@ import com.ahrao.repository.academic.TimetableEntryRepository;
 import com.ahrao.repository.allocation.ResourceAllocationRepository;
 import org.springframework.stereotype.Component;
 
-import java.time.DayOfWeek;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalTime;

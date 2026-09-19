@@ -119,7 +119,7 @@ public class AdminStudentServiceImpl implements AdminStudentService {
                 predicates.add(cb.equal(cb.upper(root.get("status")), status.trim().toUpperCase()));
             }
 
-            if (!Long.class.equals(query.getResultType()) && !long.class.equals(query.getResultType())) {
+            if (query != null && !Long.class.equals(query.getResultType()) && !long.class.equals(query.getResultType())) {
                 query.distinct(true);
             }
 

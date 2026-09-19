@@ -5,6 +5,7 @@
 Phase 22 implements the Head of Department (HOD) Academic Resource Requests and Allocation module for the **Academic & Hostel Resource Allocation Optimization Dashboard (AHRAO)**.
 
 This module provides department-level oversight and management for:
+
 1. **Academic Resource Requests** (`/hod/resource-requests`, `/hod/resource-requests/:id`):
    - Review all academic resource booking requests originating from faculty and students in the HOD's department.
    - Filter by status (`PENDING`, `APPROVED`, `REJECTED`, `CANCELLED`), priority level (`LOW`, `MEDIUM`, `HIGH`, `URGENT`), category, resource, and date range.
@@ -29,7 +30,9 @@ Strict zero-trust security is enforced at every layer:
 1. **Authentication & Authorization**:
    - All endpoints are protected with `@PreAuthorize("hasRole('HOD')")`.
    - The HOD's identity and authorized department are derived exclusively from the authenticated JWT token:
+
      `SecurityUtils.getCurrentUserId() -> HodDepartmentResolver.resolveHodDepartment(userId)`.
+
    - Never accept client-supplied `departmentId` or `hodId` parameters.
 2. **Cross-Department Protection**:
    - Attempting to view, approve, or reject a request belonging to another department immediately aborts with `403 Forbidden` (`Access denied: Resource request belongs to another department`).
@@ -49,7 +52,7 @@ Strict zero-trust security is enforced at every layer:
 ### Academic Resource Requests (`/api/hod/resource-requests`)
 
 | Method | Endpoint | Description | Status Codes |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `GET` | `/api/hod/resource-requests` | Paginated, searchable, filterable list of department requests | `200 OK`, `401 Unauthorized`, `403 Forbidden` |
 | `GET` | `/api/hod/resource-requests/summary` | Real-time KPI counts and department resource breakdown | `200 OK`, `401 Unauthorized`, `403 Forbidden` |
 | `GET` | `/api/hod/resource-requests/{id}` | Detailed request inspection (requester, resource, schedule, approval history, allocation) | `200 OK`, `403 Forbidden`, `404 Not Found` |
@@ -59,7 +62,7 @@ Strict zero-trust security is enforced at every layer:
 ### Academic Resource Allocations (`/api/hod/allocations`)
 
 | Method | Endpoint | Description | Status Codes |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `GET` | `/api/hod/allocations` | Paginated list of department resource allocations (read-only) | `200 OK`, `401 Unauthorized`, `403 Forbidden` |
 | `GET` | `/api/hod/allocations/summary` | Real-time allocation summary metrics (`total`, `active`, `pending`, `completed`) | `200 OK`, `401 Unauthorized`, `403 Forbidden` |
 | `GET` | `/api/hod/allocations/{id}` | Detailed inspection of department resource allocation | `200 OK`, `403 Forbidden`, `404 Not Found` |
@@ -69,12 +72,14 @@ Strict zero-trust security is enforced at every layer:
 ## 4. Frontend Architecture
 
 ### Custom Hooks
+
 - `useHodResourceRequests(initialPageSize = 10)`:
   - Manages requests state, KPI data, search debouncing, multi-criteria filtering (`status`, `priority`, `fromDate`, `toDate`), server-side pagination, request detail drawer/modal state, and approve/reject actions with auto-refresh.
 - `useHodAllocations(initialPageSize = 10)`:
   - Manages allocations state, KPI data, status/resource/date filtering, server-side pagination, and allocation detail modal state.
 
 ### UI Components
+
 - `HodRequestSummaryCards`: KPI cards for Pending, Approved, Rejected, Total requests, plus department resource inventory status (Available, Allocated, Maintenance).
 - `HodRequestTable`: Filterable, searchable table with status/priority badges, schedule details, requester badges, and quick actions (view, approve, reject).
 - `HodRequestDetailModal`: Full multi-section inspection modal displaying Requester Info, Resource Specs, Academic Context, Schedule, Approval History timeline, and Related Allocation.
@@ -85,6 +90,7 @@ Strict zero-trust security is enforced at every layer:
 - `HodAllocationDetailModal`: Read-only allocation details modal with resource, beneficiary, time slot, and originating request context.
 
 ### Pages & Routing
+
 - `/hod/resource-requests`: `HODResourceRequestsPage` mounted in `AppRoutes.tsx` under `HODLayout`.
 - `/hod/allocations`: `HODAllocationsPage` mounted in `AppRoutes.tsx` under `HODLayout`.
 - Added to HOD navigation sidebar in `navigation.ts` under the Academic category.

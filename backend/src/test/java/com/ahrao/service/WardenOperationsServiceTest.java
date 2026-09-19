@@ -2,20 +2,17 @@ package com.ahrao.service;
 
 import com.ahrao.dto.common.PagedResponse;
 import com.ahrao.dto.warden.*;
-import com.ahrao.entity.academic.Student;
 import com.ahrao.entity.enums.ComplaintStatus;
 import com.ahrao.entity.enums.MaintenanceStatus;
 import com.ahrao.entity.enums.PriorityLevel;
 import com.ahrao.entity.hostel.Hostel;
 import com.ahrao.entity.hostel.HostelFacility;
-import com.ahrao.entity.hostel.HostelRoom;
 import com.ahrao.entity.hostel.Warden;
 import com.ahrao.entity.request.HostelComplaint;
 import com.ahrao.entity.request.MaintenanceRequest;
 import com.ahrao.entity.user.User;
 import com.ahrao.exception.BadRequestException;
 import com.ahrao.exception.ConflictException;
-import com.ahrao.exception.ForbiddenException;
 import com.ahrao.repository.allocation.HostelAllocationRepository;
 import com.ahrao.repository.audit.AuditLogRepository;
 import com.ahrao.repository.hostel.HostelBedRepository;
@@ -41,6 +38,7 @@ import java.util.Optional;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
+import org.mockito.ArgumentMatchers;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
@@ -105,6 +103,7 @@ class WardenOperationsServiceTest {
     // HOSTEL FACILITIES / RESOURCES TESTS
     // ==========================================
 
+    @SuppressWarnings("unchecked")
     @Test
     @DisplayName("Should retrieve paged hostel facilities within authorized warden scope")
     void testGetFacilities_Success() {
@@ -117,7 +116,7 @@ class WardenOperationsServiceTest {
         facility.setStatus("ACTIVE");
         facility.setQuantity(2);
 
-        when(hostelFacilityRepository.findAll(any(Specification.class), any(Pageable.class)))
+        when(hostelFacilityRepository.findAll(ArgumentMatchers.<Specification<HostelFacility>>any(), any(Pageable.class)))
                 .thenReturn(new PageImpl<>(List.of(facility)));
 
         PagedResponse<WardenFacilitySummaryDto> response = wardenResourceService.getFacilities(

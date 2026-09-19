@@ -1,7 +1,6 @@
 package com.ahrao.controller;
 
 import com.ahrao.dto.ApiResponse;
-import com.ahrao.dto.principal.dashboard.PrincipalInstitutionDto;
 import com.ahrao.dto.principal.monitoring.PrincipalMonitoringResponse;
 import com.ahrao.dto.principal.monitoring.PrincipalMonitoringSummaryDto;
 import com.ahrao.entity.enums.UserStatus;

@@ -8,7 +8,6 @@ import com.ahrao.entity.academic.Student;
 import com.ahrao.entity.allocation.HostelAllocation;
 import com.ahrao.entity.enums.AllocationStatus;
 import com.ahrao.entity.enums.UserStatus;
-import com.ahrao.entity.hostel.Hostel;
 import com.ahrao.entity.hostel.HostelBed;
 import com.ahrao.entity.hostel.HostelBlock;
 import com.ahrao.entity.hostel.HostelFloor;

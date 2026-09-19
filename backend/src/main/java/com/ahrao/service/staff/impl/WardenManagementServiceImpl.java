@@ -70,7 +70,9 @@ public class WardenManagementServiceImpl implements WardenManagementService {
             Pageable pageable) {
 
         Specification<Warden> spec = (root, query, cb) -> {
-            query.distinct(true);
+            if (query != null) {
+                query.distinct(true);
+            }
             List<Predicate> predicates = new ArrayList<>();
 
             if (search != null && !search.trim().isEmpty()) {
@@ -138,7 +140,6 @@ public class WardenManagementServiceImpl implements WardenManagementService {
         }
 
         User user;
-        boolean isNewUser = false;
 
         Role wardenRole = roleRepository.findByName("WARDEN")
                 .orElseThrow(() -> new ResourceNotFoundException("Role 'WARDEN' not configured in system."));
@@ -176,7 +177,6 @@ public class WardenManagementServiceImpl implements WardenManagementService {
             user.setStatus(UserStatus.ACTIVE);
             user.setRoles(new HashSet<>(List.of(wardenRole)));
             user = userRepository.save(user);
-            isNewUser = true;
 
             logAudit(adminUsername, "USER_CREATED", "User", user.getId(), null,
                     "{\"username\":\"" + username + "\",\"role\":\"WARDEN\"}", ipAddress, userAgent);

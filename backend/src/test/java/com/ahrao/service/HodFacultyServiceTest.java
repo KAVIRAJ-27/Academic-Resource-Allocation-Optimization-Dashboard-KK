@@ -3,7 +3,6 @@ package com.ahrao.service;
 import com.ahrao.dto.common.PagedResponse;
 import com.ahrao.dto.hod.HodFacultyDetailDto;
 import com.ahrao.dto.hod.HodFacultySummaryDto;
-import com.ahrao.dto.hod.HodUpdateFacultyRequest;
 import com.ahrao.dto.hod.HodUpdateStatusRequest;
 import com.ahrao.entity.academic.*;
 import com.ahrao.entity.audit.AuditLog;
@@ -37,6 +36,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
+import org.mockito.ArgumentMatchers;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
@@ -118,6 +118,7 @@ class HodFacultyServiceTest {
         facultyB.setStatus("ACTIVE");
     }
 
+    @SuppressWarnings("unchecked")
     @Test
     @DisplayName("HOD can retrieve paged faculty belonging to own department")
     void testGetFaculty_Success() {
@@ -125,7 +126,7 @@ class HodFacultyServiceTest {
         when(hodDepartmentResolver.resolveHodDepartment(hodUserId)).thenReturn(departmentA);
 
         Page<Faculty> page = new PageImpl<>(List.of(facultyA), PageRequest.of(0, 20), 1);
-        when(facultyRepository.findAll(any(Specification.class), any(Pageable.class))).thenReturn(page);
+        when(facultyRepository.findAll(ArgumentMatchers.<Specification<Faculty>>any(), any(Pageable.class))).thenReturn(page);
         when(facultySubjectAssignmentRepository.countByFacultyIdAndStatus(55L, "ACTIVE")).thenReturn(3L);
 
         FacultyWorkload fw = new FacultyWorkload();

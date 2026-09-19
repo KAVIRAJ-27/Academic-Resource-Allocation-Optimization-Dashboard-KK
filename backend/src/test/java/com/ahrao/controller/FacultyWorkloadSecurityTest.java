@@ -1,7 +1,6 @@
 package com.ahrao.controller;
 
 import com.ahrao.dto.ApiResponse;
-import com.ahrao.dto.faculty.workload.FacultyWorkloadBreakdownDto;
 import com.ahrao.dto.faculty.workload.FacultyWorkloadResponseDto;
 import com.ahrao.dto.faculty.workload.FacultyWorkloadSummaryDto;
 import com.ahrao.entity.enums.UserStatus;
@@ -24,7 +23,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.util.Collections;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.eq;

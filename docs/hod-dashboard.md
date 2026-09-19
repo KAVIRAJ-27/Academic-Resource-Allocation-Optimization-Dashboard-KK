@@ -1,9 +1,11 @@
 # AHRAO Phase 20 — HOD Department Dashboard
 
 ## 1. Dashboard Purpose
+
 The HOD (Head of Department) Dashboard is the dedicated operational command center for departmental leadership within the AHRAO system. It delivers a real-time, comprehensive overview of the HOD's own department using actual database queries, enforcing strict department scoping derived solely from the authenticated user's JWT principal.
 
 Key capabilities provided to the HOD:
+
 1. **Department Information & Active HOD Details**: Department name, code, status, institution affiliation, and active HOD tenure metadata.
 2. **Key Metric Indicators (KPIs)**:
    - Total Students enrolled in department programs
@@ -27,16 +29,21 @@ Key capabilities provided to the HOD:
 ## 2. Authorization & Scoping Architecture
 
 ### 2.1 Identity & Department Resolution
+
 The system enforces strict multi-tenant department isolation:
+
 - **Never accepts `departmentId` or `hodId` from request parameters or body.**
 - Reads `userId` strictly from Spring Security Context: `SecurityUtils.getCurrentUserId()`.
 - Resolves the HOD's `Faculty` entity: `facultyRepository.findByUserId(userId)`.
 - Resolves the HOD's active `DepartmentHOD` assignment:
+
   `departmentHODRepository.findFirstByFacultyUserIdAndStatus(userId, "ACTIVE")`.
+
 - Fallback: checks `faculty.getDepartment()` if no explicit `DepartmentHOD` row exists.
 - If neither exists, access is refused with `403 Forbidden` (`"No active department assignment found for authenticated HOD."`).
 
 ### 2.2 Security Controls
+
 - **Endpoint Protection**: Class-level `@PreAuthorize("hasRole('HOD')")` on `HodDashboardController`.
 - **Unauthenticated Access**: Throws `UnauthorizedException` (`401`).
 - **Non-HOD / Unauthorized Roles**: Throws `AccessDeniedException` / `ForbiddenException` (`403`).
@@ -47,12 +54,14 @@ The system enforces strict multi-tenant department isolation:
 ## 3. API Specification
 
 ### 3.1 Primary Endpoint
+
 - **URL**: `GET /api/hod/dashboard`
 - **Method**: `GET`
 - **Headers**: `Authorization: Bearer <JWT>`
 - **Response Format**: `ApiResponse<HodDashboardResponse>`
 
 ### 3.2 Sample Response
+
 ```json
 {
   "success": true,
@@ -207,6 +216,7 @@ The frontend is implemented under `frontend/src/components/hod/dashboard/` and c
 ## 6. Verification & Test Coverage
 
 ### 6.1 Backend Tests
+
 - `HodDashboardSecurityTest`:
   - `testGetHodDashboardSuccess`: Verifies authenticated HOD access and data delivery.
   - `testUnauthenticatedAccessDenied`: Verifies rejection without valid security context.

@@ -1,9 +1,10 @@
 # Phase 34: AI Insights, Prediction & Recommendation
 
 ## 1. Executive Summary
+
 Phase 34 introduces an AI/ML intelligence layer to the Academic & Hostel Resource Allocation Optimization Dashboard (AHRAO). The system analyzes real historical database records to provide forward-looking resource demand prediction, utilization forecasting, hostel bed shortage warnings, institutional bottleneck detection, operational anomaly detection, faculty workload insights, and explainable decision-support recommendations.
 
-```
+```text
 React Frontend (Vite/TypeScript)
       ↓
 Spring Boot Backend (API Gateway & Scope Guard)
@@ -47,7 +48,8 @@ Frontend (/ai-insights Dashboard)
 ## 3. Python FastAPI Microservice (`ai-service/`)
 
 ### Project Structure
-```
+
+```text
 ai-service/
 ├── app/
 │   ├── main.py                     # FastAPI app with lifespan handler and CORS
@@ -91,7 +93,9 @@ ai-service/
 ```
 
 ### Health Check Endpoint
+
 `GET /health`
+
 ```json
 {
   "status": "UP",
@@ -106,6 +110,7 @@ ai-service/
 ## 4. Spring Boot Integration & Security Gateway
 
 ### Resilience Architecture
+
 - `AiClientService`: Communicates with FastAPI via a configured `RestTemplate` bean (`connect-timeout-ms: 3000`, `read-timeout-ms: 8000`).
 - **Circuit-safe Fallback**: Any `ResourceAccessException`, `HttpServerErrorException`, or timeout triggers a graceful return of `AI_SERVICE_UNAVAILABLE` rather than throwing uncaught 500 errors.
 - **Scope Enforcement**:
@@ -138,6 +143,7 @@ ai-service/
 ## 5. Frontend User Interface (`/ai-insights`)
 
 The AI Insights Hub integrates cleanly into AHRAO's dark SaaS interface:
+
 - **Telemetry Tabs**:
   1. *Overview*: Executive metrics (Predicted Demand, Projected Occupancy, High Risk Shortages, Active Bottlenecks, Unsupervised Anomalies).
   2. *Academic Predictions*: Demand volume vs. capacity, predicted utilization bar charts, and 30-day forecast trends.
@@ -159,7 +165,7 @@ The AI Insights Hub integrates cleanly into AHRAO's dark SaaS interface:
 
 ## 6. End-to-End Decision Flow
 
-```
+```text
 REAL DATABASE RECORDS (Allocations, Requests, Occupancy, Workloads, Conflicts)
         ↓
 PHASE 33 ANALYTICS DATA PREPARATION

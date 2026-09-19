@@ -4,7 +4,6 @@ import com.ahrao.dto.ApiResponse;
 import com.ahrao.dto.common.PagedResponse;
 import com.ahrao.dto.hod.HodFacultyDetailDto;
 import com.ahrao.dto.hod.HodFacultySummaryDto;
-import com.ahrao.dto.hod.HodUpdateFacultyRequest;
 import com.ahrao.dto.hod.HodUpdateStatusRequest;
 import com.ahrao.entity.enums.UserStatus;
 import com.ahrao.exception.UnauthorizedException;

@@ -8,8 +8,6 @@ import com.ahrao.entity.enums.AllocationStatus;
 import com.ahrao.exception.UnauthorizedException;
 import com.ahrao.security.SecurityUtils;
 import com.ahrao.service.principal.PrincipalAllocationService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -24,8 +22,6 @@ import java.time.LocalDate;
 @RequestMapping("/api/principal/allocations")
 @PreAuthorize("hasRole('PRINCIPAL')")
 public class PrincipalAllocationController {
-
-    private static final Logger log = LoggerFactory.getLogger(PrincipalAllocationController.class);
 
     private final PrincipalAllocationService allocationService;
 

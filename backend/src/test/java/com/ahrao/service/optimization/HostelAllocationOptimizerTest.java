@@ -151,7 +151,6 @@ class HostelAllocationOptimizerTest {
         when(hostelRequestRepository.findById(201L)).thenReturn(Optional.of(request));
 
         HostelBed bedAlpha = createBed(1L, "1", hostelA, 101, 2);
-        HostelBed bedBeta = createBed(2L, "1", hostelB, 201, 2);
 
         when(hostelBedRepository.findCandidateBedsByHostelId(eq(10L), eq(HostelBedStatus.AVAILABLE)))
                 .thenReturn(List.of(bedAlpha));

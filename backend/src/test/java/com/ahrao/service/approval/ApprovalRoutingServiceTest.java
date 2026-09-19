@@ -1,7 +1,6 @@
 package com.ahrao.service.approval;
 
 import com.ahrao.entity.academic.Department;
-import com.ahrao.entity.academic.Institution;
 import com.ahrao.entity.approval.Approval;
 import com.ahrao.entity.enums.ApprovalLevel;
 import com.ahrao.entity.hostel.Hostel;

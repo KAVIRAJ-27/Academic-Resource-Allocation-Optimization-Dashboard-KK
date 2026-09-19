@@ -10,7 +10,6 @@ import com.ahrao.entity.enums.RequestStatus;
 import com.ahrao.entity.enums.ResourceStatus;
 import com.ahrao.entity.request.AcademicResourceRequest;
 import com.ahrao.entity.resource.Resource;
-import com.ahrao.entity.resource.ResourceCategory;
 import com.ahrao.entity.user.User;
 import com.ahrao.exception.ForbiddenException;
 import com.ahrao.repository.academic.*;

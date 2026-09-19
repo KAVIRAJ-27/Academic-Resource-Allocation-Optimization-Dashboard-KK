@@ -7,20 +7,16 @@ import com.ahrao.entity.approval.Approval;
 import com.ahrao.entity.audit.AuditLog;
 import com.ahrao.entity.enums.ApprovalStatus;
 import com.ahrao.entity.request.AcademicResourceRequest;
-import com.ahrao.entity.request.HostelRequest;
 import com.ahrao.entity.user.User;
 import com.ahrao.exception.ResourceNotFoundException;
 import com.ahrao.repository.allocation.HostelAllocationRepository;
 import com.ahrao.repository.allocation.ResourceAllocationRepository;
 import com.ahrao.repository.approval.ApprovalRepository;
 import com.ahrao.repository.audit.AuditLogRepository;
-import com.ahrao.repository.request.AcademicResourceRequestRepository;
-import com.ahrao.repository.request.HostelRequestRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
-import java.time.ZoneOffset;
 import java.util.*;
 
 @Service
@@ -30,22 +26,16 @@ public class AllocationTrackingServiceImpl implements AllocationTrackingService 
     private final ResourceAllocationRepository resourceAllocationRepository;
     private final HostelAllocationRepository hostelAllocationRepository;
     private final ApprovalRepository approvalRepository;
-    private final AcademicResourceRequestRepository academicRequestRepository;
-    private final HostelRequestRepository hostelRequestRepository;
     private final AuditLogRepository auditLogRepository;
 
     public AllocationTrackingServiceImpl(
             ResourceAllocationRepository resourceAllocationRepository,
             HostelAllocationRepository hostelAllocationRepository,
             ApprovalRepository approvalRepository,
-            AcademicResourceRequestRepository academicRequestRepository,
-            HostelRequestRepository hostelRequestRepository,
             AuditLogRepository auditLogRepository) {
         this.resourceAllocationRepository = resourceAllocationRepository;
         this.hostelAllocationRepository = hostelAllocationRepository;
         this.approvalRepository = approvalRepository;
-        this.academicRequestRepository = academicRequestRepository;
-        this.hostelRequestRepository = hostelRequestRepository;
         this.auditLogRepository = auditLogRepository;
     }
 

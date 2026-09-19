@@ -1,13 +1,10 @@
 package com.ahrao.service.conflict;
 
 import com.ahrao.dto.conflict.ConflictCheckRequestDto;
-import com.ahrao.dto.conflict.ConflictItemDto;
 import com.ahrao.dto.conflict.ConflictResultDto;
 import com.ahrao.entity.academic.Student;
-import com.ahrao.entity.allocation.HostelAllocation;
 import com.ahrao.entity.enums.AllocationStatus;
 import com.ahrao.entity.enums.ConflictCode;
-import com.ahrao.entity.enums.ConflictSeverity;
 import com.ahrao.entity.enums.HostelBedStatus;
 import com.ahrao.entity.enums.RequestStatus;
 import com.ahrao.entity.hostel.*;
@@ -28,14 +25,11 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
 
-import java.time.LocalDate;
 import java.util.Collections;
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)

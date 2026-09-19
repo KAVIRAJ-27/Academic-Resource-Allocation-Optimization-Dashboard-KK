@@ -36,6 +36,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
+import org.mockito.ArgumentMatchers;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
@@ -148,11 +149,12 @@ class StudentAcademicServiceTest {
         mockFaculty.setDepartment(mockDept);
     }
 
+    @SuppressWarnings("unchecked")
     @Test
     @DisplayName("getAcademicOverview should return complete academic structure and verified subjects")
     void testGetAcademicOverviewSuccess() {
         when(studentRepository.findByUserId(10L)).thenReturn(Optional.of(mockStudent));
-        when(subjectRepository.findAll(any(Specification.class))).thenReturn(List.of(mockSubject1, mockSubject2));
+        when(subjectRepository.findAll(ArgumentMatchers.<Specification<Subject>>any())).thenReturn(List.of(mockSubject1, mockSubject2));
         lenient().when(assignmentRepository.findFirstBySubjectIdAndSectionId(any(), any())).thenReturn(Optional.empty());
         lenient().when(assignmentRepository.findFirstBySubjectId(any())).thenReturn(Optional.empty());
         when(timetableEntryRepository.findBySectionId(any())).thenReturn(Collections.emptyList());
@@ -181,13 +183,14 @@ class StudentAcademicServiceTest {
         assertThrows(ResourceNotFoundException.class, () -> studentAcademicService.getAcademicOverview(99L));
     }
 
+    @SuppressWarnings("unchecked")
     @Test
     @DisplayName("getStudentSubjects should return paged subjects within student program scope")
     void testGetStudentSubjects() {
         when(studentRepository.findByUserId(10L)).thenReturn(Optional.of(mockStudent));
 
         Page<Subject> mockPage = new PageImpl<>(List.of(mockSubject1), PageRequest.of(0, 10), 1);
-        when(subjectRepository.findAll(any(Specification.class), any(Pageable.class))).thenReturn(mockPage);
+        when(subjectRepository.findAll(ArgumentMatchers.<Specification<Subject>>any(), any(Pageable.class))).thenReturn(mockPage);
 
         PagedResponse<StudentSubjectDto> response = studentAcademicService.getStudentSubjects(
                 10L, "Distributed", 6, SubjectType.THEORY, "ACTIVE", PageRequest.of(0, 10));

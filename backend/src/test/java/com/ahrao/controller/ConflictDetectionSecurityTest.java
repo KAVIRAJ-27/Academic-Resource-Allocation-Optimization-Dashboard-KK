@@ -1,6 +1,5 @@
 package com.ahrao.controller;
 
-import com.ahrao.dto.ApiResponse;
 import com.ahrao.dto.conflict.ConflictItemDto;
 import com.ahrao.dto.hostel.allocation.HostelAllocationPreviewRequestDto;
 import com.ahrao.dto.hostel.allocation.HostelAllocationRequestDto;

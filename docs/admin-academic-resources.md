@@ -1,9 +1,11 @@
 # Admin Academic Resource Management (Phase 10)
 
 ## 1. Overview
+
 The **Admin Academic Resource Management** module (Phase 10 of the Academic & Hostel Resource Allocation Optimization Dashboard - AHRAO) establishes the comprehensive physical inventory, master space catalog, laboratory equipment, and weekly time periods baseline.
 
 This module provides the administrative master-data and availability management that future operational phases consume:
+
 - Student & Faculty Resource Request Workflows (Phase 11+)
 - Automated Master Timetable Generation
 - Real-time Conflict Detection Engine
@@ -14,7 +16,7 @@ This module provides the administrative master-data and availability management 
 
 ## 2. Resource Master Hierarchy
 
-```
+```text
 +------------------------------------------------------------------------------------+
 |                                INSTITUTION PROFILE                                 |
 +------------------------------------------+-----------------------------------------+
@@ -46,7 +48,8 @@ This module provides the administrative master-data and availability management 
 +-----------+ +-----------+ +------------+
 ```
 
-### Hierarchy Constraints & Structural Integrity:
+### Hierarchy Constraints & Structural Integrity
+
 1. **Resource Category**:
    - Classifies physical assets: `CLASSROOM`, `LABORATORY`, `EQUIPMENT`, `AUDITORIUM`, `SEMINAR_HALL`.
    - Unique code, unique naming rules.
@@ -96,6 +99,7 @@ This module provides the administrative master-data and availability management 
 ## 5. Dependency Protection (HTTP 409 Conflict)
 
 To protect institutional integrity before future allocation and scheduling modules go live:
+
 - Deleting a **Category** is blocked if `resourceRepository.countByCategoryId(id) > 0`.
 - Deleting a **Resource** is blocked if `resourceAllocationRepository.existsByResourceId(id)` or `timetableEntryRepository.existsByResourceId(id)`.
 - Deleting a **Classroom** or **Laboratory** is blocked if their backing resource is referenced by timetable entries or allocations.
@@ -106,6 +110,7 @@ To protect institutional integrity before future allocation and scheduling modul
 ## 6. Audit Logging Events
 
 All write operations record non-sensitive administrative audit trails using `AuditLog`:
+
 - `RESOURCE_CATEGORY_CREATED` / `RESOURCE_CATEGORY_UPDATED` / `RESOURCE_CATEGORY_STATUS_CHANGED`
 - `RESOURCE_CREATED` / `RESOURCE_UPDATED` / `RESOURCE_STATUS_CHANGED`
 - `CLASSROOM_CREATED` / `CLASSROOM_UPDATED` / `CLASSROOM_STATUS_CHANGED`
@@ -120,6 +125,7 @@ All write operations record non-sensitive administrative audit trails using `Aud
 All endpoints are strictly secured with `@PreAuthorize("hasRole('ADMIN')")`:
 
 ### Resource Categories
+
 - `GET /api/admin/resource-categories` (Search, status filter, pagination)
 - `GET /api/admin/resource-categories/{id}`
 - `POST /api/admin/resource-categories`
@@ -128,6 +134,7 @@ All endpoints are strictly secured with `@PreAuthorize("hasRole('ADMIN')")`:
 - `DELETE /api/admin/resource-categories/{id}`
 
 ### Academic Resources
+
 - `GET /api/admin/resources` (Search, category, department, status, location, capacity filters, pagination)
 - `GET /api/admin/resources/{id}`
 - `POST /api/admin/resources`
@@ -136,6 +143,7 @@ All endpoints are strictly secured with `@PreAuthorize("hasRole('ADMIN')")`:
 - `DELETE /api/admin/resources/{id}`
 
 ### Classrooms
+
 - `GET /api/admin/classrooms` (Search, building, roomType, status filters, pagination)
 - `GET /api/admin/classrooms/{id}`
 - `POST /api/admin/classrooms`
@@ -144,6 +152,7 @@ All endpoints are strictly secured with `@PreAuthorize("hasRole('ADMIN')")`:
 - `DELETE /api/admin/classrooms/{id}`
 
 ### Laboratories
+
 - `GET /api/admin/laboratories` (Search, department, building, status filters, pagination)
 - `GET /api/admin/laboratories/{id}`
 - `POST /api/admin/laboratories`
@@ -152,6 +161,7 @@ All endpoints are strictly secured with `@PreAuthorize("hasRole('ADMIN')")`:
 - `DELETE /api/admin/laboratories/{id}`
 
 ### Equipment
+
 - `GET /api/admin/equipment` (Search, resourceId, status filters, pagination)
 - `GET /api/admin/equipment/{id}`
 - `POST /api/admin/equipment`
@@ -160,6 +170,7 @@ All endpoints are strictly secured with `@PreAuthorize("hasRole('ADMIN')")`:
 - `DELETE /api/admin/equipment/{id}`
 
 ### Time Slots
+
 - `GET /api/admin/time-slots` (Search, dayOfWeek, status filters, pagination)
 - `GET /api/admin/time-slots/{id}`
 - `POST /api/admin/time-slots`
@@ -168,6 +179,7 @@ All endpoints are strictly secured with `@PreAuthorize("hasRole('ADMIN')")`:
 - `DELETE /api/admin/time-slots/{id}`
 
 ### Overview & Reference Data
+
 - `GET /api/admin/resources/overview` (Real database counts: total, available, allocated, maintenance, inactive, classrooms, labs, equipment, time slots, categories)
 - `GET /api/admin/resources/reference-data` (Categories, departments, equipment parent resources, statuses, days of week)
 
