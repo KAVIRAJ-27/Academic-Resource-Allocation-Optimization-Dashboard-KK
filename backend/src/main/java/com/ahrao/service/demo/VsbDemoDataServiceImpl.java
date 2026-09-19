@@ -491,6 +491,22 @@ public class VsbDemoDataServiceImpl implements VsbDemoDataService {
         File file = new File(dir, "courses.csv");
         if (!file.exists()) return;
 
+        Map<Long, Long> deptPrimaryProgMap = new HashMap<>();
+        List<Map<String, Object>> progRows = jdbcTemplate.queryForList("SELECT id, department_id FROM programs ORDER BY id ASC");
+        for (Map<String, Object> r : progRows) {
+            deptPrimaryProgMap.putIfAbsent(((Number) r.get("department_id")).longValue(), ((Number) r.get("id")).longValue());
+        }
+
+        Long fallSemId = querySingleLong("SELECT id FROM semesters WHERE name = 'FALL' ORDER BY id DESC LIMIT 1");
+        Long springSemId = querySingleLong("SELECT id FROM semesters WHERE name = 'SPRING' ORDER BY id DESC LIMIT 1");
+        Long anySemId = querySingleLong("SELECT id FROM semesters ORDER BY id ASC LIMIT 1");
+
+        Map<String, Long> existingSubjectsMap = new HashMap<>();
+        List<Map<String, Object>> subjRows = jdbcTemplate.queryForList("SELECT id, program_id, code FROM subjects");
+        for (Map<String, Object> r : subjRows) {
+            existingSubjectsMap.put(r.get("program_id") + ":" + r.get("code"), ((Number) r.get("id")).longValue());
+        }
+
         try (BufferedReader br = new BufferedReader(new FileReader(file, StandardCharsets.UTF_8))) {
             br.readLine();
             String line;
@@ -514,23 +530,22 @@ public class VsbDemoDataServiceImpl implements VsbDemoDataService {
                 }
 
                 // Pick primary program in department
-                Long dbProgId = querySingleLong("SELECT id FROM programs WHERE department_id = ? ORDER BY id ASC LIMIT 1", dbDeptId);
+                Long dbProgId = deptPrimaryProgMap.get(dbDeptId);
                 if (dbProgId == null) {
                     summary.recordError("courses.csv", row, "department_id", csvDeptId, "No programs under department");
                     continue;
                 }
 
                 // Pick matching semester
-                String semName = semOffered.contains("SPRING") && !semOffered.contains("FALL") ? "SPRING" : "FALL";
-                Long dbSemId = querySingleLong("SELECT id FROM semesters WHERE name = ? ORDER BY id DESC LIMIT 1", semName);
-                if (dbSemId == null) {
-                    dbSemId = querySingleLong("SELECT id FROM semesters ORDER BY id ASC LIMIT 1");
-                }
+                Long dbSemId = semOffered.contains("SPRING") && !semOffered.contains("FALL")
+                        ? (springSemId != null ? springSemId : anySemId)
+                        : (fallSemId != null ? fallSemId : anySemId);
 
                 String subjectType = (courseCode.contains("LAB") || courseTitle.toLowerCase().contains("lab"))
                         ? "LAB" : "THEORY";
 
-                Long existingSubjId = querySingleLong("SELECT id FROM subjects WHERE program_id = ? AND code = ?", dbProgId, courseCode);
+                String subjKey = dbProgId + ":" + courseCode;
+                Long existingSubjId = existingSubjectsMap.get(subjKey);
                 if (existingSubjId == null) {
                     jdbcTemplate.update(
                             "INSERT INTO subjects (program_id, semester_id, code, name, credits, subject_type, status, created_at, updated_at) " +
@@ -538,6 +553,7 @@ public class VsbDemoDataServiceImpl implements VsbDemoDataService {
                             dbProgId, dbSemId, courseCode, courseTitle, credits, subjectType
                     );
                     existingSubjId = querySingleLong("SELECT id FROM subjects WHERE program_id = ? AND code = ?", dbProgId, courseCode);
+                    existingSubjectsMap.put(subjKey, existingSubjId);
                     summary.incrementCount("subjects", 1);
                 }
                 courseIdMap.put(csvCourseId, existingSubjId);
@@ -642,7 +658,7 @@ public class VsbDemoDataServiceImpl implements VsbDemoDataService {
                     if (resId == null) {
                         jdbcTemplate.update(
                                 "INSERT INTO resources (institution_id, department_id, category_id, name, code, capacity, location, status, quantity, available_quantity, created_at, updated_at) " +
-                                        "VALUES (?, ?, ?, ?, ?, ?, 'AVAILABLE', 1, 1, NOW(6), NOW(6))",
+                                        "VALUES (?, ?, ?, ?, ?, ?, ?, 'AVAILABLE', 1, 1, NOW(6), NOW(6))",
                                 instId, dbDeptId, catLabId, labName, csvLabId, workstations, bldId
                         );
                         resId = querySingleLong("SELECT id FROM resources WHERE code = ?", csvLabId);
@@ -981,7 +997,7 @@ public class VsbDemoDataServiceImpl implements VsbDemoDataService {
     }
 
     // =========================================================================
-    // STEP 11: Students (10,000 records - Batched)
+    // STEP 11: Students (10,000 records - Batched & In-Memory Optimized)
     // =========================================================================
     private void importStudents(File dir, Long studentRoleId, String passwordHash, VsbImportSummaryDto summary) {
         File file = new File(dir, "students.csv");
@@ -992,8 +1008,18 @@ public class VsbDemoDataServiceImpl implements VsbDemoDataService {
                 jdbcTemplate.queryForList("SELECT register_number FROM students", String.class)
         );
 
+        Set<String> existingUsernames = new HashSet<>(
+                jdbcTemplate.queryForList("SELECT username FROM users WHERE username LIKE 'stu%'", String.class)
+        );
+
+        Map<Long, Long> programDeptMap = new HashMap<>();
+        List<Map<String, Object>> progRows = jdbcTemplate.queryForList("SELECT id, department_id FROM programs");
+        for (Map<String, Object> r : progRows) {
+            programDeptMap.put(((Number) r.get("id")).longValue(), ((Number) r.get("department_id")).longValue());
+        }
+
         List<Object[]> userBatch = new ArrayList<>(1000);
-        List<Object[]> studentDataList = new ArrayList<>(1000);
+        List<Object[]> studentDataList = new ArrayList<>(10000);
 
         try (BufferedReader br = new BufferedReader(new FileReader(file, StandardCharsets.UTF_8))) {
             br.readLine();
@@ -1016,7 +1042,7 @@ public class VsbDemoDataServiceImpl implements VsbDemoDataService {
                 Long dbProgId = progIdMap.get(csvProgId);
                 if (dbProgId == null) continue;
 
-                Long dbDeptId = querySingleLong("SELECT department_id FROM programs WHERE id = ?", dbProgId);
+                Long dbDeptId = programDeptMap.get(dbProgId);
                 if (dbDeptId == null) continue;
 
                 int admYear = parseAdmissionYear(entrySem);
@@ -1025,10 +1051,9 @@ public class VsbDemoDataServiceImpl implements VsbDemoDataService {
                 String username = studentId.toLowerCase();
                 String email = studentId.toLowerCase() + "@vsb-demo.local";
 
-                // Check if user already exists
-                Long existingUserId = querySingleLong("SELECT id FROM users WHERE username = ?", username);
-                if (existingUserId == null) {
+                if (!existingUsernames.contains(username)) {
                     userBatch.add(new Object[]{username, email, passwordHash, "Student", studentId, "ACTIVE"});
+                    existingUsernames.add(username);
                 }
 
                 studentDataList.add(new Object[]{studentId, username, dbDeptId, dbProgId, admYear, currSem});
@@ -1043,7 +1068,20 @@ public class VsbDemoDataServiceImpl implements VsbDemoDataService {
                 flushStudentBatches(userBatch, studentRoleId);
             }
 
-            // Insert students in batches
+            // Assign STUDENT role to all student users in one fast batch statement
+            jdbcTemplate.update(
+                    "INSERT IGNORE INTO user_roles (user_id, role_id) SELECT id, ? FROM users WHERE username LIKE 'stu%'",
+                    studentRoleId
+            );
+
+            // Load all student user IDs into in-memory map
+            Map<String, Long> userMap = new HashMap<>(12000);
+            List<Map<String, Object>> userRows = jdbcTemplate.queryForList("SELECT id, username FROM users WHERE username LIKE 'stu%'");
+            for (Map<String, Object> r : userRows) {
+                userMap.put((String) r.get("username"), ((Number) r.get("id")).longValue());
+            }
+
+            // Insert students in batches of 1000
             List<Object[]> studentBatch = new ArrayList<>(1000);
             for (Object[] sData : studentDataList) {
                 String studentId = (String) sData[0];
@@ -1053,7 +1091,7 @@ public class VsbDemoDataServiceImpl implements VsbDemoDataService {
                 int admYear = (Integer) sData[4];
                 int currSem = (Integer) sData[5];
 
-                Long uId = querySingleLong("SELECT id FROM users WHERE username = ?", username);
+                Long uId = userMap.get(username);
                 if (uId != null) {
                     studentBatch.add(new Object[]{uId, dbDeptId, dbProgId, studentId, studentId, admYear, currSem});
                 }
@@ -1074,7 +1112,7 @@ public class VsbDemoDataServiceImpl implements VsbDemoDataService {
                         "INSERT INTO students (user_id, department_id, program_id, register_number, roll_number, admission_year, current_semester, status, created_at, updated_at) " +
                                 "VALUES (?, ?, ?, ?, ?, ?, ?, 'ACTIVE', NOW(6), NOW(6))",
                         studentBatch
-                    );
+                );
                 summary.incrementCount("students", studentBatch.size());
                 studentBatch.clear();
             }
@@ -1101,15 +1139,6 @@ public class VsbDemoDataServiceImpl implements VsbDemoDataService {
                         "VALUES (?, ?, ?, ?, ?, ?, NOW(6), NOW(6))",
                 userBatch
         );
-
-        // Assign STUDENT role in user_roles
-        for (Object[] u : userBatch) {
-            String uName = (String) u[0];
-            Long uId = querySingleLong("SELECT id FROM users WHERE username = ?", uName);
-            if (uId != null) {
-                jdbcTemplate.update("INSERT IGNORE INTO user_roles (user_id, role_id) VALUES (?, ?)", uId, studentRoleId);
-            }
-        }
         userBatch.clear();
     }
 
@@ -1123,71 +1152,75 @@ public class VsbDemoDataServiceImpl implements VsbDemoDataService {
         try (BufferedReader br = new BufferedReader(new FileReader(file, StandardCharsets.UTF_8))) {
             br.readLine();
             String line;
+            int row = 1;
             while ((line = br.readLine()) != null) {
+                row++;
                 List<String> t = parseCsvLine(line);
                 if (t.size() < 9) continue;
 
-                String secId = t.get(0).trim();
-                String courseId = t.get(1).trim();
-                String facId = t.get(2).trim();
-                String roomId = t.get(3).trim();
-                String term = t.get(5).trim();
-                String dayPattern = t.get(6).trim();
-                String slotId = t.get(7).trim();
-                int capacity = parseInteger(t.get(8).trim(), 40);
+                try {
+                    String secId = t.get(0).trim();
+                    String courseId = t.get(1).trim();
+                    String facId = t.get(2).trim();
+                    String roomId = t.get(3).trim();
+                    String term = t.get(5).trim();
+                    String slotId = t.get(7).trim();
+                    int capacity = parseInteger(t.get(8).trim(), 40);
 
-                Long dbCourseId = courseIdMap.get(courseId);
-                if (dbCourseId == null) continue;
+                    Long dbCourseId = courseIdMap.get(courseId);
+                    if (dbCourseId == null) continue;
 
-                Long dbProgId = querySingleLong("SELECT program_id FROM subjects WHERE id = ?", dbCourseId);
-                if (dbProgId == null) continue;
+                    Long dbProgId = querySingleLong("SELECT program_id FROM subjects WHERE id = ?", dbCourseId);
+                    if (dbProgId == null) continue;
 
-                String semName = term.contains("SPRING") ? "SPRING" : "FALL";
-                Long dbSemId = querySingleLong("SELECT id FROM semesters WHERE name = ? ORDER BY id DESC LIMIT 1", semName);
-                if (dbSemId == null) {
-                    dbSemId = querySingleLong("SELECT id FROM semesters ORDER BY id ASC LIMIT 1");
-                }
-
-                Long dbSectionId = querySingleLong("SELECT id FROM sections WHERE program_id = ? AND name = ?", dbProgId, secId);
-                if (dbSectionId == null) {
-                    jdbcTemplate.update(
-                            "INSERT INTO sections (program_id, academic_year_id, semester_id, name, capacity, status) " +
-                                    "VALUES (?, ?, ?, ?, ?, 'ACTIVE')",
-                            dbProgId, academicYearId, dbSemId, secId, capacity
-                    );
-                    dbSectionId = querySingleLong("SELECT id FROM sections WHERE program_id = ? AND name = ?", dbProgId, secId);
-                    summary.incrementCount("sections", 1);
-                }
-                sectionIdMap.put(secId, dbSectionId);
-
-                // Faculty Assignment
-                Long dbFacId = facultyIdMap.get(facId);
-                if (dbFacId != null) {
-                    Long fsaId = querySingleLong("SELECT id FROM faculty_subject_assignments WHERE faculty_id = ? AND subject_id = ? AND section_id = ?", dbFacId, dbCourseId, dbSectionId);
-                    if (fsaId == null) {
-                        jdbcTemplate.update(
-                                "INSERT INTO faculty_subject_assignments (faculty_id, subject_id, section_id, academic_year_id, semester_id, hours_per_week, status) " +
-                                        "VALUES (?, ?, ?, ?, ?, 4, 'ACTIVE')",
-                                dbFacId, dbCourseId, dbSectionId, academicYearId, dbSemId
-                        );
-                        summary.incrementCount("faculty_subject_assignments", 1);
+                    String semName = term.contains("SPRING") ? "SPRING" : "FALL";
+                    Long dbSemId = querySingleLong("SELECT id FROM semesters WHERE name = ? ORDER BY id DESC LIMIT 1", semName);
+                    if (dbSemId == null) {
+                        dbSemId = querySingleLong("SELECT id FROM semesters ORDER BY id ASC LIMIT 1");
                     }
-                }
 
-                // Timetable Entry
-                Long dbResId = resourceIdMap.get(roomId);
-                Long dbSlotId = timeSlotIdMap.get(slotId);
-                if (dbResId != null && dbSlotId != null && dbFacId != null) {
-                    Long ttId = querySingleLong("SELECT id FROM timetable_entries WHERE section_id = ? AND subject_id = ? AND time_slot_id = ?", dbSectionId, dbCourseId, dbSlotId);
-                    if (ttId == null) {
-                        String day = dayPattern.contains("MWF") ? "MONDAY" : (dayPattern.contains("TTH") ? "TUESDAY" : "WEDNESDAY");
+                    Long dbSectionId = querySingleLong("SELECT id FROM sections WHERE program_id = ? AND name = ?", dbProgId, secId);
+                    if (dbSectionId == null) {
                         jdbcTemplate.update(
-                                "INSERT INTO timetable_entries (section_id, subject_id, faculty_id, resource_id, time_slot_id, day_of_week, status) " +
-                                        "VALUES (?, ?, ?, ?, ?, ?, 'ACTIVE')",
-                                dbSectionId, dbCourseId, dbFacId, dbResId, dbSlotId, day
+                                "INSERT INTO sections (program_id, academic_year_id, semester_id, name, capacity, status) " +
+                                        "VALUES (?, ?, ?, ?, ?, 'ACTIVE')",
+                                dbProgId, academicYearId, dbSemId, secId, capacity
                         );
-                        summary.incrementCount("timetable_entries", 1);
+                        dbSectionId = querySingleLong("SELECT id FROM sections WHERE program_id = ? AND name = ?", dbProgId, secId);
+                        summary.incrementCount("sections", 1);
                     }
+                    sectionIdMap.put(secId, dbSectionId);
+
+                    // Faculty Assignment
+                    Long dbFacId = facultyIdMap.get(facId);
+                    if (dbFacId != null) {
+                        Long fsaId = querySingleLong("SELECT id FROM faculty_subject_assignments WHERE faculty_id = ? AND subject_id = ? AND section_id = ?", dbFacId, dbCourseId, dbSectionId);
+                        if (fsaId == null) {
+                            jdbcTemplate.update(
+                                    "INSERT INTO faculty_subject_assignments (faculty_id, subject_id, section_id, academic_year_id, semester_id, hours_per_week, status) " +
+                                            "VALUES (?, ?, ?, ?, ?, 4, 'ACTIVE')",
+                                    dbFacId, dbCourseId, dbSectionId, academicYearId, dbSemId
+                            );
+                            summary.incrementCount("faculty_subject_assignments", 1);
+                        }
+                    }
+
+                    // Timetable Entry
+                    Long dbResId = resourceIdMap.get(roomId);
+                    Long dbSlotId = timeSlotIdMap.get(slotId);
+                    if (dbResId != null && dbSlotId != null && dbFacId != null) {
+                        Long ttId = querySingleLong("SELECT id FROM timetable_entries WHERE section_id = ? AND subject_id = ? AND time_slot_id = ?", dbSectionId, dbCourseId, dbSlotId);
+                        if (ttId == null) {
+                            jdbcTemplate.update(
+                                    "INSERT INTO timetable_entries (academic_year_id, semester_id, section_id, subject_id, faculty_id, resource_id, time_slot_id, status, created_at, updated_at) " +
+                                            "VALUES (?, ?, ?, ?, ?, ?, ?, 'ACTIVE', NOW(6), NOW(6))",
+                                    academicYearId, dbSemId, dbSectionId, dbCourseId, dbFacId, dbResId, dbSlotId
+                            );
+                            summary.incrementCount("timetable_entries", 1);
+                        }
+                    }
+                } catch (Exception rowEx) {
+                    log.warn("Error processing sections row {}: {}", row, rowEx.getMessage());
                 }
             }
         } catch (Exception e) {
@@ -1488,6 +1521,10 @@ public class VsbDemoDataServiceImpl implements VsbDemoDataService {
     }
 
     private Long querySingleLong(String sql, Object... args) {
+        if (args == null || args.length == 0) {
+            List<Long> results = jdbcTemplate.queryForList(sql, Long.class);
+            return results.isEmpty() ? null : results.get(0);
+        }
         List<Long> results = jdbcTemplate.queryForList(sql, Long.class, args);
         return results.isEmpty() ? null : results.get(0);
     }

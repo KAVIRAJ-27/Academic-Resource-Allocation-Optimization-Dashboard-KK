@@ -192,7 +192,7 @@ class ApprovalServiceTest {
 
         when(approvalRepository.findById(1000L)).thenReturn(Optional.of(pendingApproval));
         when(academicRequestRepository.findById(500L)).thenReturn(Optional.of(academicRequest));
-        when(resourceRepository.findById(101L)).thenReturn(Optional.of(resource));
+        when(resourceRepository.existsById(101L)).thenReturn(true);
 
         // Conflict check returns valid
         ConflictResultDto conflictResult = ConflictResultDto.valid();
@@ -225,7 +225,7 @@ class ApprovalServiceTest {
 
         when(approvalRepository.findById(1000L)).thenReturn(Optional.of(pendingApproval));
         when(academicRequestRepository.findById(500L)).thenReturn(Optional.of(academicRequest));
-        when(resourceRepository.findById(101L)).thenReturn(Optional.of(resource));
+        when(resourceRepository.existsById(101L)).thenReturn(true);
 
         // Conflict detection returns conflict (e.g. resource was booked in the interim)
         ConflictResultDto conflictResult = new ConflictResultDto();
