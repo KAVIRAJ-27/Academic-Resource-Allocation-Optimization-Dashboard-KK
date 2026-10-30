@@ -168,10 +168,10 @@ export const WardenAllocationsPage: React.FC = () => {
         subtitle="Manage active residencies and audit historical room placements"
       >
         <Card>
-          <CardHeader className="border-b border-[#1E2330] pb-4">
+          <CardHeader className="border-b border-slate-200 pb-4">
             <div className="flex flex-col gap-4">
               {/* Status Tabs */}
-              <div className="flex flex-wrap items-center gap-2 border-b border-[#1E2330]/60 pb-3">
+              <div className="flex flex-wrap items-center gap-2 border-b border-slate-200/60 pb-3">
                 {(
                   [
                     { label: 'All Allocations', value: 'ALL' },
@@ -196,7 +196,7 @@ export const WardenAllocationsPage: React.FC = () => {
                       className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
                         isActive
                           ? 'bg-orange-500/10 text-orange-400 border border-orange-500/30 font-semibold shadow-sm'
-                          : 'text-gray-400 hover:text-gray-200 hover:bg-[#171A23]'
+                          : 'text-gray-400 hover:text-gray-200 hover:bg-slate-50'
                       }`}
                     >
                       {tab.label}
@@ -214,7 +214,7 @@ export const WardenAllocationsPage: React.FC = () => {
                     placeholder="Search student, reg no, room or bed..."
                     value={filters.search || ''}
                     onChange={(e) => updateFilters({ search: e.target.value })}
-                    className="w-full bg-[#11141C] border border-[#1E2330] rounded-xl pl-9 pr-3 py-1.5 text-xs text-gray-200 placeholder-gray-500 focus:outline-none focus:border-orange-500"
+                    className="w-full bg-white border border-slate-200 rounded-xl pl-9 pr-3 py-1.5 text-xs text-gray-200 placeholder-gray-500 focus:outline-none focus:border-orange-500"
                   />
                 </div>
 
@@ -270,7 +270,7 @@ export const WardenAllocationsPage: React.FC = () => {
             ) : (
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs text-gray-300">
-                  <thead className="bg-[#11141C] text-[11px] font-mono text-gray-400 uppercase tracking-wider border-b border-[#1E2330]">
+                  <thead className="bg-white text-[11px] font-mono text-slate-700 font-bold uppercase tracking-wider border-b border-slate-200">
                     <tr>
                       <th className="py-3 px-4">Allocation ID</th>
                       <th className="py-3 px-4">Student</th>
@@ -281,16 +281,16 @@ export const WardenAllocationsPage: React.FC = () => {
                       <th className="py-3 px-4 text-right">Actions</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#1E2330]">
+                  <tbody className="divide-y divide-slate-200">
                     {allocations.map((alloc) => {
                       const isActive = alloc.status === 'ACTIVE';
 
                       return (
                         <tr
                           key={alloc.id}
-                          className="hover:bg-[#171A23]/60 transition-colors group"
+                          className="hover:bg-slate-50/60 transition-colors group"
                         >
-                          <td className="py-3 px-4 font-mono text-gray-400 font-semibold">
+                          <td className="py-3 px-4 font-mono text-slate-600 font-medium font-semibold">
                             #{alloc.id}
                           </td>
                           <td className="py-3 px-4">
@@ -300,27 +300,27 @@ export const WardenAllocationsPage: React.FC = () => {
                             <div className="text-[11px] font-mono text-orange-400">
                               {alloc.registerNumber}
                             </div>
-                            <div className="text-[10px] text-gray-400 truncate max-w-[180px]">
+                            <div className="text-[10px] text-slate-600 font-medium truncate max-w-[180px]">
                               {alloc.departmentName}
                             </div>
                           </td>
                           <td className="py-3 px-4">
-                            <div className="text-gray-200">{alloc.hostelName}</div>
-                            <div className="text-[11px] text-gray-400 font-mono">
+                            <div className="text-slate-800 font-medium">{alloc.hostelName}</div>
+                            <div className="text-[11px] text-slate-600 font-medium font-mono">
                               {alloc.blockName} • Floor {alloc.floorNumber}
                             </div>
                           </td>
                           <td className="py-3 px-4 font-mono">
-                            <div className="text-gray-200 font-semibold">
+                            <div className="text-slate-800 font-medium font-semibold">
                               Room {alloc.roomNumber}
                             </div>
                             <div className="text-[11px] text-teal-400">
                               Bed {alloc.bedNumber}
                             </div>
                           </td>
-                          <td className="py-3 px-4 font-mono text-[11px] text-gray-300">
+                          <td className="py-3 px-4 font-mono text-[11px] text-slate-700 font-medium">
                             <div>From: {alloc.startDate}</div>
-                            <div className="text-gray-400">
+                            <div className="text-slate-600 font-medium">
                               {alloc.endDate ? `To: ${alloc.endDate}` : 'Ongoing'}
                             </div>
                           </td>
@@ -372,7 +372,7 @@ export const WardenAllocationsPage: React.FC = () => {
 
             {/* Pagination Controls */}
             {totalPages > 1 && (
-              <div className="flex items-center justify-between px-4 py-3 border-t border-[#1E2330] bg-[#11141C]">
+              <div className="flex items-center justify-between px-4 py-3 border-t border-slate-200 bg-white">
                 <div className="text-xs text-gray-400 font-mono">
                   Page {currentPage + 1} of {totalPages}
                 </div>
@@ -405,7 +405,7 @@ export const WardenAllocationsPage: React.FC = () => {
       {/* 3. Release Bed Confirmation Modal */}
       {allocationToRelease && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fade-in">
-          <div className="bg-[#11141C] border border-[#1E2330] rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
+          <div className="bg-white border border-slate-200 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
             <div className="flex items-center gap-3 text-orange-400">
               <div className="p-2.5 rounded-xl bg-orange-500/10 border border-orange-500/20">
                 <LogOut className="w-6 h-6" />
@@ -422,7 +422,7 @@ export const WardenAllocationsPage: React.FC = () => {
               </div>
             )}
 
-            <div className="p-4 rounded-xl bg-[#171A23] border border-[#1E2330] space-y-2 text-xs">
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2 text-xs">
               <div className="flex justify-between">
                 <span className="text-gray-400">Student:</span>
                 <span className="font-semibold text-gray-200">

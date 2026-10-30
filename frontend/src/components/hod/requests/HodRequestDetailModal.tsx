@@ -133,7 +133,7 @@ export const HodRequestDetailModal: React.FC<HodRequestDetailModalProps> = ({
                 <span>Requester Details</span>
               </div>
               <div>
-                <p className="text-base font-bold text-white">{request.requesterName}</p>
+                <p className="text-base font-bold text-slate-900">{request.requesterName}</p>
                 <p className="text-xs text-gray-400">{request.requesterEmail}</p>
               </div>
               <div className="flex items-center gap-2 pt-1 border-t border-gray-800/60">
@@ -153,7 +153,7 @@ export const HodRequestDetailModal: React.FC<HodRequestDetailModalProps> = ({
                 <span>Resource Specification</span>
               </div>
               <div>
-                <p className="text-base font-bold text-white">
+                <p className="text-base font-bold text-slate-900">
                   {request.requestedResourceName || 'Unassigned / Generic Request'}
                 </p>
                 {request.requestedResourceCode && (

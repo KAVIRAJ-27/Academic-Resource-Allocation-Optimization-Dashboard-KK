@@ -26,7 +26,7 @@ export const StudentAcademicOverview: React.FC<StudentAcademicOverviewProps> = (
   return (
     <div className="space-y-4">
       {/* Student Profile Identity Banner */}
-      <Card className="p-5 bg-gradient-to-r from-[#11141C] via-[#141824] to-[#11141C] border-[#1E2330]">
+      <Card className="p-5 bg-gradient-to-r from-white via-slate-50 to-white border-slate-200">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-2xl bg-teal-500/10 border border-teal-500/30 flex items-center justify-center text-teal-400 shrink-0 shadow-card">
@@ -34,7 +34,7 @@ export const StudentAcademicOverview: React.FC<StudentAcademicOverviewProps> = (
             </div>
             <div>
               <div className="flex items-center gap-2.5 flex-wrap">
-                <h2 className="text-base font-bold text-white tracking-tight">
+                <h2 className="text-base font-bold text-slate-900 tracking-tight">
                   {overview.studentName || 'Student Academic Profile'}
                 </h2>
                 <Badge variant={overview.status === 'ACTIVE' ? 'teal' : 'neutral'} dot size="sm">
@@ -63,7 +63,7 @@ export const StudentAcademicOverview: React.FC<StudentAcademicOverviewProps> = (
           </div>
 
           <div className="flex items-center gap-3 self-start sm:self-auto">
-            <div className="px-3.5 py-1.5 rounded-xl bg-[#171A23] border border-[#222838] text-right">
+            <div className="px-3.5 py-1.5 rounded-xl bg-slate-50 border border-slate-200 text-right">
               <div className="text-[10px] uppercase font-mono text-gray-400 tracking-wider">
                 Current Semester
               </div>
@@ -78,13 +78,13 @@ export const StudentAcademicOverview: React.FC<StudentAcademicOverviewProps> = (
       {/* Academic Pillars Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Department */}
-        <Card className="p-4 bg-[#11141C] border-[#1E2330] hover:border-teal-500/30 transition-colors">
+        <Card className="p-4 bg-white border-slate-200 hover:border-teal-500/30 transition-colors">
           <div className="flex items-start gap-3">
             <div className="p-2 rounded-xl bg-teal-500/10 text-teal-400 shrink-0">
               <Building2 className="w-4 h-4" />
             </div>
             <div className="min-w-0">
-              <span className="text-[11px] font-medium text-gray-400 uppercase tracking-wider block">
+              <span className="text-[11px] font-medium text-slate-600 font-bold uppercase tracking-wider block">
                 Department
               </span>
               <p className="text-xs font-semibold text-gray-100 truncate mt-0.5" title={overview.departmentName}>
@@ -100,13 +100,13 @@ export const StudentAcademicOverview: React.FC<StudentAcademicOverviewProps> = (
         </Card>
 
         {/* Program */}
-        <Card className="p-4 bg-[#11141C] border-[#1E2330] hover:border-blue-500/30 transition-colors">
+        <Card className="p-4 bg-white border-slate-200 hover:border-blue-500/30 transition-colors">
           <div className="flex items-start gap-3">
             <div className="p-2 rounded-xl bg-blue-500/10 text-blue-400 shrink-0">
               <BookOpen className="w-4 h-4" />
             </div>
             <div className="min-w-0">
-              <span className="text-[11px] font-medium text-gray-400 uppercase tracking-wider block">
+              <span className="text-[11px] font-medium text-slate-600 font-bold uppercase tracking-wider block">
                 Program / Degree
               </span>
               <p className="text-xs font-semibold text-gray-100 truncate mt-0.5" title={overview.programName}>
@@ -122,13 +122,13 @@ export const StudentAcademicOverview: React.FC<StudentAcademicOverviewProps> = (
         </Card>
 
         {/* Section & Academic Year */}
-        <Card className="p-4 bg-[#11141C] border-[#1E2330] hover:border-purple-500/30 transition-colors">
+        <Card className="p-4 bg-white border-slate-200 hover:border-purple-500/30 transition-colors">
           <div className="flex items-start gap-3">
             <div className="p-2 rounded-xl bg-purple-500/10 text-purple-400 shrink-0">
               <Calendar className="w-4 h-4" />
             </div>
             <div className="min-w-0">
-              <span className="text-[11px] font-medium text-gray-400 uppercase tracking-wider block">
+              <span className="text-[11px] font-medium text-slate-600 font-bold uppercase tracking-wider block">
                 Section & Cohort
               </span>
               <p className="text-xs font-semibold text-gray-100 truncate mt-0.5">
@@ -142,13 +142,13 @@ export const StudentAcademicOverview: React.FC<StudentAcademicOverviewProps> = (
         </Card>
 
         {/* Registered Credits */}
-        <Card className="p-4 bg-[#11141C] border-[#1E2330] hover:border-orange-500/30 transition-colors">
+        <Card className="p-4 bg-white border-slate-200 hover:border-orange-500/30 transition-colors">
           <div className="flex items-start gap-3">
             <div className="p-2 rounded-xl bg-orange-500/10 text-orange-400 shrink-0">
               <Award className="w-4 h-4" />
             </div>
             <div className="min-w-0">
-              <span className="text-[11px] font-medium text-gray-400 uppercase tracking-wider block">
+              <span className="text-[11px] font-medium text-slate-600 font-bold uppercase tracking-wider block">
                 Semester Credits
               </span>
               <p className="text-xs font-semibold text-gray-100 mt-0.5">

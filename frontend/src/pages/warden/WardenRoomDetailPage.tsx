@@ -189,13 +189,13 @@ export const WardenRoomDetailPage: React.FC = () => {
                   key={bed.id}
                   className={`transition-all duration-150 ${
                     isAvailable
-                      ? 'border-teal-500/30 bg-[#11141C] hover:border-teal-500/60'
+                      ? 'border-teal-500/30 bg-white hover:border-teal-500/60'
                       : isOccupied
-                      ? 'border-[#1E2330] bg-[#11141C]'
-                      : 'border-orange-500/30 bg-[#171A23]/50'
+                      ? 'border-slate-200 bg-white'
+                      : 'border-orange-500/30 bg-slate-50/50'
                   }`}
                 >
-                  <CardHeader className="border-b border-[#1E2330] pb-3">
+                  <CardHeader className="border-b border-slate-200 pb-3">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
                         <div
@@ -262,7 +262,7 @@ export const WardenRoomDetailPage: React.FC = () => {
                           </div>
                         </div>
 
-                        <div className="p-2.5 rounded-lg bg-[#171A23] border border-[#1E2330] text-[11px] font-mono text-gray-400 flex items-center justify-between">
+                        <div className="p-2.5 rounded-lg bg-slate-50 border border-slate-200 text-[11px] font-mono text-gray-400 flex items-center justify-between">
                           <span className="flex items-center gap-1.5">
                             <Calendar className="w-3 h-3 text-gray-400" />
                             Since {bed.currentStudent.startDate}

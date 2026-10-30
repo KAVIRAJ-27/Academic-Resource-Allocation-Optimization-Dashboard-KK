@@ -84,12 +84,12 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
 
   if (compact) {
     return (
-      <div className={`flex flex-col items-center justify-center p-4 text-center rounded-xl bg-[#11141C]/40 border border-[#1E2330] w-full ${className}`}>
-        <div className="w-9 h-9 rounded-xl bg-[#171A23] border border-[#1E2330] flex items-center justify-center text-teal-400 mb-2 shadow-sm">
+      <div className={`flex flex-col items-center justify-center p-4 text-center rounded-xl bg-[#FBF9F3]/60 border border-[#D8C9A8] w-full ${className}`}>
+        <div className="w-9 h-9 rounded-xl bg-white border border-[#D8C9A8] flex items-center justify-center text-[#B8A16A] mb-2 shadow-xs">
           <DisplayIcon className="w-4 h-4" />
         </div>
-        <h4 className="text-xs font-semibold text-gray-200 mb-1">{displayTitle}</h4>
-        <p className="text-[11px] text-gray-400 max-w-xs mb-2 leading-relaxed">{displayDescription}</p>
+        <h4 className="text-xs font-serif font-bold text-[#202020] mb-1">{displayTitle}</h4>
+        <p className="text-[11px] text-[#555555] max-w-xs mb-2 leading-relaxed">{displayDescription}</p>
         {actionLabel && onAction && (
           <Button variant="outline" size="xs" onClick={onAction}>
             {actionLabel}
@@ -101,12 +101,12 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
   }
 
   return (
-    <div className={`flex flex-col items-center justify-center p-8 sm:p-12 text-center rounded-2xl bg-[#11141C]/60 border border-[#1E2330] my-4 ${className}`}>
-      <div className="w-14 h-14 rounded-2xl bg-[#171A23] border border-[#1E2330] flex items-center justify-center text-teal-400 mb-4 shadow-card">
+    <div className={`flex flex-col items-center justify-center p-8 sm:p-12 text-center rounded-2xl bg-[#FBF9F3]/70 border border-[#D8C9A8] my-4 shadow-card ${className}`}>
+      <div className="w-14 h-14 rounded-2xl bg-white border border-[#D8C9A8] flex items-center justify-center text-[#B8A16A] mb-4 shadow-card">
         <DisplayIcon className="w-7 h-7" />
       </div>
-      <h3 className="text-base font-semibold text-gray-100 mb-1.5">{displayTitle}</h3>
-      <p className="text-xs sm:text-sm text-gray-400 max-w-md mb-6">{displayDescription}</p>
+      <h3 className="text-base font-serif font-bold text-[#202020] mb-1.5">{displayTitle}</h3>
+      <p className="text-xs sm:text-sm text-[#555555] max-w-md mb-6">{displayDescription}</p>
       {actionLabel && onAction && (
         <Button variant="outline" size="sm" onClick={onAction}>
           {actionLabel}

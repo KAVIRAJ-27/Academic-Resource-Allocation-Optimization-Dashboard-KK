@@ -28,12 +28,12 @@ export const StudentRequestList: React.FC<Props> = ({
   onCancelRequest,
 }) => {
   return (
-    <Card className="bg-[#11141C] border-[#1E2330] overflow-hidden">
+    <Card className="bg-white border-slate-200 overflow-hidden">
       {/* Desktop Table View */}
       <div className="hidden lg:block overflow-x-auto">
         <table className="w-full text-left border-collapse">
           <thead>
-            <tr className="border-b border-[#1E2330] bg-[#171A23]/50 text-[11px] font-semibold uppercase tracking-wider text-gray-400 font-mono">
+            <tr className="border-b border-slate-200 bg-slate-50/50 text-[11px] font-semibold uppercase tracking-wider text-slate-600 font-bold font-mono">
               <th className="py-3 px-4">Req #</th>
               <th className="py-3 px-4">Resource & Category</th>
               <th className="py-3 px-4">Required Schedule</th>
@@ -43,17 +43,17 @@ export const StudentRequestList: React.FC<Props> = ({
               <th className="py-3 px-4 text-right">Actions</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-[#1E2330] text-xs">
+          <tbody className="divide-y divide-slate-200 text-xs">
             {requests.map((req) => {
               const isPending = req.status === 'PENDING';
 
               return (
                 <tr
                   key={req.id}
-                  className="hover:bg-[#171A23]/40 transition-colors group"
+                  className="hover:bg-slate-50/40 transition-colors group"
                 >
                   {/* Req # */}
-                  <td className="py-3.5 px-4 font-mono font-medium text-gray-300">
+                  <td className="py-3.5 px-4 font-mono font-medium text-slate-700 font-medium">
                     #{req.id}
                   </td>
 
@@ -63,12 +63,12 @@ export const StudentRequestList: React.FC<Props> = ({
                       <div className="font-medium text-white flex items-center gap-1.5">
                         {req.resourceName || 'Unnamed Resource'}
                         {req.resourceCode && (
-                          <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-[#171A23] text-gray-400 border border-[#222838]">
+                          <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-slate-50 text-slate-600 font-medium border border-slate-200">
                             {req.resourceCode}
                           </span>
                         )}
                       </div>
-                      <div className="flex items-center gap-2 text-[11px] text-gray-400">
+                      <div className="flex items-center gap-2 text-[11px] text-slate-600 font-medium">
                         {req.categoryName && (
                           <span>{req.categoryName}</span>
                         )}
@@ -76,7 +76,7 @@ export const StudentRequestList: React.FC<Props> = ({
                           <>
                             <span>•</span>
                             <span className="flex items-center gap-1">
-                              <MapPin className="w-3 h-3 text-gray-500" />
+                              <MapPin className="w-3 h-3 text-slate-500 font-medium" />
                               {req.resourceLocation}
                             </span>
                           </>
@@ -87,13 +87,13 @@ export const StudentRequestList: React.FC<Props> = ({
 
                   {/* Date & Schedule */}
                   <td className="py-3.5 px-4">
-                    <div className="space-y-1 text-gray-300">
+                    <div className="space-y-1 text-slate-700 font-medium">
                       <div className="flex items-center gap-1.5 font-medium">
                         <Calendar className="w-3.5 h-3.5 text-teal-400" />
                         <span>{req.requestedDate}</span>
                       </div>
-                      <div className="flex items-center gap-1.5 text-[11px] text-gray-400 font-mono">
-                        <Clock className="w-3 h-3 text-gray-500" />
+                      <div className="flex items-center gap-1.5 text-[11px] text-slate-600 font-medium font-mono">
+                        <Clock className="w-3 h-3 text-slate-500 font-medium" />
                         <span>
                           {req.startTime} - {req.endTime}
                         </span>
@@ -103,11 +103,11 @@ export const StudentRequestList: React.FC<Props> = ({
 
                   {/* Purpose */}
                   <td className="py-3.5 px-4 max-w-xs">
-                    <p className="text-gray-300 truncate" title={req.purpose}>
+                    <p className="text-slate-700 font-medium truncate" title={req.purpose}>
                       {req.purpose}
                     </p>
                     {req.description && (
-                      <p className="text-[11px] text-gray-500 truncate" title={req.description}>
+                      <p className="text-[11px] text-slate-500 font-medium truncate" title={req.description}>
                         {req.description}
                       </p>
                     )}
@@ -131,7 +131,7 @@ export const StudentRequestList: React.FC<Props> = ({
                         size="xs"
                         onClick={() => onViewDetails(req)}
                         leftIcon={<Eye className="w-3 h-3" />}
-                        className="text-gray-300 hover:text-white"
+                        className="text-slate-700 font-medium hover:text-white"
                       >
                         Details
                       </Button>
@@ -157,7 +157,7 @@ export const StudentRequestList: React.FC<Props> = ({
       </div>
 
       {/* Mobile/Tablet Card View */}
-      <div className="block lg:hidden divide-y divide-[#1E2330]">
+      <div className="block lg:hidden divide-y divide-slate-200">
         {requests.map((req) => {
           const isPending = req.status === 'PENDING';
 
@@ -169,7 +169,7 @@ export const StudentRequestList: React.FC<Props> = ({
                     <span className="text-xs font-mono font-semibold text-gray-400">
                       #{req.id}
                     </span>
-                    <h4 className="text-sm font-semibold text-white">
+                    <h4 className="text-sm font-semibold text-slate-900">
                       {req.resourceName || 'Unnamed Resource'}
                     </h4>
                   </div>
@@ -180,7 +180,7 @@ export const StudentRequestList: React.FC<Props> = ({
                 <StudentRequestStatusBadge status={req.status} />
               </div>
 
-              <div className="grid grid-cols-2 gap-2 text-xs bg-[#171A23] p-2.5 rounded-lg">
+              <div className="grid grid-cols-2 gap-2 text-xs bg-slate-50 p-2.5 rounded-lg">
                 <div className="flex items-center gap-1.5 text-gray-300">
                   <Calendar className="w-3.5 h-3.5 text-teal-400" />
                   <span>{req.requestedDate}</span>
@@ -204,7 +204,7 @@ export const StudentRequestList: React.FC<Props> = ({
                     size="xs"
                     onClick={() => onViewDetails(req)}
                     leftIcon={<Eye className="w-3 h-3" />}
-                    className="border-[#222838]"
+                    className="border-slate-200"
                   >
                     Details
                   </Button>
@@ -227,7 +227,7 @@ export const StudentRequestList: React.FC<Props> = ({
       </div>
 
       {/* Pagination Bar */}
-      <div className="p-4 border-t border-[#1E2330]">
+      <div className="p-4 border-t border-slate-200">
         <Pagination
           currentPage={page + 1}
           totalPages={Math.max(1, totalPages)}

@@ -86,7 +86,7 @@ export const StudentResourceRequestsPage: React.FC = () => {
               leftIcon={<RefreshCw className="w-3.5 h-3.5" />}
               onClick={refresh}
               isLoading={loading}
-              className="border-[#222838] text-gray-300"
+              className="border-slate-200 text-gray-300"
             >
               Refresh
             </Button>

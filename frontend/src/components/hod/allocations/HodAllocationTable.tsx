@@ -69,7 +69,7 @@ export const HodAllocationTable: React.FC<HodAllocationTableProps> = ({
       <div className="p-4 border-b border-gray-800 space-y-3">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <div className="flex items-center space-x-2">
-            <span className="text-xs font-semibold uppercase tracking-wider text-gray-400">
+            <span className="text-xs font-semibold uppercase tracking-wider text-slate-600 font-bold">
               Department Resource Allocations
             </span>
             <span className="text-[11px] text-gray-500 bg-gray-800/80 px-2 py-0.5 rounded-full">
@@ -132,7 +132,7 @@ export const HodAllocationTable: React.FC<HodAllocationTableProps> = ({
       <div className="overflow-x-auto">
         <table className="w-full text-left border-collapse">
           <thead>
-            <tr className="border-b border-gray-800 bg-gray-800/30 text-[11px] uppercase tracking-wider font-semibold text-gray-400">
+            <tr className="border-b border-gray-800 bg-gray-800/30 text-[11px] uppercase tracking-wider font-semibold text-slate-600 font-bold">
               <th className="py-3.5 px-4">Alloc #</th>
               <th className="py-3.5 px-4">Resource</th>
               <th className="py-3.5 px-4">Allocated To</th>
@@ -146,7 +146,7 @@ export const HodAllocationTable: React.FC<HodAllocationTableProps> = ({
           <tbody className="divide-y divide-gray-800/60 text-sm">
             {loading && allocations.length === 0 ? (
               <tr>
-                <td colSpan={8} className="py-12 text-center text-gray-400">
+                <td colSpan={8} className="py-12 text-center text-slate-600 font-medium">
                   <div className="flex items-center justify-center space-x-2">
                     <RefreshCw className="w-5 h-5 animate-spin text-blue-400" />
                     <span>Loading department allocations...</span>
@@ -158,8 +158,8 @@ export const HodAllocationTable: React.FC<HodAllocationTableProps> = ({
                 <td colSpan={8} className="py-12 text-center">
                   <div className="flex flex-col items-center justify-center">
                     <Layers className="w-10 h-10 text-gray-600 mb-2" />
-                    <p className="text-gray-300 font-medium">No resource allocations found</p>
-                    <p className="text-xs text-gray-500 mt-1">
+                    <p className="text-slate-700 font-medium font-medium">No resource allocations found</p>
+                    <p className="text-xs text-slate-500 font-medium mt-1">
                       {statusFilter !== 'ALL' || fromDate || toDate
                         ? 'Try modifying your filter parameters.'
                         : 'No active or historical resource allocations recorded for your department.'}
@@ -173,7 +173,7 @@ export const HodAllocationTable: React.FC<HodAllocationTableProps> = ({
                   key={item.id}
                   className="hover:bg-gray-800/40 transition-colors group"
                 >
-                  <td className="py-3.5 px-4 font-mono text-xs font-bold text-gray-300">
+                  <td className="py-3.5 px-4 font-mono text-xs font-bold text-slate-700 font-medium">
                     #{item.id}
                   </td>
                   <td className="py-3.5 px-4">
@@ -181,9 +181,9 @@ export const HodAllocationTable: React.FC<HodAllocationTableProps> = ({
                       <p className="text-sm font-semibold text-white group-hover:text-blue-300 transition-colors">
                         {item.resourceName}
                       </p>
-                      <p className="text-xs font-mono text-gray-400">{item.resourceCode}</p>
+                      <p className="text-xs font-mono text-slate-600 font-medium">{item.resourceCode}</p>
                       {item.categoryName && (
-                        <span className="text-[11px] text-gray-500">
+                        <span className="text-[11px] text-slate-500 font-medium">
                           {item.categoryName}
                         </span>
                       )}
@@ -196,9 +196,9 @@ export const HodAllocationTable: React.FC<HodAllocationTableProps> = ({
                       </div>
                       <div>
                         <p className="text-sm font-medium text-white">{item.allocatedToName || 'N/A'}</p>
-                        <p className="text-xs text-gray-400">{item.allocatedToEmail}</p>
+                        <p className="text-xs text-slate-600 font-medium">{item.allocatedToEmail}</p>
                         {item.allocatedToRole && (
-                          <span className="inline-block mt-0.5 text-[10px] px-1.5 py-0.2 rounded bg-gray-800 text-gray-300 border border-gray-700">
+                          <span className="inline-block mt-0.5 text-[10px] px-1.5 py-0.2 rounded bg-gray-800 text-slate-700 font-medium border border-gray-700">
                             {item.allocatedToRole}
                           </span>
                         )}
@@ -206,12 +206,12 @@ export const HodAllocationTable: React.FC<HodAllocationTableProps> = ({
                     </div>
                   </td>
                   <td className="py-3.5 px-4">
-                    <div className="space-y-0.5 text-xs text-gray-300">
+                    <div className="space-y-0.5 text-xs text-slate-700 font-medium">
                       <div className="flex items-center space-x-1.5">
-                        <Calendar className="w-3.5 h-3.5 text-gray-400" />
+                        <Calendar className="w-3.5 h-3.5 text-slate-600 font-medium" />
                         <span>{new Date(item.startDatetime).toLocaleDateString()}</span>
                       </div>
-                      <div className="flex items-center space-x-1.5 text-gray-400 font-mono text-[11px]">
+                      <div className="flex items-center space-x-1.5 text-slate-600 font-medium font-mono text-[11px]">
                         <Clock className="w-3.5 h-3.5" />
                         <span>
                           {new Date(item.startDatetime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} -{' '}
@@ -223,25 +223,25 @@ export const HodAllocationTable: React.FC<HodAllocationTableProps> = ({
                   <td className="py-3.5 px-4">
                     <div className="space-y-0.5 text-xs">
                       {item.academicYearName && (
-                        <p className="text-gray-300 font-medium">{item.academicYearName}</p>
+                        <p className="text-slate-700 font-medium font-medium">{item.academicYearName}</p>
                       )}
                       {item.semesterName && (
-                        <p className="text-gray-400 text-[11px]">{item.semesterName}</p>
+                        <p className="text-slate-600 font-medium text-[11px]">{item.semesterName}</p>
                       )}
                       {item.timeSlotName && (
                         <p className="text-blue-300 text-[11px]">{item.timeSlotName}</p>
                       )}
                       {!item.academicYearName && !item.timeSlotName && (
-                        <span className="text-gray-500 italic text-[11px]">Ad-hoc Schedule</span>
+                        <span className="text-slate-500 font-medium italic text-[11px]">Ad-hoc Schedule</span>
                       )}
                     </div>
                   </td>
                   <td className="py-3.5 px-4 max-w-xs">
-                    <p className="text-xs text-gray-300 line-clamp-2" title={item.purpose}>
+                    <p className="text-xs text-slate-700 font-medium line-clamp-2" title={item.purpose}>
                       {item.purpose || 'General usage'}
                     </p>
                     {item.requestId && (
-                      <span className="inline-block mt-1 text-[10px] text-gray-400 bg-gray-800/80 px-1.5 py-0.5 rounded">
+                      <span className="inline-block mt-1 text-[10px] text-slate-600 font-medium bg-gray-800/80 px-1.5 py-0.5 rounded">
                         Req #{item.requestId}
                       </span>
                     )}
@@ -254,7 +254,7 @@ export const HodAllocationTable: React.FC<HodAllocationTableProps> = ({
                       variant="ghost"
                       size="sm"
                       onClick={() => onViewDetails(item.id)}
-                      className="text-gray-400 hover:text-white hover:bg-gray-800 p-1.5 rounded-lg"
+                      className="text-slate-600 font-medium hover:text-white hover:bg-gray-800 p-1.5 rounded-lg"
                       title="Inspect allocation"
                     >
                       <Eye className="w-4 h-4" />

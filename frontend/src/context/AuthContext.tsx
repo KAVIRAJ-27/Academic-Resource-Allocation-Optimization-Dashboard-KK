@@ -87,6 +87,15 @@ const SEED_USERS: Record<UserRole, User> = {
   },
 };
 
+const SEED_CREDENTIALS: Record<UserRole, { identifier: string; secret: string }> = {
+  [ROLES.ADMIN]: { identifier: 'admin', secret: 'Admin@123' },
+  [ROLES.PRINCIPAL]: { identifier: 'principal', secret: 'Principal@123' },
+  [ROLES.HOD]: { identifier: 'hod_cs', secret: 'Hod@123' },
+  [ROLES.FACULTY]: { identifier: 'faculty_john', secret: 'Faculty@123' },
+  [ROLES.STUDENT]: { identifier: 'student_alex', secret: 'Student@123' },
+  [ROLES.WARDEN]: { identifier: 'warden_smith', secret: 'Warden@123' },
+};
+
 function mapBackendUserToClient(backendUser: CurrentUserApiResponse | LoginApiResponse): User {
   const primaryRole = (backendUser.roles && backendUser.roles.length > 0
     ? (backendUser.roles[0].toUpperCase() as UserRole)
@@ -190,16 +199,10 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   };
 
   const loginAs = (role: UserRole) => {
-    setIsLoading(true);
-    setTimeout(() => {
-      const selected = SEED_USERS[role];
-      setUser(selected);
-      const mockToken = `mock-token-${role.toLowerCase()}-${Date.now()}`;
-      setToken(mockToken);
-      authStorage.setToken(mockToken);
-      authStorage.setUser(selected);
-      setIsLoading(false);
-    }, 120);
+    const cred = SEED_CREDENTIALS[role];
+    if (cred) {
+      void login({ usernameOrEmail: cred.identifier, password: cred.secret });
+    }
   };
 
   const switchRole = (role: UserRole) => {

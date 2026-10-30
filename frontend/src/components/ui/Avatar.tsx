@@ -33,9 +33,9 @@ export const Avatar: React.FC<AvatarProps> = ({
   };
 
   const statusColors = {
-    online: 'bg-emerald-400 ring-2 ring-[#080A0F]',
-    offline: 'bg-gray-500 ring-2 ring-[#080A0F]',
-    busy: 'bg-rose-400 ring-2 ring-[#080A0F]',
+    online: 'bg-[#3F7655] ring-2 ring-white',
+    offline: 'bg-[#77736A] ring-2 ring-white',
+    busy: 'bg-[#B44747] ring-2 ring-white',
   };
 
   return (
@@ -44,12 +44,12 @@ export const Avatar: React.FC<AvatarProps> = ({
         <img
           src={src}
           alt={name}
-          className={cn('rounded-xl object-cover border border-[#1E2330]', sizes[size])}
+          className={cn('rounded-xl object-cover border border-[#D8C9A8]', sizes[size])}
         />
       ) : (
         <div
           className={cn(
-            'rounded-xl bg-teal-500/15 border border-teal-500/30 text-teal-300 font-bold flex items-center justify-center font-mono',
+            'rounded-xl bg-[#F4F0E6] border border-[#D8C9A8] text-[#202020] font-serif font-bold flex items-center justify-center',
             sizes[size]
           )}
         >

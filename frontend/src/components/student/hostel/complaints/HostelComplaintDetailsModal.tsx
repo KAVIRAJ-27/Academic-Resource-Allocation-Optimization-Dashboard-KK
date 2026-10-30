@@ -31,7 +31,7 @@ export const HostelComplaintDetailsModal: React.FC<Props> = ({
     >
       <div className="space-y-4">
         {/* Header Badges */}
-        <div className="flex flex-wrap items-center justify-between gap-3 p-3.5 bg-[#0C0E14] border border-[#1E2330] rounded-xl">
+        <div className="flex flex-wrap items-center justify-between gap-3 p-3.5 bg-[#0C0E14] border border-slate-200 rounded-xl">
           <div className="flex items-center gap-2">
             <ComplaintCategoryBadge category={complaint.category} />
             <ComplaintPriorityBadge priority={complaint.priority} />
@@ -42,18 +42,18 @@ export const HostelComplaintDetailsModal: React.FC<Props> = ({
         </div>
 
         {/* Title */}
-        <div className="p-3.5 bg-[#0C0E14] border border-[#1E2330] rounded-xl">
-          <span className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider block mb-1">
+        <div className="p-3.5 bg-[#0C0E14] border border-slate-200 rounded-xl">
+          <span className="text-[11px] font-semibold text-slate-600 font-bold uppercase tracking-wider block mb-1">
             Complaint Subject
           </span>
-          <h4 className="text-sm font-semibold text-white">{complaint.title}</h4>
+          <h4 className="text-sm font-semibold text-slate-900">{complaint.title}</h4>
         </div>
 
         {/* Location & Timestamps Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {/* Hostel Context */}
-          <div className="p-3 bg-[#0C0E14] border border-[#1E2330] rounded-xl space-y-1">
-            <span className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider flex items-center gap-1.5">
+          <div className="p-3 bg-[#0C0E14] border border-slate-200 rounded-xl space-y-1">
+            <span className="text-[11px] font-semibold text-slate-600 font-bold uppercase tracking-wider flex items-center gap-1.5">
               <Hotel className="w-3.5 h-3.5 text-teal-400" />
               Premises Context
             </span>
@@ -64,8 +64,8 @@ export const HostelComplaintDetailsModal: React.FC<Props> = ({
           </div>
 
           {/* Submission Details */}
-          <div className="p-3 bg-[#0C0E14] border border-[#1E2330] rounded-xl space-y-1">
-            <span className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider flex items-center gap-1.5">
+          <div className="p-3 bg-[#0C0E14] border border-slate-200 rounded-xl space-y-1">
+            <span className="text-[11px] font-semibold text-slate-600 font-bold uppercase tracking-wider flex items-center gap-1.5">
               <Clock className="w-3.5 h-3.5 text-blue-400" />
               Lodged On
             </span>
@@ -84,8 +84,8 @@ export const HostelComplaintDetailsModal: React.FC<Props> = ({
         </div>
 
         {/* Detailed Description */}
-        <div className="p-4 bg-[#0C0E14] border border-[#1E2330] rounded-xl space-y-2">
-          <span className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider">
+        <div className="p-4 bg-[#0C0E14] border border-slate-200 rounded-xl space-y-2">
+          <span className="text-[11px] font-semibold text-slate-600 font-bold uppercase tracking-wider">
             Issue Description
           </span>
           <p className="text-xs text-gray-200 leading-relaxed whitespace-pre-line">
@@ -115,12 +115,12 @@ export const HostelComplaintDetailsModal: React.FC<Props> = ({
         )}
 
         {/* Action Footer */}
-        <div className="flex items-center justify-end pt-3 border-t border-[#1E2330]">
+        <div className="flex items-center justify-end pt-3 border-t border-slate-200">
           <Button
             variant="outline"
             size="sm"
             onClick={onClose}
-            className="border-[#222838] text-gray-300"
+            className="border-slate-200 text-gray-300"
           >
             Close Details
           </Button>

@@ -89,7 +89,7 @@ export const HodAllocationDetailModal: React.FC<HodAllocationDetailModalProps> =
                 <span>Allocated Resource</span>
               </div>
               <div>
-                <p className="text-base font-bold text-white">{allocation.resourceName}</p>
+                <p className="text-base font-bold text-slate-900">{allocation.resourceName}</p>
                 <p className="text-xs font-mono text-gray-400">{allocation.resourceCode}</p>
               </div>
               <div className="grid grid-cols-2 gap-2 pt-1 border-t border-gray-800/60 text-xs text-gray-300">
@@ -117,7 +117,7 @@ export const HodAllocationDetailModal: React.FC<HodAllocationDetailModalProps> =
                 <span>Beneficiary Information</span>
               </div>
               <div>
-                <p className="text-base font-bold text-white">{allocation.allocatedToName}</p>
+                <p className="text-base font-bold text-slate-900">{allocation.allocatedToName}</p>
                 <p className="text-xs text-gray-400">{allocation.allocatedToEmail}</p>
               </div>
               <div className="flex items-center gap-2 pt-1 border-t border-gray-800/60">

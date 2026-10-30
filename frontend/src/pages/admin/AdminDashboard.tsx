@@ -33,7 +33,7 @@ export const AdminDashboard: React.FC = () => {
         title="Central System Administration"
         description="Institution-wide operational command center for users, academic infrastructure, hostel living, resource requisitions, and allocations."
         badge={
-          <Badge variant={error ? 'danger' : 'teal'} dot>
+          <Badge variant={error ? 'danger' : 'success'} dot>
             {error ? 'CONNECTION ISSUE' : 'SYSTEM NOMINAL'}
           </Badge>
         }
@@ -62,12 +62,12 @@ export const AdminDashboard: React.FC = () => {
 
       {/* Error State Banner */}
       {error && (
-        <div className="p-4 rounded-2xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-between gap-4">
+        <div className="p-4 rounded-xl bg-[#FBF0F0] border border-[#EBBABA] flex items-center justify-between gap-4">
           <div className="flex items-center gap-3 min-w-0">
-            <AlertTriangle className="w-5 h-5 text-rose-400 shrink-0" />
+            <AlertTriangle className="w-5 h-5 text-[#B44747] shrink-0" />
             <div>
-              <h4 className="text-xs font-semibold text-rose-300">Telemetry Feed Error</h4>
-              <p className="text-[11px] text-gray-300 truncate">{error}</p>
+              <h4 className="text-xs font-semibold text-[#B44747]">Telemetry Feed Error</h4>
+              <p className="text-[11px] text-[#555555] truncate">{error}</p>
             </div>
           </div>
           <Button variant="danger" size="xs" onClick={refresh}>

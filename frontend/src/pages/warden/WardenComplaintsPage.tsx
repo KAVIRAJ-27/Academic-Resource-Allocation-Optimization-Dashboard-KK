@@ -246,14 +246,14 @@ export const WardenComplaintsPage: React.FC = () => {
                   placeholder="Search by title, student..."
                   value={filters.search || ''}
                   onChange={(e) => updateFilters({ search: e.target.value })}
-                  className="w-full pl-9 pr-4 py-1.5 bg-slate-900/80 border border-slate-700/70 rounded-lg text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-orange-500/60 transition-colors"
+                  className="w-full pl-9 pr-4 py-2 bg-white border border-slate-300 rounded-xl text-sm text-slate-900 placeholder-slate-400 font-medium focus:outline-none focus:border-indigo-500 shadow-2xs transition-colors"
                 />
               </div>
 
               <select
                 value={filters.priority || ''}
                 onChange={(e) => updateFilters({ priority: (e.target.value as PriorityLevel) || undefined })}
-                className="bg-slate-900/80 border border-slate-700/70 rounded-lg text-xs text-slate-300 py-2 px-3 focus:outline-none focus:border-orange-500/60"
+                className="bg-white border border-slate-300 rounded-xl text-xs text-slate-900 font-bold py-2 px-3 focus:outline-none focus:border-indigo-500 shadow-2xs"
               >
                 <option value="">All Priorities</option>
                 <option value="LOW">Low</option>
@@ -326,7 +326,7 @@ export const WardenComplaintsPage: React.FC = () => {
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse text-sm">
                 <thead>
-                  <tr className="border-b border-slate-700/60 bg-slate-900/50 text-slate-400 text-xs uppercase tracking-wider">
+                  <tr className="border-b border-slate-200 bg-slate-50 text-slate-700 font-bold text-xs uppercase tracking-wider">
                     <th className="py-3.5 px-4 font-semibold">ID / Priority</th>
                     <th className="py-3.5 px-4 font-semibold">Student</th>
                     <th className="py-3.5 px-4 font-semibold">Location</th>
@@ -336,7 +336,7 @@ export const WardenComplaintsPage: React.FC = () => {
                     <th className="py-3.5 px-4 font-semibold text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-800/60">
+                <tbody className="divide-y divide-slate-200">
                   {complaints.map((c) => (
                     <tr
                       key={c.id}
@@ -345,7 +345,7 @@ export const WardenComplaintsPage: React.FC = () => {
                     >
                       <td className="py-3 px-4" onClick={(e) => e.stopPropagation()}>
                         <div className="flex items-center gap-2">
-                          <span className="font-mono text-xs text-slate-400">#{c.id}</span>
+                          <span className="font-mono text-xs text-slate-600 font-medium">#{c.id}</span>
                           {getPriorityBadge(c.priority)}
                         </div>
                       </td>
@@ -356,13 +356,13 @@ export const WardenComplaintsPage: React.FC = () => {
                           </div>
                           <div>
                             <p className="font-medium text-slate-200 text-xs">{c.studentName || 'Unknown Student'}</p>
-                            <p className="text-[11px] font-mono text-slate-400">{c.registerNumber || 'N/A'}</p>
+                            <p className="text-[11px] font-mono text-slate-600 font-medium">{c.registerNumber || 'N/A'}</p>
                           </div>
                         </div>
                       </td>
                       <td className="py-3 px-4">
                         <div className="flex items-center gap-1.5 text-xs text-slate-300">
-                          <Building className="w-3.5 h-3.5 text-slate-400" />
+                          <Building className="w-3.5 h-3.5 text-slate-600 font-medium" />
                           <span>{c.hostelName}</span>
                           {c.roomNumber && (
                             <Badge variant="neutral" className="text-[10px] py-0 px-1.5">
@@ -375,12 +375,12 @@ export const WardenComplaintsPage: React.FC = () => {
                         <p className="font-medium text-slate-200 text-xs truncate" title={c.title}>
                           {c.title}
                         </p>
-                        <p className="text-[11px] text-slate-400 truncate">{c.category}</p>
+                        <p className="text-[11px] text-slate-600 font-medium truncate">{c.category}</p>
                       </td>
                       <td className="py-3 px-4">
                         {getStatusBadge(c.status)}
                       </td>
-                      <td className="py-3 px-4 text-xs text-slate-400">
+                      <td className="py-3 px-4 text-xs text-slate-600 font-medium">
                         {c.createdAt ? new Date(c.createdAt).toLocaleDateString() : 'N/A'}
                       </td>
                       <td className="py-3 px-4 text-right" onClick={(e) => e.stopPropagation()}>
@@ -388,7 +388,7 @@ export const WardenComplaintsPage: React.FC = () => {
                           <Button
                             variant="ghost"
                             size="sm"
-                            leftIcon={<Eye className="w-3.5 h-3.5 text-slate-400" />}
+                            leftIcon={<Eye className="w-3.5 h-3.5 text-slate-600 font-medium" />}
                             onClick={() => navigate(`/warden/complaints/${c.id}`)}
                           >
                             Details
@@ -413,7 +413,7 @@ export const WardenComplaintsPage: React.FC = () => {
 
           {/* Pagination */}
           {totalPages > 1 && (
-            <div className="p-4 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
+            <div className="p-4 border-t border-slate-200 flex items-center justify-between text-xs text-slate-600 font-medium">
               <span>
                 Page {currentPage + 1} of {totalPages} ({totalElements} total complaints)
               </span>
@@ -444,46 +444,46 @@ export const WardenComplaintsPage: React.FC = () => {
 
       {/* QUICK STATUS UPDATE MODAL */}
       {selectedComplaint && (
-        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-slate-700/80 rounded-xl max-w-md w-full p-6 shadow-2xl space-y-4">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-              <h3 className="text-base font-semibold text-slate-100 flex items-center gap-2">
-                <AlertTriangle className="w-4 h-4 text-orange-400" />
+        <div className="fixed inset-0 z-50 bg-[#202020]/40 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-[#FFFFFF] border border-[#D8C9A8] rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
+            <div className="flex items-center justify-between border-b border-[#E8E0D0] pb-3">
+              <h3 className="text-base font-serif font-bold text-[#202020] flex items-center gap-2">
+                <AlertTriangle className="w-4 h-4 text-[#B8A16A]" />
                 Update Complaint #{selectedComplaint.id}
               </h3>
               <button
                 onClick={() => setSelectedComplaint(null)}
-                className="text-slate-400 hover:text-slate-200"
+                className="text-[#77736A] hover:text-[#202020] transition-colors"
               >
                 <XCircle className="w-5 h-5" />
               </button>
             </div>
 
             {modalError && (
-              <div className="p-3 bg-red-900/30 border border-red-500/40 rounded-lg text-xs text-red-300">
+              <div className="p-3 bg-[#B44747]/10 border border-[#B44747]/20 rounded-xl text-xs font-semibold text-[#B44747]">
                 {modalError}
               </div>
             )}
 
             <div className="space-y-3 text-xs">
               <div>
-                <label className="text-slate-400 block mb-1">Issue Title</label>
-                <p className="text-slate-200 font-medium bg-slate-800/60 p-2 rounded-lg border border-slate-700/40">
+                <label className="text-[#77736A] font-medium block mb-1">Issue Title</label>
+                <p className="text-[#202020] font-semibold bg-[#F8F6F0] p-2.5 rounded-xl border border-[#D8C9A8]">
                   {selectedComplaint.title}
                 </p>
               </div>
 
               <div>
-                <label className="text-slate-400 block mb-1">Current Status</label>
+                <label className="text-[#77736A] font-medium block mb-1">Current Status</label>
                 <div className="mb-2">{getStatusBadge(selectedComplaint.status)}</div>
               </div>
 
               <div>
-                <label className="text-slate-300 block mb-1 font-medium">New Status</label>
+                <label className="text-[#202020] block mb-1 font-bold">New Status</label>
                 <select
                   value={modalStatus}
                   onChange={(e) => setModalStatus(e.target.value as ComplaintStatus)}
-                  className="w-full bg-slate-800 border border-slate-700 rounded-lg text-slate-200 py-2 px-3 text-xs focus:outline-none focus:border-orange-500"
+                  className="w-full bg-[#FFFFFF] border border-[#D9D2C3] rounded-xl text-[#202020] font-medium py-2 px-3 text-xs shadow-2xs focus:outline-none focus:border-[#B8A16A]"
                 >
                   <option value="IN_PROGRESS">IN_PROGRESS (Under investigation)</option>
                   <option value="RESOLVED">RESOLVED (Issue resolved)</option>
@@ -493,18 +493,18 @@ export const WardenComplaintsPage: React.FC = () => {
               </div>
 
               <div>
-                <label className="text-slate-300 block mb-1 font-medium">Resolution Notes / Remarks</label>
+                <label className="text-[#202020] block mb-1 font-bold">Resolution Notes / Remarks</label>
                 <textarea
                   value={modalRemarks}
                   onChange={(e) => setModalRemarks(e.target.value)}
                   placeholder="Explain steps taken or reason for resolution/rejection..."
                   rows={3}
-                  className="w-full bg-slate-800 border border-slate-700 rounded-lg text-slate-200 p-2.5 text-xs focus:outline-none focus:border-orange-500 resize-none"
+                  className="w-full bg-[#FFFFFF] border border-[#D9D2C3] rounded-xl text-[#202020] font-medium p-2.5 text-xs shadow-2xs focus:outline-none focus:border-[#B8A16A] resize-none placeholder-[#77736A]"
                 />
               </div>
             </div>
 
-            <div className="flex justify-end gap-2 pt-2 border-t border-slate-800">
+            <div className="flex justify-end gap-2 pt-2 border-t border-[#E8E0D0]">
               <Button
                 variant="ghost"
                 size="sm"

@@ -25,6 +25,14 @@ public interface UserRepository extends JpaRepository<User, Long>, JpaSpecificat
         "SELECT DISTINCT u FROM User u " +
         "LEFT JOIN FETCH u.roles r " +
         "LEFT JOIN FETCH r.permissions " +
+        "WHERE u.id = :id"
+    )
+    Optional<User> findByIdWithRoles(@org.springframework.data.repository.query.Param("id") Long id);
+
+    @org.springframework.data.jpa.repository.Query(
+        "SELECT DISTINCT u FROM User u " +
+        "LEFT JOIN FETCH u.roles r " +
+        "LEFT JOIN FETCH r.permissions " +
         "ORDER BY u.id DESC"
     )
     java.util.List<User> findAllWithRoles();

@@ -72,7 +72,7 @@ export const HostelRequestDetailsModal: React.FC<Props> = ({
         )}
 
         {/* Header Badges */}
-        <div className="flex flex-wrap items-center justify-between gap-3 p-3.5 bg-[#0C0E14] border border-[#1E2330] rounded-xl">
+        <div className="flex flex-wrap items-center justify-between gap-3 p-3.5 bg-[#0C0E14] border border-slate-200 rounded-xl">
           <div className="flex items-center gap-2">
             <RequestTypeBadge type={request.requestType} />
             <RequestPriorityBadge priority={request.priority} />
@@ -85,8 +85,8 @@ export const HostelRequestDetailsModal: React.FC<Props> = ({
         {/* Primary Metadata Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {/* Hostel Context */}
-          <div className="p-3 bg-[#0C0E14] border border-[#1E2330] rounded-xl space-y-1">
-            <span className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider flex items-center gap-1.5">
+          <div className="p-3 bg-[#0C0E14] border border-slate-200 rounded-xl space-y-1">
+            <span className="text-[11px] font-semibold text-slate-600 font-bold uppercase tracking-wider flex items-center gap-1.5">
               <Hotel className="w-3.5 h-3.5 text-teal-400" />
               Hostel Facility
             </span>
@@ -97,8 +97,8 @@ export const HostelRequestDetailsModal: React.FC<Props> = ({
           </div>
 
           {/* Submission Timestamps */}
-          <div className="p-3 bg-[#0C0E14] border border-[#1E2330] rounded-xl space-y-1">
-            <span className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider flex items-center gap-1.5">
+          <div className="p-3 bg-[#0C0E14] border border-slate-200 rounded-xl space-y-1">
+            <span className="text-[11px] font-semibold text-slate-600 font-bold uppercase tracking-wider flex items-center gap-1.5">
               <Clock className="w-3.5 h-3.5 text-blue-400" />
               Submission Details
             </span>
@@ -117,8 +117,8 @@ export const HostelRequestDetailsModal: React.FC<Props> = ({
         </div>
 
         {/* Detailed Description */}
-        <div className="p-4 bg-[#0C0E14] border border-[#1E2330] rounded-xl space-y-2">
-          <span className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider">
+        <div className="p-4 bg-[#0C0E14] border border-slate-200 rounded-xl space-y-2">
+          <span className="text-[11px] font-semibold text-slate-600 font-bold uppercase tracking-wider">
             Request Statement & Requirements
           </span>
           <p className="text-xs text-gray-200 leading-relaxed whitespace-pre-line">
@@ -142,7 +142,7 @@ export const HostelRequestDetailsModal: React.FC<Props> = ({
                 size="sm"
                 onClick={() => setShowConfirmCancel(false)}
                 disabled={cancelling}
-                className="border-[#222838] text-gray-300"
+                className="border-slate-200 text-gray-300"
               >
                 Keep Active
               </Button>
@@ -160,7 +160,7 @@ export const HostelRequestDetailsModal: React.FC<Props> = ({
         )}
 
         {/* Action Footer */}
-        <div className="flex items-center justify-between pt-3 border-t border-[#1E2330]">
+        <div className="flex items-center justify-between pt-3 border-t border-slate-200">
           <div>
             {isCancellable && !showConfirmCancel && onCancelRequest && (
               <Button
@@ -179,7 +179,7 @@ export const HostelRequestDetailsModal: React.FC<Props> = ({
             variant="outline"
             size="sm"
             onClick={onClose}
-            className="border-[#222838] text-gray-300"
+            className="border-slate-200 text-gray-300"
           >
             Close Details
           </Button>

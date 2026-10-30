@@ -14,7 +14,7 @@ export const FacultyTimetableScheduleView: React.FC<FacultyTimetableScheduleView
 }) => {
   if (!entries || entries.length === 0) {
     return (
-      <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-8 shadow-card">
+      <div className="bg-white border border-slate-200 rounded-xl p-8 shadow-card">
         <EmptyState
           icon={Calendar}
           title="No timetable entries are currently available."
@@ -51,11 +51,11 @@ export const FacultyTimetableScheduleView: React.FC<FacultyTimetableScheduleView
       {sortedDays.map((day) => {
         const dayEntries = groupedByDay[day];
         return (
-          <div key={day} className="bg-[#11141C] border border-[#1E2330] rounded-xl overflow-hidden shadow-card">
-            <div className="bg-[#171A23] border-b border-[#1E2330] px-5 py-3.5 flex items-center justify-between">
+          <div key={day} className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-card">
+            <div className="bg-slate-50 border-b border-slate-200 px-5 py-3.5 flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Calendar className="w-4 h-4 text-teal-400" />
-                <h3 className="text-sm font-bold text-white capitalize">
+                <h3 className="text-sm font-bold text-slate-900 capitalize">
                   {day.toLowerCase()}
                 </h3>
               </div>
@@ -68,7 +68,7 @@ export const FacultyTimetableScheduleView: React.FC<FacultyTimetableScheduleView
               {dayEntries.map((entry) => (
                 <div
                   key={entry.id}
-                  className="bg-[#151923] border border-[#1E2330] rounded-xl p-4 hover:border-teal-500/30 transition-all flex flex-col justify-between space-y-3"
+                  className="bg-slate-50 border border-slate-200 rounded-xl p-4 hover:border-teal-500/30 transition-all flex flex-col justify-between space-y-3"
                 >
                   <div className="space-y-2">
                     <div className="flex items-center justify-between">
@@ -88,13 +88,13 @@ export const FacultyTimetableScheduleView: React.FC<FacultyTimetableScheduleView
                         <span className="font-semibold text-gray-300">{entry.subjectCode}</span>
                         {entry.programCode && <span>• {entry.programCode}</span>}
                       </div>
-                      <h4 className="text-sm font-bold text-white pt-0.5">
+                      <h4 className="text-sm font-bold text-slate-900 pt-0.5">
                         {entry.subjectName}
                       </h4>
                     </div>
                   </div>
 
-                  <div className="pt-2.5 border-t border-[#1E2330] flex items-center justify-between text-xs text-gray-400">
+                  <div className="pt-2.5 border-t border-slate-200 flex items-center justify-between text-xs text-gray-400">
                     <div className="flex items-center gap-1.5 truncate">
                       <MapPin className="w-3.5 h-3.5 text-teal-400" />
                       <span className="font-medium text-gray-200 truncate">

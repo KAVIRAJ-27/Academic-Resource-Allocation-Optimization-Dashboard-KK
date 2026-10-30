@@ -167,7 +167,7 @@ export const CreateStudentRequestModal: React.FC<Props> = ({
             value={resourceId}
             onChange={(e) => setResourceId(e.target.value ? Number(e.target.value) : '')}
             disabled={resourcesLoading || submitting}
-            className="w-full bg-[#171A23] border border-[#222838] text-gray-200 text-xs rounded-lg px-3 py-2.5 focus:outline-none focus:border-teal-500/50 transition-colors"
+            className="w-full bg-slate-50 border border-slate-200 text-gray-200 text-xs rounded-lg px-3 py-2.5 focus:outline-none focus:border-teal-500/50 transition-colors"
           >
             <option value="">-- Choose an available academic resource --</option>
             {resources.map((res) => (
@@ -183,10 +183,10 @@ export const CreateStudentRequestModal: React.FC<Props> = ({
 
         {/* Resource Preview Card */}
         {selectedResource && (
-          <div className="p-3 bg-[#171A23] border border-[#222838] rounded-xl space-y-2">
+          <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
             <div className="flex items-center justify-between">
               <span className="font-semibold text-white">{selectedResource.name}</span>
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#11141C] text-teal-400 border border-teal-500/30">
+              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white text-teal-400 border border-teal-500/30">
                 {selectedResource.categoryName || 'Resource'}
               </span>
             </div>
@@ -227,7 +227,7 @@ export const CreateStudentRequestModal: React.FC<Props> = ({
                 value={requestedDate}
                 onChange={(e) => setRequestedDate(e.target.value)}
                 disabled={submitting}
-                className="w-full bg-[#171A23] border border-[#222838] text-gray-200 text-xs rounded-lg px-3 py-2 focus:outline-none focus:border-teal-500/50 transition-colors"
+                className="w-full bg-slate-50 border border-slate-200 text-gray-200 text-xs rounded-lg px-3 py-2 focus:outline-none focus:border-teal-500/50 transition-colors"
               />
             </div>
           </div>
@@ -242,7 +242,7 @@ export const CreateStudentRequestModal: React.FC<Props> = ({
               value={startTime}
               onChange={(e) => setStartTime(e.target.value)}
               disabled={submitting}
-              className="w-full bg-[#171A23] border border-[#222838] text-gray-200 text-xs rounded-lg px-3 py-2 focus:outline-none focus:border-teal-500/50 transition-colors"
+              className="w-full bg-slate-50 border border-slate-200 text-gray-200 text-xs rounded-lg px-3 py-2 focus:outline-none focus:border-teal-500/50 transition-colors"
             />
           </div>
 
@@ -256,7 +256,7 @@ export const CreateStudentRequestModal: React.FC<Props> = ({
               value={endTime}
               onChange={(e) => setEndTime(e.target.value)}
               disabled={submitting}
-              className="w-full bg-[#171A23] border border-[#222838] text-gray-200 text-xs rounded-lg px-3 py-2 focus:outline-none focus:border-teal-500/50 transition-colors"
+              className="w-full bg-slate-50 border border-slate-200 text-gray-200 text-xs rounded-lg px-3 py-2 focus:outline-none focus:border-teal-500/50 transition-colors"
             />
           </div>
         </div>
@@ -271,7 +271,7 @@ export const CreateStudentRequestModal: React.FC<Props> = ({
               value={priority}
               onChange={(e) => setPriority(e.target.value as PriorityLevel)}
               disabled={submitting}
-              className="w-full bg-[#171A23] border border-[#222838] text-gray-200 text-xs rounded-lg px-3 py-2 focus:outline-none focus:border-teal-500/50 transition-colors"
+              className="w-full bg-slate-50 border border-slate-200 text-gray-200 text-xs rounded-lg px-3 py-2 focus:outline-none focus:border-teal-500/50 transition-colors"
             >
               <option value="LOW">LOW</option>
               <option value="MEDIUM">MEDIUM</option>
@@ -292,7 +292,7 @@ export const CreateStudentRequestModal: React.FC<Props> = ({
             onChange={(e) => setPurpose(e.target.value)}
             disabled={submitting}
             placeholder="e.g., Final Year Capstone Project Demonstration & Hardware Benchmarking"
-            className="w-full bg-[#171A23] border border-[#222838] text-gray-200 text-xs rounded-lg p-2.5 focus:outline-none focus:border-teal-500/50 transition-colors resize-none placeholder-gray-500"
+            className="w-full bg-slate-50 border border-slate-200 text-gray-200 text-xs rounded-lg p-2.5 focus:outline-none focus:border-teal-500/50 transition-colors resize-none placeholder-gray-500"
           />
         </div>
 
@@ -307,19 +307,19 @@ export const CreateStudentRequestModal: React.FC<Props> = ({
             onChange={(e) => setDescription(e.target.value)}
             disabled={submitting}
             placeholder="e.g., Requires projector and power strips for 4 workstations"
-            className="w-full bg-[#171A23] border border-[#222838] text-gray-200 text-xs rounded-lg px-3 py-2 focus:outline-none focus:border-teal-500/50 transition-colors placeholder-gray-500"
+            className="w-full bg-slate-50 border border-slate-200 text-gray-200 text-xs rounded-lg px-3 py-2 focus:outline-none focus:border-teal-500/50 transition-colors placeholder-gray-500"
           />
         </div>
 
         {/* Action Buttons */}
-        <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#1E2330]">
+        <div className="flex items-center justify-end gap-3 pt-3 border-t border-slate-200">
           <Button
             type="button"
             variant="outline"
             size="sm"
             onClick={onClose}
             disabled={submitting}
-            className="border-[#222838] text-gray-300"
+            className="border-slate-200 text-gray-300"
           >
             Cancel
           </Button>

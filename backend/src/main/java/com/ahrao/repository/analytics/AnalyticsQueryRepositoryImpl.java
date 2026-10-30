@@ -516,7 +516,7 @@ public class AnalyticsQueryRepositoryImpl implements AnalyticsQueryRepository {
         if (allowedHostelIds != null && allowedHostelIds.isEmpty()) return Collections.emptyList();
 
         StringBuilder jpql = new StringBuilder(
-                "SELECT h.id, h.name, h.hostelType, " +
+                "SELECT h.id, h.name, h.type, " +
                 "COUNT(DISTINCT r.id), COUNT(b.id), " +
                 "SUM(CASE WHEN b.status = :occStatus THEN 1 ELSE 0 END), " +
                 "SUM(CASE WHEN b.status = :availStatus THEN 1 ELSE 0 END) " +
@@ -531,7 +531,7 @@ public class AnalyticsQueryRepositoryImpl implements AnalyticsQueryRepository {
         if (allowedHostelIds != null) {
             jpql.append("AND h.id IN (:hIds) ");
         }
-        jpql.append("GROUP BY h.id, h.name, h.hostelType ORDER BY h.name ASC");
+        jpql.append("GROUP BY h.id, h.name, h.type ORDER BY h.name ASC");
 
         Query query = em.createQuery(jpql.toString());
         query.setParameter("occStatus", HostelBedStatus.OCCUPIED);
@@ -1041,7 +1041,7 @@ public class AnalyticsQueryRepositoryImpl implements AnalyticsQueryRepository {
 
         // 3. Faculty workload list
         StringBuilder listJpql = new StringBuilder(
-                "SELECT w.faculty.id, w.faculty.user.name, w.faculty.employeeId, " +
+                "SELECT w.faculty.id, CONCAT(w.faculty.user.firstName, ' ', w.faculty.user.lastName), w.faculty.employeeId, " +
                 "w.faculty.department.name, w.totalHours, w.teachingHours, w.labHours, w.workloadStatus " +
                 "FROM FacultyWorkload w WHERE 1=1 "
         );

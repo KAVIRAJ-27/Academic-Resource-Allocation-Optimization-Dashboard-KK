@@ -182,7 +182,7 @@ export const WardenMaintenanceDetailPage: React.FC = () => {
       <Card className="mb-6 border-orange-500/30 bg-gradient-to-r from-slate-900 via-slate-900 to-orange-950/20">
         <CardContent className="p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
-            <span className="text-xs text-slate-400 uppercase tracking-wider font-semibold block mb-1">
+            <span className="text-xs text-slate-600 font-bold uppercase tracking-wider font-semibold block mb-1">
               Dispatch & Execution Workflow
             </span>
             <div className="flex items-center gap-3">
@@ -300,31 +300,31 @@ export const WardenMaintenanceDetailPage: React.FC = () => {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <label className="text-xs text-slate-400 uppercase tracking-wider block mb-1">
+                  <label className="text-xs text-slate-600 font-bold uppercase tracking-wider block mb-1">
                     Work Order Title
                   </label>
                   <p className="text-sm font-semibold text-slate-100">{maintenance.title}</p>
                 </div>
 
                 <div>
-                  <label className="text-xs text-slate-400 uppercase tracking-wider block mb-1">
+                  <label className="text-xs text-slate-600 font-bold uppercase tracking-wider block mb-1 font-bold">
                     Detailed Notes
                   </label>
-                  <div className="p-4 bg-slate-900/90 rounded-lg border border-slate-800 text-sm text-slate-300 whitespace-pre-wrap leading-relaxed">
+                  <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 text-sm text-slate-800 whitespace-pre-wrap leading-relaxed font-medium">
                     {maintenance.description || 'No detailed issue notes recorded.'}
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2 border-t border-slate-800 text-xs">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2 border-t border-slate-200 text-xs">
                   <div>
                     <span className="text-slate-500 block">Logged</span>
-                    <span className="text-slate-300 font-medium">
+                    <span className="text-slate-900 font-semibold">
                       {maintenance.createdAt ? new Date(maintenance.createdAt).toLocaleString() : 'N/A'}
                     </span>
                   </div>
                   <div>
                     <span className="text-slate-500 block">Updated</span>
-                    <span className="text-slate-300 font-medium">
+                    <span className="text-slate-900 font-semibold">
                       {maintenance.updatedAt ? new Date(maintenance.updatedAt).toLocaleString() : 'N/A'}
                     </span>
                   </div>
@@ -392,21 +392,21 @@ export const WardenMaintenanceDetailPage: React.FC = () => {
               <CardContent className="space-y-3 text-xs">
                 {maintenance.assignedToName ? (
                   <>
-                    <div className="flex items-center gap-3 pb-3 border-b border-slate-800">
-                      <div className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-teal-400 font-bold text-sm border border-slate-700">
+                    <div className="flex items-center gap-3 pb-3 border-b border-slate-200">
+                      <div className="w-10 h-10 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-700 font-bold text-sm border border-indigo-200">
                         {maintenance.assignedToName.charAt(0).toUpperCase()}
                       </div>
                       <div>
-                        <h4 className="font-semibold text-slate-100 text-sm">
+                        <h4 className="font-bold text-slate-900 text-sm">
                           {maintenance.assignedToName}
                         </h4>
-                        <p className="text-slate-400 text-xs">Staff / Maintenance Tech</p>
+                        <p className="text-slate-600 text-xs font-medium">Staff / Maintenance Tech</p>
                       </div>
                     </div>
 
                     {maintenance.assignedToEmail && (
-                      <div className="flex items-center gap-2 text-slate-300">
-                        <Mail className="w-3.5 h-3.5 text-slate-500" />
+                      <div className="flex items-center gap-2 text-slate-700 font-medium">
+                        <Mail className="w-3.5 h-3.5 text-slate-400" />
                         <span className="truncate">{maintenance.assignedToEmail}</span>
                       </div>
                     )}
@@ -459,36 +459,36 @@ export const WardenMaintenanceDetailPage: React.FC = () => {
 
       {/* CONFIRM STATUS TRANSITION MODAL */}
       {targetStatus && (
-        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-slate-700/80 rounded-xl max-w-md w-full p-6 shadow-2xl space-y-4">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-              <h3 className="text-base font-semibold text-slate-100 flex items-center gap-2">
-                <Wrench className="w-4 h-4 text-orange-400" />
+        <div className="fixed inset-0 z-50 bg-[#202020]/40 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-[#FFFFFF] border border-[#D8C9A8] rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
+            <div className="flex items-center justify-between border-b border-[#E8E0D0] pb-3">
+              <h3 className="text-base font-serif font-bold text-[#202020] flex items-center gap-2">
+                <Wrench className="w-4 h-4 text-[#B8A16A]" />
                 Update Order to {targetStatus}
               </h3>
               <button
                 onClick={() => setTargetStatus(null)}
-                className="text-slate-400 hover:text-slate-200"
+                className="text-[#77736A] hover:text-[#202020] transition-colors"
               >
                 <XCircle className="w-5 h-5" />
               </button>
             </div>
 
             {actionError && (
-              <div className="p-3 bg-red-900/30 border border-red-500/40 rounded-lg text-xs text-red-300">
+              <div className="p-3 bg-[#B44747]/10 border border-[#B44747]/20 rounded-xl text-xs font-semibold text-[#B44747]">
                 {actionError}
               </div>
             )}
 
             <div className="space-y-3 text-xs">
-              <p className="text-slate-300 leading-relaxed">
+              <p className="text-[#555555] leading-relaxed font-medium">
                 Confirm updating Work Order #{maintenance.id} from{' '}
-                <strong className="text-slate-100">{maintenance.status}</strong> to{' '}
-                <strong className="text-orange-400">{targetStatus}</strong>.
+                <strong className="text-[#202020] font-bold">{maintenance.status}</strong> to{' '}
+                <strong className="text-[#B8A16A] font-bold">{targetStatus}</strong>.
               </p>
 
               <div>
-                <label className="text-slate-300 block mb-1 font-medium">
+                <label className="text-[#202020] block mb-1 font-bold">
                   Remarks / Work Completion Notes
                 </label>
                 <textarea
@@ -496,12 +496,12 @@ export const WardenMaintenanceDetailPage: React.FC = () => {
                   onChange={(e) => setRemarks(e.target.value)}
                   placeholder="Details of repair work performed or reason for cancellation..."
                   rows={4}
-                  className="w-full bg-slate-800 border border-slate-700 rounded-lg text-slate-200 p-2.5 text-xs focus:outline-none focus:border-orange-500 resize-none"
+                  className="w-full bg-[#FFFFFF] border border-[#D9D2C3] rounded-xl text-[#202020] font-medium p-2.5 text-xs shadow-2xs focus:outline-none focus:border-[#B8A16A] resize-none placeholder-[#77736A]"
                 />
               </div>
             </div>
 
-            <div className="flex justify-end gap-2 pt-2 border-t border-slate-800">
+            <div className="flex justify-end gap-2 pt-2 border-t border-[#E8E0D0]">
               <Button
                 variant="ghost"
                 size="sm"
@@ -526,50 +526,50 @@ export const WardenMaintenanceDetailPage: React.FC = () => {
 
       {/* ASSIGN TECHNICIAN MODAL */}
       {assignModalOpen && (
-        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-slate-700/80 rounded-xl max-w-md w-full p-6 shadow-2xl space-y-4">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-              <h3 className="text-base font-semibold text-slate-100 flex items-center gap-2">
-                <UserCheck className="w-4 h-4 text-teal-400" />
+        <div className="fixed inset-0 z-50 bg-[#202020]/40 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-[#FFFFFF] border border-[#D8C9A8] rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
+            <div className="flex items-center justify-between border-b border-[#E8E0D0] pb-3">
+              <h3 className="text-base font-serif font-bold text-[#202020] flex items-center gap-2">
+                <UserCheck className="w-4 h-4 text-[#B8A16A]" />
                 Assign Technician
               </h3>
               <button
                 onClick={() => setAssignModalOpen(false)}
-                className="text-slate-400 hover:text-slate-200"
+                className="text-[#77736A] hover:text-[#202020] transition-colors"
               >
                 <XCircle className="w-5 h-5" />
               </button>
             </div>
 
             {actionError && (
-              <div className="p-3 bg-red-900/30 border border-red-500/40 rounded-lg text-xs text-red-300">
+              <div className="p-3 bg-[#B44747]/10 border border-[#B44747]/20 rounded-xl text-xs font-semibold text-[#B44747]">
                 {actionError}
               </div>
             )}
 
             <div className="space-y-3 text-xs">
-              <p className="text-slate-300 leading-relaxed">
+              <p className="text-[#555555] leading-relaxed font-medium">
                 Assign a qualified technician or staff member to handle Work Order #{maintenance.id}.
               </p>
 
               <div>
-                <label className="text-slate-300 block mb-1 font-medium">
-                  Staff / Technician User ID <span className="text-red-400">*</span>
+                <label className="text-[#202020] block mb-1 font-bold">
+                  Staff / Technician User ID <span className="text-[#B44747]">*</span>
                 </label>
                 <input
                   type="number"
                   placeholder="Enter User ID (e.g. 1)"
                   value={technicianIdInput}
                   onChange={(e) => setTechnicianIdInput(e.target.value)}
-                  className="w-full bg-slate-800 border border-slate-700 rounded-lg text-slate-200 p-2.5 text-xs focus:outline-none focus:border-teal-500"
+                  className="w-full bg-[#FFFFFF] border border-[#D9D2C3] rounded-xl text-[#202020] font-medium p-2.5 text-xs shadow-2xs focus:outline-none focus:border-[#B8A16A] placeholder-[#77736A]"
                 />
-                <span className="text-[11px] text-slate-500 mt-1 block">
+                <span className="text-[11px] text-[#77736A] mt-1 block font-medium">
                   The user must be a registered staff member or authorized technician.
                 </span>
               </div>
             </div>
 
-            <div className="flex justify-end gap-2 pt-2 border-t border-slate-800">
+            <div className="flex justify-end gap-2 pt-2 border-t border-[#E8E0D0]">
               <Button
                 variant="ghost"
                 size="sm"

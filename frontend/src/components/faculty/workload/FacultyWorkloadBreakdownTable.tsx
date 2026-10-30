@@ -12,7 +12,7 @@ export const FacultyWorkloadBreakdownTable: React.FC<FacultyWorkloadBreakdownTab
 }) => {
   if (!breakdown || breakdown.length === 0) {
     return (
-      <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-8 shadow-card">
+      <div className="bg-white border border-slate-200 rounded-xl p-8 shadow-card">
         <EmptyState
           icon={BookOpen}
           title="No workload breakdown is available."
@@ -23,10 +23,10 @@ export const FacultyWorkloadBreakdownTable: React.FC<FacultyWorkloadBreakdownTab
   }
 
   return (
-    <div className="bg-[#11141C] border border-[#1E2330] rounded-xl overflow-hidden shadow-card">
-      <div className="px-5 py-4 border-b border-[#1E2330] flex items-center justify-between">
+    <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-card">
+      <div className="px-5 py-4 border-b border-slate-200 flex items-center justify-between">
         <div>
-          <h3 className="text-sm font-semibold text-white">Assigned Teaching Breakdown</h3>
+          <h3 className="text-sm font-semibold text-slate-900">Assigned Teaching Breakdown</h3>
           <p className="text-xs text-gray-400 mt-0.5">Instructional hours by course, subject, and section</p>
         </div>
         <Badge variant="teal" size="sm">
@@ -37,7 +37,7 @@ export const FacultyWorkloadBreakdownTable: React.FC<FacultyWorkloadBreakdownTab
       {/* Desktop Table View */}
       <div className="hidden md:block overflow-x-auto">
         <table className="w-full text-left text-sm text-gray-300">
-          <thead className="bg-[#171A23] border-b border-[#1E2330] text-xs font-semibold text-gray-400 uppercase tracking-wider">
+          <thead className="bg-slate-50 border-b border-slate-200 text-xs font-semibold text-slate-700 font-bold uppercase tracking-wider">
             <tr>
               <th scope="col" className="px-5 py-3.5">Subject Code</th>
               <th scope="col" className="px-5 py-3.5">Subject Name</th>
@@ -48,9 +48,9 @@ export const FacultyWorkloadBreakdownTable: React.FC<FacultyWorkloadBreakdownTab
               <th scope="col" className="px-5 py-3.5">Academic Period</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-[#1E2330]">
+          <tbody className="divide-y divide-slate-200">
             {breakdown.map((item, idx) => (
-              <tr key={item.subjectId ? `${item.subjectId}-${idx}` : idx} className="hover:bg-[#151923] transition-colors">
+              <tr key={item.subjectId ? `${item.subjectId}-${idx}` : idx} className="hover:bg-slate-50 transition-colors">
                 <td className="px-5 py-4 whitespace-nowrap">
                   <Badge variant="teal" size="sm">
                     {item.subjectCode || 'N/A'}
@@ -59,7 +59,7 @@ export const FacultyWorkloadBreakdownTable: React.FC<FacultyWorkloadBreakdownTab
                 <td className="px-5 py-4 font-medium text-white">
                   {item.subjectName || 'Unknown Subject'}
                 </td>
-                <td className="px-5 py-4 text-gray-300">
+                <td className="px-5 py-4 text-slate-700 font-medium">
                   {item.courseName || '—'}
                 </td>
                 <td className="px-5 py-4">
@@ -68,7 +68,7 @@ export const FacultyWorkloadBreakdownTable: React.FC<FacultyWorkloadBreakdownTab
                       {item.sectionName}
                     </Badge>
                   ) : (
-                    <span className="text-gray-500 text-xs">All Sections</span>
+                    <span className="text-slate-500 font-medium text-xs">All Sections</span>
                   )}
                 </td>
                 <td className="px-5 py-4 font-semibold text-white">
@@ -77,10 +77,10 @@ export const FacultyWorkloadBreakdownTable: React.FC<FacultyWorkloadBreakdownTab
                     <span>{item.hours} hrs/wk</span>
                   </div>
                 </td>
-                <td className="px-5 py-4 text-gray-400">
+                <td className="px-5 py-4 text-slate-600 font-medium">
                   {item.credits ?? '—'}
                 </td>
-                <td className="px-5 py-4 text-xs text-gray-400">
+                <td className="px-5 py-4 text-xs text-slate-600 font-medium">
                   {item.academicPeriod || 'Current Semester'}
                 </td>
               </tr>
@@ -90,7 +90,7 @@ export const FacultyWorkloadBreakdownTable: React.FC<FacultyWorkloadBreakdownTab
       </div>
 
       {/* Mobile Card View */}
-      <div className="md:hidden divide-y divide-[#1E2330]">
+      <div className="md:hidden divide-y divide-slate-200">
         {breakdown.map((item, idx) => (
           <div key={item.subjectId ? `${item.subjectId}-${idx}` : idx} className="p-4 space-y-2">
             <div className="flex items-center justify-between">

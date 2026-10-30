@@ -19,40 +19,40 @@ export const OptimizationComparisonTable: React.FC<OptimizationComparisonTablePr
   if (!recommendations || recommendations.length === 0) return null;
 
   return (
-    <div className="rounded-xl border border-slate-700/80 bg-slate-900/60 overflow-hidden">
-      <div className="px-4 py-3 border-b border-slate-800 bg-slate-900/90 flex items-center justify-between">
-        <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center gap-2">
-          <Sparkles className="w-4 h-4 text-amber-400" />
+    <div className="rounded-xl border border-[#D8C9A8] bg-white shadow-none overflow-hidden">
+      <div className="px-4 py-3 border-b border-[#E8E0D0] bg-[#F8F6F0] flex items-center justify-between">
+        <h4 className="text-xs font-serif font-bold uppercase tracking-wider text-[#202020] flex items-center gap-2">
+          <Sparkles className="w-4 h-4 text-[#B8A16A]" />
           Top Allocation Candidates Comparison
         </h4>
-        <span className="text-xs text-slate-400">
+        <span className="text-xs text-[#77736A]">
           Showing {recommendations.length} evaluated options
         </span>
       </div>
 
       <div className="overflow-x-auto">
-        <table className="w-full text-left text-xs text-slate-300">
-          <thead className="bg-slate-950/60 text-slate-400 uppercase tracking-wider text-[10px] border-b border-slate-800">
+        <table className="w-full text-left text-xs text-[#555555]">
+          <thead className="bg-[#F8F6F0] text-[#555555] font-semibold uppercase tracking-wider text-[10px] border-b border-[#D8C9A8]">
             <tr>
-              <th className="py-2.5 px-4">Rank</th>
+              <th className="py-2.5 px-4 font-semibold">Rank</th>
               {domain === 'ACADEMIC' ? (
                 <>
-                  <th className="py-2.5 px-4">Resource</th>
-                  <th className="py-2.5 px-4">Location</th>
-                  <th className="py-2.5 px-4">Capacity</th>
+                  <th className="py-2.5 px-4 font-semibold">Resource</th>
+                  <th className="py-2.5 px-4 font-semibold">Location</th>
+                  <th className="py-2.5 px-4 font-semibold">Capacity</th>
                 </>
               ) : (
                 <>
-                  <th className="py-2.5 px-4">Hostel & Block</th>
-                  <th className="py-2.5 px-4">Room & Floor</th>
-                  <th className="py-2.5 px-4">Bed</th>
+                  <th className="py-2.5 px-4 font-semibold">Hostel & Block</th>
+                  <th className="py-2.5 px-4 font-semibold">Room & Floor</th>
+                  <th className="py-2.5 px-4 font-semibold">Bed</th>
                 </>
               )}
-              <th className="py-2.5 px-4">Score</th>
-              <th className="py-2.5 px-4 text-right">Action</th>
+              <th className="py-2.5 px-4 font-semibold">Score</th>
+              <th className="py-2.5 px-4 text-right font-semibold">Action</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-slate-800/80">
+          <tbody className="divide-y divide-[#E8E0D0]">
             {recommendations.map((rec) => {
               const isSelected = selectedCandidateId === rec.candidateId;
               const isTop = rec.rank === 1;
@@ -62,19 +62,19 @@ export const OptimizationComparisonTable: React.FC<OptimizationComparisonTablePr
                   key={rec.candidateId}
                   className={`transition-colors cursor-pointer ${
                     isSelected
-                      ? 'bg-blue-600/15'
+                      ? 'bg-[#F4F0E6]'
                       : isTop
-                      ? 'bg-indigo-950/20 hover:bg-indigo-950/40'
-                      : 'hover:bg-slate-800/40'
+                      ? 'bg-[#FAF7F0] hover:bg-[#F4F0E6]'
+                      : 'hover:bg-[#F4F0E6]'
                   }`}
                   onClick={() => onSelect(rec)}
                 >
-                  <td className="py-3 px-4 font-bold">
+                  <td className="py-3 px-4 font-semibold">
                     <span
                       className={`inline-flex items-center justify-center w-6 h-6 rounded-md text-xs ${
                         isTop
-                          ? 'bg-amber-400 text-slate-950 font-extrabold shadow-sm'
-                          : 'bg-slate-800 text-slate-300'
+                          ? 'bg-[#FAF7F0] text-[#A87928] font-bold border border-[#E8D8BA]'
+                          : 'bg-[#F8F6F0] text-[#555555] border border-[#E8E0D0]'
                       }`}
                     >
                       #{rec.rank}
@@ -83,9 +83,9 @@ export const OptimizationComparisonTable: React.FC<OptimizationComparisonTablePr
 
                   {domain === 'ACADEMIC' ? (
                     <>
-                      <td className="py-3 px-4 font-semibold text-white">
+                      <td className="py-3 px-4 font-semibold text-[#202020]">
                         <div className="flex items-center gap-1.5">
-                          <Building className="w-3.5 h-3.5 text-slate-500" />
+                          <Building className="w-3.5 h-3.5 text-[#B8A16A]" />
                           <span>{rec.candidateName}</span>
                           {isTop && (
                             <Badge variant="warning" className="text-[9px] py-0">
@@ -94,17 +94,17 @@ export const OptimizationComparisonTable: React.FC<OptimizationComparisonTablePr
                           )}
                         </div>
                       </td>
-                      <td className="py-3 px-4 text-slate-400">
+                      <td className="py-3 px-4 text-[#555555]">
                         {rec.details?.building
                           ? `${rec.details.building} - ${rec.details.roomNumber || ''}`
                           : rec.details?.location || 'Campus'}
                       </td>
                       <td className="py-3 px-4">
-                        <span className="font-semibold text-emerald-400">
+                        <span className="font-semibold text-[#3F7655]">
                           {rec.details?.capacity || 'N/A'} Seats
                         </span>
                         {rec.details?.wastedCapacity !== undefined && (
-                          <span className="text-[10px] text-slate-500 block">
+                          <span className="text-[10px] text-[#77736A] block font-normal">
                             +{rec.details.wastedCapacity} spare
                           </span>
                         )}
@@ -112,28 +112,28 @@ export const OptimizationComparisonTable: React.FC<OptimizationComparisonTablePr
                     </>
                   ) : (
                     <>
-                      <td className="py-3 px-4 font-semibold text-white">
+                      <td className="py-3 px-4 font-semibold text-[#202020]">
                         <div className="flex items-center gap-1.5">
-                          <BedDouble className="w-3.5 h-3.5 text-slate-500" />
+                          <BedDouble className="w-3.5 h-3.5 text-[#A87928]" />
                           <span>{rec.details?.hostelName || 'Hostel'}</span>
-                          <span className="text-slate-400 text-[11px]">
+                          <span className="text-[#77736A] text-[11px]">
                             ({rec.details?.blockName || 'Block'})
                           </span>
                         </div>
                       </td>
-                      <td className="py-3 px-4 text-slate-300">
+                      <td className="py-3 px-4 text-[#555555]">
                         Room {rec.details?.roomNumber || 'N/A'} (Floor {rec.details?.floorNumber || 1})
                       </td>
                       <td className="py-3 px-4">
-                        <Badge variant="teal">Bed #{rec.details?.bedNumber || 'N/A'}</Badge>
+                        <Badge variant="neutral">Bed #{rec.details?.bedNumber || 'N/A'}</Badge>
                       </td>
                     </>
                   )}
 
                   <td className="py-3 px-4">
                     <div className="flex items-center gap-1">
-                      <span className="font-extrabold text-white text-sm">{rec.score}</span>
-                      <span className="text-[10px] text-slate-400">/ 100</span>
+                      <span className="font-serif font-bold text-[#202020] text-sm">{rec.score}</span>
+                      <span className="text-[10px] text-[#77736A]">/ 100</span>
                     </div>
                   </td>
 

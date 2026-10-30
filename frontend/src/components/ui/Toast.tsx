@@ -52,17 +52,10 @@ export const ToastProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   const info = useCallback((message: string, title?: string) => toast(message, 'info', title), [toast]);
 
   const icons: Record<ToastType, React.ReactNode> = {
-    success: <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />,
-    error: <AlertCircle className="w-5 h-5 text-rose-400 shrink-0" />,
-    warning: <AlertTriangle className="w-5 h-5 text-amber-400 shrink-0" />,
-    info: <Info className="w-5 h-5 text-teal-400 shrink-0" />,
-  };
-
-  const borders: Record<ToastType, string> = {
-    success: 'border-emerald-500/30 shadow-emerald-950/20',
-    error: 'border-rose-500/30 shadow-rose-950/20',
-    warning: 'border-amber-500/30 shadow-amber-950/20',
-    info: 'border-teal-500/30 shadow-teal-950/20',
+    success: <CheckCircle2 className="w-5 h-5 text-[#3F7655] shrink-0" />,
+    error: <AlertCircle className="w-5 h-5 text-[#B44747] shrink-0" />,
+    warning: <AlertTriangle className="w-5 h-5 text-[#A87928] shrink-0" />,
+    info: <Info className="w-5 h-5 text-[#657C91] shrink-0" />,
   };
 
   return (
@@ -79,21 +72,20 @@ export const ToastProvider: React.FC<{ children: ReactNode }> = ({ children }) =
             key={t.id}
             role="status"
             className={cn(
-              'pointer-events-auto p-4 rounded-2xl bg-[#11141C] border shadow-2xl backdrop-blur-md',
-              'flex items-start gap-3 text-xs text-gray-200 animate-in fade-in slide-in-from-bottom-3 duration-200',
-              borders[t.type]
+              'pointer-events-auto p-4 rounded-2xl bg-white border border-[#D8C9A8] shadow-dropdown',
+              'flex items-start gap-3 text-xs text-[#202020] animate-in fade-in slide-in-from-bottom-3 duration-200'
             )}
           >
             {icons[t.type]}
             <div className="flex-1">
-              {t.title && <span className="font-semibold text-white block mb-0.5">{t.title}</span>}
-              <p className="text-gray-300 leading-relaxed">{t.message}</p>
+              {t.title && <span className="font-serif font-bold text-[#202020] block mb-0.5">{t.title}</span>}
+              <p className="text-[#555555] leading-relaxed">{t.message}</p>
             </div>
             <button
               type="button"
               onClick={() => dismiss(t.id)}
               aria-label="Dismiss notification"
-              className="text-gray-400 hover:text-white p-0.5 transition-colors shrink-0"
+              className="text-[#77736A] hover:text-[#202020] p-0.5 transition-colors shrink-0"
             >
               <X className="w-3.5 h-3.5" />
             </button>

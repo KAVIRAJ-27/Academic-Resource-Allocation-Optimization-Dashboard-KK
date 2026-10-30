@@ -28,7 +28,7 @@ export const PrincipalDashboard: React.FC = () => {
       <PageContainer>
         <div className="space-y-6 animate-pulse">
           {/* Institution Header Skeleton */}
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm">
+          <div className="bg-white border border-[#D8C9A8] rounded-xl p-6 shadow-none">
             <div className="flex justify-between items-center mb-4">
               <div className="space-y-2">
                 <Skeleton className="h-8 w-72 rounded-lg" />
@@ -36,7 +36,7 @@ export const PrincipalDashboard: React.FC = () => {
               </div>
               <Skeleton className="h-9 w-28 rounded-lg" />
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-slate-100 dark:border-slate-800">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-[#E8E0D0]">
               <Skeleton className="h-16 rounded-xl" />
               <Skeleton className="h-16 rounded-xl" />
               <Skeleton className="h-16 rounded-xl" />
@@ -74,14 +74,14 @@ export const PrincipalDashboard: React.FC = () => {
     const is403 = error.toLowerCase().includes('permission') || error.toLowerCase().includes('authorized');
     return (
       <PageContainer>
-        <div className="max-w-2xl mx-auto mt-12 p-6 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 text-center shadow-sm">
-          <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-red-50 dark:bg-red-950/50 flex items-center justify-center text-red-600 dark:text-red-400">
+        <div className="max-w-2xl mx-auto mt-12 p-6 bg-white rounded-xl border border-[#D8C9A8] text-center shadow-none">
+          <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-[#FBF0F0] border border-[#EBBABA] flex items-center justify-center text-[#B44747]">
             {is403 ? <ShieldAlert className="w-6 h-6" /> : <AlertTriangle className="w-6 h-6" />}
           </div>
-          <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
+          <h2 className="text-xl font-serif font-bold text-[#202020] mb-2">
             {is403 ? 'Access Restricted' : 'Failed to Load Dashboard'}
           </h2>
-          <p className="text-sm text-slate-500 dark:text-slate-400 mb-6">
+          <p className="text-sm text-[#555555] mb-6">
             {error}
           </p>
           <Button

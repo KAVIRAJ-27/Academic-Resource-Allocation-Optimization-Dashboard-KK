@@ -76,6 +76,20 @@ import { ApprovalCenterPage } from '../pages/approval/ApprovalCenterPage';
 import { AnalyticsDashboardPage } from '../pages/analytics/AnalyticsDashboardPage';
 import { AiInsightsPage } from '../pages/ai/AiInsightsPage';
 
+// Newly Implemented Functional Pages
+import { AdminHostelsPage } from '../pages/admin/AdminHostelsPage';
+import { AdminSettingsPage } from '../pages/admin/AdminSettingsPage';
+import { HODCoursesPage } from '../pages/hod/HODCoursesPage';
+import { HODResourcesPage } from '../pages/hod/HODResourcesPage';
+import { HODTimetablePage } from '../pages/hod/HODTimetablePage';
+import { FacultyResourcesPage } from '../pages/faculty/FacultyResourcesPage';
+import { StudentCoursesPage } from '../pages/student/StudentCoursesPage';
+import { StudentTimetablePage } from '../pages/student/StudentTimetablePage';
+import { StudentResourcesPage } from '../pages/student/StudentResourcesPage';
+import { WardenHostelsPage } from '../pages/warden/WardenHostelsPage';
+import { WardenBlocksPage } from '../pages/warden/WardenBlocksPage';
+import { WardenStudentsPage } from '../pages/warden/WardenStudentsPage';
+
 // Guards & Subpage Helper
 import { ProtectedRoute } from './ProtectedRoute';
 import { RoleGuard } from './RoleGuard';
@@ -159,32 +173,11 @@ export const AppRoutes: React.FC = () => {
         <Route path="resources/time-slots" element={<ResourceManagementPage initialTab="time-slots" />} />
         <Route path="allocations" element={<AcademicAllocationsPage />} />
         <Route path="allocations/:id" element={<AcademicAllocationDetailPage />} />
-        <Route
-          path="hostels"
-          element={
-            <SubpagePlaceholder
-              title="Hostels & Blocks Master"
-              subtitle="Residential infrastructure catalog, buildings, and common amenities"
-              domain="Hostel"
-              icon={Hotel}
-              emptyPreset="no-hostel-rooms"
-            />
-          }
-        />
+        <Route path="hostels" element={<AdminHostelsPage />} />
         <Route path="analytics" element={<AnalyticsDashboardPage />} />
         <Route path="ai-insights" element={<AiInsightsPage />} />
         <Route path="reports" element={<AnalyticsDashboardPage initialTab="reports" />} />
-        <Route
-          path="settings"
-          element={
-            <SubpagePlaceholder
-              title="Global System Settings"
-              subtitle="Academic calendar terms, JWT security parameters, and notification channels"
-              domain="General"
-              icon={Settings}
-            />
-          }
-        />
+        <Route path="settings" element={<AdminSettingsPage />} />
       </Route>
 
       {/* ========================================================================= */}
@@ -232,44 +225,13 @@ export const AppRoutes: React.FC = () => {
         <Route path="faculty" element={<HODFacultyPage />} />
         <Route path="students" element={<HODStudentsPage />} />
         <Route path="workload" element={<HODWorkloadPage />} />
-        <Route
-          path="courses"
-          element={
-            <SubpagePlaceholder
-              title="Department Course Catalog"
-              subtitle="Curriculum subjects, credit structures, and syllabus tracks"
-              domain="Academic"
-              icon={BookOpen}
-            />
-          }
-        />
-        <Route
-          path="resources"
-          element={
-            <SubpagePlaceholder
-              title="Department Labs & Rooms"
-              subtitle="Hardware labs, computing centers, and seminar room assignments"
-              domain="Academic"
-              icon={Layers}
-              emptyPreset="no-resources"
-            />
-          }
-        />
+        <Route path="courses" element={<HODCoursesPage />} />
+        <Route path="resources" element={<HODResourcesPage />} />
         <Route path="resource-requests" element={<HODResourceRequestsPage />} />
         <Route path="resource-requests/:id" element={<HODResourceRequestsPage />} />
         <Route path="allocations" element={<HODAllocationsPage />} />
         <Route path="allocations/:id" element={<HODAllocationsPage />} />
-        <Route
-          path="timetable"
-          element={
-            <SubpagePlaceholder
-              title="Master Department Timetable"
-              subtitle="Conflict-free schedule matrix connecting batches, rooms, and faculty"
-              domain="Academic"
-              icon={Clock}
-            />
-          }
-        />
+        <Route path="timetable" element={<HODTimetablePage />} />
         <Route path="analytics" element={<AnalyticsDashboardPage initialTab="academic" />} />
         <Route path="ai-insights" element={<AiInsightsPage />} />
       </Route>
@@ -300,18 +262,7 @@ export const AppRoutes: React.FC = () => {
         <Route path="resource-requests/new" element={<CreateFacultyResourceRequestPage />} />
         <Route path="resource-requests/:id" element={<FacultyResourceRequestDetailsPage />} />
         <Route path="requests" element={<Navigate to="/faculty/resource-requests" replace />} />
-        <Route
-          path="resources"
-          element={
-            <SubpagePlaceholder
-              title="Assigned Classrooms & Labs"
-              subtitle="Designated lecture halls, smart equipment status, and lab setups"
-              domain="Academic"
-              icon={Layers}
-              emptyPreset="no-resources"
-            />
-          }
-        />
+        <Route path="resources" element={<FacultyResourcesPage />} />
         <Route path="ai-insights" element={<AiInsightsPage />} />
       </Route>
 
@@ -332,40 +283,9 @@ export const AppRoutes: React.FC = () => {
         <Route path="dashboard" element={<StudentDashboard />} />
         <Route path="profile" element={<StudentProfilePage />} />
         <Route path="academics" element={<StudentAcademicsPage />} />
-        <Route
-          path="courses"
-          element={
-            <SubpagePlaceholder
-              title="My Enrolled Courses"
-              subtitle="Registered semester subjects, instructors, and credit units"
-              domain="Academic"
-              icon={BookOpen}
-            />
-          }
-        />
-        <Route
-          path="timetable"
-          element={
-            <SubpagePlaceholder
-              title="Class Schedule"
-              subtitle="Daily class schedule with lecture room and lab venue directions"
-              domain="Academic"
-              icon={Clock}
-            />
-          }
-        />
-        <Route
-          path="resources"
-          element={
-            <SubpagePlaceholder
-              title="Academic Learning Resources"
-              subtitle="Available computational labs, reference library assets, and study desks"
-              domain="Academic"
-              icon={Layers}
-              emptyPreset="no-resources"
-            />
-          }
-        />
+        <Route path="courses" element={<StudentCoursesPage />} />
+        <Route path="timetable" element={<StudentTimetablePage />} />
+        <Route path="resources" element={<StudentResourcesPage />} />
         <Route path="requests" element={<StudentResourceRequestsPage />} />
         <Route path="requests/new" element={<StudentResourceRequestsPage />} />
         <Route path="requests/:id" element={<StudentResourceRequestsPage />} />
@@ -395,43 +315,12 @@ export const AppRoutes: React.FC = () => {
       >
         <Route index element={<Navigate to="dashboard" replace />} />
         <Route path="dashboard" element={<WardenDashboard />} />
-        <Route
-          path="hostels"
-          element={
-            <SubpagePlaceholder
-              title="Authorized Hostels"
-              subtitle="Hostel buildings under your operational jurisdiction"
-              domain="Hostel"
-              icon={Building}
-            />
-          }
-        />
-        <Route
-          path="blocks"
-          element={
-            <SubpagePlaceholder
-              title="Hostel Blocks & Wings"
-              subtitle="Block layout, floor hierarchies, and emergency infrastructure"
-              domain="Hostel"
-              icon={Layers}
-            />
-          }
-        />
+        <Route path="hostels" element={<WardenHostelsPage />} />
+        <Route path="blocks" element={<WardenBlocksPage />} />
         <Route path="rooms" element={<WardenRoomsPage />} />
         <Route path="rooms/:roomId" element={<WardenRoomDetailPage />} />
         <Route path="beds" element={<WardenBedsPage />} />
-        <Route
-          path="students"
-          element={
-            <SubpagePlaceholder
-              title="Hostel Resident Students"
-              subtitle="Directory of students currently checked into hostel blocks"
-              domain="Hostel"
-              icon={Users}
-              emptyPreset="no-students"
-            />
-          }
-        />
+        <Route path="students" element={<WardenStudentsPage />} />
         <Route path="allocations" element={<WardenAllocationsPage />} />
         <Route path="allocations/new" element={<WardenCreateAllocationPage />} />
         <Route path="allocations/:allocationId" element={<WardenAllocationDetailPage />} />

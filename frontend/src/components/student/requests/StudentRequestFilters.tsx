@@ -38,7 +38,7 @@ export const StudentRequestFilters: React.FC<Props> = ({
   ];
 
   return (
-    <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-3.5 space-y-3">
+    <div className="bg-white border border-slate-200 rounded-xl p-3.5 space-y-3">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
         {/* Search input */}
         <div className="relative flex-1">
@@ -48,7 +48,7 @@ export const StudentRequestFilters: React.FC<Props> = ({
             placeholder="Search by purpose, resource name or code..."
             value={searchTerm}
             onChange={(e) => onSearchChange(e.target.value)}
-            className="w-full pl-9 pr-8 py-2 bg-[#171A23] border border-[#222838] rounded-lg text-sm text-gray-200 placeholder-gray-500 focus:outline-none focus:border-teal-500/50 transition-colors"
+            className="w-full pl-9 pr-8 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm text-gray-200 placeholder-gray-500 focus:outline-none focus:border-teal-500/50 transition-colors"
           />
           {searchTerm && (
             <button
@@ -67,7 +67,7 @@ export const StudentRequestFilters: React.FC<Props> = ({
             <select
               value={statusFilter}
               onChange={(e) => onStatusChange(e.target.value as RequestStatus | 'ALL')}
-              className="appearance-none bg-[#171A23] border border-[#222838] text-gray-200 text-xs font-medium rounded-lg px-3 py-2 pr-7 focus:outline-none focus:border-teal-500/50 transition-colors cursor-pointer"
+              className="appearance-none bg-slate-50 border border-slate-200 text-gray-200 text-xs font-medium rounded-lg px-3 py-2 pr-7 focus:outline-none focus:border-teal-500/50 transition-colors cursor-pointer"
             >
               {statuses.map((s) => (
                 <option key={s.value} value={s.value}>
@@ -84,13 +84,13 @@ export const StudentRequestFilters: React.FC<Props> = ({
               type="date"
               value={dateFilter}
               onChange={(e) => onDateChange(e.target.value)}
-              className="bg-[#171A23] border border-[#222838] text-gray-200 text-xs font-medium rounded-lg px-2.5 py-2 focus:outline-none focus:border-teal-500/50 transition-colors cursor-pointer"
+              className="bg-slate-50 border border-slate-200 text-gray-200 text-xs font-medium rounded-lg px-2.5 py-2 focus:outline-none focus:border-teal-500/50 transition-colors cursor-pointer"
             />
             {dateFilter && (
               <button
                 type="button"
                 onClick={() => onDateChange('')}
-                className="absolute -top-1.5 -right-1.5 bg-[#222838] rounded-full p-0.5 text-gray-400 hover:text-white"
+                className="absolute -top-1.5 -right-1.5 bg-slate-100 rounded-full p-0.5 text-gray-400 hover:text-white"
                 title="Clear date"
               >
                 <X className="w-2.5 h-2.5" />
@@ -105,7 +105,7 @@ export const StudentRequestFilters: React.FC<Props> = ({
               size="sm"
               onClick={onClearFilters}
               leftIcon={<X className="w-3 h-3" />}
-              className="text-xs text-gray-400 hover:text-white border-[#222838]"
+              className="text-xs text-gray-400 hover:text-white border-slate-200"
             >
               Reset
             </Button>
@@ -118,7 +118,7 @@ export const StudentRequestFilters: React.FC<Props> = ({
             onClick={onRefresh}
             isLoading={loading}
             leftIcon={<RefreshCw className="w-3 h-3" />}
-            className="text-xs text-gray-400 hover:text-white border-[#222838]"
+            className="text-xs text-gray-400 hover:text-white border-slate-200"
           >
             Refresh
           </Button>

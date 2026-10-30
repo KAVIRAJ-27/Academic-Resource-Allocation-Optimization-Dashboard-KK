@@ -10,7 +10,7 @@ interface FacultyWorkloadHistoryTableProps {
 export const FacultyWorkloadHistoryTable: React.FC<FacultyWorkloadHistoryTableProps> = ({ history }) => {
   if (!history || history.length === 0) {
     return (
-      <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-8 shadow-card">
+      <div className="bg-white border border-slate-200 rounded-xl p-8 shadow-card">
         <EmptyState
           icon={History}
           title="No workload history records found."
@@ -34,10 +34,10 @@ export const FacultyWorkloadHistoryTable: React.FC<FacultyWorkloadHistoryTablePr
   };
 
   return (
-    <div className="bg-[#11141C] border border-[#1E2330] rounded-xl overflow-hidden shadow-card">
-      <div className="px-5 py-4 border-b border-[#1E2330] flex items-center justify-between">
+    <div className="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-card">
+      <div className="px-5 py-4 border-b border-slate-200 flex items-center justify-between">
         <div>
-          <h3 className="text-sm font-semibold text-white">Workload History</h3>
+          <h3 className="text-sm font-semibold text-slate-900">Workload History</h3>
           <p className="text-xs text-gray-400 mt-0.5">Historical workload records from previous evaluation cycles</p>
         </div>
         <Badge variant="neutral" size="sm">
@@ -47,7 +47,7 @@ export const FacultyWorkloadHistoryTable: React.FC<FacultyWorkloadHistoryTablePr
 
       <div className="overflow-x-auto">
         <table className="w-full text-left text-sm text-gray-300">
-          <thead className="bg-[#171A23] border-b border-[#1E2330] text-xs font-semibold text-gray-400 uppercase tracking-wider">
+          <thead className="bg-slate-50 border-b border-slate-200 text-xs font-semibold text-slate-700 font-bold uppercase tracking-wider">
             <tr>
               <th scope="col" className="px-5 py-3.5">Academic Year</th>
               <th scope="col" className="px-5 py-3.5">Semester</th>
@@ -58,29 +58,29 @@ export const FacultyWorkloadHistoryTable: React.FC<FacultyWorkloadHistoryTablePr
               <th scope="col" className="px-5 py-3.5 text-right">Calculated At</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-[#1E2330]">
+          <tbody className="divide-y divide-slate-200">
             {history.map((item, idx) => (
-              <tr key={idx} className="hover:bg-[#151923] transition-colors">
+              <tr key={idx} className="hover:bg-slate-50 transition-colors">
                 <td className="px-5 py-4 font-medium text-white flex items-center gap-2">
-                  <Calendar className="w-3.5 h-3.5 text-gray-500" />
+                  <Calendar className="w-3.5 h-3.5 text-slate-500 font-medium" />
                   <span>{item.academicYear || '—'}</span>
                 </td>
-                <td className="px-5 py-4 text-gray-300">
+                <td className="px-5 py-4 text-slate-700 font-medium">
                   {item.semester || '—'}
                 </td>
                 <td className="px-5 py-4 font-semibold text-white">
                   {item.totalHours} hrs
                 </td>
-                <td className="px-5 py-4 text-gray-300">
+                <td className="px-5 py-4 text-slate-700 font-medium">
                   {item.teachingHours} hrs
                 </td>
-                <td className="px-5 py-4 text-gray-300">
+                <td className="px-5 py-4 text-slate-700 font-medium">
                   {item.labHours} hrs
                 </td>
                 <td className="px-5 py-4">
                   {getStatusBadge(item.workloadStatus)}
                 </td>
-                <td className="px-5 py-4 text-right text-xs text-gray-400">
+                <td className="px-5 py-4 text-right text-xs text-slate-600 font-medium">
                   {item.calculatedAt ? new Date(item.calculatedAt).toLocaleDateString() : 'System Calculated'}
                 </td>
               </tr>

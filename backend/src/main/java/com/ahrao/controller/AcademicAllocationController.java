@@ -128,7 +128,7 @@ public class AcademicAllocationController {
     private User resolveCurrentUser() {
         Long userId = SecurityUtils.getCurrentUserId()
                 .orElseThrow(() -> new UnauthorizedException("Authenticated user context not found."));
-        return userRepository.findById(userId)
+        return userRepository.findByIdWithRoles(userId)
                 .orElseThrow(() -> new UnauthorizedException("User record not found in system."));
     }
 }

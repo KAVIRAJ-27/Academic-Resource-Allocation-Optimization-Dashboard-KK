@@ -9,7 +9,7 @@ export const Skeleton: React.FC<SkeletonProps> = ({ className, ...props }) => {
   return (
     <div
       className={cn(
-        'animate-pulse bg-[#1E2330]/70 rounded-xl',
+        'animate-pulse bg-[#F4F0E6] rounded-lg',
         className
       )}
       {...props}
@@ -35,10 +35,10 @@ export const SkeletonText: React.FC<{ lines?: number; className?: string }> = ({
 
 export const SkeletonCard: React.FC<{ className?: string }> = ({ className }) => {
   return (
-    <div className={cn('p-5 rounded-2xl bg-[#11141C] border border-[#1E2330] space-y-4 animate-pulse', className)}>
+    <div className={cn('p-5 rounded-xl bg-white border border-[#D8C9A8] shadow-card space-y-4 animate-pulse', className)}>
       <div className="flex items-center justify-between">
         <Skeleton className="h-4 w-1/3" />
-        <Skeleton className="h-8 w-8 rounded-xl" />
+        <Skeleton className="h-8 w-8 rounded-lg" />
       </div>
       <Skeleton className="h-8 w-1/2" />
       <Skeleton className="h-3 w-2/3" />
@@ -52,10 +52,10 @@ export const SkeletonTable: React.FC<{ rows?: number; columns?: number; classNam
   className,
 }) => {
   return (
-    <div className={cn('overflow-hidden rounded-2xl bg-[#11141C] border border-[#1E2330] p-4 space-y-3', className)}>
-      <div className="flex items-center justify-between pb-3 border-b border-white/5">
+    <div className={cn('overflow-hidden rounded-xl bg-white border border-[#D8C9A8] p-4 space-y-3', className)}>
+      <div className="flex items-center justify-between pb-3 border-b border-[#E8E0D0]">
         <Skeleton className="h-5 w-40" />
-        <Skeleton className="h-8 w-24 rounded-xl" />
+        <Skeleton className="h-8 w-24 rounded-lg" />
       </div>
       <div className="space-y-2.5 pt-1">
         {Array.from({ length: rows }).map((_, r) => (

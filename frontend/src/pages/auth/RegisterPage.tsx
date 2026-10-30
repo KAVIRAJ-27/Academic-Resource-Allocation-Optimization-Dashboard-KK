@@ -5,8 +5,7 @@ import { Button } from '../../components/ui/Button';
 import { Card } from '../../components/ui/Card';
 import { Input } from '../../components/ui/Input';
 import { Select } from '../../components/ui/Select';
-import { ArrowLeft, UserPlus, Sparkles, CheckCircle2, AlertCircle, Shield } from 'lucide-react';
-import { ROLES, UserRole } from '../../constants/roles';
+import { ArrowLeft, UserPlus, CheckCircle2, AlertCircle } from 'lucide-react';
 
 export const RegisterPage: React.FC = () => {
   const navigate = useNavigate();
@@ -72,54 +71,54 @@ export const RegisterPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#080A0F] text-gray-100 flex flex-col justify-center items-center p-4 sm:p-6 relative overflow-hidden">
-      {/* Background glow lights */}
-      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
+    <div className="min-h-screen bg-[#FFFEFA] text-[#202020] flex flex-col justify-center items-center p-4 sm:p-6 relative overflow-hidden">
+      {/* Classical Gold Ambient Light Accents */}
+      <div className="absolute -top-32 -left-32 w-96 h-96 bg-[#D8C9A8]/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-[#B8A16A]/15 rounded-full blur-3xl pointer-events-none" />
 
       <div className="w-full max-w-xl relative z-10">
         {/* Brand Header */}
         <div className="text-center mb-6">
-          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-500 to-teal-700 text-white font-black text-xl shadow-card-glow mb-3">
+          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-[#FAF7F0] to-[#F4F0E6] border border-[#D8C9A8]/80 text-[#B8A16A] font-serif font-bold text-xl shadow-glass mb-3">
             <UserPlus className="w-6 h-6" />
           </div>
-          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+          <h1 className="text-2xl sm:text-3xl font-serif font-bold tracking-tight text-[#202020]">
             Create AHRAO Account
           </h1>
-          <p className="text-xs sm:text-sm text-gray-400 mt-1">
+          <p className="text-xs sm:text-sm text-[#555555] mt-1 font-normal">
             Register your institutional profile on the AHRAO network.
           </p>
           <div className="flex items-center justify-center gap-2 mt-2">
-            <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-teal-500/10 text-teal-300 border border-teal-500/30">
-              Phase 2: Self-Service Registration
+            <span className="text-[11px] font-mono px-3 py-1 rounded-full bg-white/70 backdrop-blur-xs text-[#77736A] border border-[#D8C9A8]/60 shadow-xs">
+              Self-Service Institutional Registration
             </span>
           </div>
         </div>
 
         {success ? (
-          <Card className="p-6 sm:p-8 space-y-6 text-center">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 mb-2">
+          <Card className="p-6 sm:p-8 space-y-6 text-center bg-white/80 backdrop-blur-2xl border border-[#D8C9A8]/70 shadow-glass rounded-3xl">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#EEF6F1] text-[#3F7655] border border-[#C1DFCD] mb-2 shadow-xs">
               <CheckCircle2 className="w-8 h-8" />
             </div>
-            <h2 className="text-xl font-bold text-white">Account Created Successfully!</h2>
-            <p className="text-xs sm:text-sm text-gray-400 max-w-md mx-auto leading-relaxed">
-              Your profile for <span className="text-teal-300 font-mono">@{formData.username}</span> has been provisioned with the <span className="text-purple-300 font-semibold">{formData.role}</span> role. You can now log in using your credentials.
+            <h2 className="text-xl font-serif font-bold text-[#202020]">Account Created Successfully!</h2>
+            <p className="text-xs sm:text-sm text-[#555555] max-w-md mx-auto leading-relaxed">
+              Your profile for <span className="text-[#202020] font-mono font-semibold">@{formData.username}</span> has been provisioned with the <span className="text-[#A87928] font-semibold">{formData.role}</span> role. You can now log in using your credentials.
             </p>
             <div className="pt-4 flex justify-center">
               <Button
                 variant="primary"
                 size="lg"
                 onClick={() => navigate('/login')}
-                className="w-full sm:w-2/3"
+                className="w-full sm:w-2/3 shadow-xs"
               >
                 Proceed to Login
               </Button>
             </div>
           </Card>
         ) : (
-          <Card className="p-6 sm:p-8 space-y-5">
+          <Card className="p-6 sm:p-8 space-y-5 bg-white/80 backdrop-blur-2xl border border-[#D8C9A8]/70 shadow-glass rounded-3xl">
             {error && (
-              <div className="p-3.5 rounded-xl bg-red-500/10 border border-red-500/30 flex items-start gap-2.5 text-xs text-red-400">
+              <div className="p-3.5 rounded-xl bg-[#FDF0F0]/90 backdrop-blur-xs border border-[#ECC6C6] flex items-start gap-2.5 text-xs text-[#B44747] shadow-xs">
                 <AlertCircle className="w-4 h-4 mt-0.5 shrink-0" />
                 <span>{error}</span>
               </div>
@@ -222,7 +221,7 @@ export const RegisterPage: React.FC = () => {
                   variant="primary"
                   size="md"
                   isLoading={isSubmitting || isLoading}
-                  className="w-full sm:w-2/3 flex items-center justify-center gap-2"
+                  className="w-full sm:w-2/3 flex items-center justify-center gap-2 shadow-xs"
                 >
                   <UserPlus className="w-4 h-4" />
                   <span>Register Account</span>
@@ -230,9 +229,9 @@ export const RegisterPage: React.FC = () => {
               </div>
             </form>
 
-            <div className="pt-3 border-t border-white/5 text-center text-xs text-gray-400">
+            <div className="pt-3 border-t border-[#E8E0D0]/80 text-center text-xs text-[#555555]">
               Already have an account?{' '}
-              <Link to="/login" className="text-teal-400 hover:text-teal-300 font-medium hover:underline">
+              <Link to="/login" className="text-[#B8A16A] hover:text-[#8C7748] font-semibold hover:underline transition-colors">
                 Sign in here
               </Link>
             </div>

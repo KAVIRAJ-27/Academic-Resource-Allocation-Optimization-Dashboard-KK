@@ -88,7 +88,7 @@ export const HODStudentsPage: React.FC = () => {
               <GraduationCap className="w-5 h-5" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-white tracking-tight">
+              <h1 className="text-xl font-bold text-slate-900 tracking-tight">
                 Department Student Management
               </h1>
               <p className="text-xs text-gray-400 mt-0.5">

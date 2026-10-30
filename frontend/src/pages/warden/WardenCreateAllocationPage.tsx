@@ -193,7 +193,7 @@ export const WardenCreateAllocationPage: React.FC = () => {
 
       {/* Stepper Bar */}
       <div className="mb-8">
-        <div className="bg-[#0D1017] border border-[#1E2330] rounded-2xl p-4 sm:p-6 shadow-xl">
+        <div className="bg-[#0D1017] border border-slate-200 rounded-2xl p-4 sm:p-6 shadow-xl">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {stepsList.map((step) => {
               const isDone = currentStep > step.num;
@@ -211,7 +211,7 @@ export const WardenCreateAllocationPage: React.FC = () => {
                     isCurrent
                       ? 'bg-orange-500/10 border-orange-500/40 text-orange-400'
                       : isDone
-                      ? 'bg-[#171A23] border-[#1E2330] text-emerald-400 hover:border-gray-600 cursor-pointer'
+                      ? 'bg-slate-50 border-slate-200 text-emerald-400 hover:border-gray-600 cursor-pointer'
                       : 'bg-transparent border-transparent text-gray-500 opacity-60 cursor-not-allowed'
                   }`}
                 >
@@ -247,7 +247,7 @@ export const WardenCreateAllocationPage: React.FC = () => {
       {currentStep > 1 && (
         <div className="mb-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {selectedHostel && (
-            <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-3 flex items-center justify-between">
+            <div className="bg-white border border-slate-200 rounded-xl p-3 flex items-center justify-between">
               <div className="flex items-center gap-2.5">
                 <Building className="w-4 h-4 text-orange-400" />
                 <div>
@@ -267,7 +267,7 @@ export const WardenCreateAllocationPage: React.FC = () => {
           )}
 
           {selectedStudent && currentStep > 2 && (
-            <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-3 flex items-center justify-between">
+            <div className="bg-white border border-slate-200 rounded-xl p-3 flex items-center justify-between">
               <div className="flex items-center gap-2.5">
                 <User className="w-4 h-4 text-blue-400" />
                 <div>
@@ -288,7 +288,7 @@ export const WardenCreateAllocationPage: React.FC = () => {
           )}
 
           {selectedBed && currentStep > 3 && (
-            <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-3 flex items-center justify-between">
+            <div className="bg-white border border-slate-200 rounded-xl p-3 flex items-center justify-between">
               <div className="flex items-center gap-2.5">
                 <BedDouble className="w-4 h-4 text-teal-400" />
                 <div>
@@ -318,7 +318,7 @@ export const WardenCreateAllocationPage: React.FC = () => {
       {/* STEP 1: HOSTEL SCOPE SELECTION */}
       {/* ========================================================================= */}
       {currentStep === 1 && (
-        <Card className="bg-[#0D1017] border-[#1E2330]">
+        <Card className="bg-[#0D1017] border-slate-200">
           <CardHeader>
             <div className="flex items-center gap-2 text-orange-400 mb-1">
               <Building className="w-4 h-4" />
@@ -358,7 +358,7 @@ export const WardenCreateAllocationPage: React.FC = () => {
                         className={`p-5 rounded-2xl border transition-all cursor-pointer relative overflow-hidden group ${
                           isSelected
                             ? 'bg-orange-500/10 border-orange-500 shadow-lg shadow-orange-500/10'
-                            : 'bg-[#11141C] border-[#1E2330] hover:border-gray-600 hover:bg-[#151923]'
+                            : 'bg-white border-slate-200 hover:border-gray-600 hover:bg-slate-50'
                         }`}
                       >
                         {isSelected && (
@@ -368,7 +368,7 @@ export const WardenCreateAllocationPage: React.FC = () => {
                         )}
 
                         <div className="flex items-center gap-3 mb-3">
-                          <div className="w-10 h-10 rounded-xl bg-[#171A23] border border-[#1E2330] flex items-center justify-center text-orange-400 group-hover:scale-105 transition-transform">
+                          <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-orange-400 group-hover:scale-105 transition-transform">
                             <Building className="w-5 h-5" />
                           </div>
                           <div>
@@ -380,7 +380,7 @@ export const WardenCreateAllocationPage: React.FC = () => {
                         </div>
 
                         {/* Occupancy Stats */}
-                        <div className="space-y-2 mt-4 pt-3 border-t border-[#1E2330]">
+                        <div className="space-y-2 mt-4 pt-3 border-t border-slate-200">
                           <div className="flex justify-between text-xs font-mono">
                             <span className="text-gray-400">Available Beds</span>
                             <span className="text-emerald-400 font-bold">
@@ -423,7 +423,7 @@ export const WardenCreateAllocationPage: React.FC = () => {
       {/* STEP 2: STUDENT LOOKUP */}
       {/* ========================================================================= */}
       {currentStep === 2 && (
-        <Card className="bg-[#0D1017] border-[#1E2330]">
+        <Card className="bg-[#0D1017] border-slate-200">
           <CardHeader>
             <div className="flex items-center gap-2 text-blue-400 mb-1">
               <User className="w-4 h-4" />
@@ -444,7 +444,7 @@ export const WardenCreateAllocationPage: React.FC = () => {
                 value={searchTerm}
                 onChange={(e) => onSearchChange(e.target.value)}
                 autoFocus
-                className="w-full bg-[#11141C] border border-[#1E2330] rounded-xl pl-9 pr-4 py-2.5 text-sm text-gray-200 placeholder-gray-500 focus:outline-none focus:border-blue-500"
+                className="w-full bg-white border border-slate-200 rounded-xl pl-9 pr-4 py-2.5 text-sm text-gray-200 placeholder-gray-500 focus:outline-none focus:border-blue-500"
               />
               {studentsLoading && (
                 <RefreshCw className="w-4 h-4 text-blue-400 animate-spin absolute right-3 top-1/2 -translate-y-1/2" />
@@ -465,7 +465,7 @@ export const WardenCreateAllocationPage: React.FC = () => {
                 Searching student directory...
               </div>
             ) : students.length === 0 ? (
-              <div className="p-8 text-center bg-[#11141C] border border-[#1E2330] rounded-xl">
+              <div className="p-8 text-center bg-white border border-slate-200 rounded-xl">
                 <GraduationCap className="w-8 h-8 text-gray-600 mx-auto mb-2" />
                 <p className="text-sm font-semibold text-gray-300">
                   {searchTerm.trim()
@@ -489,8 +489,8 @@ export const WardenCreateAllocationPage: React.FC = () => {
                         isSelected
                           ? 'bg-blue-500/10 border-blue-500 shadow-lg shadow-blue-500/10'
                           : hasActive
-                          ? 'bg-[#11141C]/80 border-[#2A1E24]'
-                          : 'bg-[#11141C] border-[#1E2330] hover:border-gray-600'
+                          ? 'bg-white/80 border-slate-200'
+                          : 'bg-white border-slate-200 hover:border-gray-600'
                       }`}
                     >
                       <div className="flex items-start justify-between gap-3 mb-2">
@@ -499,7 +499,7 @@ export const WardenCreateAllocationPage: React.FC = () => {
                             className={`w-9 h-9 rounded-lg flex items-center justify-center font-bold text-xs ${
                               isSelected
                                 ? 'bg-blue-500 text-white'
-                                : 'bg-[#171A23] border border-[#1E2330] text-gray-300'
+                                : 'bg-slate-50 border border-slate-200 text-gray-300'
                             }`}
                           >
                             {student.name.charAt(0)}
@@ -526,7 +526,7 @@ export const WardenCreateAllocationPage: React.FC = () => {
                         )}
                       </div>
 
-                      <div className="text-xs text-gray-400 space-y-0.5 mt-2 pt-2 border-t border-[#1E2330]">
+                      <div className="text-xs text-gray-400 space-y-0.5 mt-2 pt-2 border-t border-slate-200">
                         <div>
                           {student.departmentName || 'General'}{' '}
                           {student.programName ? `(${student.programName})` : ''}
@@ -585,7 +585,7 @@ export const WardenCreateAllocationPage: React.FC = () => {
             )}
 
             {/* Stepper Navigation */}
-            <div className="flex justify-between pt-4 border-t border-[#1E2330]">
+            <div className="flex justify-between pt-4 border-t border-slate-200">
               <Button
                 variant="outline"
                 leftIcon={<ArrowLeft className="w-4 h-4" />}
@@ -610,7 +610,7 @@ export const WardenCreateAllocationPage: React.FC = () => {
       {/* STEP 3: BED MATRIX SELECTION */}
       {/* ========================================================================= */}
       {currentStep === 3 && (
-        <Card className="bg-[#0D1017] border-[#1E2330]">
+        <Card className="bg-[#0D1017] border-slate-200">
           <CardHeader>
             <div className="flex items-center gap-2 text-teal-400 mb-1">
               <BedDouble className="w-4 h-4" />
@@ -632,7 +632,7 @@ export const WardenCreateAllocationPage: React.FC = () => {
                   className={`px-2.5 py-1 rounded-lg text-xs font-mono transition-colors ${
                     selectedBlockFilter === 'ALL'
                       ? 'bg-teal-500/20 text-teal-400 border border-teal-500/40'
-                      : 'bg-[#11141C] text-gray-400 border border-[#1E2330] hover:text-gray-200'
+                      : 'bg-white text-gray-400 border border-slate-200 hover:text-gray-200'
                   }`}
                 >
                   All Blocks
@@ -645,7 +645,7 @@ export const WardenCreateAllocationPage: React.FC = () => {
                     className={`px-2.5 py-1 rounded-lg text-xs font-mono transition-colors ${
                       selectedBlockFilter === block
                         ? 'bg-teal-500/20 text-teal-400 border border-teal-500/40'
-                        : 'bg-[#11141C] text-gray-400 border border-[#1E2330] hover:text-gray-200'
+                        : 'bg-white text-gray-400 border border-slate-200 hover:text-gray-200'
                     }`}
                   >
                     {block}
@@ -660,7 +660,7 @@ export const WardenCreateAllocationPage: React.FC = () => {
                   placeholder="Filter bed or room no..."
                   value={bedSearch}
                   onChange={(e) => setBedSearch(e.target.value)}
-                  className="w-full bg-[#11141C] border border-[#1E2330] rounded-xl pl-8 pr-3 py-1.5 text-xs text-gray-200 placeholder-gray-500 focus:outline-none focus:border-teal-500"
+                  className="w-full bg-white border border-slate-200 rounded-xl pl-8 pr-3 py-1.5 text-xs text-gray-200 placeholder-gray-500 focus:outline-none focus:border-teal-500"
                 />
               </div>
             </div>
@@ -700,7 +700,7 @@ export const WardenCreateAllocationPage: React.FC = () => {
                       className={`p-3.5 rounded-xl border transition-all cursor-pointer relative ${
                         isSelected
                           ? 'bg-teal-500/15 border-teal-500 shadow-lg shadow-teal-500/10 ring-1 ring-teal-500'
-                          : 'bg-[#11141C] border-[#1E2330] hover:border-gray-600 hover:bg-[#151923]'
+                          : 'bg-white border-slate-200 hover:border-gray-600 hover:bg-slate-50'
                       }`}
                     >
                       {isSelected && (
@@ -732,7 +732,7 @@ export const WardenCreateAllocationPage: React.FC = () => {
                         </div>
                       </div>
 
-                      <div className="mt-2.5 pt-2 border-t border-[#1E2330] flex items-center justify-between">
+                      <div className="mt-2.5 pt-2 border-t border-slate-200 flex items-center justify-between">
                         <Badge variant="success" size="sm">
                           AVAILABLE
                         </Badge>
@@ -744,7 +744,7 @@ export const WardenCreateAllocationPage: React.FC = () => {
             )}
 
             {/* Stepper Navigation */}
-            <div className="flex justify-between pt-4 border-t border-[#1E2330]">
+            <div className="flex justify-between pt-4 border-t border-slate-200">
               <Button
                 variant="outline"
                 leftIcon={<ArrowLeft className="w-4 h-4" />}
@@ -769,7 +769,7 @@ export const WardenCreateAllocationPage: React.FC = () => {
       {/* STEP 4: SCHEDULE & COMMIT */}
       {/* ========================================================================= */}
       {currentStep === 4 && selectedStudent && selectedBed && selectedHostel && (
-        <Card className="bg-[#0D1017] border-[#1E2330]">
+        <Card className="bg-[#0D1017] border-slate-200">
           <CardHeader>
             <div className="flex items-center gap-2 text-emerald-400 mb-1">
               <ShieldAlert className="w-4 h-4" />
@@ -784,8 +784,8 @@ export const WardenCreateAllocationPage: React.FC = () => {
             {/* Summary Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* Student Summary */}
-              <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-4">
-                <div className="flex items-center gap-2 text-xs font-mono text-gray-400 uppercase tracking-wider mb-3">
+              <div className="bg-white border border-slate-200 rounded-xl p-4">
+                <div className="flex items-center gap-2 text-xs font-mono text-slate-600 font-bold uppercase tracking-wider mb-3">
                   <User className="w-4 h-4 text-blue-400" />
                   Resident Candidate Details
                 </div>
@@ -797,7 +797,7 @@ export const WardenCreateAllocationPage: React.FC = () => {
                       {selectedStudent.rollNumber ? ` • Roll: ${selectedStudent.rollNumber}` : ''}
                     </div>
                   </div>
-                  <div className="text-xs text-gray-300 pt-2 border-t border-[#1E2330] space-y-1">
+                  <div className="text-xs text-gray-300 pt-2 border-t border-slate-200 space-y-1">
                     <div>
                       <span className="text-gray-500">Department:</span> {selectedStudent.departmentName || 'General'}
                     </div>
@@ -815,8 +815,8 @@ export const WardenCreateAllocationPage: React.FC = () => {
               </div>
 
               {/* Bed & Facility Summary */}
-              <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-4">
-                <div className="flex items-center gap-2 text-xs font-mono text-gray-400 uppercase tracking-wider mb-3">
+              <div className="bg-white border border-slate-200 rounded-xl p-4">
+                <div className="flex items-center gap-2 text-xs font-mono text-slate-600 font-bold uppercase tracking-wider mb-3">
                   <BedDouble className="w-4 h-4 text-teal-400" />
                   Allocated Bed Space
                 </div>
@@ -825,7 +825,7 @@ export const WardenCreateAllocationPage: React.FC = () => {
                     <div className="text-sm font-bold text-gray-100">{selectedHostel.name}</div>
                     <div className="text-xs font-mono text-orange-400">{selectedHostel.code} • {selectedHostel.type}</div>
                   </div>
-                  <div className="text-xs text-gray-300 pt-2 border-t border-[#1E2330] space-y-1 font-mono">
+                  <div className="text-xs text-gray-300 pt-2 border-t border-slate-200 space-y-1 font-mono">
                     <div>
                       <span className="text-gray-500">Block:</span> {selectedBed.blockName} ({selectedBed.blockCode})
                     </div>
@@ -844,8 +844,8 @@ export const WardenCreateAllocationPage: React.FC = () => {
             </div>
 
             {/* Schedule Form */}
-            <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-5 space-y-4">
-              <div className="flex items-center gap-2 text-xs font-mono text-gray-400 uppercase tracking-wider">
+            <div className="bg-white border border-slate-200 rounded-xl p-5 space-y-4">
+              <div className="flex items-center gap-2 text-xs font-mono text-slate-600 font-bold uppercase tracking-wider">
                 <Calendar className="w-4 h-4 text-orange-400" />
                 Residency Duration
               </div>
@@ -860,7 +860,7 @@ export const WardenCreateAllocationPage: React.FC = () => {
                     value={startDate}
                     onChange={(e) => setStartDate(e.target.value)}
                     required
-                    className="w-full bg-[#0D1017] border border-[#1E2330] rounded-xl px-3 py-2 text-sm text-gray-200 focus:outline-none focus:border-orange-500"
+                    className="w-full bg-[#0D1017] border border-slate-200 rounded-xl px-3 py-2 text-sm text-gray-200 focus:outline-none focus:border-orange-500"
                   />
                   <span className="text-[11px] text-gray-500 mt-1 block">
                     Residency intake date. Effective immediately upon confirmation.
@@ -876,7 +876,7 @@ export const WardenCreateAllocationPage: React.FC = () => {
                     value={endDate}
                     onChange={(e) => setEndDate(e.target.value)}
                     min={startDate}
-                    className="w-full bg-[#0D1017] border border-[#1E2330] rounded-xl px-3 py-2 text-sm text-gray-200 focus:outline-none focus:border-orange-500"
+                    className="w-full bg-[#0D1017] border border-slate-200 rounded-xl px-3 py-2 text-sm text-gray-200 focus:outline-none focus:border-orange-500"
                   />
                   <span className="text-[11px] text-gray-500 mt-1 block">
                     Leave blank for open-ended or standard semester tenure.
@@ -911,7 +911,7 @@ export const WardenCreateAllocationPage: React.FC = () => {
             )}
 
             {/* Action Buttons */}
-            <div className="flex justify-between pt-4 border-t border-[#1E2330]">
+            <div className="flex justify-between pt-4 border-t border-slate-200">
               <Button
                 variant="outline"
                 leftIcon={<ArrowLeft className="w-4 h-4" />}

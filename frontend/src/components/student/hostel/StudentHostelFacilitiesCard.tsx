@@ -38,23 +38,23 @@ export const StudentHostelFacilitiesCard: React.FC<Props> = ({ facilities }) => 
   };
 
   return (
-    <Card className="p-5 bg-[#11141C] border-[#1E2330] space-y-4">
+    <Card className="p-5 bg-white border-slate-200 space-y-4">
       <div className="flex items-center justify-between">
         <div>
-          <h3 className="text-sm font-semibold text-white tracking-tight">
+          <h3 className="text-sm font-semibold text-slate-900 tracking-tight">
             Hostel Facilities & Common Amenities
           </h3>
           <p className="text-xs text-gray-400 mt-0.5">
             Verified institutional infrastructure available to residents of this hostel
           </p>
         </div>
-        <span className="text-xs font-mono px-2 py-0.5 rounded bg-[#171A23] text-gray-400 border border-[#222838]">
+        <span className="text-xs font-mono px-2 py-0.5 rounded bg-slate-50 text-gray-400 border border-slate-200">
           {facilities.length} Listed
         </span>
       </div>
 
       {facilities.length === 0 ? (
-        <div className="p-8 text-center bg-[#171A23]/50 border border-[#222838] rounded-xl space-y-2">
+        <div className="p-8 text-center bg-slate-50/50 border border-slate-200 rounded-xl space-y-2">
           <Layers className="w-8 h-8 text-gray-500 mx-auto" />
           <p className="text-xs text-gray-400 font-medium">No hostel facilities have been listed.</p>
           <p className="text-[11px] text-gray-500">
@@ -69,18 +69,18 @@ export const StudentHostelFacilitiesCard: React.FC<Props> = ({ facilities }) => 
             return (
               <div
                 key={facility.id}
-                className="p-3.5 bg-[#171A23] border border-[#222838] rounded-xl flex items-start gap-3 hover:border-[#2E364A] transition-colors"
+                className="p-3.5 bg-slate-50 border border-slate-200 rounded-xl flex items-start gap-3 hover:border-[#2E364A] transition-colors"
               >
                 <div className="p-2 rounded-lg bg-teal-500/10 border border-teal-500/20 text-teal-400 shrink-0 mt-0.5">
                   <Icon className="w-4 h-4" />
                 </div>
                 <div className="space-y-1 flex-1 min-w-0">
                   <div className="flex items-center justify-between gap-1">
-                    <h4 className="text-xs font-semibold text-white truncate">
+                    <h4 className="text-xs font-semibold text-slate-900 truncate">
                       {facility.name}
                     </h4>
                     {facility.quantity > 1 && (
-                      <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-[#11141C] text-gray-400 border border-white/5 shrink-0">
+                      <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-white text-gray-400 border border-white/5 shrink-0">
                         Qty: {facility.quantity}
                       </span>
                     )}

@@ -152,7 +152,7 @@ export const WardenBedsPage: React.FC = () => {
         subtitle="Search by bed or room number and filter by occupancy status"
       >
         <Card>
-          <CardHeader className="border-b border-[#1E2330] pb-4">
+          <CardHeader className="border-b border-slate-200 pb-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div className="flex flex-wrap items-center gap-3 flex-1">
                 {/* Search */}
@@ -163,7 +163,7 @@ export const WardenBedsPage: React.FC = () => {
                     placeholder="Search bed or room number..."
                     value={filters.search || ''}
                     onChange={(e) => updateFilters({ search: e.target.value })}
-                    className="w-full bg-[#11141C] border border-[#1E2330] rounded-xl pl-9 pr-3 py-1.5 text-xs text-gray-200 placeholder-gray-500 focus:outline-none focus:border-orange-500"
+                    className="w-full bg-white border border-slate-200 rounded-xl pl-9 pr-3 py-1.5 text-xs text-gray-200 placeholder-gray-500 focus:outline-none focus:border-orange-500"
                   />
                 </div>
 
@@ -175,7 +175,7 @@ export const WardenBedsPage: React.FC = () => {
                       floorNumber: e.target.value !== '' ? Number(e.target.value) : undefined,
                     })
                   }
-                  className="bg-[#11141C] border border-[#1E2330] rounded-xl px-3 py-1.5 text-xs text-gray-300 focus:outline-none focus:border-orange-500"
+                  className="bg-white border border-slate-200 rounded-xl px-3 py-1.5 text-xs text-gray-300 focus:outline-none focus:border-orange-500"
                 >
                   <option value="">All Floors</option>
                   <option value="1">Floor 1</option>
@@ -192,7 +192,7 @@ export const WardenBedsPage: React.FC = () => {
                       status: (e.target.value as HostelBedStatus) || undefined,
                     })
                   }
-                  className="bg-[#11141C] border border-[#1E2330] rounded-xl px-3 py-1.5 text-xs text-gray-300 focus:outline-none focus:border-orange-500"
+                  className="bg-white border border-slate-200 rounded-xl px-3 py-1.5 text-xs text-gray-300 focus:outline-none focus:border-orange-500"
                 >
                   <option value="">All Bed Statuses</option>
                   <option value="AVAILABLE">AVAILABLE (Vacant)</option>
@@ -251,7 +251,7 @@ export const WardenBedsPage: React.FC = () => {
             ) : (
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs text-gray-300">
-                  <thead className="bg-[#11141C] text-[11px] font-mono text-gray-400 uppercase tracking-wider border-b border-[#1E2330]">
+                  <thead className="bg-white text-[11px] font-mono text-slate-700 font-bold uppercase tracking-wider border-b border-slate-200">
                     <tr>
                       <th className="py-3 px-4">Bed Number</th>
                       <th className="py-3 px-4">Room & Block</th>
@@ -262,7 +262,7 @@ export const WardenBedsPage: React.FC = () => {
                       <th className="py-3 px-4 text-right">Actions</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#1E2330]">
+                  <tbody className="divide-y divide-slate-200">
                     {beds.map((bed) => {
                       const isOccupied = bed.status === 'OCCUPIED' && bed.currentStudent;
                       const isAvailable = bed.status === 'AVAILABLE';
@@ -270,9 +270,9 @@ export const WardenBedsPage: React.FC = () => {
                       return (
                         <tr
                           key={bed.id}
-                          className="hover:bg-[#171A23]/60 transition-colors group"
+                          className="hover:bg-slate-50/60 transition-colors group"
                         >
-                          <td className="py-3 px-4 font-mono font-semibold text-gray-200">
+                          <td className="py-3 px-4 font-mono font-semibold text-slate-800 font-medium">
                             <div className="flex items-center gap-2">
                               <div
                                 className={`w-7 h-7 rounded-lg flex items-center justify-center font-bold ${
@@ -290,16 +290,16 @@ export const WardenBedsPage: React.FC = () => {
                           </td>
                           <td className="py-3 px-4">
                             <span
-                              className="text-gray-200 font-medium hover:text-orange-400 cursor-pointer transition-colors"
+                              className="text-slate-800 font-medium font-medium hover:text-orange-400 cursor-pointer transition-colors"
                               onClick={() => navigate(`/warden/rooms/${bed.roomId}`)}
                             >
                               Room {bed.roomNumber}
                             </span>
-                            <div className="text-[11px] text-gray-400 font-mono">
+                            <div className="text-[11px] text-slate-600 font-medium font-mono">
                               {bed.blockName} ({bed.blockCode})
                             </div>
                           </td>
-                          <td className="py-3 px-4 text-gray-400 font-mono">
+                          <td className="py-3 px-4 text-slate-600 font-medium font-mono">
                             Floor {bed.floorNumber}
                           </td>
                           <td className="py-3 px-4">
@@ -322,7 +322,7 @@ export const WardenBedsPage: React.FC = () => {
                           <td className="py-3 px-4">
                             {isOccupied && bed.currentStudent ? (
                               <div>
-                                <div className="font-semibold text-gray-200">
+                                <div className="font-semibold text-slate-800 font-medium">
                                   {bed.currentStudent.studentName}
                                 </div>
                                 <div className="text-[11px] font-mono text-orange-400">
@@ -330,9 +330,9 @@ export const WardenBedsPage: React.FC = () => {
                                 </div>
                               </div>
                             ) : isAvailable ? (
-                              <span className="text-gray-400 font-mono italic">Vacant</span>
+                              <span className="text-slate-600 font-medium font-mono italic">Vacant</span>
                             ) : (
-                              <span className="text-gray-400 font-mono italic">
+                              <span className="text-slate-600 font-medium font-mono italic">
                                 {bed.status}
                               </span>
                             )}
@@ -343,7 +343,7 @@ export const WardenBedsPage: React.FC = () => {
                                 ACTIVE
                               </Badge>
                             ) : (
-                              <span className="text-gray-400 font-mono text-[11px]">NONE</span>
+                              <span className="text-slate-600 font-medium font-mono text-[11px]">NONE</span>
                             )}
                           </td>
                           <td className="py-3 px-4 text-right">
@@ -395,7 +395,7 @@ export const WardenBedsPage: React.FC = () => {
 
             {/* Pagination Controls */}
             {totalPages > 1 && (
-              <div className="flex items-center justify-between px-4 py-3 border-t border-[#1E2330] bg-[#11141C]">
+              <div className="flex items-center justify-between px-4 py-3 border-t border-slate-200 bg-white">
                 <div className="text-xs text-gray-400 font-mono">
                   Page {currentPage + 1} of {totalPages}
                 </div>

@@ -148,7 +148,7 @@ public class PrincipalMonitoringServiceImpl implements PrincipalMonitoringServic
             dDto.setDepartmentCode(dept.getCode());
             dDto.setStatus(dept.getStatus());
 
-            Optional<DepartmentHOD> hodOpt = departmentHODRepository.findByDepartmentIdAndStatus(dept.getId(), "ACTIVE");
+            Optional<DepartmentHOD> hodOpt = departmentHODRepository.findFirstByDepartmentIdAndStatus(dept.getId(), "ACTIVE");
             if (hodOpt.isPresent() && hodOpt.get().getFaculty() != null && hodOpt.get().getFaculty().getUser() != null) {
                 var u = hodOpt.get().getFaculty().getUser();
                 String first = u.getFirstName() != null ? u.getFirstName() : "";

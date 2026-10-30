@@ -9,7 +9,7 @@ interface StudentHostelInfoCardProps {
 
 export const StudentHostelInfoCard: React.FC<StudentHostelInfoCardProps> = ({ profile }) => {
   return (
-    <Card className="bg-[#11141C] border-[#1E2330]">
+    <Card className="bg-white border-slate-200">
       <CardHeader>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -39,8 +39,8 @@ export const StudentHostelInfoCard: React.FC<StudentHostelInfoCardProps> = ({ pr
         {profile.hostelAllocated ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
             {/* Hostel & Block */}
-            <div className="p-3.5 rounded-xl bg-[#171A23] border border-[#222838]">
-              <div className="flex items-center gap-2 text-gray-400 text-[10px] font-mono uppercase tracking-wider mb-1">
+            <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+              <div className="flex items-center gap-2 text-slate-600 font-bold text-[10px] font-mono uppercase tracking-wider mb-1">
                 <Hotel className="w-3.5 h-3.5 text-orange-400" />
                 Hostel & Block
               </div>
@@ -53,8 +53,8 @@ export const StudentHostelInfoCard: React.FC<StudentHostelInfoCardProps> = ({ pr
             </div>
 
             {/* Room & Floor */}
-            <div className="p-3.5 rounded-xl bg-[#171A23] border border-[#222838]">
-              <div className="flex items-center gap-2 text-gray-400 text-[10px] font-mono uppercase tracking-wider mb-1">
+            <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+              <div className="flex items-center gap-2 text-slate-600 font-bold text-[10px] font-mono uppercase tracking-wider mb-1">
                 <MapPin className="w-3.5 h-3.5 text-teal-400" />
                 Room & Level
               </div>
@@ -67,8 +67,8 @@ export const StudentHostelInfoCard: React.FC<StudentHostelInfoCardProps> = ({ pr
             </div>
 
             {/* Bed Space */}
-            <div className="p-3.5 rounded-xl bg-[#171A23] border border-[#222838]">
-              <div className="flex items-center gap-2 text-gray-400 text-[10px] font-mono uppercase tracking-wider mb-1">
+            <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+              <div className="flex items-center gap-2 text-slate-600 font-bold text-[10px] font-mono uppercase tracking-wider mb-1">
                 <BedDouble className="w-3.5 h-3.5 text-blue-400" />
                 Bed Allocation
               </div>
@@ -81,8 +81,8 @@ export const StudentHostelInfoCard: React.FC<StudentHostelInfoCardProps> = ({ pr
             </div>
 
             {/* Allocation Date */}
-            <div className="p-3.5 rounded-xl bg-[#171A23] border border-[#222838]">
-              <div className="flex items-center gap-2 text-gray-400 text-[10px] font-mono uppercase tracking-wider mb-1">
+            <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+              <div className="flex items-center gap-2 text-slate-600 font-bold text-[10px] font-mono uppercase tracking-wider mb-1">
                 <Calendar className="w-3.5 h-3.5 text-purple-400" />
                 Term Start
               </div>

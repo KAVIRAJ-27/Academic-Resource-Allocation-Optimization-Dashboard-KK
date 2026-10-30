@@ -9,25 +9,25 @@ interface SkeletonTableProps {
 
 export const SkeletonTable: React.FC<SkeletonTableProps> = ({ rows = 5, columns = 4, className }) => {
   return (
-    <div className={cn('bg-[#11141C] border border-[#1E2330] rounded-xl overflow-hidden animate-pulse', className)}>
+    <div className={cn('bg-white border border-[#D8C9A8] rounded-xl overflow-hidden animate-pulse shadow-card', className)}>
       {/* Table Header */}
-      <div className="bg-[#171A23] p-4 border-b border-[#1E2330] grid gap-4" style={{ gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))` }}>
+      <div className="bg-[#F8F6F0] p-4 border-b border-[#E8E0D0] grid gap-4" style={{ gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))` }}>
         {Array.from({ length: columns }).map((_, i) => (
-          <div key={i} className="h-4 bg-[#222838] rounded w-3/4" />
+          <div key={i} className="h-4 bg-[#F4F0E6] rounded w-3/4" />
         ))}
       </div>
       {/* Table Rows */}
-      <div className="divide-y divide-[#1E2330]">
+      <div className="divide-y divide-[#E8E0D0]">
         {Array.from({ length: rows }).map((_, rIdx) => (
           <div
             key={rIdx}
             className="p-4 grid gap-4 items-center"
             style={{ gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))` }}
           >
-            {Array.from({ length: columns }).map((_, cIdx) => (
+            {Array.from({ length: columns }).map((__, cIdx) => (
               <div
                 key={cIdx}
-                className="h-3.5 bg-[#171A23] rounded"
+                className="h-3.5 bg-[#F4F0E6] rounded"
                 style={{ width: `${60 + ((rIdx + cIdx) % 4) * 10}%` }}
               />
             ))}

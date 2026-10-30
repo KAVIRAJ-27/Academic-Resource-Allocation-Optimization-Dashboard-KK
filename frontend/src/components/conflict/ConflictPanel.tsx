@@ -24,13 +24,13 @@ export const ConflictPanel: React.FC<ConflictPanelProps> = ({
   const isValid = conflictResult ? conflictResult.valid : (valid !== undefined ? valid : activeConflicts.length === 0);
 
   return (
-    <div className={`space-y-4 rounded-xl border border-border/60 bg-card/40 p-4 backdrop-blur-sm ${className}`}>
-      <div className="flex items-center justify-between border-b border-border/40 pb-3">
+    <div className={`space-y-4 rounded-xl border border-[#D8C9A8] bg-white p-5 shadow-none ${className}`}>
+      <div className="flex items-center justify-between border-b border-[#E8E0D0] pb-3">
         <div className="flex items-center gap-2">
-          <ShieldAlert className="h-5 w-5 text-primary" />
-          <h3 className="font-semibold text-foreground text-sm">{title}</h3>
+          <ShieldAlert className="h-5 w-5 text-[#B8A16A]" />
+          <h3 className="font-serif font-bold text-[#202020] text-sm">{title}</h3>
         </div>
-        <div className="text-xs text-muted-foreground">
+        <div className="text-xs text-[#77736A]">
           {activeConflicts.length === 0
             ? '0 conflicts'
             : `${activeConflicts.length} item${activeConflicts.length > 1 ? 's' : ''}`}

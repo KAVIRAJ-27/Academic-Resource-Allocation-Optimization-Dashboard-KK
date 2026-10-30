@@ -84,14 +84,14 @@ export const FacultyRequestSummaryCards: React.FC<FacultyRequestSummaryCardsProp
             className={`p-4 rounded-xl text-left transition-all border ${
               isActive
                 ? `bg-[#161B26] ${card.activeBorder} shadow-lg shadow-black/40 ring-1 ring-white/10`
-                : `bg-[#11141C] border-[#1E2330] ${card.bgHover}`
+                : `bg-white border-slate-200 ${card.bgHover}`
             }`}
           >
             <div className="flex items-center justify-between">
               <span className="text-xs font-semibold text-gray-400 truncate">{card.label}</span>
               <Icon className={`w-4 h-4 ${card.color}`} />
             </div>
-            <div className="mt-2 text-2xl font-bold text-white">{card.count}</div>
+            <div className="mt-2 text-2xl font-bold text-slate-900">{card.count}</div>
           </button>
         );
       })}

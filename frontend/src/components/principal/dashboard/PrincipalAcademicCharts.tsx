@@ -26,10 +26,10 @@ interface PrincipalAcademicChartsProps {
 }
 
 const RESOURCE_COLORS = {
-  Available: '#10b981', // emerald
-  Allocated: '#3b82f6', // blue
-  Maintenance: '#f59e0b', // amber
-  Inactive: '#94a3b8', // slate
+  Available: '#3F7655',   // Sage Green
+  Allocated: '#B8A16A',   // Champagne Gold
+  Maintenance: '#A87928', // Amber
+  Inactive: '#77736A',    // Muted Charcoal
 };
 
 export const PrincipalAcademicCharts: React.FC<PrincipalAcademicChartsProps> = ({
@@ -56,46 +56,46 @@ export const PrincipalAcademicCharts: React.FC<PrincipalAcademicChartsProps> = (
 
   // 3. Request Status Breakdown
   const requestData = [
-    { name: 'Pending', count: requests.pendingRequests, fill: '#f59e0b' },
-    { name: 'Approved', count: requests.approvedRequests, fill: '#10b981' },
-    { name: 'Rejected', count: requests.rejectedRequests, fill: '#ef4444' },
-    { name: 'Cancelled', count: requests.cancelledRequests, fill: '#64748b' },
-    { name: 'Completed', count: requests.completedRequests, fill: '#3b82f6' },
+    { name: 'Pending', count: requests.pendingRequests, fill: '#A87928' },
+    { name: 'Approved', count: requests.approvedRequests, fill: '#3F7655' },
+    { name: 'Rejected', count: requests.rejectedRequests, fill: '#B44747' },
+    { name: 'Cancelled', count: requests.cancelledRequests, fill: '#77736A' },
+    { name: 'Completed', count: requests.completedRequests, fill: '#657C91' },
   ];
   const hasRequestData = requestData.some((d) => d.count > 0);
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
       {/* Chart 1: Students by Department */}
-      <Card className="flex flex-col">
+      <Card className="flex flex-col border-[#D8C9A8] bg-white shadow-none">
         <CardHeader>
           <div className="flex items-center gap-2">
-            <GraduationCap className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-            <CardTitle>Students by Department</CardTitle>
+            <GraduationCap className="w-5 h-5 text-[#B8A16A]" />
+            <CardTitle className="text-base font-serif font-bold text-[#202020]">Students by Department</CardTitle>
           </div>
-          <CardDescription>Live student population distribution</CardDescription>
+          <CardDescription className="text-xs text-[#77736A]">Live student population distribution</CardDescription>
         </CardHeader>
         <CardContent className="flex-1 flex flex-col justify-center min-h-[260px]">
           {hasStudentData ? (
             <div className="h-64 w-full">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={studentData} margin={{ top: 10, right: 10, left: -20, bottom: 20 }}>
-                  <XAxis dataKey="name" tick={{ fontSize: 11 }} interval={0} angle={-25} textAnchor="end" />
-                  <YAxis tick={{ fontSize: 11 }} allowDecimals={false} />
+                  <XAxis dataKey="name" tick={{ fontSize: 11, fill: '#555555' }} interval={0} angle={-25} textAnchor="end" />
+                  <YAxis tick={{ fontSize: 11, fill: '#555555' }} allowDecimals={false} />
                   <Tooltip
                     formatter={(value: any) => [`${value} Students`, 'Total']}
                     labelFormatter={(label: any) => {
                       const found = studentData.find((d) => d.name === label);
                       return found ? found.fullName : label;
                     }}
-                    contentStyle={{ backgroundColor: '#1e293b', border: 'none', borderRadius: '8px', color: '#fff', fontSize: '12px' }}
+                    contentStyle={{ backgroundColor: '#FFFFFF', border: '1px solid #D8C9A8', borderRadius: '4px', color: '#202020', fontSize: '12px', boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)' }}
                   />
-                  <Bar dataKey="students" fill="#3b82f6" radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="students" fill="#B8A16A" radius={[2, 2, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
           ) : (
-            <div className="text-center py-12 text-slate-400 text-sm">
+            <div className="text-center py-12 text-[#77736A] text-sm">
               No student distribution data available.
             </div>
           )}
@@ -103,13 +103,13 @@ export const PrincipalAcademicCharts: React.FC<PrincipalAcademicChartsProps> = (
       </Card>
 
       {/* Chart 2: Resource Status Distribution */}
-      <Card className="flex flex-col">
+      <Card className="flex flex-col border-[#D8C9A8] bg-white shadow-none">
         <CardHeader>
           <div className="flex items-center gap-2">
-            <Cpu className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-            <CardTitle>Resource Status Distribution</CardTitle>
+            <Cpu className="w-5 h-5 text-[#3F7655]" />
+            <CardTitle className="text-base font-serif font-bold text-[#202020]">Resource Status Distribution</CardTitle>
           </div>
-          <CardDescription>Real-time physical asset operational status</CardDescription>
+          <CardDescription className="text-xs text-[#77736A]">Real-time physical asset operational status</CardDescription>
         </CardHeader>
         <CardContent className="flex-1 flex flex-col justify-center min-h-[260px]">
           {hasResourceData ? (
@@ -131,14 +131,14 @@ export const PrincipalAcademicCharts: React.FC<PrincipalAcademicChartsProps> = (
                   </Pie>
                   <Tooltip
                     formatter={(value: any) => [`${value} Resources`, 'Count']}
-                    contentStyle={{ backgroundColor: '#1e293b', border: 'none', borderRadius: '8px', color: '#fff', fontSize: '12px' }}
+                    contentStyle={{ backgroundColor: '#FFFFFF', border: '1px solid #D8C9A8', borderRadius: '4px', color: '#202020', fontSize: '12px', boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)' }}
                   />
-                  <Legend verticalAlign="bottom" height={36} iconType="circle" wrapperStyle={{ fontSize: '12px' }} />
+                  <Legend verticalAlign="bottom" height={36} iconType="circle" wrapperStyle={{ fontSize: '12px', color: '#555555' }} />
                 </PieChart>
               </ResponsiveContainer>
             </div>
           ) : (
-            <div className="text-center py-12 text-slate-400 text-sm">
+            <div className="text-center py-12 text-[#77736A] text-sm">
               No academic resource data available.
             </div>
           )}
@@ -146,26 +146,26 @@ export const PrincipalAcademicCharts: React.FC<PrincipalAcademicChartsProps> = (
       </Card>
 
       {/* Chart 3: Resource Request Breakdown */}
-      <Card className="flex flex-col">
+      <Card className="flex flex-col border-[#D8C9A8] bg-white shadow-none">
         <CardHeader>
           <div className="flex items-center gap-2">
-            <FileText className="w-5 h-5 text-amber-600 dark:text-amber-400" />
-            <CardTitle>Resource Requests Breakdown</CardTitle>
+            <FileText className="w-5 h-5 text-[#A87928]" />
+            <CardTitle className="text-base font-serif font-bold text-[#202020]">Resource Requests Breakdown</CardTitle>
           </div>
-          <CardDescription>Status of institution-wide resource requisitions</CardDescription>
+          <CardDescription className="text-xs text-[#77736A]">Status of institution-wide resource requisitions</CardDescription>
         </CardHeader>
         <CardContent className="flex-1 flex flex-col justify-center min-h-[260px]">
           {hasRequestData ? (
             <div className="h-64 w-full">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={requestData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-                  <XAxis dataKey="name" tick={{ fontSize: 11 }} />
-                  <YAxis tick={{ fontSize: 11 }} allowDecimals={false} />
+                  <XAxis dataKey="name" tick={{ fontSize: 11, fill: '#555555' }} />
+                  <YAxis tick={{ fontSize: 11, fill: '#555555' }} allowDecimals={false} />
                   <Tooltip
                     formatter={(value: any) => [`${value} Requests`, 'Count']}
-                    contentStyle={{ backgroundColor: '#1e293b', border: 'none', borderRadius: '8px', color: '#fff', fontSize: '12px' }}
+                    contentStyle={{ backgroundColor: '#FFFFFF', border: '1px solid #D8C9A8', borderRadius: '4px', color: '#202020', fontSize: '12px', boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)' }}
                   />
-                  <Bar dataKey="count" radius={[4, 4, 0, 0]}>
+                  <Bar dataKey="count" radius={[2, 2, 0, 0]}>
                     {requestData.map((entry, index) => (
                       <Cell key={`bar-${index}`} fill={entry.fill} />
                     ))}
@@ -174,7 +174,7 @@ export const PrincipalAcademicCharts: React.FC<PrincipalAcademicChartsProps> = (
               </ResponsiveContainer>
             </div>
           ) : (
-            <div className="text-center py-12 text-slate-400 text-sm">
+            <div className="text-center py-12 text-[#77736A] text-sm">
               No resource request data available.
             </div>
           )}

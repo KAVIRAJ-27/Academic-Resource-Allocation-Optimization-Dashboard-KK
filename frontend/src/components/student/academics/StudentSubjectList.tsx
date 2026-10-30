@@ -52,7 +52,7 @@ export const StudentSubjectList: React.FC<StudentSubjectListProps> = ({
   };
 
   return (
-    <Card className="bg-[#11141C] border-[#1E2330]">
+    <Card className="bg-white border-slate-200">
       <CardHeader>
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
@@ -83,7 +83,7 @@ export const StudentSubjectList: React.FC<StudentSubjectListProps> = ({
               placeholder="Search by subject code, title, or instructor..."
               value={searchTerm}
               onChange={(e) => onSearchChange(e.target.value)}
-              className="w-full pl-9 pr-8 py-2 bg-[#171A23] border border-[#222838] rounded-xl text-xs text-gray-200 placeholder:text-gray-400 focus:outline-none focus:border-teal-500/50 transition-colors"
+              className="w-full pl-9 pr-8 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-gray-200 placeholder:text-gray-400 focus:outline-none focus:border-teal-500/50 transition-colors"
             />
             {searchTerm && (
               <button
@@ -102,7 +102,7 @@ export const StudentSubjectList: React.FC<StudentSubjectListProps> = ({
               onChange={(e) =>
                 onSemesterChange(e.target.value ? Number(e.target.value) : undefined)
               }
-              className="px-3 py-2 bg-[#171A23] border border-[#222838] rounded-xl text-xs text-gray-200 focus:outline-none focus:border-teal-500/50"
+              className="px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-gray-200 focus:outline-none focus:border-teal-500/50"
             >
               <option value="">All Semesters</option>
               {availableSemesters.map((sem) => (
@@ -116,7 +116,7 @@ export const StudentSubjectList: React.FC<StudentSubjectListProps> = ({
             <select
               value={selectedType}
               onChange={(e) => onTypeChange(e.target.value)}
-              className="px-3 py-2 bg-[#171A23] border border-[#222838] rounded-xl text-xs text-gray-200 focus:outline-none focus:border-teal-500/50"
+              className="px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-gray-200 focus:outline-none focus:border-teal-500/50"
             >
               <option value="ALL">All Types</option>
               <option value="THEORY">Theory</option>
@@ -153,7 +153,7 @@ export const StudentSubjectList: React.FC<StudentSubjectListProps> = ({
             {/* Desktop Table */}
             <div className="hidden md:block overflow-x-auto">
               <table className="w-full text-left text-xs">
-                <thead className="bg-[#0B0D14] border-b border-[#1E2330] text-[11px] font-semibold text-gray-400 uppercase tracking-wider">
+                <thead className="bg-[#0B0D14] border-b border-slate-200 text-[11px] font-semibold text-slate-700 font-bold uppercase tracking-wider">
                   <tr>
                     <th className="py-3 px-4 font-mono text-[11px] w-24">Code</th>
                     <th className="py-3 px-4">Subject Name</th>
@@ -165,11 +165,11 @@ export const StudentSubjectList: React.FC<StudentSubjectListProps> = ({
                     <th className="py-3 px-4 text-right">Action</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#1E2330] text-gray-300">
+                <tbody className="divide-y divide-slate-200 text-gray-300">
                   {subjects.map((subj) => (
                     <tr
                       key={subj.id}
-                      className="border-[#1E2330] hover:bg-[#171A23]/60 transition-colors group cursor-pointer"
+                      className="border-slate-200 hover:bg-slate-50/60 transition-colors group cursor-pointer"
                       onClick={() => onSelectSubject(subj.id)}
                     >
                       <td className="py-3 px-4 font-mono text-xs font-semibold text-teal-300">
@@ -180,7 +180,7 @@ export const StudentSubjectList: React.FC<StudentSubjectListProps> = ({
                           {subj.name}
                         </span>
                       </td>
-                      <td className="py-3 px-4 text-xs text-gray-400 font-mono">
+                      <td className="py-3 px-4 text-xs text-slate-600 font-medium font-mono">
                         {subj.semesterNumber ? `Sem ${subj.semesterNumber}` : '--'}
                       </td>
                       <td className="py-3 px-4">
@@ -197,17 +197,17 @@ export const StudentSubjectList: React.FC<StudentSubjectListProps> = ({
                           {subj.subjectType}
                         </Badge>
                       </td>
-                      <td className="py-3 px-4 text-center font-mono text-xs text-gray-200">
+                      <td className="py-3 px-4 text-center font-mono text-xs text-slate-800 font-medium">
                         {subj.credits}
                       </td>
-                      <td className="py-3 px-4 text-xs text-gray-300">
+                      <td className="py-3 px-4 text-xs text-slate-700 font-medium">
                         {subj.facultyName ? (
                           <div className="flex items-center gap-1.5">
-                            <User className="w-3.5 h-3.5 text-gray-400" />
+                            <User className="w-3.5 h-3.5 text-slate-600 font-medium" />
                             <span className="truncate max-w-[160px]">{subj.facultyName}</span>
                           </div>
                         ) : (
-                          <span className="text-gray-400 italic">Unassigned</span>
+                          <span className="text-slate-600 font-medium italic">Unassigned</span>
                         )}
                       </td>
                       <td className="py-3 px-4">
@@ -223,7 +223,7 @@ export const StudentSubjectList: React.FC<StudentSubjectListProps> = ({
                         <Button
                           variant="ghost"
                           size="sm"
-                          leftIcon={<Eye className="w-3 h-3 text-gray-400 group-hover:text-teal-400" />}
+                          leftIcon={<Eye className="w-3 h-3 text-slate-600 font-medium group-hover:text-teal-400" />}
                           onClick={(e) => {
                             e.stopPropagation();
                             onSelectSubject(subj.id);
@@ -239,11 +239,11 @@ export const StudentSubjectList: React.FC<StudentSubjectListProps> = ({
             </div>
 
             {/* Mobile Stacked Cards */}
-            <div className="md:hidden divide-y divide-[#1E2330]">
+            <div className="md:hidden divide-y divide-slate-200">
               {subjects.map((subj) => (
                 <div
                   key={subj.id}
-                  className="p-4 space-y-2.5 hover:bg-[#171A23]/50 transition-colors cursor-pointer"
+                  className="p-4 space-y-2.5 hover:bg-slate-50/50 transition-colors cursor-pointer"
                   onClick={() => onSelectSubject(subj.id)}
                 >
                   <div className="flex items-start justify-between gap-2">

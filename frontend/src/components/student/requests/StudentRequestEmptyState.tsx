@@ -17,14 +17,14 @@ export const StudentRequestEmptyState: React.FC<Props> = ({
   onRefresh,
 }) => {
   return (
-    <Card className="p-12 text-center bg-[#11141C] border-[#1E2330]">
+    <Card className="p-12 text-center bg-white border-slate-200">
       <div className="flex flex-col items-center max-w-md mx-auto space-y-4">
         <div className="w-14 h-14 rounded-2xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-400 shadow-inner">
           <FileQuestion className="w-7 h-7" />
         </div>
 
         <div className="space-y-1.5">
-          <h3 className="text-base font-semibold text-white">
+          <h3 className="text-base font-semibold text-slate-900">
             {isFiltered ? 'No matching requests found' : 'No resource requests yet'}
           </h3>
           <p className="text-xs text-gray-400 leading-relaxed">
@@ -42,7 +42,7 @@ export const StudentRequestEmptyState: React.FC<Props> = ({
                   variant="outline"
                   size="sm"
                   onClick={onClearFilters}
-                  className="border-[#222838] text-gray-300"
+                  className="border-slate-200 text-gray-300"
                 >
                   Clear Filters
                 </Button>

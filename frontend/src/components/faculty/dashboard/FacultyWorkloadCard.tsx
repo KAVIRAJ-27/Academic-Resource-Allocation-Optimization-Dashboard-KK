@@ -10,11 +10,11 @@ interface FacultyWorkloadCardProps {
 export const FacultyWorkloadCard: React.FC<FacultyWorkloadCardProps> = ({ workload }) => {
   if (!workload) {
     return (
-      <Card className="h-full bg-[#11141C] border-[#1E2330] flex flex-col">
-        <CardHeader className="border-b border-[#1E2330] pb-4">
+      <Card className="h-full bg-white border-slate-200 shadow-xs flex flex-col">
+        <CardHeader className="border-b border-slate-100 pb-4">
           <div className="flex items-center justify-between">
-            <CardTitle className="text-sm font-bold text-white flex items-center gap-2">
-              <Activity className="w-4 h-4 text-blue-400" />
+            <CardTitle className="text-sm font-bold text-slate-900 flex items-center gap-2">
+              <Activity className="w-4 h-4 text-indigo-600" />
               Teaching Workload Metrics
             </CardTitle>
             <Badge variant="neutral">Uncalculated</Badge>
@@ -54,13 +54,13 @@ export const FacultyWorkloadCard: React.FC<FacultyWorkloadCardProps> = ({ worklo
   const other = Number(workload.otherHours) || 0;
 
   return (
-    <Card className="h-full bg-[#11141C] border-[#1E2330] flex flex-col justify-between shadow-card hover:border-[#2A3245] transition-all">
+    <Card className="h-full bg-white border-slate-200 shadow-xs flex flex-col justify-between hover:border-slate-300 transition-all">
       <div>
-        <CardHeader className="border-b border-[#1E2330] pb-4">
+        <CardHeader className="border-b border-slate-100 pb-4">
           <div className="flex items-center justify-between">
             <div>
-              <CardTitle className="text-sm font-bold text-white flex items-center gap-2">
-                <Activity className="w-4 h-4 text-blue-400" />
+              <CardTitle className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                <Activity className="w-4 h-4 text-indigo-600" />
                 Teaching Workload Allocation
               </CardTitle>
               <CardDescription>
@@ -74,39 +74,39 @@ export const FacultyWorkloadCard: React.FC<FacultyWorkloadCardProps> = ({ worklo
         <CardContent className="p-5 space-y-4">
           {/* Main Hours Banner */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <div className="p-3.5 bg-[#0E1017] border border-[#1E2330] rounded-xl text-center">
-              <span className="text-[10px] text-gray-400 uppercase tracking-wider block mb-1">
+            <div className="p-3.5 bg-slate-50 border border-slate-200/80 rounded-xl text-center">
+              <span className="text-[10px] text-slate-600 font-bold uppercase tracking-wider block mb-1 font-semibold">
                 Total Hours
               </span>
-              <span className="text-xl font-extrabold text-white font-mono">
-                {total} <span className="text-xs text-gray-500 font-normal">hrs</span>
+              <span className="text-xl font-extrabold text-slate-900 font-mono">
+                {total} <span className="text-xs text-slate-500 font-normal">hrs</span>
               </span>
             </div>
 
-            <div className="p-3.5 bg-[#0E1017] border border-[#1E2330] rounded-xl text-center">
-              <span className="text-[10px] text-gray-400 uppercase tracking-wider block mb-1 flex items-center justify-center gap-1">
-                <BookOpen className="w-2.5 h-2.5 text-teal-400" /> Lecture
+            <div className="p-3.5 bg-teal-50/50 border border-teal-100 rounded-xl text-center">
+              <span className="text-[10px] text-teal-700 uppercase tracking-wider block mb-1 font-semibold flex items-center justify-center gap-1">
+                <BookOpen className="w-2.5 h-2.5 text-teal-600" /> Lecture
               </span>
-              <span className="text-xl font-extrabold text-teal-300 font-mono">
-                {teaching} <span className="text-xs text-gray-500 font-normal">hrs</span>
-              </span>
-            </div>
-
-            <div className="p-3.5 bg-[#0E1017] border border-[#1E2330] rounded-xl text-center">
-              <span className="text-[10px] text-gray-400 uppercase tracking-wider block mb-1 flex items-center justify-center gap-1">
-                <Laptop className="w-2.5 h-2.5 text-blue-400" /> Practical
-              </span>
-              <span className="text-xl font-extrabold text-blue-300 font-mono">
-                {lab} <span className="text-xs text-gray-500 font-normal">hrs</span>
+              <span className="text-xl font-extrabold text-teal-800 font-mono">
+                {teaching} <span className="text-xs text-teal-600/70 font-normal">hrs</span>
               </span>
             </div>
 
-            <div className="p-3.5 bg-[#0E1017] border border-[#1E2330] rounded-xl text-center">
-              <span className="text-[10px] text-gray-400 uppercase tracking-wider block mb-1 flex items-center justify-center gap-1">
-                <Clock className="w-2.5 h-2.5 text-purple-400" /> Other
+            <div className="p-3.5 bg-indigo-50/50 border border-indigo-100 rounded-xl text-center">
+              <span className="text-[10px] text-indigo-700 uppercase tracking-wider block mb-1 font-semibold flex items-center justify-center gap-1">
+                <Laptop className="w-2.5 h-2.5 text-indigo-600" /> Practical
               </span>
-              <span className="text-xl font-extrabold text-purple-300 font-mono">
-                {other} <span className="text-xs text-gray-500 font-normal">hrs</span>
+              <span className="text-xl font-extrabold text-indigo-800 font-mono">
+                {lab} <span className="text-xs text-indigo-600/70 font-normal">hrs</span>
+              </span>
+            </div>
+
+            <div className="p-3.5 bg-purple-50/50 border border-purple-100 rounded-xl text-center">
+              <span className="text-[10px] text-purple-700 uppercase tracking-wider block mb-1 font-semibold flex items-center justify-center gap-1">
+                <Clock className="w-2.5 h-2.5 text-purple-600" /> Other
+              </span>
+              <span className="text-xl font-extrabold text-purple-800 font-mono">
+                {other} <span className="text-xs text-purple-600/70 font-normal">hrs</span>
               </span>
             </div>
           </div>
@@ -114,36 +114,36 @@ export const FacultyWorkloadCard: React.FC<FacultyWorkloadCardProps> = ({ worklo
           {/* Visual Distribution Bar */}
           {total > 0 && (
             <div className="space-y-1.5 pt-1">
-              <div className="flex justify-between text-[11px] text-gray-400">
+              <div className="flex justify-between text-[11px] text-slate-500 font-medium">
                 <span>Distribution Breakdown</span>
                 <span>{total} hrs / week</span>
               </div>
-              <div className="h-2.5 w-full bg-[#1A1E29] rounded-full overflow-hidden flex">
+              <div className="h-2.5 w-full bg-slate-100 rounded-full overflow-hidden flex border border-slate-200/60">
                 <div
                   style={{ width: `${(teaching / total) * 100}%` }}
-                  className="bg-teal-500 transition-all duration-500"
+                  className="bg-teal-600 transition-all duration-500"
                   title={`Theory: ${teaching} hrs`}
                 />
                 <div
                   style={{ width: `${(lab / total) * 100}%` }}
-                  className="bg-blue-500 transition-all duration-500"
+                  className="bg-indigo-600 transition-all duration-500"
                   title={`Lab: ${lab} hrs`}
                 />
                 <div
                   style={{ width: `${(other / total) * 100}%` }}
-                  className="bg-purple-500 transition-all duration-500"
+                  className="bg-purple-600 transition-all duration-500"
                   title={`Other: ${other} hrs`}
                 />
               </div>
-              <div className="flex items-center gap-4 text-[10px] text-gray-400 pt-1">
-                <span className="flex items-center gap-1">
-                  <span className="w-2 h-2 rounded-full bg-teal-500" /> Theory ({Math.round((teaching / total) * 100)}%)
+              <div className="flex items-center gap-4 text-[10px] text-slate-600 pt-1">
+                <span className="flex items-center gap-1 font-medium">
+                  <span className="w-2 h-2 rounded-full bg-teal-600" /> Theory ({Math.round((teaching / total) * 100)}%)
                 </span>
-                <span className="flex items-center gap-1">
-                  <span className="w-2 h-2 rounded-full bg-blue-500" /> Practical ({Math.round((lab / total) * 100)}%)
+                <span className="flex items-center gap-1 font-medium">
+                  <span className="w-2 h-2 rounded-full bg-indigo-600" /> Practical ({Math.round((lab / total) * 100)}%)
                 </span>
-                <span className="flex items-center gap-1">
-                  <span className="w-2 h-2 rounded-full bg-purple-500" /> Other ({Math.round((other / total) * 100)}%)
+                <span className="flex items-center gap-1 font-medium">
+                  <span className="w-2 h-2 rounded-full bg-purple-600" /> Other ({Math.round((other / total) * 100)}%)
                 </span>
               </div>
             </div>
@@ -151,12 +151,12 @@ export const FacultyWorkloadCard: React.FC<FacultyWorkloadCardProps> = ({ worklo
         </CardContent>
       </div>
 
-      <div className="px-5 py-3 border-t border-[#1E2330] bg-[#0E1017] rounded-b-2xl text-[11px] text-gray-500 flex items-center justify-between">
+      <div className="px-5 py-3 border-t border-slate-100 bg-slate-50/50 rounded-b-xl text-[11px] text-slate-500 flex items-center justify-between">
         <span className="flex items-center gap-1.5">
-          <Calendar className="w-3.5 h-3.5 text-gray-500" />
+          <Calendar className="w-3.5 h-3.5 text-slate-400" />
           Last Calculated: {workload.calculatedAt ? new Date(workload.calculatedAt).toLocaleDateString() : 'Recent'}
         </span>
-        <span className="text-teal-400 font-medium">HOD Verified</span>
+        <span className="text-teal-700 font-semibold">HOD Verified</span>
       </div>
     </Card>
   );

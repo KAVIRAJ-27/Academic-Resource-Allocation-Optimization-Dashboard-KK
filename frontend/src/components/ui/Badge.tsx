@@ -67,51 +67,51 @@ export const Badge: React.FC<BadgeProps> = ({
 
   const variants: Record<BadgeVariant, { container: string; dot: string }> = {
     teal: {
-      container: 'bg-teal-500/15 text-teal-300 border-teal-500/30',
-      dot: 'bg-teal-400',
+      container: 'bg-[#EEF6F1] text-[#3F7655] border-[#C1DFCD]',
+      dot: 'bg-[#3F7655]',
     },
     purple: {
-      container: 'bg-purple-500/15 text-purple-300 border-purple-500/30',
-      dot: 'bg-purple-400',
+      container: 'bg-[#F4F0E6] text-[#202020] border-[#D8C9A8]',
+      dot: 'bg-[#B8A16A]',
     },
     blue: {
-      container: 'bg-blue-500/15 text-blue-300 border-blue-500/30',
-      dot: 'bg-blue-400',
+      container: 'bg-[#EFF4F8] text-[#657C91] border-[#C6D5E2]',
+      dot: 'bg-[#657C91]',
     },
     orange: {
-      container: 'bg-orange-500/15 text-orange-300 border-orange-500/30',
-      dot: 'bg-orange-400',
+      container: 'bg-[#FAF4E8] text-[#A87928] border-[#EED9B2]',
+      dot: 'bg-[#A87928]',
     },
     gray: {
-      container: 'bg-gray-800/60 text-gray-300 border-gray-700/50',
-      dot: 'bg-gray-400',
+      container: 'bg-[#F8F6F0] text-[#555555] border-[#E8E0D0]',
+      dot: 'bg-[#77736A]',
     },
     neutral: {
-      container: 'bg-gray-800/60 text-gray-300 border-gray-700/50',
-      dot: 'bg-gray-400',
+      container: 'bg-[#F8F6F0] text-[#555555] border-[#E8E0D0]',
+      dot: 'bg-[#77736A]',
     },
     danger: {
-      container: 'bg-rose-500/15 text-rose-300 border-rose-500/30',
-      dot: 'bg-rose-400',
+      container: 'bg-[#FDF0F0] text-[#B44747] border-[#ECC6C6]',
+      dot: 'bg-[#B44747]',
     },
     success: {
-      container: 'bg-emerald-500/15 text-emerald-300 border-emerald-500/30',
-      dot: 'bg-emerald-400',
+      container: 'bg-[#EEF6F1] text-[#3F7655] border-[#C1DFCD]',
+      dot: 'bg-[#3F7655]',
     },
     warning: {
-      container: 'bg-amber-500/15 text-amber-300 border-amber-500/30',
-      dot: 'bg-amber-400',
+      container: 'bg-[#FAF4E8] text-[#A87928] border-[#EED9B2]',
+      dot: 'bg-[#A87928]',
     },
     info: {
-      container: 'bg-sky-500/15 text-sky-300 border-sky-500/30',
-      dot: 'bg-sky-400',
+      container: 'bg-[#EFF4F8] text-[#657C91] border-[#C6D5E2]',
+      dot: 'bg-[#657C91]',
     },
   };
 
   return (
     <span
       className={cn(
-        'inline-flex items-center gap-1.5 rounded-full font-medium border tracking-wide uppercase select-none font-mono',
+        'inline-flex items-center gap-1.5 rounded-full font-semibold border tracking-wide uppercase select-none font-mono',
         variants[activeVariant].container,
         size === 'sm' ? 'px-2 py-0.5 text-[10px]' : 'px-2.5 py-0.5 text-xs',
         className

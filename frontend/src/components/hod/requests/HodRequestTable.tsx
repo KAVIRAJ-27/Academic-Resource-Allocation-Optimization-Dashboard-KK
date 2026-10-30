@@ -184,7 +184,7 @@ export const HodRequestTable: React.FC<HodRequestTableProps> = ({
       <div className="overflow-x-auto">
         <table className="w-full text-left border-collapse">
           <thead>
-            <tr className="border-b border-gray-800 bg-gray-800/30 text-[11px] uppercase tracking-wider font-semibold text-gray-400">
+            <tr className="border-b border-gray-800 bg-gray-800/30 text-[11px] uppercase tracking-wider font-semibold text-slate-600 font-bold">
               <th className="py-3.5 px-4">Req #</th>
               <th className="py-3.5 px-4">Requester</th>
               <th className="py-3.5 px-4">Resource Requested</th>
@@ -198,7 +198,7 @@ export const HodRequestTable: React.FC<HodRequestTableProps> = ({
           <tbody className="divide-y divide-gray-800/60 text-sm">
             {loading && requests.length === 0 ? (
               <tr>
-                <td colSpan={8} className="py-12 text-center text-gray-400">
+                <td colSpan={8} className="py-12 text-center text-slate-600 font-medium">
                   <div className="flex items-center justify-center space-x-2">
                     <RefreshCw className="w-5 h-5 animate-spin text-blue-400" />
                     <span>Loading department requests...</span>
@@ -210,8 +210,8 @@ export const HodRequestTable: React.FC<HodRequestTableProps> = ({
                 <td colSpan={8} className="py-12 text-center">
                   <div className="flex flex-col items-center justify-center">
                     <Layers className="w-10 h-10 text-gray-600 mb-2" />
-                    <p className="text-gray-300 font-medium">No resource requests found</p>
-                    <p className="text-xs text-gray-500 mt-1">
+                    <p className="text-slate-700 font-medium font-medium">No resource requests found</p>
+                    <p className="text-xs text-slate-500 font-medium mt-1">
                       {search || statusFilter !== 'ALL' || priorityFilter !== 'ALL' || fromDate || toDate
                         ? 'Try clearing or modifying your search and filter criteria.'
                         : 'No resource requests have been submitted by department faculty or students.'}
@@ -225,7 +225,7 @@ export const HodRequestTable: React.FC<HodRequestTableProps> = ({
                   key={item.id}
                   className="hover:bg-gray-800/40 transition-colors group"
                 >
-                  <td className="py-3.5 px-4 font-mono text-xs font-bold text-gray-300">
+                  <td className="py-3.5 px-4 font-mono text-xs font-bold text-slate-700 font-medium">
                     #{item.id}
                   </td>
                   <td className="py-3.5 px-4">
@@ -237,9 +237,9 @@ export const HodRequestTable: React.FC<HodRequestTableProps> = ({
                         <p className="text-sm font-semibold text-white group-hover:text-blue-300 transition-colors">
                           {item.requesterName || 'Unknown User'}
                         </p>
-                        <p className="text-xs text-gray-400">{item.requesterEmail}</p>
+                        <p className="text-xs text-slate-600 font-medium">{item.requesterEmail}</p>
                         {item.requesterRole && (
-                          <span className="inline-block mt-0.5 text-[10px] px-1.5 py-0.2 rounded bg-gray-800 text-gray-300 border border-gray-700">
+                          <span className="inline-block mt-0.5 text-[10px] px-1.5 py-0.2 rounded bg-gray-800 text-slate-700 font-medium border border-gray-700">
                             {item.requesterRole}
                           </span>
                         )}
@@ -252,24 +252,24 @@ export const HodRequestTable: React.FC<HodRequestTableProps> = ({
                         {item.requestedResourceName || 'Specific Resource Not Specified'}
                       </p>
                       {item.requestedResourceCode && (
-                        <p className="text-xs font-mono text-gray-400">
+                        <p className="text-xs font-mono text-slate-600 font-medium">
                           {item.requestedResourceCode}
                         </p>
                       )}
                       {item.categoryName && (
-                        <span className="text-[11px] text-gray-400">
-                          Category: <strong className="text-gray-300">{item.categoryName}</strong>
+                        <span className="text-[11px] text-slate-600 font-medium">
+                          Category: <strong className="text-slate-700 font-medium">{item.categoryName}</strong>
                         </span>
                       )}
                     </div>
                   </td>
                   <td className="py-3.5 px-4">
-                    <div className="space-y-0.5 text-xs text-gray-300">
+                    <div className="space-y-0.5 text-xs text-slate-700 font-medium">
                       <div className="flex items-center space-x-1.5">
-                        <Calendar className="w-3.5 h-3.5 text-gray-400" />
+                        <Calendar className="w-3.5 h-3.5 text-slate-600 font-medium" />
                         <span>{item.requestedDate}</span>
                       </div>
-                      <div className="flex items-center space-x-1.5 text-gray-400">
+                      <div className="flex items-center space-x-1.5 text-slate-600 font-medium">
                         <Clock className="w-3.5 h-3.5" />
                         <span>
                           {formatTime(item.startTime)} - {formatTime(item.endTime)}
@@ -278,7 +278,7 @@ export const HodRequestTable: React.FC<HodRequestTableProps> = ({
                     </div>
                   </td>
                   <td className="py-3.5 px-4 max-w-xs">
-                    <p className="text-xs text-gray-300 line-clamp-2" title={item.purpose}>
+                    <p className="text-xs text-slate-700 font-medium line-clamp-2" title={item.purpose}>
                       {item.purpose || 'No purpose stated'}
                     </p>
                   </td>
@@ -294,7 +294,7 @@ export const HodRequestTable: React.FC<HodRequestTableProps> = ({
                         variant="ghost"
                         size="sm"
                         onClick={() => onViewDetails(item.id)}
-                        className="text-gray-400 hover:text-white hover:bg-gray-800 p-1.5 rounded-lg"
+                        className="text-slate-600 font-medium hover:text-white hover:bg-gray-800 p-1.5 rounded-lg"
                         title="View request details"
                       >
                         <Eye className="w-4 h-4" />

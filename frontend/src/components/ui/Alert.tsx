@@ -19,20 +19,20 @@ export const Alert: React.FC<AlertProps> = ({
 }) => {
   const styles = {
     success: {
-      container: 'bg-emerald-500/10 border-emerald-500/30 text-emerald-300',
-      icon: <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />,
+      container: 'bg-[#EEF6F1] border-[#C1DFCD] text-[#3F7655]',
+      icon: <CheckCircle2 className="w-4 h-4 text-[#3F7655] shrink-0 mt-0.5" />,
     },
     error: {
-      container: 'bg-rose-500/10 border-rose-500/30 text-rose-300',
-      icon: <AlertCircle className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />,
+      container: 'bg-[#FDF0F0] border-[#ECC6C6] text-[#B44747]',
+      icon: <AlertCircle className="w-4 h-4 text-[#B44747] shrink-0 mt-0.5" />,
     },
     warning: {
-      container: 'bg-amber-500/10 border-amber-500/30 text-amber-300',
-      icon: <AlertTriangle className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />,
+      container: 'bg-[#FAF4E8] border-[#EED9B2] text-[#A87928]',
+      icon: <AlertTriangle className="w-4 h-4 text-[#A87928] shrink-0 mt-0.5" />,
     },
     info: {
-      container: 'bg-teal-500/10 border-teal-500/30 text-teal-300',
-      icon: <Info className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />,
+      container: 'bg-[#EFF4F8] border-[#C6D5E2] text-[#657C91]',
+      icon: <Info className="w-4 h-4 text-[#657C91] shrink-0 mt-0.5" />,
     },
   };
 
@@ -40,7 +40,7 @@ export const Alert: React.FC<AlertProps> = ({
     <div
       role="alert"
       className={cn(
-        'p-3.5 rounded-xl border flex items-start gap-3 text-xs leading-relaxed transition-all',
+        'p-3.5 rounded-xl border flex items-start gap-3 text-xs leading-relaxed transition-all shadow-xs',
         styles[variant].container,
         className
       )}
@@ -48,7 +48,7 @@ export const Alert: React.FC<AlertProps> = ({
       {styles[variant].icon}
 
       <div className="flex-1">
-        {title && <span className="font-semibold block mb-0.5">{title}</span>}
+        {title && <span className="font-serif font-bold block mb-0.5 text-sm">{title}</span>}
         <div>{children}</div>
       </div>
 
@@ -57,7 +57,7 @@ export const Alert: React.FC<AlertProps> = ({
           type="button"
           onClick={onClose}
           aria-label="Dismiss alert"
-          className="p-1 -mr-1 -mt-1 rounded-lg hover:bg-white/10 transition-colors"
+          className="p-1 -mr-1 -mt-1 rounded-lg hover:bg-black/5 transition-colors"
         >
           <X className="w-3.5 h-3.5" />
         </button>

@@ -35,17 +35,17 @@ export const ChartCard: React.FC<ChartCardProps> = ({
   const displayEmptyDescription = emptyDescription || emptyMessage;
 
   return (
-    <Card className={cn('p-5 flex flex-col justify-between', className)}>
-      <CardHeader className="flex-row items-center justify-between pb-3">
+    <Card className={cn('p-5 flex flex-col justify-between bg-white/80 backdrop-blur-md border border-[#D8C9A8]/70 shadow-glass rounded-2xl', className)}>
+      <CardHeader className="flex-row items-center justify-between pb-3 border-b border-[#E8E0D0]/80">
         <div className="flex items-center gap-2.5">
           {Icon && (
-            <div className="p-2 rounded-xl bg-teal-500/10 text-teal-300 border border-teal-500/20 shrink-0">
+            <div className="p-2 rounded-xl bg-[#F4F0E6]/90 text-[#B8A16A] border border-[#D8C9A8]/80 shrink-0 backdrop-blur-xs shadow-xs">
               <Icon className="w-4 h-4" />
             </div>
           )}
           <div>
-            <CardTitle className="text-sm font-semibold text-gray-200">{title}</CardTitle>
-            {subtitle && <CardDescription className="text-[11px] mt-0.5">{subtitle}</CardDescription>}
+            <CardTitle className="text-sm font-serif font-bold text-[#202020]">{title}</CardTitle>
+            {subtitle && <CardDescription className="text-xs text-[#555555] mt-0.5">{subtitle}</CardDescription>}
           </div>
         </div>
         {headerAction && <div className="shrink-0">{headerAction}</div>}
@@ -53,17 +53,17 @@ export const ChartCard: React.FC<ChartCardProps> = ({
 
       <div className="relative min-h-[200px] sm:min-h-[240px] flex items-center justify-center pt-2">
         {isLoading ? (
-          <div className="flex flex-col items-center gap-2 text-gray-500">
-            <Loader2 className="w-6 h-6 animate-spin text-teal-400" />
-            <span className="text-xs font-mono">Synthesizing chart data...</span>
+          <div className="flex flex-col items-center gap-2 text-[#77736A]">
+            <Loader2 className="w-6 h-6 animate-spin text-[#B8A16A]" />
+            <span className="text-xs font-mono">Synthesizing chart telemetry...</span>
           </div>
         ) : isEmpty || !children ? (
-          <div className="flex flex-col items-center justify-center text-center p-6 border border-dashed border-[#1E2330] rounded-xl w-full h-full my-auto bg-[#171A23]/30">
-            <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5 text-gray-500 mb-2">
+          <div className="flex flex-col items-center justify-center text-center p-6 border border-dashed border-[#D8C9A8]/80 rounded-2xl w-full h-full my-auto bg-[#F8F6F0]/40 backdrop-blur-xs">
+            <div className="p-3 rounded-xl bg-white/90 border border-[#D8C9A8] text-[#B8A16A] mb-2 shadow-xs">
               <Icon className="w-6 h-6 stroke-[1.5]" />
             </div>
-            <p className="text-xs font-medium text-gray-400">{emptyTitle}</p>
-            <p className="text-[11px] text-gray-500 mt-1 max-w-xs">{displayEmptyDescription}</p>
+            <p className="text-xs font-serif font-bold text-[#202020]">{emptyTitle}</p>
+            <p className="text-[11px] text-[#555555] mt-1 max-w-xs">{displayEmptyDescription}</p>
           </div>
         ) : (
           <div className="w-full h-full min-h-[200px]">{children}</div>
@@ -71,7 +71,7 @@ export const ChartCard: React.FC<ChartCardProps> = ({
       </div>
 
       {footerContent && (
-        <div className="pt-3 border-t border-white/5 mt-3 text-xs text-gray-400">
+        <div className="pt-3 border-t border-[#E8E0D0]/80 mt-3 text-xs text-[#77736A]">
           {footerContent}
         </div>
       )}

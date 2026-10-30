@@ -46,15 +46,15 @@ export const Pagination: React.FC<PaginationProps> = ({
   return (
     <div className={cn('flex flex-col sm:flex-row items-center justify-between gap-3 text-xs', className)}>
       {totalRecords !== undefined && pageSize !== undefined ? (
-        <div className="text-gray-400 text-[11px] font-mono">
-          Showing <span className="text-gray-200">{(currentPage - 1) * pageSize + 1}</span> to{' '}
-          <span className="text-gray-200">{Math.min(currentPage * pageSize, totalRecords)}</span> of{' '}
-          <span className="text-gray-200">{totalRecords}</span> entries
+        <div className="text-[#77736A] text-[11px] font-mono">
+          Showing <span className="text-[#202020] font-semibold">{(currentPage - 1) * pageSize + 1}</span> to{' '}
+          <span className="text-[#202020] font-semibold">{Math.min(currentPage * pageSize, totalRecords)}</span> of{' '}
+          <span className="text-[#202020] font-semibold">{totalRecords}</span> entries
         </div>
       ) : (
-        <div className="text-gray-400 text-[11px] font-mono">
-          Page <span className="text-gray-200">{currentPage}</span> of{' '}
-          <span className="text-gray-200">{totalPages}</span>
+        <div className="text-[#77736A] text-[11px] font-mono">
+          Page <span className="text-[#202020] font-semibold">{currentPage}</span> of{' '}
+          <span className="text-[#202020] font-semibold">{totalPages}</span>
         </div>
       )}
 
@@ -73,7 +73,7 @@ export const Pagination: React.FC<PaginationProps> = ({
         {getPageNumbers().map((page, idx) => {
           if (typeof page === 'string') {
             return (
-              <span key={`dots-${idx}`} className="px-1.5 text-gray-500">
+              <span key={`dots-${idx}`} className="px-1.5 text-[#77736A]">
                 <MoreHorizontal className="w-3.5 h-3.5" />
               </span>
             );
@@ -86,10 +86,10 @@ export const Pagination: React.FC<PaginationProps> = ({
               type="button"
               onClick={() => onPageChange(page)}
               className={cn(
-                'min-w-[28px] h-7 px-2 rounded-lg font-mono text-xs font-medium transition-colors border',
+                'min-w-[28px] h-7 px-2 rounded-lg font-mono text-xs font-medium transition-colors border shadow-xs',
                 isCurrent
-                  ? 'bg-teal-500/20 text-teal-300 border-teal-500/40 shadow-sm'
-                  : 'bg-[#171A23] hover:bg-[#222838] text-gray-300 border-white/5'
+                  ? 'bg-[#B8A16A] text-[#202020] border-[#A38C57] font-bold'
+                  : 'bg-white hover:bg-[#F4F0E6] text-[#202020] border-[#D8C9A8]'
               )}
             >
               {page}

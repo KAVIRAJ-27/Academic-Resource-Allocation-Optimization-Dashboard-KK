@@ -123,7 +123,7 @@ export const CreateFacultyResourceRequestPage: React.FC = () => {
             variant="outline"
             size="sm"
             onClick={() => navigate('/faculty/resource-requests')}
-            className="border-[#1E2330] text-gray-300 hover:text-white flex items-center gap-1.5"
+            className="border-slate-200 text-gray-300 hover:text-white flex items-center gap-1.5"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Requests
@@ -140,10 +140,10 @@ export const CreateFacultyResourceRequestPage: React.FC = () => {
 
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Section 1: Resource Selection */}
-          <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-6 shadow-card space-y-4">
-            <div className="flex items-center gap-2 pb-3 border-b border-[#1E2330]">
+          <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-card space-y-4">
+            <div className="flex items-center gap-2 pb-3 border-b border-slate-200">
               <Building2 className="w-5 h-5 text-teal-400" />
-              <h3 className="text-base font-semibold text-white">1. Facility or Equipment Resource</h3>
+              <h3 className="text-base font-semibold text-slate-900">1. Facility or Equipment Resource</h3>
             </div>
 
             <div className="grid grid-cols-1 gap-4">
@@ -155,7 +155,7 @@ export const CreateFacultyResourceRequestPage: React.FC = () => {
                   value={resourceId}
                   onChange={(e) => setResourceId(e.target.value)}
                   disabled={loadingResources || submitting}
-                  className="w-full px-3.5 py-2.5 bg-[#171A23] border border-[#1E2330] rounded-lg text-sm text-white focus:outline-none focus:border-teal-500 transition-colors"
+                  className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm text-white focus:outline-none focus:border-teal-500 transition-colors"
                 >
                   <option value="">-- Choose an active resource --</option>
                   {resources.map((res) => (
@@ -170,7 +170,7 @@ export const CreateFacultyResourceRequestPage: React.FC = () => {
               </div>
 
               {selectedResource && (
-                <div className="bg-[#161B26] border border-[#1E2330] rounded-lg p-3.5 text-xs text-gray-300 flex items-center justify-between">
+                <div className="bg-[#161B26] border border-slate-200 rounded-lg p-3.5 text-xs text-gray-300 flex items-center justify-between">
                   <div>
                     <span className="font-semibold text-white">{selectedResource.name}</span>
                     <span className="text-gray-400 ml-2 font-mono">({selectedResource.code})</span>
@@ -187,10 +187,10 @@ export const CreateFacultyResourceRequestPage: React.FC = () => {
           </div>
 
           {/* Section 2: Academic Context (Optional) */}
-          <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-6 shadow-card space-y-4">
-            <div className="flex items-center gap-2 pb-3 border-b border-[#1E2330]">
+          <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-card space-y-4">
+            <div className="flex items-center gap-2 pb-3 border-b border-slate-200">
               <BookOpen className="w-5 h-5 text-purple-400" />
-              <h3 className="text-base font-semibold text-white">2. Academic Context (Optional)</h3>
+              <h3 className="text-base font-semibold text-slate-900">2. Academic Context (Optional)</h3>
             </div>
             <p className="text-xs text-gray-400">
               Link this request to one of your actively assigned subjects to accelerate departmental review.
@@ -205,7 +205,7 @@ export const CreateFacultyResourceRequestPage: React.FC = () => {
                   value={subjectId}
                   onChange={(e) => setSubjectId(e.target.value)}
                   disabled={submitting}
-                  className="w-full px-3.5 py-2.5 bg-[#171A23] border border-[#1E2330] rounded-lg text-sm text-white focus:outline-none focus:border-teal-500 transition-colors"
+                  className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm text-white focus:outline-none focus:border-teal-500 transition-colors"
                 >
                   <option value="">-- None / General Academic Purpose --</option>
                   {subjects.map((subj) => (
@@ -226,17 +226,17 @@ export const CreateFacultyResourceRequestPage: React.FC = () => {
                   value={sectionName}
                   onChange={(e) => setSectionName(e.target.value)}
                   disabled={submitting}
-                  className="w-full px-3.5 py-2.5 bg-[#171A23] border border-[#1E2330] rounded-lg text-sm text-white placeholder-gray-500 focus:outline-none focus:border-teal-500 transition-colors"
+                  className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm text-white placeholder-gray-500 focus:outline-none focus:border-teal-500 transition-colors"
                 />
               </div>
             </div>
           </div>
 
           {/* Section 3: Schedule & Slot Window */}
-          <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-6 shadow-card space-y-4">
-            <div className="flex items-center gap-2 pb-3 border-b border-[#1E2330]">
+          <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-card space-y-4">
+            <div className="flex items-center gap-2 pb-3 border-b border-slate-200">
               <Calendar className="w-5 h-5 text-blue-400" />
-              <h3 className="text-base font-semibold text-white">3. Date & Time Requirements</h3>
+              <h3 className="text-base font-semibold text-slate-900">3. Date & Time Requirements</h3>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -250,7 +250,7 @@ export const CreateFacultyResourceRequestPage: React.FC = () => {
                   min={new Date().toISOString().split('T')[0]}
                   onChange={(e) => setRequestedDate(e.target.value)}
                   disabled={submitting}
-                  className="w-full px-3.5 py-2.5 bg-[#171A23] border border-[#1E2330] rounded-lg text-sm text-white focus:outline-none focus:border-teal-500 transition-colors cursor-pointer"
+                  className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm text-white focus:outline-none focus:border-teal-500 transition-colors cursor-pointer"
                 />
                 {validationErrors.requestedDate && (
                   <p className="mt-1 text-xs text-rose-400">{validationErrors.requestedDate}</p>
@@ -266,7 +266,7 @@ export const CreateFacultyResourceRequestPage: React.FC = () => {
                   value={startTime}
                   onChange={(e) => setStartTime(e.target.value)}
                   disabled={submitting}
-                  className="w-full px-3.5 py-2.5 bg-[#171A23] border border-[#1E2330] rounded-lg text-sm text-white focus:outline-none focus:border-teal-500 transition-colors"
+                  className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm text-white focus:outline-none focus:border-teal-500 transition-colors"
                 />
                 {validationErrors.startTime && (
                   <p className="mt-1 text-xs text-rose-400">{validationErrors.startTime}</p>
@@ -282,7 +282,7 @@ export const CreateFacultyResourceRequestPage: React.FC = () => {
                   value={endTime}
                   onChange={(e) => setEndTime(e.target.value)}
                   disabled={submitting}
-                  className="w-full px-3.5 py-2.5 bg-[#171A23] border border-[#1E2330] rounded-lg text-sm text-white focus:outline-none focus:border-teal-500 transition-colors"
+                  className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm text-white focus:outline-none focus:border-teal-500 transition-colors"
                 />
                 {validationErrors.endTime && (
                   <p className="mt-1 text-xs text-rose-400">{validationErrors.endTime}</p>
@@ -299,10 +299,10 @@ export const CreateFacultyResourceRequestPage: React.FC = () => {
           </div>
 
           {/* Section 4: Priority & Quantity */}
-          <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-6 shadow-card space-y-4">
-            <div className="flex items-center gap-2 pb-3 border-b border-[#1E2330]">
+          <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-card space-y-4">
+            <div className="flex items-center gap-2 pb-3 border-b border-slate-200">
               <Clock className="w-5 h-5 text-orange-400" />
-              <h3 className="text-base font-semibold text-white">4. Requirements & Priority</h3>
+              <h3 className="text-base font-semibold text-slate-900">4. Requirements & Priority</h3>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -314,7 +314,7 @@ export const CreateFacultyResourceRequestPage: React.FC = () => {
                   value={priority}
                   onChange={(e) => setPriority(e.target.value)}
                   disabled={submitting}
-                  className="w-full px-3.5 py-2.5 bg-[#171A23] border border-[#1E2330] rounded-lg text-sm text-white focus:outline-none focus:border-teal-500 transition-colors"
+                  className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm text-white focus:outline-none focus:border-teal-500 transition-colors"
                 >
                   <option value="LOW">Low - Routine academic activity</option>
                   <option value="MEDIUM">Medium - Standard lecture or lab</option>
@@ -334,7 +334,7 @@ export const CreateFacultyResourceRequestPage: React.FC = () => {
                   value={quantity}
                   onChange={(e) => setQuantity(Math.max(1, Number(e.target.value)))}
                   disabled={submitting}
-                  className="w-full px-3.5 py-2.5 bg-[#171A23] border border-[#1E2330] rounded-lg text-sm text-white focus:outline-none focus:border-teal-500 transition-colors"
+                  className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm text-white focus:outline-none focus:border-teal-500 transition-colors"
                 />
                 {validationErrors.quantity && (
                   <p className="mt-1 text-xs text-rose-400">{validationErrors.quantity}</p>
@@ -344,10 +344,10 @@ export const CreateFacultyResourceRequestPage: React.FC = () => {
           </div>
 
           {/* Section 5: Purpose & Description */}
-          <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-6 shadow-card space-y-4">
-            <div className="flex items-center gap-2 pb-3 border-b border-[#1E2330]">
+          <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-card space-y-4">
+            <div className="flex items-center gap-2 pb-3 border-b border-slate-200">
               <FileText className="w-5 h-5 text-emerald-400" />
-              <h3 className="text-base font-semibold text-white">5. Academic Purpose & Justification</h3>
+              <h3 className="text-base font-semibold text-slate-900">5. Academic Purpose & Justification</h3>
             </div>
 
             <div className="space-y-4">
@@ -362,7 +362,7 @@ export const CreateFacultyResourceRequestPage: React.FC = () => {
                   onChange={(e) => setPurpose(e.target.value)}
                   maxLength={255}
                   disabled={submitting}
-                  className="w-full px-3.5 py-2.5 bg-[#171A23] border border-[#1E2330] rounded-lg text-sm text-white placeholder-gray-500 focus:outline-none focus:border-teal-500 transition-colors"
+                  className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm text-white placeholder-gray-500 focus:outline-none focus:border-teal-500 transition-colors"
                 />
                 {validationErrors.purpose && (
                   <p className="mt-1 text-xs text-rose-400">{validationErrors.purpose}</p>
@@ -383,7 +383,7 @@ export const CreateFacultyResourceRequestPage: React.FC = () => {
                   onChange={(e) => setDescription(e.target.value)}
                   maxLength={1000}
                   disabled={submitting}
-                  className="w-full px-3.5 py-2.5 bg-[#171A23] border border-[#1E2330] rounded-lg text-sm text-white placeholder-gray-500 focus:outline-none focus:border-teal-500 transition-colors resize-none"
+                  className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm text-white placeholder-gray-500 focus:outline-none focus:border-teal-500 transition-colors resize-none"
                 />
                 {validationErrors.description && (
                   <p className="mt-1 text-xs text-rose-400">{validationErrors.description}</p>
@@ -399,7 +399,7 @@ export const CreateFacultyResourceRequestPage: React.FC = () => {
               variant="outline"
               onClick={() => navigate('/faculty/resource-requests')}
               disabled={submitting}
-              className="border-[#1E2330] text-gray-400 hover:text-white"
+              className="border-slate-200 text-gray-400 hover:text-white"
             >
               Cancel
             </Button>

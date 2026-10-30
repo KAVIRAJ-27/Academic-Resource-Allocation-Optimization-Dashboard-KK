@@ -89,7 +89,7 @@ export const HostelAllocationDetailPage: React.FC = () => {
       <PageContainer>
         <div className="flex flex-col items-center justify-center p-24 space-y-4">
           <AlertTriangle className="w-12 h-12 text-rose-500" />
-          <h2 className="text-lg font-bold text-white">Allocation Not Found</h2>
+          <h2 className="text-lg font-bold text-slate-900">Allocation Not Found</h2>
           <p className="text-sm text-gray-400">{error || 'Unable to find allocation record.'}</p>
           <Button variant="outline" onClick={() => navigate('/hostel/resource-allocations')}>
             Back to Allocations
@@ -136,7 +136,7 @@ export const HostelAllocationDetailPage: React.FC = () => {
 
       <ContentSection>
         {/* Status & Method Banner */}
-        <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-xl bg-[#11141C] border border-[#1E2330]">
+        <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-xl bg-white border border-slate-200">
           <div className="flex items-center gap-3">
             <Badge
               variant={getStatusBadgeVariant(allocation.status)}
@@ -175,26 +175,26 @@ export const HostelAllocationDetailPage: React.FC = () => {
         <DashboardGrid cols={2}>
           {/* Student Profile Card */}
           <Card>
-            <CardHeader className="border-b border-[#1E2330] pb-3">
+            <CardHeader className="border-b border-slate-200 pb-3">
               <CardTitle className="text-base flex items-center gap-2">
                 <User className="w-4 h-4 text-teal-400" />
                 Student Profile
               </CardTitle>
             </CardHeader>
             <CardContent className="p-4 space-y-3 text-sm">
-              <div className="flex justify-between py-1 border-b border-[#1E2330]/50">
+              <div className="flex justify-between py-1 border-b border-slate-200/50">
                 <span className="text-gray-400">Full Name</span>
                 <span className="font-semibold text-white">{allocation.studentName}</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-[#1E2330]/50">
+              <div className="flex justify-between py-1 border-b border-slate-200/50">
                 <span className="text-gray-400">Roll Number</span>
                 <span className="font-mono font-bold text-teal-300">{allocation.rollNumber}</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-[#1E2330]/50">
+              <div className="flex justify-between py-1 border-b border-slate-200/50">
                 <span className="text-gray-400">Department</span>
                 <span className="text-gray-200">{allocation.departmentName || 'N/A'}</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-[#1E2330]/50">
+              <div className="flex justify-between py-1 border-b border-slate-200/50">
                 <span className="text-gray-400">Email</span>
                 <span className="text-gray-200">{allocation.email || 'N/A'}</span>
               </div>
@@ -207,32 +207,32 @@ export const HostelAllocationDetailPage: React.FC = () => {
 
           {/* Room & Bed Placement Card */}
           <Card>
-            <CardHeader className="border-b border-[#1E2330] pb-3">
+            <CardHeader className="border-b border-slate-200 pb-3">
               <CardTitle className="text-base flex items-center gap-2">
                 <Building className="w-4 h-4 text-teal-400" />
                 Placement Details
               </CardTitle>
             </CardHeader>
             <CardContent className="p-4 space-y-3 text-sm">
-              <div className="flex justify-between py-1 border-b border-[#1E2330]/50">
+              <div className="flex justify-between py-1 border-b border-slate-200/50">
                 <span className="text-gray-400">Hostel</span>
                 <span className="font-semibold text-white">
                   {allocation.hostelName} ({allocation.hostelCode})
                 </span>
               </div>
-              <div className="flex justify-between py-1 border-b border-[#1E2330]/50">
+              <div className="flex justify-between py-1 border-b border-slate-200/50">
                 <span className="text-gray-400">Block & Floor</span>
                 <span className="text-gray-200">
                   {allocation.blockName} &bull; Floor {allocation.floorNumber}
                 </span>
               </div>
-              <div className="flex justify-between py-1 border-b border-[#1E2330]/50">
+              <div className="flex justify-between py-1 border-b border-slate-200/50">
                 <span className="text-gray-400">Room</span>
                 <span className="font-semibold text-white">
                   Room {allocation.roomNumber} ({allocation.roomType})
                 </span>
               </div>
-              <div className="flex justify-between py-1 border-b border-[#1E2330]/50">
+              <div className="flex justify-between py-1 border-b border-slate-200/50">
                 <span className="text-gray-400">Bed Identifier</span>
                 <Badge variant="teal" className="font-mono font-bold">
                   Bed {allocation.bedNumber} (ID: #{allocation.bedId})
@@ -251,22 +251,22 @@ export const HostelAllocationDetailPage: React.FC = () => {
       <ContentSection>
         <DashboardGrid cols={2}>
           <Card>
-            <CardHeader className="border-b border-[#1E2330] pb-3">
+            <CardHeader className="border-b border-slate-200 pb-3">
               <CardTitle className="text-base flex items-center gap-2">
                 <Calendar className="w-4 h-4 text-teal-400" />
                 Tenure & Lifecycle
               </CardTitle>
             </CardHeader>
             <CardContent className="p-4 space-y-3 text-sm">
-              <div className="flex justify-between py-1 border-b border-[#1E2330]/50">
+              <div className="flex justify-between py-1 border-b border-slate-200/50">
                 <span className="text-gray-400">Start Date</span>
                 <span className="font-semibold text-white">{allocation.startDate}</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-[#1E2330]/50">
+              <div className="flex justify-between py-1 border-b border-slate-200/50">
                 <span className="text-gray-400">End Date</span>
                 <span className="text-gray-200">{allocation.endDate || 'Ongoing / Indefinite'}</span>
               </div>
-              <div className="flex justify-between py-1 border-b border-[#1E2330]/50">
+              <div className="flex justify-between py-1 border-b border-slate-200/50">
                 <span className="text-gray-400">Hostel Request ID</span>
                 <span className="font-mono text-gray-300">
                   {allocation.hostelRequestId ? `#${allocation.hostelRequestId}` : 'Direct Allocation'}
@@ -309,10 +309,10 @@ export const HostelAllocationDetailPage: React.FC = () => {
       {/* Release Modal */}
       {releaseModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-          <div className="w-full max-w-md bg-[#11141C] border border-[#1E2330] rounded-xl p-6 shadow-2xl space-y-4">
+          <div className="w-full max-w-md bg-white border border-slate-200 rounded-xl p-6 shadow-2xl space-y-4">
             <div className="flex items-center gap-3 text-rose-400">
               <AlertTriangle className="w-6 h-6" />
-              <h4 className="text-base font-bold text-white">Release Bed Allocation</h4>
+              <h4 className="text-base font-bold text-slate-900">Release Bed Allocation</h4>
             </div>
             <p className="text-sm text-gray-300">
               Are you sure you want to release Bed {allocation.bedNumber} allocated to {allocation.studentName}?

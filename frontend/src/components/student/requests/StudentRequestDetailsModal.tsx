@@ -71,8 +71,8 @@ export const StudentRequestDetailsModal: React.FC<Props> = ({
       {loading ? (
         <div className="py-8 space-y-4 animate-pulse">
           <div className="h-6 w-32 bg-[#1E2330] rounded" />
-          <div className="h-20 bg-[#171A23] rounded-xl" />
-          <div className="h-20 bg-[#171A23] rounded-xl" />
+          <div className="h-20 bg-slate-50 rounded-xl" />
+          <div className="h-20 bg-slate-50 rounded-xl" />
         </div>
       ) : error ? (
         <div className="p-4 bg-rose-500/10 border border-rose-500/25 rounded-xl text-rose-300 text-xs flex items-center gap-2">
@@ -82,7 +82,7 @@ export const StudentRequestDetailsModal: React.FC<Props> = ({
       ) : !request ? null : (
         <div className="space-y-4 text-xs">
           {/* Header Status Bar */}
-          <div className="flex flex-wrap items-center justify-between gap-3 p-3.5 bg-[#171A23] border border-[#222838] rounded-xl">
+          <div className="flex flex-wrap items-center justify-between gap-3 p-3.5 bg-slate-50 border border-slate-200 rounded-xl">
             <div className="space-y-1">
               <span className="text-[11px] text-gray-400 font-mono">Current Status</span>
               <div>
@@ -106,13 +106,13 @@ export const StudentRequestDetailsModal: React.FC<Props> = ({
           )}
 
           {/* Resource Venue Details */}
-          <div className="p-4 bg-[#171A23] border border-[#222838] rounded-xl space-y-3">
+          <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-3">
             <div className="flex items-center justify-between">
-              <h4 className="font-semibold text-white text-sm">
+              <h4 className="font-semibold text-slate-900 text-sm">
                 {request.resourceName || 'Academic Resource'}
               </h4>
               {request.resourceCode && (
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#11141C] text-teal-400 border border-teal-500/30">
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white text-teal-400 border border-teal-500/30">
                   {request.resourceCode}
                 </span>
               )}
@@ -150,7 +150,7 @@ export const StudentRequestDetailsModal: React.FC<Props> = ({
           </div>
 
           {/* Schedule & Time Window */}
-          <div className="p-4 bg-[#171A23] border border-[#222838] rounded-xl space-y-2">
+          <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
             <h5 className="font-semibold text-gray-300 uppercase tracking-wider text-[11px] font-mono">
               Requested Schedule
             </h5>
@@ -167,7 +167,7 @@ export const StudentRequestDetailsModal: React.FC<Props> = ({
           </div>
 
           {/* Purpose & Notes */}
-          <div className="p-4 bg-[#171A23] border border-[#222838] rounded-xl space-y-2">
+          <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
             <h5 className="font-semibold text-gray-300 uppercase tracking-wider text-[11px] font-mono">
               Academic Purpose & Notes
             </h5>
@@ -175,7 +175,7 @@ export const StudentRequestDetailsModal: React.FC<Props> = ({
               {request.purpose}
             </p>
             {request.description && (
-              <div className="pt-2 border-t border-[#222838] text-gray-400 text-xs">
+              <div className="pt-2 border-t border-slate-200 text-gray-400 text-xs">
                 <span className="font-medium text-gray-300">Notes: </span>
                 {request.description}
               </div>
@@ -211,7 +211,7 @@ export const StudentRequestDetailsModal: React.FC<Props> = ({
                   size="xs"
                   onClick={() => setConfirmCancel(false)}
                   disabled={cancelling}
-                  className="border-[#222838] text-gray-300"
+                  className="border-slate-200 text-gray-300"
                 >
                   Keep Request
                 </Button>
@@ -231,7 +231,7 @@ export const StudentRequestDetailsModal: React.FC<Props> = ({
           ) : null}
 
           {/* Modal Footer Actions */}
-          <div className="flex items-center justify-between pt-3 border-t border-[#1E2330]">
+          <div className="flex items-center justify-between pt-3 border-t border-slate-200">
             <div>
               {isPending && !confirmCancel && (
                 <Button
@@ -252,7 +252,7 @@ export const StudentRequestDetailsModal: React.FC<Props> = ({
               variant="outline"
               size="sm"
               onClick={handleClose}
-              className="border-[#222838] text-gray-300"
+              className="border-slate-200 text-gray-300"
             >
               Close
             </Button>

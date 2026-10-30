@@ -45,20 +45,20 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
   return (
     <nav
       aria-label="Breadcrumb"
-      className={`flex items-center text-xs text-gray-400 select-none ${className}`}
+      className={`flex items-center text-xs text-[#77736A] select-none ${className}`}
     >
-      <ol className="flex items-center flex-wrap gap-1.5 list-none p-0 m-0">
+      <ol className="flex items-center flex-wrap gap-1 list-none p-0 m-0">
         {showHome && (
           <li className="flex items-center">
             <Link
               to="/"
-              className="inline-flex items-center text-gray-500 hover:text-gray-300 transition-colors p-1 rounded hover:bg-white/5"
+              className="inline-flex items-center text-[#77736A] hover:text-[#B8A16A] transition-colors p-1 rounded hover:bg-[#F4F0E6]"
               aria-label="Home"
             >
               <Home className="w-3.5 h-3.5" />
             </Link>
             {breadcrumbItems.length > 0 && (
-              <ChevronRight className="w-3.5 h-3.5 text-gray-600 mx-1 shrink-0" aria-hidden="true" />
+              <ChevronRight className="w-3.5 h-3.5 text-[#D8C9A8] mx-0.5 shrink-0" aria-hidden="true" />
             )}
           </li>
         )}
@@ -72,23 +72,23 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
               {item.href && !isLast ? (
                 <Link
                   to={item.href}
-                  className="inline-flex items-center gap-1.5 text-gray-400 hover:text-teal-300 transition-colors py-0.5 px-1 rounded hover:bg-white/5 max-w-[160px] sm:max-w-xs truncate"
+                  className="inline-flex items-center gap-1.5 text-[#555555] font-medium hover:text-[#B8A16A] transition-colors py-0.5 px-1.5 rounded hover:bg-[#F4F0E6] max-w-[160px] sm:max-w-xs truncate"
                 >
                   {Icon && <Icon className="w-3.5 h-3.5 shrink-0" />}
                   <span className="truncate">{item.label}</span>
                 </Link>
               ) : (
                 <span
-                  className="inline-flex items-center gap-1.5 text-gray-200 font-medium py-0.5 px-1 max-w-[200px] sm:max-w-sm truncate"
+                  className="inline-flex items-center gap-1.5 text-[#202020] font-semibold py-0.5 px-1.5 max-w-[200px] sm:max-w-sm truncate"
                   aria-current={isLast ? 'page' : undefined}
                 >
-                  {Icon && <Icon className="w-3.5 h-3.5 shrink-0 text-teal-400" />}
+                  {Icon && <Icon className="w-3.5 h-3.5 shrink-0 text-[#B8A16A]" />}
                   <span className="truncate">{item.label}</span>
                 </span>
               )}
 
               {!isLast && (
-                <ChevronRight className="w-3.5 h-3.5 text-gray-600 mx-1 shrink-0" aria-hidden="true" />
+                <ChevronRight className="w-3.5 h-3.5 text-[#D8C9A8] mx-0.5 shrink-0" aria-hidden="true" />
               )}
             </li>
           );

@@ -97,9 +97,9 @@ export const HostelComplaintSummaryCards: React.FC<Props> = ({
               isActive ? card.activeBg : ''
             }`}
           >
-            <Card className="p-3.5 bg-[#11141C] border-[#1E2330] hover:border-[#2A3245] transition-colors h-full">
+            <Card className="p-3.5 bg-white border-slate-200 hover:border-[#2A3245] transition-colors h-full">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-[11px] font-medium text-gray-400 uppercase tracking-wider">
+                <span className="text-[11px] font-medium text-slate-600 font-bold uppercase tracking-wider">
                   {card.label}
                 </span>
                 <div className={`p-1.5 rounded-lg border ${card.bgColor}`}>
@@ -111,7 +111,7 @@ export const HostelComplaintSummaryCards: React.FC<Props> = ({
                 {loading ? (
                   <div className="h-6 w-10 bg-[#1E2330] rounded animate-pulse" />
                 ) : (
-                  <span className="text-xl font-bold text-white font-mono">
+                  <span className="text-xl font-bold text-slate-900 font-mono">
                     {card.count}
                   </span>
                 )}

@@ -131,7 +131,7 @@ public class HostelResourceAllocationController {
 
     private User resolveCurrentUser() {
         return SecurityUtils.getCurrentUserId()
-                .flatMap(userRepository::findById)
+                .flatMap(userRepository::findByIdWithRoles)
                 .orElseThrow(() -> new UnauthorizedException("User session is invalid or user not found."));
     }
 }

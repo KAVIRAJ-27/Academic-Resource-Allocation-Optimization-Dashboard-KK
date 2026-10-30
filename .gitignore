@@ -73,3 +73,5 @@ ai-service/saved_models/*.pkl
 ai-service/saved_models/*_metadata.json
 venv/
 .venv/
+
+backup_20261026_0640/

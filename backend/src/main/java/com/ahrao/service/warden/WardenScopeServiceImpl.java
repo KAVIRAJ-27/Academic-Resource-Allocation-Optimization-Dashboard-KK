@@ -13,6 +13,7 @@ import com.ahrao.exception.ResourceNotFoundException;
 import com.ahrao.repository.allocation.HostelAllocationRepository;
 import com.ahrao.repository.hostel.HostelBedRepository;
 import com.ahrao.repository.hostel.HostelFacilityRepository;
+import com.ahrao.repository.hostel.HostelRepository;
 import com.ahrao.repository.hostel.HostelRoomRepository;
 import com.ahrao.repository.hostel.WardenRepository;
 import com.ahrao.repository.request.HostelComplaintRepository;
@@ -30,6 +31,7 @@ import java.util.stream.Collectors;
 public class WardenScopeServiceImpl implements WardenScopeService {
 
     private final WardenRepository wardenRepository;
+    private final HostelRepository hostelRepository;
     private final HostelRoomRepository hostelRoomRepository;
     private final HostelBedRepository hostelBedRepository;
     private final HostelAllocationRepository hostelAllocationRepository;
@@ -39,6 +41,7 @@ public class WardenScopeServiceImpl implements WardenScopeService {
 
     public WardenScopeServiceImpl(
             WardenRepository wardenRepository,
+            HostelRepository hostelRepository,
             HostelRoomRepository hostelRoomRepository,
             HostelBedRepository hostelBedRepository,
             HostelAllocationRepository hostelAllocationRepository,
@@ -46,6 +49,7 @@ public class WardenScopeServiceImpl implements WardenScopeService {
             HostelComplaintRepository hostelComplaintRepository,
             MaintenanceRequestRepository maintenanceRequestRepository) {
         this.wardenRepository = wardenRepository;
+        this.hostelRepository = hostelRepository;
         this.hostelRoomRepository = hostelRoomRepository;
         this.hostelBedRepository = hostelBedRepository;
         this.hostelAllocationRepository = hostelAllocationRepository;
@@ -71,6 +75,9 @@ public class WardenScopeServiceImpl implements WardenScopeService {
 
     @Override
     public Set<Hostel> getAuthorizedHostels() {
+        if (SecurityUtils.hasRole("ADMIN")) {
+            return new java.util.HashSet<>(hostelRepository.findAll());
+        }
         Warden warden = resolveWarden();
         return warden.getAssignedHostels() != null ? warden.getAssignedHostels() : Collections.emptySet();
     }

@@ -4,7 +4,7 @@ import { useAuth } from '../../hooks/useAuth';
 import { ROLES, UserRole } from '../../constants/roles';
 import { Button } from '../../components/ui/Button';
 import { Input } from '../../components/ui/Input';
-import { Shield, ArrowRight, AlertCircle } from 'lucide-react';
+import { Shield, ArrowRight, AlertCircle, Eye, EyeOff, Sparkles } from 'lucide-react';
 
 interface SeedCredential {
   role: UserRole;
@@ -29,6 +29,7 @@ export const LoginPage: React.FC = () => {
   const [selectedRole, setSelectedRole] = useState<UserRole>(ROLES.ADMIN);
   const [identifier, setIdentifier] = useState('admin');
   const [password, setPassword] = useState('Admin@123');
+  const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -72,35 +73,35 @@ export const LoginPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#080A0F] text-gray-100 flex flex-col justify-center items-center p-4 sm:p-6 relative overflow-hidden">
-      {/* Ambient background glows */}
-      <div className="absolute -top-40 -left-40 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
+    <div className="min-h-screen bg-[#FFFEFA] text-[#202020] flex flex-col justify-center items-center p-4 sm:p-6 relative overflow-hidden">
+      {/* Classical Gold Ambient Light Accents */}
+      <div className="absolute -top-32 -left-32 w-96 h-96 bg-[#D8C9A8]/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-[#B8A16A]/15 rounded-full blur-3xl pointer-events-none" />
 
       <div className="w-full max-w-md relative z-10">
         {/* Brand Header */}
         <div className="text-center mb-6">
-          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-500 to-teal-700 text-white font-black text-xl shadow-card-glow mb-3">
+          <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-[#FAF7F0] to-[#F4F0E6] border border-[#D8C9A8]/80 text-[#B8A16A] font-serif font-bold text-2xl shadow-glass mb-3 tracking-wider">
             AH
           </div>
-          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+          <h1 className="text-2xl sm:text-3xl font-serif font-bold tracking-tight text-[#202020]">
             AHRAO Portal
           </h1>
-          <p className="text-xs sm:text-sm text-gray-400 mt-1">
-            Academic & Hostel Resource Allocation Optimization Dashboard
+          <p className="text-xs sm:text-sm text-[#555555] mt-1 font-normal">
+            Academic & Hostel Resource Allocation and Optimization
           </p>
-          <div className="flex items-center justify-center gap-2 mt-2">
-            <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-teal-500/10 text-teal-300 border border-teal-500/30">
-              AHRAO • Authentication Secure
+          <div className="flex items-center justify-center gap-2 mt-2.5">
+            <span className="text-[11px] font-mono font-medium px-3 py-1 rounded-full bg-white/70 backdrop-blur-xs text-[#77736A] border border-[#D8C9A8]/60 shadow-xs">
+              Enterprise University Platform &bull; Secure Access
             </span>
           </div>
         </div>
 
-        {/* Login Card */}
-        <div className="bg-[#11141C] border border-[#1E2330] rounded-2xl p-6 sm:p-8 shadow-card backdrop-blur-md">
+        {/* Premium Glass Login Card */}
+        <div className="bg-white/80 backdrop-blur-2xl border border-[#D8C9A8]/70 rounded-3xl p-6 sm:p-8 shadow-glass transition-all duration-200">
           {errorMessage && (
-            <div className="mb-5 p-3.5 rounded-xl bg-red-500/10 border border-red-500/30 flex items-start gap-2.5 text-xs text-red-400">
-              <AlertCircle className="w-4 h-4 mt-0.5 shrink-0" />
+            <div className="mb-5 p-3.5 rounded-xl bg-[#FDF0F0]/90 backdrop-blur-xs border border-[#ECC6C6] flex items-start gap-2.5 text-xs text-[#B44747] shadow-xs">
+              <AlertCircle className="w-4 h-4 mt-0.5 shrink-0 text-[#B44747]" />
               <div className="flex-1">
                 <span className="font-semibold block mb-0.5">Authentication Issue</span>
                 <span>{errorMessage}</span>
@@ -109,12 +110,12 @@ export const LoginPage: React.FC = () => {
           )}
 
           <form onSubmit={handleLogin} className="space-y-4">
-            <div className="space-y-1">
+            <div className="space-y-1.5">
               <div className="flex items-center justify-between">
-                <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider">
-                  Quick-Fill Test Role
+                <label className="block text-xs font-semibold text-[#555555] uppercase tracking-wider font-mono">
+                  Demo Role Fast-Fill
                 </label>
-                <span className="text-[10px] text-gray-400 font-mono">6 Roles</span>
+                <span className="text-[10px] text-[#77736A] font-mono">6 Institutional Roles</span>
               </div>
 
               <div className="grid grid-cols-3 gap-1.5 pt-1">
@@ -125,10 +126,10 @@ export const LoginPage: React.FC = () => {
                       type="button"
                       key={r}
                       onClick={() => handleRoleSelect(r)}
-                      className={`py-2 px-2 text-[11px] rounded-lg font-mono font-medium transition-all text-center border ${
+                      className={`py-2 px-2 text-[11px] rounded-xl font-mono font-semibold transition-all text-center border ${
                         isSelected
-                          ? 'bg-teal-500/20 text-teal-300 border-teal-500/50 shadow-sm'
-                          : 'bg-[#171A23] hover:bg-[#222838] text-gray-400 border-white/5'
+                          ? 'bg-[#F4F0E6] text-[#202020] border-[#B8A16A] shadow-xs'
+                          : 'bg-white/70 hover:bg-[#F8F6F0] text-[#555555] border-[#D8C9A8]/60'
                       }`}
                     >
                       {r}
@@ -146,14 +147,26 @@ export const LoginPage: React.FC = () => {
               required
             />
 
-            <Input
-              label="Password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="••••••••••••"
-              required
-            />
+            <div className="relative">
+              <Input
+                label="Password"
+                type={showPassword ? 'text' : 'password'}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="••••••••••••"
+                required
+                rightIcon={
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    aria-label={showPassword ? 'Hide password' : 'Show password'}
+                    className="text-[#77736A] hover:text-[#202020] transition-colors focus:outline-none"
+                  >
+                    {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                  </button>
+                }
+              />
+            </div>
 
             <div className="pt-2">
               <Button
@@ -161,7 +174,7 @@ export const LoginPage: React.FC = () => {
                 variant="primary"
                 size="lg"
                 isLoading={isSubmitting}
-                className="w-full flex items-center justify-center gap-2"
+                className="w-full flex items-center justify-center gap-2 font-semibold shadow-xs"
               >
                 <span>Sign In with Secure JWT</span>
                 <ArrowRight className="w-4 h-4" />
@@ -170,11 +183,11 @@ export const LoginPage: React.FC = () => {
           </form>
 
           {/* User registration link */}
-          <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-xs">
-            <span className="text-gray-400 text-[11px]">Production Authentication</span>
+          <div className="mt-5 pt-3.5 border-t border-[#E8E0D0]/80 flex items-center justify-between text-xs">
+            <span className="text-[#77736A] text-[11px]">Production Authentication</span>
             <Link
               to="/register"
-              className="text-teal-400 hover:text-teal-300 font-medium text-[11px] hover:underline"
+              className="text-[#B8A16A] hover:text-[#8C7748] font-semibold text-[11px] hover:underline transition-colors"
             >
               New User? Register →
             </Link>
@@ -182,8 +195,8 @@ export const LoginPage: React.FC = () => {
         </div>
 
         {/* Security Info Footnote */}
-        <div className="mt-6 flex items-center justify-center gap-2 text-xs text-gray-400">
-          <Shield className="w-3.5 h-3.5 text-teal-400" />
+        <div className="mt-6 flex items-center justify-center gap-2 text-xs text-[#77736A]">
+          <Shield className="w-3.5 h-3.5 text-[#B8A16A]" />
           <span>Protected by Spring Security 6 Stateless JWT & RBAC Matrix</span>
         </div>
       </div>

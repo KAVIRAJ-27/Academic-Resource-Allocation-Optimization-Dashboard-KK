@@ -55,7 +55,7 @@ export const HodStudentDetailModal: React.FC<HodStudentDetailModalProps> = ({
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h3 className="text-base font-semibold text-white">{student.fullName}</h3>
+                <h3 className="text-base font-semibold text-slate-900">{student.fullName}</h3>
                 {getStatusBadge(student.status)}
               </div>
               <p className="text-xs text-gray-400 font-mono mt-0.5">{student.registerNumber}</p>
@@ -70,7 +70,7 @@ export const HodStudentDetailModal: React.FC<HodStudentDetailModalProps> = ({
 
         {/* Academic Placement Information */}
         <div>
-          <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">
+          <h4 className="text-xs font-semibold text-slate-600 font-bold uppercase tracking-wider mb-3">
             Academic Placement
           </h4>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
@@ -125,7 +125,7 @@ export const HodStudentDetailModal: React.FC<HodStudentDetailModalProps> = ({
 
         {/* Hostel Accommodation Summary */}
         <div>
-          <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">
+          <h4 className="text-xs font-semibold text-slate-600 font-bold uppercase tracking-wider mb-3">
             Hostel Accommodation Status
           </h4>
           {student.hostelInfo?.allocated ? (
@@ -154,7 +154,7 @@ export const HodStudentDetailModal: React.FC<HodStudentDetailModalProps> = ({
         {/* Recent Academic Resource Requests */}
         {student.recentRequests && student.recentRequests.length > 0 && (
           <div>
-            <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">
+            <h4 className="text-xs font-semibold text-slate-600 font-bold uppercase tracking-wider mb-3">
               Recent Academic Resource Requests ({student.recentRequests.length})
             </h4>
             <div className="space-y-2">

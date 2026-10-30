@@ -22,7 +22,7 @@ export const FacultyTimetableFilters: React.FC<FacultyTimetableFiltersProps> = (
   onReset,
 }) => {
   return (
-    <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-4 mb-6 shadow-card space-y-4">
+    <div className="bg-white border border-slate-200 rounded-xl p-4 mb-6 shadow-card space-y-4">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div className="flex items-center gap-2">
           <Calendar className="w-4 h-4 text-teal-400" />
@@ -37,7 +37,7 @@ export const FacultyTimetableFilters: React.FC<FacultyTimetableFiltersProps> = (
             className={`text-xs ${
               todayOnly
                 ? 'bg-teal-500 hover:bg-teal-600 text-black font-semibold'
-                : 'border-[#1E2330] text-gray-300 hover:text-white'
+                : 'border-slate-200 text-gray-300 hover:text-white'
             }`}
           >
             <CheckCircle2 className="w-3.5 h-3.5 mr-1.5" />
@@ -71,10 +71,10 @@ export const FacultyTimetableFilters: React.FC<FacultyTimetableFiltersProps> = (
               onClick={() => onDayChange(d)}
               className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all whitespace-nowrap ${
                 todayOnly
-                  ? 'opacity-40 cursor-not-allowed bg-[#171A23] text-gray-500 border border-[#1E2330]'
+                  ? 'opacity-40 cursor-not-allowed bg-slate-50 text-gray-500 border border-slate-200'
                   : isSelected
                   ? 'bg-teal-500/15 text-teal-300 border border-teal-500/30 shadow-sm'
-                  : 'bg-[#171A23] text-gray-400 hover:text-gray-200 hover:bg-[#1C212E] border border-[#1E2330]'
+                  : 'bg-slate-50 text-gray-400 hover:text-gray-200 hover:bg-[#1C212E] border border-slate-200'
               }`}
             >
               <span className="capitalize">{d === 'ALL' ? 'All Days' : d.toLowerCase()}</span>

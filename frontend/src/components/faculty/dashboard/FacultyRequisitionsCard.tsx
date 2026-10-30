@@ -12,11 +12,11 @@ export const FacultyRequisitionsCard: React.FC<FacultyRequisitionsCardProps> = (
 
   if (reqs.length === 0) {
     return (
-      <Card className="h-full bg-[#11141C] border-[#1E2330] flex flex-col">
-        <CardHeader className="border-b border-[#1E2330] pb-4">
+      <Card className="h-full bg-white border-slate-200 shadow-xs flex flex-col">
+        <CardHeader className="border-b border-slate-100 pb-4">
           <div className="flex items-center justify-between">
-            <CardTitle className="text-sm font-bold text-white flex items-center gap-2">
-              <Send className="w-4 h-4 text-orange-400" />
+            <CardTitle className="text-sm font-bold text-slate-900 flex items-center gap-2">
+              <Send className="w-4 h-4 text-amber-600" />
               Resource Requisitions
             </CardTitle>
             <Badge variant="neutral">0 Requests</Badge>
@@ -55,12 +55,12 @@ export const FacultyRequisitionsCard: React.FC<FacultyRequisitionsCardProps> = (
   };
 
   return (
-    <Card className="h-full bg-[#11141C] border-[#1E2330] flex flex-col shadow-card hover:border-[#2A3245] transition-all">
-      <CardHeader className="border-b border-[#1E2330] pb-4">
+    <Card className="h-full bg-white border-slate-200 shadow-xs flex flex-col hover:border-slate-300 transition-all">
+      <CardHeader className="border-b border-slate-100 pb-4">
         <div className="flex items-center justify-between">
           <div>
-            <CardTitle className="text-sm font-bold text-white flex items-center gap-2">
-              <Send className="w-4 h-4 text-orange-400" />
+            <CardTitle className="text-sm font-bold text-slate-900 flex items-center gap-2">
+              <Send className="w-4 h-4 text-amber-600" />
               Resource Requisitions
             </CardTitle>
             <CardDescription>
@@ -77,30 +77,30 @@ export const FacultyRequisitionsCard: React.FC<FacultyRequisitionsCardProps> = (
         {reqs.map((r) => (
           <div
             key={r.id}
-            className="p-3 bg-[#0E1017] border border-[#1E2330] rounded-xl hover:border-[#2A3245] transition-all space-y-2"
+            className="p-3 bg-slate-50/70 border border-slate-200/80 rounded-xl hover:border-slate-300 transition-all space-y-2"
           >
             <div className="flex items-start justify-between gap-2">
               <div>
-                <span className="font-semibold text-xs text-white block">
+                <span className="font-semibold text-xs text-slate-900 block">
                   {r.resourceName}
                 </span>
-                <p className="text-[11px] text-gray-400 mt-0.5 line-clamp-1" title={r.purpose}>
+                <p className="text-[11px] text-slate-500 mt-0.5 line-clamp-1" title={r.purpose}>
                   {r.purpose}
                 </p>
               </div>
               {getStatusBadge(r.status)}
             </div>
 
-            <div className="flex items-center justify-between text-[10px] text-gray-500 pt-1 border-t border-[#171A23]">
+            <div className="flex items-center justify-between text-[10px] text-slate-500 pt-1.5 border-t border-slate-200/60">
               <span className="flex items-center gap-1">
-                <Calendar className="w-3 h-3" />
+                <Calendar className="w-3 h-3 text-slate-400" />
                 {r.requestedDate}
               </span>
-              <span className="flex items-center gap-1 font-mono text-gray-400">
-                <Clock className="w-3 h-3" />
+              <span className="flex items-center gap-1 font-mono text-slate-600">
+                <Clock className="w-3 h-3 text-slate-400" />
                 {r.startTime?.substring(0, 5)} - {r.endTime?.substring(0, 5)}
               </span>
-              <span className="text-gray-400 uppercase font-bold text-[9px]">
+              <span className="text-slate-600 uppercase font-bold text-[9px] px-1.5 py-0.5 rounded bg-slate-100">
                 {r.priority}
               </span>
             </div>

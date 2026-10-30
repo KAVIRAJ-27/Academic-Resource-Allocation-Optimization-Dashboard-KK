@@ -106,7 +106,7 @@ public class ApprovalController {
     private User resolveCurrentUser() {
         Long currentUserId = SecurityUtils.getCurrentUserId()
                 .orElseThrow(() -> new UnauthorizedException("Authenticated context not found"));
-        return userRepository.findById(currentUserId)
+        return userRepository.findByIdWithRoles(currentUserId)
                 .orElseThrow(() -> new UnauthorizedException("User not found with id: " + currentUserId));
     }
 

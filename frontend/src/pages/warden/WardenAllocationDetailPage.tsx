@@ -158,7 +158,7 @@ export const WardenAllocationDetailPage: React.FC = () => {
           <div className="space-y-6">
             {/* Student Profile */}
             <Card>
-              <CardHeader className="border-b border-[#1E2330]">
+              <CardHeader className="border-b border-slate-200">
                 <CardTitle className="flex items-center gap-2">
                   <User className="w-4 h-4 text-orange-400" />
                   Resident Student Profile
@@ -234,7 +234,7 @@ export const WardenAllocationDetailPage: React.FC = () => {
 
             {/* Room & Bed Placement */}
             <Card>
-              <CardHeader className="border-b border-[#1E2330]">
+              <CardHeader className="border-b border-slate-200">
                 <CardTitle className="flex items-center gap-2">
                   <Building className="w-4 h-4 text-orange-400" />
                   Designated Bed Placement
@@ -287,7 +287,7 @@ export const WardenAllocationDetailPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="mt-4 pt-4 border-t border-[#1E2330] flex items-center justify-end">
+                <div className="mt-4 pt-4 border-t border-slate-200 flex items-center justify-end">
                   <Button
                     variant="outline"
                     size="xs"
@@ -305,7 +305,7 @@ export const WardenAllocationDetailPage: React.FC = () => {
         <GridCol span={1}>
           <div className="space-y-6">
             <Card>
-              <CardHeader className="border-b border-[#1E2330]">
+              <CardHeader className="border-b border-slate-200">
                 <CardTitle className="flex items-center gap-2">
                   <Clock className="w-4 h-4 text-teal-400" />
                   Residency Timeline
@@ -315,7 +315,7 @@ export const WardenAllocationDetailPage: React.FC = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent className="pt-4 space-y-4 text-xs">
-                <div className="p-3 rounded-xl bg-[#171A23] border border-[#1E2330] space-y-2 font-mono">
+                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 space-y-2 font-mono">
                   <div className="flex justify-between">
                     <span className="text-gray-400">Academic Term:</span>
                     <span className="text-gray-200">
@@ -353,7 +353,7 @@ export const WardenAllocationDetailPage: React.FC = () => {
                 </div>
 
                 {isActive && (
-                  <div className="pt-4 border-t border-[#1E2330]">
+                  <div className="pt-4 border-t border-slate-200">
                     <Button
                       variant="danger"
                       size="sm"
@@ -374,7 +374,7 @@ export const WardenAllocationDetailPage: React.FC = () => {
       {/* Release Bed Modal */}
       {showReleaseModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fade-in">
-          <div className="bg-[#11141C] border border-[#1E2330] rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
+          <div className="bg-white border border-slate-200 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
             <div className="flex items-center gap-3 text-orange-400">
               <div className="p-2.5 rounded-xl bg-orange-500/10 border border-orange-500/20">
                 <LogOut className="w-6 h-6" />
@@ -391,7 +391,7 @@ export const WardenAllocationDetailPage: React.FC = () => {
               </div>
             )}
 
-            <div className="p-4 rounded-xl bg-[#171A23] border border-[#1E2330] space-y-2 text-xs">
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2 text-xs">
               <div className="flex justify-between">
                 <span className="text-gray-400">Student:</span>
                 <span className="font-semibold text-gray-200">

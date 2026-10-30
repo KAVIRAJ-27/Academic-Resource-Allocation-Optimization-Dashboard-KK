@@ -67,7 +67,7 @@ export const HodFacultyDetailModal: React.FC<HodFacultyDetailModalProps> = ({
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h3 className="text-base font-semibold text-white">{faculty.fullName}</h3>
+                <h3 className="text-base font-semibold text-slate-900">{faculty.fullName}</h3>
                 {getStatusBadge(faculty.status)}
               </div>
               <p className="text-xs text-gray-400 font-mono mt-0.5">{faculty.employeeId}</p>
@@ -82,7 +82,7 @@ export const HodFacultyDetailModal: React.FC<HodFacultyDetailModalProps> = ({
 
         {/* Academic Details Grid */}
         <div>
-          <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">
+          <h4 className="text-xs font-semibold text-slate-600 font-bold uppercase tracking-wider mb-3">
             Academic Information
           </h4>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
@@ -133,31 +133,31 @@ export const HodFacultyDetailModal: React.FC<HodFacultyDetailModalProps> = ({
 
         {/* Workload Metric Breakdown */}
         <div>
-          <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">
+          <h4 className="text-xs font-semibold text-slate-600 font-bold uppercase tracking-wider mb-3">
             Workload Metric Breakdown
           </h4>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
             <div className="p-3 rounded-lg bg-teal-500/10 border border-teal-500/20">
               <p className="text-[11px] text-teal-400 font-medium">Teaching Hours</p>
-              <p className="text-lg font-bold text-white mt-1">
+              <p className="text-lg font-bold text-slate-900 mt-1">
                 {faculty.teachingHours ? Number(faculty.teachingHours).toFixed(1) : '0.0'}
               </p>
             </div>
             <div className="p-3 rounded-lg bg-blue-500/10 border border-blue-500/20">
               <p className="text-[11px] text-blue-400 font-medium">Lab Hours</p>
-              <p className="text-lg font-bold text-white mt-1">
+              <p className="text-lg font-bold text-slate-900 mt-1">
                 {faculty.labHours ? Number(faculty.labHours).toFixed(1) : '0.0'}
               </p>
             </div>
             <div className="p-3 rounded-lg bg-purple-500/10 border border-purple-500/20">
               <p className="text-[11px] text-purple-400 font-medium">Other Service</p>
-              <p className="text-lg font-bold text-white mt-1">
+              <p className="text-lg font-bold text-slate-900 mt-1">
                 {faculty.otherHours ? Number(faculty.otherHours).toFixed(1) : '0.0'}
               </p>
             </div>
             <div className="p-3 rounded-lg bg-amber-500/10 border border-amber-500/20">
               <p className="text-[11px] text-amber-400 font-medium">Total Workload</p>
-              <p className="text-lg font-bold text-white mt-1">
+              <p className="text-lg font-bold text-slate-900 mt-1">
                 {faculty.totalWorkloadHours ? Number(faculty.totalWorkloadHours).toFixed(1) : '0.0'} hrs
               </p>
             </div>
@@ -167,7 +167,7 @@ export const HodFacultyDetailModal: React.FC<HodFacultyDetailModalProps> = ({
         {/* Assigned Courses Section */}
         <div>
           <div className="flex items-center justify-between mb-3">
-            <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
+            <h4 className="text-xs font-semibold text-slate-600 font-bold uppercase tracking-wider">
               Assigned Courses ({faculty.assignedSubjects?.length || 0})
             </h4>
           </div>
@@ -196,19 +196,19 @@ export const HodFacultyDetailModal: React.FC<HodFacultyDetailModalProps> = ({
                         <div className="font-medium text-white">{sub.subjectName}</div>
                         <div className="text-[11px] text-purple-400 font-mono">{sub.subjectCode}</div>
                       </td>
-                      <td className="py-2.5 px-3 text-gray-300">
+                      <td className="py-2.5 px-3 text-slate-700 font-medium">
                         {sub.programName || '—'}
                       </td>
-                      <td className="py-2.5 px-3 text-center text-gray-300 font-medium">
+                      <td className="py-2.5 px-3 text-center text-slate-700 font-medium font-medium">
                         {sub.sectionName || 'All'}
                       </td>
-                      <td className="py-2.5 px-3 text-center text-gray-300">
+                      <td className="py-2.5 px-3 text-center text-slate-700 font-medium">
                         {sub.semesterName || '—'}
                       </td>
                       <td className="py-2.5 px-3 text-center text-teal-400 font-semibold">
                         {sub.credits || '—'}
                       </td>
-                      <td className="py-2.5 px-3 text-center text-gray-300 font-mono">
+                      <td className="py-2.5 px-3 text-center text-slate-700 font-medium font-mono">
                         {sub.hoursPerWeek || '—'}
                       </td>
                     </tr>
@@ -222,7 +222,7 @@ export const HodFacultyDetailModal: React.FC<HodFacultyDetailModalProps> = ({
         {/* Recent Resource Requests */}
         {faculty.recentRequests && faculty.recentRequests.length > 0 && (
           <div>
-            <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">
+            <h4 className="text-xs font-semibold text-slate-600 font-bold uppercase tracking-wider mb-3">
               Recent Resource Requests ({faculty.recentRequests.length})
             </h4>
             <div className="space-y-2">

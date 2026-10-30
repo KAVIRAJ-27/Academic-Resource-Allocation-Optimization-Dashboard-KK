@@ -55,7 +55,7 @@ export const Modal: React.FC<ModalProps> = ({
     <div
       role="dialog"
       aria-modal="true"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm animate-in fade-in duration-150"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#202020]/35 backdrop-blur-sm animate-in fade-in duration-200"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
@@ -63,29 +63,29 @@ export const Modal: React.FC<ModalProps> = ({
       <Card
         ref={modalRef}
         className={cn(
-          'w-full bg-[#11141C] border-[#1E2330] p-6 shadow-2xl space-y-4 animate-in zoom-in-95 duration-150',
+          'w-full bg-white/95 backdrop-blur-2xl border border-[#D8C9A8]/80 p-6 shadow-modal rounded-2xl space-y-4 animate-in zoom-in-95 duration-200 text-[#202020]',
           maxWidths[maxWidth],
           className
         )}
       >
-        <div className="flex items-start justify-between gap-3 border-b border-white/5 pb-3">
+        <div className="flex items-start justify-between gap-3 border-b border-[#E8E0D0]/80 pb-3">
           <div>
-            {title && <h3 className="text-base font-semibold text-white tracking-tight">{title}</h3>}
-            {description && <p className="text-xs text-gray-400 mt-0.5 leading-relaxed">{description}</p>}
+            {title && <h3 className="text-base font-serif font-bold text-[#202020] tracking-tight">{title}</h3>}
+            {description && <p className="text-xs text-[#555555] mt-0.5 leading-relaxed">{description}</p>}
           </div>
           <button
             type="button"
             onClick={onClose}
             aria-label="Close dialog"
-            className="p-1 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors"
+            className="p-1.5 rounded-lg text-[#77736A] hover:text-[#202020] hover:bg-[#F4F0E6] transition-colors"
           >
             <X className="w-4 h-4" />
           </button>
         </div>
 
-        <div className="py-1 text-xs text-gray-300">{children}</div>
+        <div className="py-1 text-xs text-[#555555]">{children}</div>
 
-        {footer && <div className="pt-3 border-t border-white/5 flex items-center justify-end gap-2">{footer}</div>}
+        {footer && <div className="pt-3 border-t border-[#E8E0D0]/80 flex items-center justify-end gap-2">{footer}</div>}
       </Card>
     </div>
   );

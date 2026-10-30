@@ -18,14 +18,14 @@ export const AiStateBanner: React.FC<AiStateBannerProps> = ({
 
   if (status === 'AI_SERVICE_UNAVAILABLE') {
     return (
-      <div className="bg-amber-500/10 border border-amber-500/30 rounded-xl p-4 mb-6 flex items-center justify-between gap-4">
+      <div className="bg-[#FAF7F0] border border-[#E8DEC8] rounded-xl p-4 mb-6 flex items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="p-2 rounded-lg bg-amber-500/20 text-amber-400 shrink-0">
-            <AlertTriangle className="w-5 h-5" />
+          <div className="p-2 rounded bg-white text-[#A87928] shrink-0 border border-[#E8DEC8]">
+            <AlertTriangle className="w-5 h-5 text-[#A87928]" />
           </div>
           <div>
-            <h4 className="text-sm font-semibold text-amber-300">AI Intelligence Microservice Unavailable</h4>
-            <p className="text-xs text-amber-200/80 mt-0.5">
+            <h4 className="text-sm font-serif font-bold text-[#202020]">AI Intelligence Microservice Unavailable</h4>
+            <p className="text-xs text-[#555555] mt-0.5">
               {message || 'AI insights and predictive models are temporarily offline. Core academic scheduling and hostel operations remain fully operational.'}
             </p>
           </div>
@@ -33,9 +33,9 @@ export const AiStateBanner: React.FC<AiStateBannerProps> = ({
         {onRetry && (
           <button
             onClick={onRetry}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 text-xs font-semibold shrink-0 transition-colors"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-white hover:bg-[#F4F0E6] text-[#202020] border border-[#D8C9A8] text-xs font-semibold shrink-0 transition-colors"
           >
-            <RefreshCw className="w-3.5 h-3.5" />
+            <RefreshCw className="w-3.5 h-3.5 text-[#B8A16A]" />
             <span>Retry Connection</span>
           </button>
         )}
@@ -45,19 +45,19 @@ export const AiStateBanner: React.FC<AiStateBannerProps> = ({
 
   if (status === 'INSUFFICIENT_DATA') {
     return (
-      <div className="bg-blue-500/10 border border-blue-500/30 rounded-xl p-4 mb-6 flex items-center justify-between gap-4">
+      <div className="bg-[#EFF3F6] border border-[#C2D1DD] rounded-xl p-4 mb-6 flex items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="p-2 rounded-lg bg-blue-500/20 text-blue-400 shrink-0">
-            <Database className="w-5 h-5" />
+          <div className="p-2 rounded bg-white text-[#657C91] shrink-0 border border-[#C2D1DD]">
+            <Database className="w-5 h-5 text-[#657C91]" />
           </div>
           <div>
-            <h4 className="text-sm font-semibold text-blue-300">Minimum Historical Data Required</h4>
-            <p className="text-xs text-blue-200/80 mt-0.5">
+            <h4 className="text-sm font-serif font-bold text-[#202020]">Minimum Historical Data Required</h4>
+            <p className="text-xs text-[#555555] mt-0.5">
               {message || 'The current filter criteria contain fewer historical records than the minimum threshold (5 records) required for high-confidence machine learning prediction.'}
             </p>
           </div>
         </div>
-        <div className="text-[11px] font-mono text-blue-400 bg-blue-500/10 px-2.5 py-1 rounded border border-blue-500/20 shrink-0">
+        <div className="text-[11px] font-mono text-[#657C91] bg-white px-2.5 py-1 rounded border border-[#C2D1DD] shrink-0 font-medium">
           Zero Fabricated Fallbacks
         </div>
       </div>
@@ -65,22 +65,22 @@ export const AiStateBanner: React.FC<AiStateBannerProps> = ({
   }
 
   return (
-    <div className="bg-rose-500/10 border border-rose-500/30 rounded-xl p-4 mb-6 flex items-center justify-between gap-4">
+    <div className="bg-[#FBF0F0] border border-[#ECC0C0] rounded-xl p-4 mb-6 flex items-center justify-between gap-4">
       <div className="flex items-center gap-3">
-        <div className="p-2 rounded-lg bg-rose-500/20 text-rose-400 shrink-0">
-          <AlertTriangle className="w-5 h-5" />
+        <div className="p-2 rounded bg-white text-[#B44747] shrink-0 border border-[#ECC0C0]">
+          <AlertTriangle className="w-5 h-5 text-[#B44747]" />
         </div>
         <div>
-          <h4 className="text-sm font-semibold text-rose-300">AI Evaluation Error</h4>
-          <p className="text-xs text-rose-200/80 mt-0.5">{message || 'Unable to compute predictive insights.'}</p>
+          <h4 className="text-sm font-serif font-bold text-[#202020]">AI Evaluation Error</h4>
+          <p className="text-xs text-[#555555] mt-0.5">{message || 'Unable to compute predictive insights.'}</p>
         </div>
       </div>
       {onRetry && (
         <button
           onClick={onRetry}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 border border-rose-500/40 text-xs font-semibold shrink-0 transition-colors"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-white hover:bg-[#F4F0E6] text-[#202020] border border-[#ECC0C0] text-xs font-semibold shrink-0 transition-colors"
         >
-          <RefreshCw className="w-3.5 h-3.5" />
+          <RefreshCw className="w-3.5 h-3.5 text-[#B44747]" />
           <span>Retry</span>
         </button>
       )}

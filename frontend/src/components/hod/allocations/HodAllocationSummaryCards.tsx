@@ -78,8 +78,8 @@ export const HodAllocationSummaryCards: React.FC<HodAllocationSummaryCardsProps>
             className={`p-5 border ${card.borderColor} bg-gray-900/40 rounded-2xl flex items-center justify-between shadow-sm backdrop-blur-sm`}
           >
             <div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-gray-400">{card.title}</p>
-              <h3 className="text-2xl font-bold text-white mt-1">{card.value}</h3>
+              <p className="text-xs font-semibold uppercase tracking-wider text-slate-600 font-bold">{card.title}</p>
+              <h3 className="text-2xl font-bold text-slate-900 mt-1">{card.value}</h3>
               <p className="text-xs text-gray-500 mt-1">{card.subtitle}</p>
             </div>
             <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${card.bgColor} ${card.color}`}>

@@ -11,7 +11,6 @@ import {
   Calendar,
   RefreshCw,
   School,
-  ShieldCheck,
 } from 'lucide-react';
 
 interface HodDepartmentHeaderProps {
@@ -26,34 +25,30 @@ export const HodDepartmentHeader: React.FC<HodDepartmentHeaderProps> = ({
   isRefreshing = false,
 }) => {
   return (
-    <Card className="relative overflow-hidden border border-gray-800 bg-gradient-to-br from-gray-900/90 via-gray-900/70 to-purple-950/20 backdrop-blur-xl p-6 shadow-2xl rounded-2xl">
-      {/* Decorative background glow */}
-      <div className="absolute top-0 right-0 -mt-8 -mr-8 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-1/3 -mb-12 w-48 h-48 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
-
+    <Card className="relative overflow-hidden border border-[#D8C9A8]/70 bg-white/80 backdrop-blur-md p-6 shadow-glass rounded-2xl">
       <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
         <div className="space-y-2">
           <div className="flex flex-wrap items-center gap-3">
-            <div className="p-2.5 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400">
+            <div className="p-3 rounded-2xl bg-[#FBF9F3]/90 border border-[#D8C9A8]/70 text-[#B8A16A] shadow-xs">
               <Building2 className="w-6 h-6" />
             </div>
             <div>
-              <div className="flex items-center gap-3">
-                <h1 className="text-2xl font-bold text-white tracking-tight">
+              <div className="flex items-center gap-3 flex-wrap">
+                <h1 className="text-2xl font-serif font-bold text-[#202020] tracking-tight">
                   {department.name}
                 </h1>
-                <Badge variant="purple" size="md">
+                <Badge variant="neutral" size="md">
                   {department.code}
                 </Badge>
                 <Badge
-                  variant={department.status === 'ACTIVE' ? 'teal' : 'neutral'}
+                  variant={department.status === 'ACTIVE' ? 'success' : 'neutral'}
                   dot
                 >
                   {department.status}
                 </Badge>
               </div>
-              <div className="flex items-center gap-2 text-sm text-gray-400 mt-1">
-                <School className="w-4 h-4 text-gray-400" />
+              <div className="flex items-center gap-2 text-sm text-[#77736A] mt-1">
+                <School className="w-4 h-4 text-[#B8A16A]" />
                 <span>{department.institutionName || 'Affiliated Campus'}</span>
               </div>
             </div>
@@ -68,10 +63,9 @@ export const HodDepartmentHeader: React.FC<HodDepartmentHeaderProps> = ({
             disabled={isRefreshing}
             leftIcon={
               <RefreshCw
-                className={`w-4 h-4 ${isRefreshing ? 'animate-spin text-purple-400' : ''}`}
+                className={`w-4 h-4 ${isRefreshing ? 'animate-spin text-[#B8A16A]' : ''}`}
               />
             }
-            className="border-gray-700 hover:border-purple-500/40 text-gray-200"
           >
             {isRefreshing ? 'Syncing...' : 'Refresh Live Data'}
           </Button>
@@ -79,42 +73,42 @@ export const HodDepartmentHeader: React.FC<HodDepartmentHeaderProps> = ({
       </div>
 
       {/* Active HOD Profile Details Strip */}
-      <div className="mt-6 pt-5 border-t border-gray-800/80 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
-        <div className="flex items-center gap-2.5 bg-gray-800/30 p-2.5 rounded-xl border border-gray-800/50">
-          <UserCheck className="w-4 h-4 text-teal-400 shrink-0" />
+      <div className="mt-6 pt-5 border-t border-[#E8E0D0]/80 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+        <div className="flex items-center gap-2.5 bg-white/70 backdrop-blur-xs p-3 rounded-xl border border-[#D8C9A8]/60 shadow-xs">
+          <UserCheck className="w-4 h-4 text-[#3F7655] shrink-0" />
           <div>
-            <span className="text-gray-400 block font-medium">Head of Department</span>
-            <span className="text-white font-semibold truncate block">
+            <span className="text-[#77736A] block font-medium">Head of Department</span>
+            <span className="text-[#202020] font-bold truncate block">
               {department.hodName || 'Assigned Faculty'}
             </span>
           </div>
         </div>
 
-        <div className="flex items-center gap-2.5 bg-gray-800/30 p-2.5 rounded-xl border border-gray-800/50">
-          <Mail className="w-4 h-4 text-purple-400 shrink-0" />
+        <div className="flex items-center gap-2.5 bg-white/70 backdrop-blur-xs p-3 rounded-xl border border-[#D8C9A8]/60 shadow-xs">
+          <Mail className="w-4 h-4 text-[#B8A16A] shrink-0" />
           <div>
-            <span className="text-gray-400 block font-medium">Official Contact</span>
-            <span className="text-gray-200 font-medium truncate block">
+            <span className="text-[#77736A] block font-medium">Official Contact</span>
+            <span className="text-[#202020] font-medium truncate block">
               {department.hodEmail || 'N/A'}
             </span>
           </div>
         </div>
 
-        <div className="flex items-center gap-2.5 bg-gray-800/30 p-2.5 rounded-xl border border-gray-800/50">
-          <CreditCard className="w-4 h-4 text-blue-400 shrink-0" />
+        <div className="flex items-center gap-2.5 bg-white/70 backdrop-blur-xs p-3 rounded-xl border border-[#D8C9A8]/60 shadow-xs">
+          <CreditCard className="w-4 h-4 text-[#657C91] shrink-0" />
           <div>
-            <span className="text-gray-400 block font-medium">Employee Identifier</span>
-            <span className="text-gray-200 font-medium font-mono block">
+            <span className="text-[#77736A] block font-medium">Employee Identifier</span>
+            <span className="text-[#202020] font-medium font-mono block">
               {department.hodEmployeeId || 'N/A'}
             </span>
           </div>
         </div>
 
-        <div className="flex items-center gap-2.5 bg-gray-800/30 p-2.5 rounded-xl border border-gray-800/50">
-          <Calendar className="w-4 h-4 text-emerald-400 shrink-0" />
+        <div className="flex items-center gap-2.5 bg-white/70 backdrop-blur-xs p-3 rounded-xl border border-[#D8C9A8]/60 shadow-xs">
+          <Calendar className="w-4 h-4 text-[#A87928] shrink-0" />
           <div>
-            <span className="text-gray-400 block font-medium">Serving Since</span>
-            <span className="text-gray-200 font-medium block">
+            <span className="text-[#77736A] block font-medium">Serving Since</span>
+            <span className="text-[#202020] font-medium block">
               {department.hodSince ? new Date(department.hodSince).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : 'Current Academic Term'}
             </span>
           </div>

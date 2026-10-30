@@ -24,14 +24,14 @@ export const SearchInput: React.FC<SearchInputProps> = ({
 }) => {
   return (
     <div className={`relative flex items-center min-w-[220px] ${className}`}>
-      <Search className="w-4 h-4 text-gray-500 absolute left-3 pointer-events-none" />
+      <Search className="w-4 h-4 text-[#77736A] absolute left-3.5 pointer-events-none" />
       <input
         type="text"
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         disabled={disabled}
-        className="w-full bg-[#171A23] border border-[#1E2330] rounded-xl pl-9 pr-8 py-2 text-xs text-gray-200 placeholder-gray-500 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+        className="w-full bg-white/80 backdrop-blur-sm border border-[#D8C9A8]/70 rounded-xl pl-9 pr-8 py-2 text-xs text-[#202020] placeholder-[#77736A] focus:outline-none focus:border-[#B8A16A] focus:ring-2 focus:ring-[#B8A16A]/20 focus:bg-white/95 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-xs"
       />
       {value && (
         <button
@@ -41,7 +41,7 @@ export const SearchInput: React.FC<SearchInputProps> = ({
             onClear?.();
           }}
           aria-label="Clear search"
-          className="absolute right-2.5 p-0.5 text-gray-400 hover:text-white rounded transition-colors"
+          className="absolute right-2.5 p-0.5 text-[#77736A] hover:text-[#202020] rounded transition-colors"
         >
           <X className="w-3.5 h-3.5" />
         </button>
@@ -72,16 +72,16 @@ export const FilterButton: React.FC<FilterButtonProps> = ({
     <button
       type="button"
       onClick={onClick}
-      className={`inline-flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-medium border transition-colors ${
+      className={`inline-flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-medium border transition-all shadow-xs backdrop-blur-sm ${
         isActive
-          ? 'bg-teal-500/10 border-teal-500/40 text-teal-300'
-          : 'bg-[#171A23] border-[#1E2330] text-gray-300 hover:text-white hover:border-[#2E3547]'
+          ? 'bg-[#F4F0E6]/90 border-[#B8A16A] text-[#202020]'
+          : 'bg-white/80 border-[#D8C9A8]/70 text-[#555555] hover:bg-[#F8F6F0] hover:text-[#202020]'
       } ${className}`}
     >
-      <Filter className="w-3.5 h-3.5 text-gray-400" />
+      <Filter className="w-3.5 h-3.5 text-[#77736A]" />
       <span>{label}</span>
       {typeof count === 'number' && count > 0 && (
-        <span className="w-4 h-4 rounded-full bg-teal-500 text-dark-bg text-[10px] font-bold flex items-center justify-center">
+        <span className="w-4 h-4 rounded-full bg-[#B8A16A] text-[#202020] text-[10px] font-bold flex items-center justify-center">
           {count}
         </span>
       )}
@@ -141,24 +141,24 @@ export const FilterDropdown: React.FC<FilterDropdownProps> = ({
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className={`inline-flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-medium border transition-colors ${
+        className={`inline-flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium border transition-colors shadow-xs ${
           selectedValues.length > 0
-            ? 'bg-teal-500/10 border-teal-500/40 text-teal-300'
-            : 'bg-[#171A23] border-[#1E2330] text-gray-300 hover:text-white hover:border-[#2E3547]'
+            ? 'bg-[#F4F0E6] border-[#D8C9A8] text-[#202020]'
+            : 'bg-white border-[#D9D2C3] text-[#555555] hover:bg-[#F8F6F0] hover:text-[#202020]'
         }`}
       >
         <span>{label}</span>
         {selectedValues.length > 0 && (
-          <span className="px-1.5 py-0.2 rounded bg-teal-500/20 text-teal-300 text-[10px] font-mono">
+          <span className="px-1.5 py-0.2 rounded bg-[#B8A16A] text-[#202020] text-[10px] font-mono font-bold">
             {selectedValues.length}
           </span>
         )}
-        <ChevronDown className="w-3.5 h-3.5 text-gray-500" />
+        <ChevronDown className="w-3.5 h-3.5 text-[#77736A]" />
       </button>
 
       {isOpen && (
-        <div className="absolute left-0 mt-1.5 w-52 bg-[#11141C] border border-[#1E2330] rounded-xl shadow-dropdown z-30 p-2 space-y-1 animate-in fade-in zoom-in-95 duration-100">
-          <div className="px-2 py-1 text-[11px] font-semibold text-gray-400 uppercase tracking-wider border-b border-[#1E2330] mb-1">
+        <div className="absolute left-0 mt-1.5 w-56 bg-white border border-[#D8C9A8] rounded-xl shadow-dropdown z-30 p-2 space-y-1 animate-in fade-in zoom-in-95 duration-100">
+          <div className="px-2 py-1 text-[11px] font-serif font-bold text-[#555555] uppercase tracking-wider border-b border-[#E8E0D0] mb-1">
             Filter by {label}
           </div>
           <div className="max-h-56 overflow-y-auto space-y-0.5">
@@ -171,16 +171,16 @@ export const FilterDropdown: React.FC<FilterDropdownProps> = ({
                   onClick={() => toggleOption(opt.value)}
                   className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs transition-colors ${
                     isSelected
-                      ? 'bg-[#171A23] text-teal-300 font-medium'
-                      : 'text-gray-300 hover:bg-[#171A23] hover:text-white'
+                      ? 'bg-[#F4F0E6] text-[#202020] font-medium'
+                      : 'text-[#555555] hover:bg-[#F8F6F0]'
                   }`}
                 >
                   <div className="flex items-center gap-2">
                     <div
                       className={`w-3.5 h-3.5 rounded border flex items-center justify-center ${
                         isSelected
-                          ? 'bg-teal-500 border-teal-500 text-dark-bg'
-                          : 'border-gray-600 bg-[#0B0D14]'
+                          ? 'bg-[#B8A16A] border-[#B8A16A] text-[#202020]'
+                          : 'border-[#D9D2C3] bg-white'
                       }`}
                     >
                       {isSelected && <Check className="w-2.5 h-2.5 stroke-[3]" />}
@@ -188,7 +188,7 @@ export const FilterDropdown: React.FC<FilterDropdownProps> = ({
                     <span>{opt.label}</span>
                   </div>
                   {typeof opt.count === 'number' && (
-                    <span className="text-[10px] text-gray-500 font-mono">
+                    <span className="text-[10px] text-[#77736A] font-mono">
                       {opt.count}
                     </span>
                   )}
@@ -197,11 +197,11 @@ export const FilterDropdown: React.FC<FilterDropdownProps> = ({
             })}
           </div>
           {selectedValues.length > 0 && (
-            <div className="pt-1 border-t border-[#1E2330]">
+            <div className="pt-1 border-t border-[#E8E0D0]">
               <button
                 type="button"
                 onClick={() => onChange([])}
-                className="w-full text-center py-1 text-[11px] text-gray-400 hover:text-teal-300 transition-colors"
+                className="w-full text-center py-1 text-[11px] text-[#77736A] hover:text-[#B8A16A] transition-colors"
               >
                 Clear selection
               </button>
@@ -233,11 +233,11 @@ export const DateRangePickerPlaceholder: React.FC<DateRangePickerProps> = ({
     <button
       type="button"
       onClick={onClick}
-      className={`inline-flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-medium bg-[#171A23] border border-[#1E2330] text-gray-300 hover:text-white hover:border-[#2E3547] transition-colors ${className}`}
+      className={`inline-flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium bg-white border border-[#D9D2C3] text-[#555555] hover:bg-[#F8F6F0] transition-colors shadow-xs ${className}`}
     >
-      <Calendar className="w-3.5 h-3.5 text-gray-400" />
-      <span className="text-gray-400">{label}:</span>
-      <span className="font-mono text-gray-200">{dateRange}</span>
+      <Calendar className="w-3.5 h-3.5 text-[#77736A]" />
+      <span className="text-[#77736A]">{label}:</span>
+      <span className="font-mono text-[#202020] font-semibold">{dateRange}</span>
     </button>
   );
 };
@@ -265,7 +265,7 @@ export const ResetFiltersButton: React.FC<ResetFiltersButtonProps> = ({
       onClick={onReset}
       disabled={disabled}
       leftIcon={<RotateCcw className="w-3.5 h-3.5" />}
-      className={`text-gray-400 hover:text-white ${className}`}
+      className={`text-[#77736A] hover:text-[#202020] ${className}`}
     >
       {label}
     </Button>
@@ -286,7 +286,7 @@ export const FilterToolbar: React.FC<FilterToolbarProps> = ({
 }) => {
   return (
     <div
-      className={`flex flex-wrap items-center justify-between gap-3 p-3 bg-[#11141C] border border-[#1E2330] rounded-2xl ${className}`}
+      className={`flex flex-wrap items-center justify-between gap-3 p-3 bg-white border border-[#D8C9A8] rounded-xl shadow-card ${className}`}
     >
       {children}
     </div>

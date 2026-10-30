@@ -21,18 +21,18 @@ export const DashboardShell: React.FC<DashboardShellProps> = ({
   const roleTheme = COLOR_TOKENS.role[role];
 
   return (
-    <div className="flex h-screen bg-[#080A0F] text-[#F3F4F6] overflow-hidden relative">
-      {/* Role-Specific Subtle Accent Glow Line at Top */}
+    <div className="flex h-screen bg-[#FFFEFA] text-[#202020] overflow-hidden relative antialiased font-sans">
+      {/* Classical Gold Accent Line at Top */}
       <div
-        className="absolute top-0 left-0 right-0 h-[2px] z-50 pointer-events-none opacity-80"
+        className="absolute top-0 left-0 right-0 h-[2.5px] z-50 pointer-events-none"
         style={{
-          background: `linear-gradient(90deg, transparent 0%, ${roleTheme.accent} 30%, ${roleTheme.accent} 70%, transparent 100%)`,
+          backgroundColor: roleTheme?.accent || '#B8A16A',
         }}
         aria-hidden="true"
       />
 
       {/* Desktop Sidebar */}
-      <div className="hidden lg:flex shrink-0">
+      <div className="hidden lg:flex shrink-0 h-full">
         <Sidebar role={role} />
       </div>
 
@@ -44,7 +44,7 @@ export const DashboardShell: React.FC<DashboardShellProps> = ({
       />
 
       {/* Main Layout Area */}
-      <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
+      <div className="flex-1 flex flex-col min-w-0 overflow-hidden bg-[#FFFEFA]">
         <Header
           role={role}
           onOpenMobileNav={() => setIsMobileOpen(true)}
@@ -53,7 +53,7 @@ export const DashboardShell: React.FC<DashboardShellProps> = ({
 
         {/* Main Scrollable Content */}
         <main
-          className="flex-1 overflow-y-auto bg-[#080A0F] focus:outline-none"
+          className="flex-1 overflow-y-auto bg-[#FFFEFA] focus:outline-none"
           id="main-content"
           tabIndex={-1}
         >

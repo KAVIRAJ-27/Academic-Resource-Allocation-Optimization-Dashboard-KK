@@ -25,49 +25,49 @@ export const PredictionCard: React.FC<PredictionCardProps> = ({
   modelVersion,
 }) => {
   return (
-    <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-5 hover:border-[#2A3142] transition-all">
+    <div className="bg-white border border-[#D8C9A8] rounded-xl p-5 hover:border-[#B8A16A] transition-all shadow-none">
       <div className="flex items-start justify-between mb-3">
         <div>
-          <span className="text-[10px] font-semibold tracking-wider text-teal-400 uppercase px-2 py-0.5 rounded bg-teal-500/10 border border-teal-500/20">
+          <span className="text-[10px] font-semibold tracking-wider text-[#B8A16A] uppercase px-2 py-0.5 rounded bg-[#F4F0E6] border border-[#D8C9A8]">
             {category}
           </span>
-          <h4 className="text-sm font-semibold text-gray-200 mt-2">{title}</h4>
+          <h4 className="text-sm font-serif font-bold text-[#202020] mt-2">{title}</h4>
         </div>
         {modelVersion && (
-          <span className="text-[10px] font-mono text-gray-400 bg-[#171A23] px-2 py-0.5 rounded border border-[#262B3B]">
+          <span className="text-[10px] font-mono text-[#77736A] bg-[#FBF9F3] px-2 py-0.5 rounded border border-[#E8E0D0]">
             {modelVersion}
           </span>
         )}
       </div>
 
-      <div className="flex items-baseline justify-between my-3 p-3 rounded-lg bg-[#0B0D14] border border-[#1E2330]">
+      <div className="flex items-baseline justify-between my-3 p-3 rounded bg-[#FBF9F3] border border-[#E8E0D0]">
         <div>
-          <span className="text-[10px] text-gray-400 uppercase tracking-wide block">Current Baseline</span>
-          <span className="text-lg font-bold text-gray-300 font-mono">
+          <span className="text-[10px] text-[#77736A] uppercase tracking-wide block font-medium">Current Baseline</span>
+          <span className="text-lg font-serif font-bold text-[#202020]">
             {currentValue}{unit}
           </span>
         </div>
         <div className="text-right">
-          <span className="text-[10px] text-teal-400 uppercase tracking-wide block">Projected</span>
+          <span className="text-[10px] text-[#B8A16A] uppercase tracking-wide block font-medium">Projected</span>
           <div className="flex items-center gap-1.5 justify-end">
-            <span className="text-xl font-black text-teal-300 font-mono">
+            <span className="text-xl font-serif font-bold text-[#B8A16A]">
               {predictedValue}{unit}
             </span>
-            {trend === 'up' && <ArrowUpRight className="w-4 h-4 text-emerald-400" />}
-            {trend === 'down' && <ArrowDownRight className="w-4 h-4 text-rose-400" />}
-            {trend === 'stable' && <Minus className="w-4 h-4 text-gray-400" />}
+            {trend === 'up' && <ArrowUpRight className="w-4 h-4 text-[#3F7655]" />}
+            {trend === 'down' && <ArrowDownRight className="w-4 h-4 text-[#B44747]" />}
+            {trend === 'stable' && <Minus className="w-4 h-4 text-[#77736A]" />}
           </div>
         </div>
       </div>
 
       {deltaLabel && (
-        <div className="text-xs font-medium text-gray-300 mb-2">
-          Trend Delta: <span className="font-mono text-teal-300">{deltaLabel}</span>
+        <div className="text-xs font-medium text-[#555555] mb-2">
+          Trend Delta: <span className="font-mono text-[#B8A16A] font-semibold">{deltaLabel}</span>
         </div>
       )}
 
-      <div className="flex items-start gap-2 mt-3 pt-3 border-t border-[#1E2330] text-xs text-gray-400 leading-relaxed">
-        <Info className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
+      <div className="flex items-start gap-2 mt-3 pt-3 border-t border-[#E8E0D0] text-xs text-[#77736A] leading-relaxed">
+        <Info className="w-4 h-4 text-[#B8A16A] shrink-0 mt-0.5" />
         <p>{explanation}</p>
       </div>
     </div>

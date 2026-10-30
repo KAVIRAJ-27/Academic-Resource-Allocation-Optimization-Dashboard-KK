@@ -39,7 +39,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.*;
 
 @Service
-@Transactional(readOnly = true)
+@Transactional
 public class HostelAllocationOptimizerImpl implements HostelAllocationOptimizer {
 
     private static final Logger log = LoggerFactory.getLogger(HostelAllocationOptimizerImpl.class);

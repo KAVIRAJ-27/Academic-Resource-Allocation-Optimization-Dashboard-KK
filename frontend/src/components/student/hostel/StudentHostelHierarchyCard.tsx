@@ -59,10 +59,10 @@ export const StudentHostelHierarchyCard: React.FC<Props> = ({ data }) => {
   ];
 
   return (
-    <Card className="p-5 bg-[#11141C] border-[#1E2330] space-y-4">
+    <Card className="p-5 bg-white border-slate-200 space-y-4">
       <div className="flex items-center justify-between">
         <div>
-          <h3 className="text-sm font-semibold text-white tracking-tight">
+          <h3 className="text-sm font-semibold text-slate-900 tracking-tight">
             Residential Allocation Hierarchy
           </h3>
           <p className="text-xs text-gray-400 mt-0.5">
@@ -77,10 +77,10 @@ export const StudentHostelHierarchyCard: React.FC<Props> = ({ data }) => {
           return (
             <div
               key={step.level}
-              className="relative p-3.5 bg-[#171A23] border border-[#222838] rounded-xl flex flex-col justify-between space-y-2 hover:border-[#2E364A] transition-colors"
+              className="relative p-3.5 bg-slate-50 border border-slate-200 rounded-xl flex flex-col justify-between space-y-2 hover:border-[#2E364A] transition-colors"
             >
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-mono font-semibold uppercase tracking-wider text-gray-400">
+                <span className="text-[10px] font-mono font-semibold uppercase tracking-wider text-slate-600 font-bold">
                   {step.level}
                 </span>
                 <div className={`p-1.5 rounded-lg border ${step.bgColor}`}>
@@ -89,7 +89,7 @@ export const StudentHostelHierarchyCard: React.FC<Props> = ({ data }) => {
               </div>
 
               <div>
-                <h4 className="text-xs font-bold text-white truncate" title={step.name}>
+                <h4 className="text-xs font-bold text-slate-900 truncate" title={step.name}>
                   {step.name}
                 </h4>
                 {step.detail && (

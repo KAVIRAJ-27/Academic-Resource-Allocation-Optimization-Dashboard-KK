@@ -87,7 +87,7 @@ export const HodStudentTable: React.FC<HodStudentTableProps> = ({
       <div className="p-5 border-b border-gray-800 space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <h3 className="text-base font-semibold text-white">Department Student Roster</h3>
+            <h3 className="text-base font-semibold text-slate-900">Department Student Roster</h3>
             <p className="text-xs text-gray-400 mt-0.5">
               Undergraduate and postgraduate students enrolled in your department ({totalElements} total)
             </p>
@@ -194,7 +194,7 @@ export const HodStudentTable: React.FC<HodStudentTableProps> = ({
       <div className="overflow-x-auto">
         <table className="w-full text-left text-xs border-collapse">
           <thead>
-            <tr className="border-b border-gray-800 bg-gray-900/60 text-gray-400 font-semibold uppercase tracking-wider text-[10px]">
+            <tr className="border-b border-gray-800 bg-gray-900/60 text-slate-600 font-bold font-semibold uppercase tracking-wider text-[10px]">
               <th className="py-3 px-4">Register Number</th>
               <th className="py-3 px-4">Student Name</th>
               <th className="py-3 px-4">Program & Degree</th>
@@ -232,10 +232,10 @@ export const HodStudentTable: React.FC<HodStudentTableProps> = ({
               ))
             ) : students.length === 0 ? (
               <tr>
-                <td colSpan={6} className="py-16 text-center text-gray-400">
+                <td colSpan={6} className="py-16 text-center text-slate-600 font-medium">
                   <GraduationCap className="w-10 h-10 mx-auto mb-2 text-gray-600 opacity-60" />
-                  <p className="font-semibold text-gray-300 text-sm">No students found</p>
-                  <p className="text-gray-500 mt-1 max-w-sm mx-auto">
+                  <p className="font-semibold text-slate-700 font-medium text-sm">No students found</p>
+                  <p className="text-slate-500 font-medium mt-1 max-w-sm mx-auto">
                     {search || statusFilter !== 'ALL' || programFilter !== null || sectionFilter !== null || semesterFilter !== null
                       ? 'No students matched the active filter criteria.'
                       : 'No students are currently enrolled in this department.'}
@@ -250,18 +250,18 @@ export const HodStudentTable: React.FC<HodStudentTableProps> = ({
                   </td>
                   <td className="py-3.5 px-4">
                     <div className="font-medium text-gray-100">{s.fullName}</div>
-                    <div className="text-[11px] text-gray-400 font-mono">{s.email || '—'}</div>
+                    <div className="text-[11px] text-slate-600 font-medium font-mono">{s.email || '—'}</div>
                   </td>
                   <td className="py-3.5 px-4">
-                    <div className="text-gray-200 font-medium">{s.programName || '—'}</div>
+                    <div className="text-slate-800 font-medium font-medium">{s.programName || '—'}</div>
                     <div className="text-[11px] text-purple-400 font-mono">
                       {s.programCode} • {s.degreeType || 'Degree'}
                     </div>
                   </td>
                   <td className="py-3.5 px-4 text-center">
-                    <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-gray-800/60 border border-gray-700/60 text-[11px] font-medium text-gray-300">
+                    <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-gray-800/60 border border-gray-700/60 text-[11px] font-medium text-slate-700 font-medium">
                       <span>Sem {s.currentSemester || '—'}</span>
-                      <span className="text-gray-500">•</span>
+                      <span className="text-slate-500 font-medium">•</span>
                       <span className="text-teal-400 font-semibold">Sec {s.sectionName || '—'}</span>
                     </div>
                   </td>
@@ -274,7 +274,7 @@ export const HodStudentTable: React.FC<HodStudentTableProps> = ({
                         variant="ghost"
                         size="sm"
                         onClick={() => onViewDetails(s.id)}
-                        className="text-gray-300 hover:text-white px-2 py-1 h-auto"
+                        className="text-slate-700 font-medium hover:text-white px-2 py-1 h-auto"
                         title="View Student Details"
                       >
                         <Eye className="w-3.5 h-3.5" />

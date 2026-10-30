@@ -84,8 +84,8 @@ export const FacultyResourceRequestDetailsPage: React.FC = () => {
         <div className="space-y-6 animate-pulse max-w-4xl mx-auto">
           <div className="h-8 bg-gray-800 rounded w-64" />
           <div className="h-4 bg-gray-800 rounded w-96 mb-8" />
-          <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-6 h-48" />
-          <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-6 h-64" />
+          <div className="bg-white border border-slate-200 rounded-xl p-6 h-48" />
+          <div className="bg-white border border-slate-200 rounded-xl p-6 h-64" />
         </div>
       </PageContainer>
     );
@@ -99,13 +99,13 @@ export const FacultyResourceRequestDetailsPage: React.FC = () => {
             variant="outline"
             size="sm"
             onClick={() => navigate('/faculty/resource-requests')}
-            className="border-[#1E2330] text-gray-300 hover:text-white flex items-center gap-1.5"
+            className="border-slate-200 text-gray-300 hover:text-white flex items-center gap-1.5"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Requests
           </Button>
 
-          <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-8 shadow-card">
+          <div className="bg-white border border-slate-200 rounded-xl p-8 shadow-card">
             <EmptyState
               icon={AlertCircle}
               title="Unable to load request details"
@@ -130,7 +130,7 @@ export const FacultyResourceRequestDetailsPage: React.FC = () => {
               variant="outline"
               size="sm"
               onClick={() => navigate('/faculty/resource-requests')}
-              className="border-[#1E2330] text-gray-300 hover:text-white flex items-center gap-1.5"
+              className="border-slate-200 text-gray-300 hover:text-white flex items-center gap-1.5"
             >
               <ArrowLeft className="w-4 h-4" />
               All Requests
@@ -168,11 +168,11 @@ export const FacultyResourceRequestDetailsPage: React.FC = () => {
         )}
 
         {/* Status Card Banner */}
-        <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-6 shadow-card flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-card flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
-            <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Lifecycle Status</span>
+            <span className="text-xs font-semibold text-slate-600 font-bold uppercase tracking-wider">Lifecycle Status</span>
             <div className="mt-1 flex items-center gap-3">
-              <h2 className="text-2xl font-bold text-white tracking-tight">{request.purpose}</h2>
+              <h2 className="text-2xl font-bold text-slate-900 tracking-tight">{request.purpose}</h2>
               {getStatusBadge(request.status)}
             </div>
           </div>
@@ -187,10 +187,10 @@ export const FacultyResourceRequestDetailsPage: React.FC = () => {
         {/* 2-Column Grid: Resource Details & Schedule */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Card 1: Facility Information */}
-          <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-6 shadow-card space-y-4">
-            <div className="flex items-center gap-2 pb-3 border-b border-[#1E2330]">
+          <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-card space-y-4">
+            <div className="flex items-center gap-2 pb-3 border-b border-slate-200">
               <Building2 className="w-5 h-5 text-teal-400" />
-              <h3 className="text-sm font-semibold text-white">Requested Resource</h3>
+              <h3 className="text-sm font-semibold text-slate-900">Requested Resource</h3>
             </div>
 
             <div className="space-y-3 text-xs">
@@ -238,10 +238,10 @@ export const FacultyResourceRequestDetailsPage: React.FC = () => {
           </div>
 
           {/* Card 2: Schedule & Time Window */}
-          <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-6 shadow-card space-y-4">
-            <div className="flex items-center gap-2 pb-3 border-b border-[#1E2330]">
+          <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-card space-y-4">
+            <div className="flex items-center gap-2 pb-3 border-b border-slate-200">
               <Calendar className="w-5 h-5 text-blue-400" />
-              <h3 className="text-sm font-semibold text-white">Date & Schedule</h3>
+              <h3 className="text-sm font-semibold text-slate-900">Date & Schedule</h3>
             </div>
 
             <div className="space-y-3 text-xs">
@@ -279,10 +279,10 @@ export const FacultyResourceRequestDetailsPage: React.FC = () => {
 
         {/* Academic Context (if associated) */}
         {(request.subjectName || request.subjectCode) && (
-          <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-6 shadow-card space-y-3">
-            <div className="flex items-center gap-2 pb-3 border-b border-[#1E2330]">
+          <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-card space-y-3">
+            <div className="flex items-center gap-2 pb-3 border-b border-slate-200">
               <BookOpen className="w-5 h-5 text-purple-400" />
-              <h3 className="text-sm font-semibold text-white">Academic Curriculum Context</h3>
+              <h3 className="text-sm font-semibold text-slate-900">Academic Curriculum Context</h3>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
               <div>
@@ -306,10 +306,10 @@ export const FacultyResourceRequestDetailsPage: React.FC = () => {
 
         {/* Description / Special Notes */}
         {request.description && (
-          <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-6 shadow-card space-y-3">
-            <div className="flex items-center gap-2 pb-3 border-b border-[#1E2330]">
+          <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-card space-y-3">
+            <div className="flex items-center gap-2 pb-3 border-b border-slate-200">
               <FileText className="w-5 h-5 text-emerald-400" />
-              <h3 className="text-sm font-semibold text-white">Purpose Description & Special Instructions</h3>
+              <h3 className="text-sm font-semibold text-slate-900">Purpose Description & Special Instructions</h3>
             </div>
             <p className="text-sm text-gray-300 leading-relaxed whitespace-pre-line">
               {request.description}
@@ -318,10 +318,10 @@ export const FacultyResourceRequestDetailsPage: React.FC = () => {
         )}
 
         {/* Requester Identity (Auditable Verification) */}
-        <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-6 shadow-card space-y-3">
-          <div className="flex items-center gap-2 pb-3 border-b border-[#1E2330]">
+        <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-card space-y-3">
+          <div className="flex items-center gap-2 pb-3 border-b border-slate-200">
             <User className="w-5 h-5 text-gray-400" />
-            <h3 className="text-sm font-semibold text-white">Requester Identity</h3>
+            <h3 className="text-sm font-semibold text-slate-900">Requester Identity</h3>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
             <div>

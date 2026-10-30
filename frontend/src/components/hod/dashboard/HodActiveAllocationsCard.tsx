@@ -37,28 +37,28 @@ export const HodActiveAllocationsCard: React.FC<HodActiveAllocationsCardProps> =
   };
 
   return (
-    <Card className="p-6 border border-gray-800 bg-gray-900/40 rounded-2xl flex flex-col justify-between">
+    <Card className="p-6 border border-[#D8C9A8] bg-white shadow-none rounded-xl flex flex-col justify-between">
       <div>
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2.5">
-            <div className="p-2 rounded-lg bg-teal-500/10 text-teal-400 border border-teal-500/20">
+            <div className="p-2 rounded bg-[#FBF9F3] text-[#3F7655] border border-[#E8E0D0]">
               <CheckCircle2 className="w-4 h-4" />
             </div>
             <div>
-              <h3 className="text-base font-semibold text-white">Active Resource Allocations</h3>
-              <p className="text-xs text-gray-400">Department laboratory, room & equipment bookings</p>
+              <h3 className="text-base font-serif font-bold text-[#202020]">Active Resource Allocations</h3>
+              <p className="text-xs text-[#77736A]">Department laboratory, room & equipment bookings</p>
             </div>
           </div>
-          <Badge variant="teal" size="md">
+          <Badge variant="success" size="md">
             {allocations.length} Active
           </Badge>
         </div>
 
         {allocations.length === 0 ? (
-          <div className="py-10 text-center text-gray-400 text-xs">
-            <CheckCircle2 className="w-8 h-8 mx-auto mb-2 text-gray-600 opacity-60" />
-            <p className="font-medium text-gray-300">No Active Allocations</p>
-            <p className="text-gray-500 mt-0.5">
+          <div className="py-10 text-center text-[#77736A] text-xs">
+            <CheckCircle2 className="w-8 h-8 mx-auto mb-2 text-[#77736A] opacity-60" />
+            <p className="font-serif font-bold text-[#202020]">No Active Allocations</p>
+            <p className="text-[#77736A] mt-0.5">
               There are currently no active resource bookings in this department.
             </p>
           </div>
@@ -67,33 +67,33 @@ export const HodActiveAllocationsCard: React.FC<HodActiveAllocationsCardProps> =
             {allocations.map((alloc) => (
               <div
                 key={alloc.allocationId}
-                className="p-3 rounded-xl bg-gray-800/40 border border-gray-800/80 hover:border-gray-700/80 transition-all text-xs"
+                className="p-3.5 rounded bg-[#FBF9F3] border border-[#E8E0D0] hover:bg-[#F4F0E6] hover:border-[#D8C9A8] transition-all text-xs"
               >
                 <div className="flex items-start justify-between gap-2">
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className="font-semibold text-white">{alloc.resourceName}</span>
-                      <span className="text-[10px] font-mono text-gray-400 bg-gray-800 px-1.5 py-0.5 rounded">
+                      <span className="font-semibold text-[#202020]">{alloc.resourceName}</span>
+                      <span className="text-[10px] font-mono text-[#77736A] bg-white border border-[#D9D2C3] px-1.5 py-0.5 rounded">
                         {alloc.resourceCode}
                       </span>
                     </div>
-                    <p className="text-gray-400 mt-1 line-clamp-1">{alloc.purpose}</p>
+                    <p className="text-[#555555] mt-1 line-clamp-1">{alloc.purpose}</p>
                   </div>
-                  <Badge variant="teal">ACTIVE</Badge>
+                  <Badge variant="success">ACTIVE</Badge>
                 </div>
 
-                <div className="mt-2 pt-2 border-t border-gray-800/60 flex flex-wrap items-center justify-between gap-2 text-[11px] text-gray-400">
+                <div className="mt-2.5 pt-2 border-t border-[#E8E0D0] flex flex-wrap items-center justify-between gap-2 text-[11px] text-[#77736A]">
                   <div className="flex items-center gap-2">
-                    <span className="inline-flex items-center gap-1 text-gray-300 font-medium">
-                      <UserCheck className="w-3 h-3 text-teal-400" />
+                    <span className="inline-flex items-center gap-1 text-[#202020] font-medium">
+                      <UserCheck className="w-3 h-3 text-[#3F7655]" />
                       {alloc.allocatedToName}
                     </span>
-                    <span className="text-[10px] uppercase text-purple-300 bg-purple-500/10 px-1.5 py-0.2 rounded border border-purple-500/20">
+                    <span className="text-[10px] uppercase font-semibold text-[#B8A16A] bg-white px-1.5 py-0.2 rounded border border-[#D8C9A8]">
                       {alloc.allocatedToRole}
                     </span>
                   </div>
-                  <div className="flex items-center gap-1 text-gray-400 font-mono">
-                    <Calendar className="w-3 h-3 text-purple-400" />
+                  <div className="flex items-center gap-1 text-[#77736A] font-mono">
+                    <Calendar className="w-3 h-3 text-[#B8A16A]" />
                     <span>{formatDatetime(alloc.startDatetime)}</span>
                     <span>-</span>
                     <span>{formatDatetime(alloc.endDatetime)}</span>
@@ -105,14 +105,14 @@ export const HodActiveAllocationsCard: React.FC<HodActiveAllocationsCardProps> =
         )}
       </div>
 
-      <div className="mt-4 pt-3 border-t border-gray-800/80 flex items-center justify-between text-xs text-gray-400">
+      <div className="mt-4 pt-3 border-t border-[#E8E0D0] flex items-center justify-between text-xs text-[#77736A]">
         <span>Department facilities currently engaged</span>
         <Button
           variant="ghost"
           size="sm"
           onClick={() => navigate('/hod/allocations')}
           rightIcon={<ArrowRight className="w-3.5 h-3.5" />}
-          className="text-teal-400 hover:text-teal-300 p-0"
+          className="text-[#3F7655] hover:text-[#202020] p-0 font-medium"
         >
           View All Allocations
         </Button>

@@ -96,7 +96,7 @@ export const HodWorkloadDistributionChart: React.FC<HodWorkloadDistributionChart
               <BarChart3 className="w-4 h-4" />
             </div>
             <div>
-              <h3 className="text-base font-semibold text-white">Workload Distribution</h3>
+              <h3 className="text-base font-semibold text-slate-900">Workload Distribution</h3>
               <p className="text-xs text-gray-400">Department faculty workload equilibrium status</p>
             </div>
           </div>

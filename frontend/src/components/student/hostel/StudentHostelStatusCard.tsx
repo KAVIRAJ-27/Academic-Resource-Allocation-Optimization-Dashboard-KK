@@ -26,7 +26,7 @@ export const StudentHostelStatusCard: React.FC<Props> = ({ data }) => {
   const bed = data.bed;
 
   return (
-    <Card className="p-6 bg-[#11141C] border-[#1E2330] relative overflow-hidden">
+    <Card className="p-6 bg-white border-slate-200 relative overflow-hidden">
       {/* Subtle background glow */}
       <div className="absolute -right-16 -top-16 w-64 h-64 bg-teal-500/5 rounded-full blur-3xl pointer-events-none" />
 
@@ -43,7 +43,7 @@ export const StudentHostelStatusCard: React.FC<Props> = ({ data }) => {
 
           <div className="space-y-1.5">
             <div className="flex items-center gap-2.5">
-              <h2 className="text-xl font-bold text-white tracking-tight">
+              <h2 className="text-xl font-bold text-slate-900 tracking-tight">
                 {isAllocated ? (hostel?.name || 'Assigned Hostel') : 'No Active Hostel Allocation'}
               </h2>
               {isAllocated ? (
@@ -84,17 +84,17 @@ export const StudentHostelStatusCard: React.FC<Props> = ({ data }) => {
         {isAllocated ? (
           <div className="flex flex-wrap items-center gap-3">
             {room && (
-              <div className="p-3 bg-[#171A23] border border-[#222838] rounded-xl text-center min-w-[90px]">
+              <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl text-center min-w-[90px]">
                 <div className="flex items-center justify-center gap-1 text-[11px] text-gray-400 mb-0.5">
                   <DoorOpen className="w-3 h-3 text-teal-400" />
                   <span>Room</span>
                 </div>
-                <span className="text-base font-bold text-white font-mono">{room.roomNumber}</span>
+                <span className="text-base font-bold text-slate-900 font-mono">{room.roomNumber}</span>
               </div>
             )}
 
             {bed && (
-              <div className="p-3 bg-[#171A23] border border-[#222838] rounded-xl text-center min-w-[90px]">
+              <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl text-center min-w-[90px]">
                 <div className="flex items-center justify-center gap-1 text-[11px] text-gray-400 mb-0.5">
                   <BedDouble className="w-3 h-3 text-teal-400" />
                   <span>Bed</span>
@@ -104,7 +104,7 @@ export const StudentHostelStatusCard: React.FC<Props> = ({ data }) => {
             )}
 
             {alloc?.startDate && (
-              <div className="p-3 bg-[#171A23] border border-[#222838] rounded-xl text-left min-w-[140px]">
+              <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl text-left min-w-[140px]">
                 <div className="flex items-center gap-1 text-[11px] text-gray-400 mb-0.5">
                   <Calendar className="w-3 h-3 text-teal-400" />
                   <span>Tenure</span>
@@ -119,7 +119,7 @@ export const StudentHostelStatusCard: React.FC<Props> = ({ data }) => {
             )}
           </div>
         ) : (
-          <div className="p-3 bg-[#171A23] border border-[#222838] rounded-xl text-xs text-gray-400 max-w-sm">
+          <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl text-xs text-gray-400 max-w-sm">
             Hostel accommodation is governed by university residency policies. Enrolled students are mapped by residential wardens.
           </div>
         )}

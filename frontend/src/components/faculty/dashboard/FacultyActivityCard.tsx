@@ -10,11 +10,11 @@ interface FacultyActivityCardProps {
 export const FacultyActivityCard: React.FC<FacultyActivityCardProps> = ({ activities = [] }) => {
   if (!activities || activities.length === 0) {
     return (
-      <Card className="h-full bg-[#11141C] border-[#1E2330] flex flex-col">
-        <CardHeader className="border-b border-[#1E2330] pb-4">
+      <Card className="h-full bg-white border-slate-200 shadow-xs flex flex-col">
+        <CardHeader className="border-b border-slate-100 pb-4">
           <div className="flex items-center justify-between">
-            <CardTitle className="text-sm font-bold text-white flex items-center gap-2">
-              <Activity className="w-4 h-4 text-teal-400" />
+            <CardTitle className="text-sm font-bold text-slate-900 flex items-center gap-2">
+              <Activity className="w-4 h-4 text-teal-600" />
               Recent Faculty Activity
             </CardTitle>
             <Badge variant="neutral">0 Events</Badge>
@@ -38,15 +38,15 @@ export const FacultyActivityCard: React.FC<FacultyActivityCardProps> = ({ activi
   const getActionIcon = (action: string) => {
     switch (action) {
       case 'FACULTY_PROFILE_UPDATED':
-        return <UserCheck className="w-3.5 h-3.5 text-teal-400" />;
+        return <UserCheck className="w-3.5 h-3.5 text-teal-600" />;
       case 'USER_LOGIN':
-        return <ShieldCheck className="w-3.5 h-3.5 text-blue-400" />;
+        return <ShieldCheck className="w-3.5 h-3.5 text-indigo-600" />;
       case 'ACADEMIC_RESOURCE_REQUEST_CREATED':
-        return <Send className="w-3.5 h-3.5 text-orange-400" />;
+        return <Send className="w-3.5 h-3.5 text-amber-600" />;
       case 'PASSWORD_CHANGED':
-        return <Key className="w-3.5 h-3.5 text-purple-400" />;
+        return <Key className="w-3.5 h-3.5 text-purple-600" />;
       default:
-        return <Activity className="w-3.5 h-3.5 text-gray-400" />;
+        return <Activity className="w-3.5 h-3.5 text-slate-400" />;
     }
   };
 
@@ -66,12 +66,12 @@ export const FacultyActivityCard: React.FC<FacultyActivityCardProps> = ({ activi
   };
 
   return (
-    <Card className="h-full bg-[#11141C] border-[#1E2330] flex flex-col shadow-card hover:border-[#2A3245] transition-all">
-      <CardHeader className="border-b border-[#1E2330] pb-4">
+    <Card className="h-full bg-white border-slate-200 shadow-xs flex flex-col hover:border-slate-300 transition-all">
+      <CardHeader className="border-b border-slate-100 pb-4">
         <div className="flex items-center justify-between">
           <div>
-            <CardTitle className="text-sm font-bold text-white flex items-center gap-2">
-              <Activity className="w-4 h-4 text-teal-400" />
+            <CardTitle className="text-sm font-bold text-slate-900 flex items-center gap-2">
+              <Activity className="w-4 h-4 text-teal-600" />
               Recent Security & Action Log
             </CardTitle>
             <CardDescription>
@@ -86,17 +86,17 @@ export const FacultyActivityCard: React.FC<FacultyActivityCardProps> = ({ activi
         {activities.map((a) => (
           <div
             key={a.id}
-            className="flex items-start gap-3 p-3 bg-[#0E1017] border border-[#1E2330] rounded-xl hover:border-[#2A3245] transition-all"
+            className="flex items-start gap-3 p-3 bg-slate-50/70 border border-slate-200/80 rounded-xl hover:border-slate-300 transition-all"
           >
-            <div className="p-2 rounded-lg bg-[#171A23] border border-[#262C3D] shrink-0 mt-0.5">
+            <div className="p-2 rounded-lg bg-white border border-slate-200 shadow-2xs shrink-0 mt-0.5">
               {getActionIcon(a.action)}
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-xs font-semibold text-gray-200">
+              <p className="text-xs font-semibold text-slate-800">
                 {a.description}
               </p>
-              <div className="flex items-center gap-2 mt-1 text-[10px] text-gray-500">
-                <span className="font-mono text-gray-400">{a.action}</span>
+              <div className="flex items-center gap-2 mt-1 text-[10px] text-slate-500">
+                <span className="font-mono text-slate-600">{a.action}</span>
                 <span>&bull;</span>
                 <span className="flex items-center gap-1">
                   <Clock className="w-2.5 h-2.5" />

@@ -352,7 +352,7 @@ export const StudentManagementPage: React.FC = () => {
     <div className="space-y-6">
       {/* Toast Notification */}
       {feedbackToast && (
-        <div className="fixed top-5 right-5 z-50 p-4 rounded-xl shadow-2xl flex items-center gap-3 backdrop-blur-md transition-all border bg-[#11141C] text-sm animate-in fade-in slide-in-from-top-4 border-white/10">
+        <div className="fixed top-5 right-5 z-50 p-4 rounded-xl shadow-2xl flex items-center gap-3 backdrop-blur-md transition-all border bg-white text-sm animate-in fade-in slide-in-from-top-4 border-white/10">
           {feedbackToast.type === 'success' ? (
             <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
           ) : (
@@ -375,11 +375,11 @@ export const StudentManagementPage: React.FC = () => {
           <div className="flex items-center gap-2 mb-1">
             <span className="text-xs font-semibold uppercase tracking-wider text-teal-400">Admin</span>
             <span className="text-xs text-gray-500">/</span>
-            <span className="text-xs font-semibold uppercase tracking-wider text-gray-400">
+            <span className="text-xs font-semibold uppercase tracking-wider text-slate-600 font-bold">
               Student Management
             </span>
           </div>
-          <h1 className="text-2xl font-bold text-white tracking-tight">Student Management</h1>
+          <h1 className="text-2xl font-bold text-slate-900 tracking-tight">Student Management</h1>
           <p className="text-xs sm:text-sm text-gray-400 mt-0.5">
             Manage student academic records, enrollment information and academic assignments.
           </p>
@@ -411,22 +411,22 @@ export const StudentManagementPage: React.FC = () => {
 
       {/* Telemetry Counters */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <Card className="p-4 bg-[#11141C] border-[#1E2330]">
+        <Card className="p-4 bg-white border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold uppercase tracking-wider text-gray-400">
+            <span className="text-xs font-semibold uppercase tracking-wider text-slate-600 font-bold">
               Total Students
             </span>
             <div className="p-2 rounded-lg bg-teal-500/10 text-teal-300">
               <GraduationCap className="w-4 h-4" />
             </div>
           </div>
-          <div className="mt-2 text-2xl font-bold text-white">{totalElements}</div>
+          <div className="mt-2 text-2xl font-bold text-slate-900">{totalElements}</div>
           <div className="text-[11px] text-gray-400 mt-1">Institutional academic records</div>
         </Card>
 
-        <Card className="p-4 bg-[#11141C] border-[#1E2330]">
+        <Card className="p-4 bg-white border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold uppercase tracking-wider text-gray-400">
+            <span className="text-xs font-semibold uppercase tracking-wider text-slate-600 font-bold">
               Active (Current Page)
             </span>
             <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-300">
@@ -439,9 +439,9 @@ export const StudentManagementPage: React.FC = () => {
           <div className="text-[11px] text-gray-400 mt-1">In good academic standing</div>
         </Card>
 
-        <Card className="p-4 bg-[#11141C] border-[#1E2330]">
+        <Card className="p-4 bg-white border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold uppercase tracking-wider text-gray-400">
+            <span className="text-xs font-semibold uppercase tracking-wider text-slate-600 font-bold">
               Inactive / Suspended
             </span>
             <div className="p-2 rounded-lg bg-rose-500/10 text-rose-300">
@@ -454,9 +454,9 @@ export const StudentManagementPage: React.FC = () => {
           <div className="text-[11px] text-gray-400 mt-1">Dormant or restricted</div>
         </Card>
 
-        <Card className="p-4 bg-[#11141C] border-[#1E2330]">
+        <Card className="p-4 bg-white border-slate-200">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold uppercase tracking-wider text-gray-400">
+            <span className="text-xs font-semibold uppercase tracking-wider text-slate-600 font-bold">
               Academic Departments
             </span>
             <div className="p-2 rounded-lg bg-indigo-500/10 text-indigo-300">
@@ -471,7 +471,7 @@ export const StudentManagementPage: React.FC = () => {
       </div>
 
       {/* Toolbar: Search, Multi-Level Filters, Clear */}
-      <Card className="p-4 bg-[#11141C] border-[#1E2330]">
+      <Card className="p-4 bg-white border-slate-200">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3">
           {/* Search Input */}
           <div className="sm:col-span-2 relative">
@@ -481,7 +481,7 @@ export const StudentManagementPage: React.FC = () => {
               placeholder="Search by register no, name, username, email..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-9 pr-3 py-2 bg-[#171A23] border border-white/10 rounded-xl text-xs text-gray-200 placeholder-gray-500 focus:outline-none focus:border-teal-500 transition-colors"
+              className="w-full pl-9 pr-3 py-2 bg-slate-50 border border-white/10 rounded-xl text-xs text-gray-200 placeholder-gray-500 focus:outline-none focus:border-teal-500 transition-colors"
             />
           </div>
 
@@ -490,7 +490,7 @@ export const StudentManagementPage: React.FC = () => {
             <select
               value={departmentFilter}
               onChange={(e) => setDepartmentFilter(e.target.value)}
-              className="w-full px-3 py-2 bg-[#171A23] border border-white/10 rounded-xl text-xs text-gray-200 focus:outline-none focus:border-teal-500 transition-colors"
+              className="w-full px-3 py-2 bg-slate-50 border border-white/10 rounded-xl text-xs text-gray-200 focus:outline-none focus:border-teal-500 transition-colors"
             >
               <option value="ALL">All Departments</option>
               {referenceData?.departments?.map((d) => (
@@ -506,7 +506,7 @@ export const StudentManagementPage: React.FC = () => {
             <select
               value={programFilter}
               onChange={(e) => setProgramFilter(e.target.value)}
-              className="w-full px-3 py-2 bg-[#171A23] border border-white/10 rounded-xl text-xs text-gray-200 focus:outline-none focus:border-teal-500 transition-colors"
+              className="w-full px-3 py-2 bg-slate-50 border border-white/10 rounded-xl text-xs text-gray-200 focus:outline-none focus:border-teal-500 transition-colors"
             >
               <option value="ALL">All Programs</option>
               {filterAvailablePrograms.map((p) => (
@@ -522,7 +522,7 @@ export const StudentManagementPage: React.FC = () => {
             <select
               value={sectionFilter}
               onChange={(e) => setSectionFilter(e.target.value)}
-              className="w-full px-3 py-2 bg-[#171A23] border border-white/10 rounded-xl text-xs text-gray-200 focus:outline-none focus:border-teal-500 transition-colors"
+              className="w-full px-3 py-2 bg-slate-50 border border-white/10 rounded-xl text-xs text-gray-200 focus:outline-none focus:border-teal-500 transition-colors"
             >
               <option value="ALL">All Sections</option>
               {filterAvailableSections.map((s) => (
@@ -538,7 +538,7 @@ export const StudentManagementPage: React.FC = () => {
             <select
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
-              className="w-full px-3 py-2 bg-[#171A23] border border-white/10 rounded-xl text-xs text-gray-200 focus:outline-none focus:border-teal-500 transition-colors"
+              className="w-full px-3 py-2 bg-slate-50 border border-white/10 rounded-xl text-xs text-gray-200 focus:outline-none focus:border-teal-500 transition-colors"
             >
               <option value="ALL">All Statuses</option>
               <option value="ACTIVE">ACTIVE</option>
@@ -572,7 +572,7 @@ export const StudentManagementPage: React.FC = () => {
       )}
 
       {/* Student Table Card */}
-      <Card className="overflow-hidden bg-[#11141C] border-[#1E2330]">
+      <Card className="overflow-hidden bg-white border-slate-200">
         {loading && students.length === 0 ? (
           <div className="p-4">
             <SkeletonTable rows={6} columns={8} />
@@ -595,7 +595,7 @@ export const StudentManagementPage: React.FC = () => {
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="border-b border-white/5 bg-[#141822] text-[11px] font-semibold text-gray-400 uppercase tracking-wider">
+                <tr className="border-b border-white/5 bg-slate-50 text-[11px] font-semibold text-slate-600 font-bold uppercase tracking-wider">
                   <th className="py-3.5 px-4">Student</th>
                   <th className="py-3.5 px-4">Register Number</th>
                   <th className="py-3.5 px-4">Email</th>
@@ -615,10 +615,10 @@ export const StudentManagementPage: React.FC = () => {
                       <div className="font-semibold text-gray-100 flex items-center gap-1.5">
                         <span>{student.studentName || `${student.firstName} ${student.lastName}`}</span>
                       </div>
-                      <div className="text-[11px] text-gray-400 flex items-center gap-1 mt-0.5">
-                        <span className="font-mono text-gray-500">@{student.username}</span>
+                      <div className="text-[11px] text-slate-600 font-medium flex items-center gap-1 mt-0.5">
+                        <span className="font-mono text-slate-500 font-medium">@{student.username}</span>
                         {student.rollNumber && (
-                          <span className="text-gray-500">· Roll: {student.rollNumber}</span>
+                          <span className="text-slate-500 font-medium">· Roll: {student.rollNumber}</span>
                         )}
                       </div>
                     </td>
@@ -632,31 +632,31 @@ export const StudentManagementPage: React.FC = () => {
 
                     {/* Email */}
                     <td className="py-3.5 px-4">
-                      <div className="text-gray-300 flex items-center gap-1">
-                        <Mail className="w-3 h-3 text-gray-500 shrink-0" />
+                      <div className="text-slate-700 font-medium flex items-center gap-1">
+                        <Mail className="w-3 h-3 text-slate-500 font-medium shrink-0" />
                         <span className="truncate max-w-[170px]">{student.email}</span>
                       </div>
                     </td>
 
                     {/* Department */}
                     <td className="py-3.5 px-4">
-                      <div className="font-medium text-gray-200">{student.departmentCode}</div>
-                      <div className="text-[10px] text-gray-500 truncate max-w-[140px]">
+                      <div className="font-medium text-slate-800 font-medium">{student.departmentCode}</div>
+                      <div className="text-[10px] text-slate-500 font-medium truncate max-w-[140px]">
                         {student.departmentName}
                       </div>
                     </td>
 
                     {/* Program */}
                     <td className="py-3.5 px-4">
-                      <div className="text-gray-300 truncate max-w-[160px]">
+                      <div className="text-slate-700 font-medium truncate max-w-[160px]">
                         {student.programName}
                       </div>
                     </td>
 
                     {/* Semester & Batch */}
                     <td className="py-3.5 px-4">
-                      <div className="text-gray-200 font-medium">Sem {student.currentSemester}</div>
-                      <div className="text-[10px] text-gray-500">Adm {student.admissionYear}</div>
+                      <div className="text-slate-800 font-medium font-medium">Sem {student.currentSemester}</div>
+                      <div className="text-[10px] text-slate-500 font-medium">Adm {student.admissionYear}</div>
                     </td>
 
                     {/* Section */}
@@ -664,7 +664,7 @@ export const StudentManagementPage: React.FC = () => {
                       {student.sectionName ? (
                         <Badge variant="teal">{student.sectionName}</Badge>
                       ) : (
-                        <span className="text-gray-500 text-[11px]">Unassigned</span>
+                        <span className="text-slate-500 font-medium text-[11px]">Unassigned</span>
                       )}
                     </td>
 
@@ -679,7 +679,7 @@ export const StudentManagementPage: React.FC = () => {
                           type="button"
                           onClick={() => handleOpenDetails(student)}
                           title="View Complete Academic & Account Details"
-                          className="p-1.5 rounded-lg bg-[#171A23] hover:bg-[#222838] text-gray-300 border border-white/5 transition-colors"
+                          className="p-1.5 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-700 font-medium border border-white/5 transition-colors"
                         >
                           <Eye className="w-3.5 h-3.5" />
                         </button>
@@ -689,7 +689,7 @@ export const StudentManagementPage: React.FC = () => {
                           type="button"
                           onClick={() => handleOpenEditModal(student)}
                           title="Edit Student Academic Record"
-                          className="p-1.5 rounded-lg bg-[#171A23] hover:bg-[#222838] text-teal-300 border border-white/5 transition-colors"
+                          className="p-1.5 rounded-lg bg-slate-50 hover:bg-slate-100 text-teal-300 border border-white/5 transition-colors"
                         >
                           <Edit3 className="w-3.5 h-3.5" />
                         </button>
@@ -730,7 +730,7 @@ export const StudentManagementPage: React.FC = () => {
 
         {/* Server Pagination */}
         {totalPages > 0 && (
-          <div className="p-4 border-t border-white/5 bg-[#141822]">
+          <div className="p-4 border-t border-white/5 bg-slate-50">
             <Pagination
               currentPage={page + 1}
               totalPages={totalPages}
@@ -758,7 +758,7 @@ export const StudentManagementPage: React.FC = () => {
           </p>
 
           {/* Academic Information Section */}
-          <div className="border border-white/5 rounded-xl p-3.5 bg-[#141822]/60 space-y-3">
+          <div className="border border-white/5 rounded-xl p-3.5 bg-slate-50/60 space-y-3">
             <div className="text-xs font-semibold text-teal-400 uppercase tracking-wider flex items-center gap-1.5">
               <Building2 className="w-3.5 h-3.5" />
               <span>Academic Structure</span>
@@ -798,7 +798,7 @@ export const StudentManagementPage: React.FC = () => {
                       sectionId: undefined,
                     });
                   }}
-                  className="w-full px-3 py-2 bg-[#171A23] border border-white/10 rounded-xl text-xs text-gray-200 focus:outline-none focus:border-teal-500 transition-colors"
+                  className="w-full px-3 py-2 bg-slate-50 border border-white/10 rounded-xl text-xs text-gray-200 focus:outline-none focus:border-teal-500 transition-colors"
                   required
                 >
                   <option value={0}>Select Department...</option>
@@ -825,7 +825,7 @@ export const StudentManagementPage: React.FC = () => {
                       sectionId: undefined,
                     });
                   }}
-                  className="w-full px-3 py-2 bg-[#171A23] border border-white/10 rounded-xl text-xs text-gray-200 focus:outline-none focus:border-teal-500 transition-colors disabled:opacity-50"
+                  className="w-full px-3 py-2 bg-slate-50 border border-white/10 rounded-xl text-xs text-gray-200 focus:outline-none focus:border-teal-500 transition-colors disabled:opacity-50"
                   required
                 >
                   <option value={0}>Select Program...</option>
@@ -848,7 +848,7 @@ export const StudentManagementPage: React.FC = () => {
                       sectionId: e.target.value ? Number(e.target.value) : undefined,
                     })
                   }
-                  className="w-full px-3 py-2 bg-[#171A23] border border-white/10 rounded-xl text-xs text-gray-200 focus:outline-none focus:border-teal-500 transition-colors disabled:opacity-50"
+                  className="w-full px-3 py-2 bg-slate-50 border border-white/10 rounded-xl text-xs text-gray-200 focus:outline-none focus:border-teal-500 transition-colors disabled:opacity-50"
                 >
                   <option value="">None / Unassigned</option>
                   {createAvailableSections.map((s) => (
@@ -887,7 +887,7 @@ export const StudentManagementPage: React.FC = () => {
           </div>
 
           {/* User Account Association Section */}
-          <div className="border border-white/5 rounded-xl p-3.5 bg-[#141822]/60 space-y-3">
+          <div className="border border-white/5 rounded-xl p-3.5 bg-slate-50/60 space-y-3">
             <div className="text-xs font-semibold text-teal-400 uppercase tracking-wider flex items-center justify-between">
               <span className="flex items-center gap-1.5">
                 <User className="w-3.5 h-3.5" />
@@ -985,7 +985,7 @@ export const StudentManagementPage: React.FC = () => {
                       userId: e.target.value ? Number(e.target.value) : undefined,
                     })
                   }
-                  className="w-full px-3 py-2 bg-[#171A23] border border-white/10 rounded-xl text-xs text-gray-200 focus:outline-none focus:border-teal-500 transition-colors"
+                  className="w-full px-3 py-2 bg-slate-50 border border-white/10 rounded-xl text-xs text-gray-200 focus:outline-none focus:border-teal-500 transition-colors"
                   required
                 >
                   <option value="">Choose an existing STUDENT account...</option>
@@ -1037,7 +1037,7 @@ export const StudentManagementPage: React.FC = () => {
           maxWidth="lg"
         >
           <form onSubmit={handleEditSubmit} className="space-y-4">
-            <div className="border border-white/5 rounded-xl p-3.5 bg-[#141822]/60 space-y-3">
+            <div className="border border-white/5 rounded-xl p-3.5 bg-slate-50/60 space-y-3">
               <div className="text-xs font-semibold text-teal-400 uppercase tracking-wider flex items-center gap-1.5">
                 <Building2 className="w-3.5 h-3.5" />
                 <span>Academic Information</span>
@@ -1073,7 +1073,7 @@ export const StudentManagementPage: React.FC = () => {
                         sectionId: undefined,
                       });
                     }}
-                    className="w-full px-3 py-2 bg-[#171A23] border border-white/10 rounded-xl text-xs text-gray-200 focus:outline-none focus:border-teal-500 transition-colors"
+                    className="w-full px-3 py-2 bg-slate-50 border border-white/10 rounded-xl text-xs text-gray-200 focus:outline-none focus:border-teal-500 transition-colors"
                     required
                   >
                     {referenceData?.departments?.map((d) => (
@@ -1096,7 +1096,7 @@ export const StudentManagementPage: React.FC = () => {
                         sectionId: undefined,
                       })
                     }
-                    className="w-full px-3 py-2 bg-[#171A23] border border-white/10 rounded-xl text-xs text-gray-200 focus:outline-none focus:border-teal-500 transition-colors disabled:opacity-50"
+                    className="w-full px-3 py-2 bg-slate-50 border border-white/10 rounded-xl text-xs text-gray-200 focus:outline-none focus:border-teal-500 transition-colors disabled:opacity-50"
                     required
                   >
                     <option value={0}>Select Program...</option>
@@ -1119,7 +1119,7 @@ export const StudentManagementPage: React.FC = () => {
                         sectionId: e.target.value ? Number(e.target.value) : undefined,
                       })
                     }
-                    className="w-full px-3 py-2 bg-[#171A23] border border-white/10 rounded-xl text-xs text-gray-200 focus:outline-none focus:border-teal-500 transition-colors disabled:opacity-50"
+                    className="w-full px-3 py-2 bg-slate-50 border border-white/10 rounded-xl text-xs text-gray-200 focus:outline-none focus:border-teal-500 transition-colors disabled:opacity-50"
                   >
                     <option value="">None / Unassigned</option>
                     {editAvailableSections.map((s) => (
@@ -1155,7 +1155,7 @@ export const StudentManagementPage: React.FC = () => {
               </div>
             </div>
 
-            <div className="border border-white/5 rounded-xl p-3.5 bg-[#141822]/60 space-y-3">
+            <div className="border border-white/5 rounded-xl p-3.5 bg-slate-50/60 space-y-3">
               <div className="text-xs font-semibold text-teal-400 uppercase tracking-wider flex items-center gap-1.5">
                 <User className="w-3.5 h-3.5" />
                 <span>Personal & Account Information</span>
@@ -1225,14 +1225,14 @@ export const StudentManagementPage: React.FC = () => {
           ) : studentDetails ? (
             <div className="space-y-4">
               {/* Profile Card Header */}
-              <div className="p-4 rounded-xl bg-[#141822] border border-white/5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+              <div className="p-4 rounded-xl bg-slate-50 border border-white/5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-400 font-bold text-lg">
                     {studentDetails.firstName?.[0] || 'S'}
                     {studentDetails.lastName?.[0] || ''}
                   </div>
                   <div>
-                    <h3 className="text-base font-bold text-white">
+                    <h3 className="text-base font-bold text-slate-900">
                       {studentDetails.firstName} {studentDetails.lastName}
                     </h3>
                     <div className="text-xs text-teal-400 font-mono">
@@ -1252,7 +1252,7 @@ export const StudentManagementPage: React.FC = () => {
               {/* Grid 2-column breakdown */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Academic Information */}
-                <div className="p-3.5 rounded-xl bg-[#141822]/80 border border-white/5 space-y-2.5">
+                <div className="p-3.5 rounded-xl bg-slate-50/80 border border-white/5 space-y-2.5">
                   <div className="text-xs font-semibold text-teal-400 uppercase tracking-wider flex items-center gap-1.5">
                     <Building2 className="w-3.5 h-3.5" />
                     <span>Academic Allocation</span>
@@ -1288,7 +1288,7 @@ export const StudentManagementPage: React.FC = () => {
                 </div>
 
                 {/* Account & User Identity */}
-                <div className="p-3.5 rounded-xl bg-[#141822]/80 border border-white/5 space-y-2.5">
+                <div className="p-3.5 rounded-xl bg-slate-50/80 border border-white/5 space-y-2.5">
                   <div className="text-xs font-semibold text-teal-400 uppercase tracking-wider flex items-center gap-1.5">
                     <User className="w-3.5 h-3.5" />
                     <span>Account Identity</span>
@@ -1321,7 +1321,7 @@ export const StudentManagementPage: React.FC = () => {
               </div>
 
               {/* Audit Timestamps */}
-              <div className="p-3 rounded-xl bg-[#171A23] border border-white/5 flex items-center justify-between text-[11px] text-gray-400">
+              <div className="p-3 rounded-xl bg-slate-50 border border-white/5 flex items-center justify-between text-[11px] text-gray-400">
                 <span>
                   Created:{' '}
                   {studentDetails.createdAt

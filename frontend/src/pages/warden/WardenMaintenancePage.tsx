@@ -230,7 +230,7 @@ export const WardenMaintenancePage: React.FC = () => {
                   placeholder="Search title, reporter, technician..."
                   value={filters.search || ''}
                   onChange={(e) => updateFilters({ search: e.target.value })}
-                  className="w-full pl-9 pr-4 py-1.5 bg-slate-900/80 border border-slate-700/70 rounded-lg text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-orange-500/60 transition-colors"
+                  className="w-full pl-9 pr-4 py-2 bg-white border border-slate-300 rounded-xl text-sm text-slate-900 placeholder-slate-400 font-medium focus:outline-none focus:border-indigo-500 shadow-2xs transition-colors"
                 />
               </div>
 
@@ -239,7 +239,7 @@ export const WardenMaintenancePage: React.FC = () => {
                 onChange={(e) =>
                   updateFilters({ priority: (e.target.value as PriorityLevel) || undefined })
                 }
-                className="bg-slate-900/80 border border-slate-700/70 rounded-lg text-xs text-slate-300 py-2 px-3 focus:outline-none focus:border-orange-500/60"
+                className="bg-white border border-slate-300 rounded-xl text-xs text-slate-900 font-bold py-2 px-3 focus:outline-none focus:border-indigo-500 shadow-2xs"
               >
                 <option value="">All Priorities</option>
                 <option value="LOW">Low</option>
@@ -304,7 +304,7 @@ export const WardenMaintenancePage: React.FC = () => {
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse text-sm">
                 <thead>
-                  <tr className="border-b border-slate-700/60 bg-slate-900/50 text-slate-400 text-xs uppercase tracking-wider">
+                  <tr className="border-b border-slate-200 bg-slate-50 text-slate-700 font-bold text-xs uppercase tracking-wider">
                     <th className="py-3.5 px-4 font-semibold">ID / Priority</th>
                     <th className="py-3.5 px-4 font-semibold">Title & Facility</th>
                     <th className="py-3.5 px-4 font-semibold">Location</th>
@@ -315,16 +315,16 @@ export const WardenMaintenancePage: React.FC = () => {
                     <th className="py-3.5 px-4 font-semibold text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-800/60">
+                <tbody className="divide-y divide-slate-200">
                   {maintenanceRequests.map((m) => (
                     <tr
                       key={m.id}
-                      className="hover:bg-slate-800/40 transition-colors group cursor-pointer"
+                      className="hover:bg-slate-50/80 transition-colors group cursor-pointer"
                       onClick={() => navigate(`/warden/maintenance/${m.id}`)}
                     >
                       <td className="py-3 px-4" onClick={(e) => e.stopPropagation()}>
                         <div className="flex items-center gap-2">
-                          <span className="font-mono text-xs text-slate-400">#{m.id}</span>
+                          <span className="font-mono text-xs text-slate-600 font-medium">#{m.id}</span>
                           {getPriorityBadge(m.priority)}
                         </div>
                       </td>
@@ -340,7 +340,7 @@ export const WardenMaintenancePage: React.FC = () => {
                       </td>
                       <td className="py-3 px-4">
                         <div className="flex items-center gap-1.5 text-xs text-slate-300">
-                          <Building className="w-3.5 h-3.5 text-slate-400" />
+                          <Building className="w-3.5 h-3.5 text-slate-600 font-medium" />
                           <span>{m.hostelName}</span>
                           {m.roomNumber && (
                             <Badge variant="neutral" className="text-[10px] py-0 px-1.5">
@@ -363,14 +363,14 @@ export const WardenMaintenancePage: React.FC = () => {
                         )}
                       </td>
                       <td className="py-3 px-4">{getStatusBadge(m.status)}</td>
-                      <td className="py-3 px-4 text-xs text-slate-400">
+                      <td className="py-3 px-4 text-xs text-slate-600 font-medium">
                         {m.createdAt ? new Date(m.createdAt).toLocaleDateString() : 'N/A'}
                       </td>
                       <td className="py-3 px-4 text-right" onClick={(e) => e.stopPropagation()}>
                         <Button
                           variant="ghost"
                           size="sm"
-                          leftIcon={<Eye className="w-3.5 h-3.5 text-slate-400" />}
+                          leftIcon={<Eye className="w-3.5 h-3.5 text-slate-600 font-medium" />}
                           onClick={() => navigate(`/warden/maintenance/${m.id}`)}
                         >
                           Manage
@@ -385,7 +385,7 @@ export const WardenMaintenancePage: React.FC = () => {
 
           {/* Pagination */}
           {totalPages > 1 && (
-            <div className="p-4 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
+            <div className="p-4 border-t border-slate-200 flex items-center justify-between text-xs text-slate-600 font-medium">
               <span>
                 Page {currentPage + 1} of {totalPages} ({totalElements} total work orders)
               </span>

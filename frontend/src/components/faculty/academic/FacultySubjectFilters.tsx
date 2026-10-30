@@ -25,7 +25,7 @@ export const FacultySubjectFilters: React.FC<FacultySubjectFiltersProps> = ({
   onReset,
 }) => {
   return (
-    <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-4 mb-6 shadow-card">
+    <div className="bg-white border border-slate-200 rounded-xl p-4 mb-6 shadow-card">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         {/* Search input */}
         <div className="relative flex-1">
@@ -35,7 +35,7 @@ export const FacultySubjectFilters: React.FC<FacultySubjectFiltersProps> = ({
             value={search}
             onChange={(e) => onSearchChange(e.target.value)}
             placeholder="Search by subject code or title..."
-            className="w-full pl-9 pr-4 py-2 bg-[#171A23] border border-[#1E2330] rounded-lg text-sm text-gray-100 placeholder-gray-500 focus:outline-none focus:border-teal-500/50 transition-colors"
+            className="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-sm text-gray-100 placeholder-gray-500 focus:outline-none focus:border-teal-500/50 transition-colors"
           />
         </div>
 
@@ -46,7 +46,7 @@ export const FacultySubjectFilters: React.FC<FacultySubjectFiltersProps> = ({
             <select
               value={programId ?? ''}
               onChange={(e) => onProgramChange(e.target.value ? Number(e.target.value) : undefined)}
-              className="bg-[#171A23] border border-[#1E2330] rounded-lg px-3 py-2 text-xs text-gray-200 focus:outline-none focus:border-teal-500/50"
+              className="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-xs text-gray-200 focus:outline-none focus:border-teal-500/50"
             >
               <option value="">All Programs</option>
               {availablePrograms.map((p) => (
@@ -61,7 +61,7 @@ export const FacultySubjectFilters: React.FC<FacultySubjectFiltersProps> = ({
           <select
             value={semester ?? ''}
             onChange={(e) => onSemesterChange(e.target.value ? Number(e.target.value) : undefined)}
-            className="bg-[#171A23] border border-[#1E2330] rounded-lg px-3 py-2 text-xs text-gray-200 focus:outline-none focus:border-teal-500/50"
+            className="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-xs text-gray-200 focus:outline-none focus:border-teal-500/50"
           >
             <option value="">All Semesters</option>
             {[1, 2, 3, 4, 5, 6, 7, 8].map((sem) => (
@@ -77,7 +77,7 @@ export const FacultySubjectFilters: React.FC<FacultySubjectFiltersProps> = ({
               variant="outline"
               size="sm"
               onClick={onReset}
-              className="border-[#1E2330] text-gray-400 hover:text-white"
+              className="border-slate-200 text-gray-400 hover:text-white"
             >
               <RotateCcw className="w-3.5 h-3.5 mr-1.5" />
               Reset

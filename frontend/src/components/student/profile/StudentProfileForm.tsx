@@ -64,7 +64,7 @@ export const StudentProfileForm: React.FC<StudentProfileFormProps> = ({
   };
 
   return (
-    <Card className="bg-[#11141C] border-[#1E2330]">
+    <Card className="bg-white border-slate-200">
       <CardHeader>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -122,7 +122,7 @@ export const StudentProfileForm: React.FC<StudentProfileFormProps> = ({
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {/* First Name */}
             <div>
-              <label className="block text-[11px] font-medium text-gray-400 mb-1.5 uppercase tracking-wider">
+              <label className="block text-[11px] font-medium text-slate-600 font-bold mb-1.5 uppercase tracking-wider">
                 First Name
               </label>
               <input
@@ -130,7 +130,7 @@ export const StudentProfileForm: React.FC<StudentProfileFormProps> = ({
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
                 disabled={!isEditing || updating}
-                className="w-full px-3 py-2 bg-[#171A23] border border-[#222838] rounded-xl text-xs text-gray-200 focus:outline-none focus:border-teal-500/50 disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
+                className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-gray-200 focus:outline-none focus:border-teal-500/50 disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
                 placeholder="First name"
                 required
               />
@@ -138,7 +138,7 @@ export const StudentProfileForm: React.FC<StudentProfileFormProps> = ({
 
             {/* Last Name */}
             <div>
-              <label className="block text-[11px] font-medium text-gray-400 mb-1.5 uppercase tracking-wider">
+              <label className="block text-[11px] font-medium text-slate-600 font-bold mb-1.5 uppercase tracking-wider">
                 Last Name
               </label>
               <input
@@ -146,7 +146,7 @@ export const StudentProfileForm: React.FC<StudentProfileFormProps> = ({
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
                 disabled={!isEditing || updating}
-                className="w-full px-3 py-2 bg-[#171A23] border border-[#222838] rounded-xl text-xs text-gray-200 focus:outline-none focus:border-teal-500/50 disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
+                className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-gray-200 focus:outline-none focus:border-teal-500/50 disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
                 placeholder="Last name"
                 required
               />
@@ -156,7 +156,7 @@ export const StudentProfileForm: React.FC<StudentProfileFormProps> = ({
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {/* Primary Phone */}
             <div>
-              <label className="block text-[11px] font-medium text-gray-400 mb-1.5 uppercase tracking-wider">
+              <label className="block text-[11px] font-medium text-slate-600 font-bold mb-1.5 uppercase tracking-wider">
                 Contact Phone
               </label>
               <div className="relative">
@@ -166,7 +166,7 @@ export const StudentProfileForm: React.FC<StudentProfileFormProps> = ({
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   disabled={!isEditing || updating}
-                  className="w-full pl-9 pr-3 py-2 bg-[#171A23] border border-[#222838] rounded-xl text-xs text-gray-200 focus:outline-none focus:border-teal-500/50 disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
+                  className="w-full pl-9 pr-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-gray-200 focus:outline-none focus:border-teal-500/50 disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
                   placeholder="+1 (555) 000-0000"
                 />
               </div>
@@ -174,7 +174,7 @@ export const StudentProfileForm: React.FC<StudentProfileFormProps> = ({
 
             {/* Official University Email (Read-only) */}
             <div>
-              <label className="block text-[11px] font-medium text-gray-400 mb-1.5 uppercase tracking-wider flex items-center justify-between">
+              <label className="block text-[11px] font-medium text-slate-600 font-bold mb-1.5 uppercase tracking-wider flex items-center justify-between">
                 <span>Official Institutional Email</span>
                 <span className="text-[10px] text-gray-400 lowercase font-normal">(locked)</span>
               </label>
@@ -184,7 +184,7 @@ export const StudentProfileForm: React.FC<StudentProfileFormProps> = ({
                   type="email"
                   value={profile.email}
                   disabled
-                  className="w-full pl-9 pr-3 py-2 bg-[#141822] border border-[#1E2330] rounded-xl text-xs text-gray-400 cursor-not-allowed opacity-75"
+                  className="w-full pl-9 pr-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-gray-400 cursor-not-allowed opacity-75"
                 />
               </div>
             </div>
@@ -193,7 +193,7 @@ export const StudentProfileForm: React.FC<StudentProfileFormProps> = ({
           {/* Registration Number Context (Read-only) */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
             <div>
-              <label className="block text-[11px] font-medium text-gray-400 mb-1.5 uppercase tracking-wider flex items-center justify-between">
+              <label className="block text-[11px] font-medium text-slate-600 font-bold mb-1.5 uppercase tracking-wider flex items-center justify-between">
                 <span>Register Number</span>
                 <span className="text-[10px] text-gray-400 lowercase font-normal">(locked)</span>
               </label>
@@ -203,14 +203,14 @@ export const StudentProfileForm: React.FC<StudentProfileFormProps> = ({
                   type="text"
                   value={profile.registerNumber}
                   disabled
-                  className="w-full pl-9 pr-3 py-2 bg-[#141822] border border-[#1E2330] rounded-xl text-xs font-mono text-teal-400 cursor-not-allowed opacity-75"
+                  className="w-full pl-9 pr-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-mono text-teal-400 cursor-not-allowed opacity-75"
                 />
               </div>
             </div>
 
             {profile.rollNumber && (
               <div>
-                <label className="block text-[11px] font-medium text-gray-400 mb-1.5 uppercase tracking-wider flex items-center justify-between">
+                <label className="block text-[11px] font-medium text-slate-600 font-bold mb-1.5 uppercase tracking-wider flex items-center justify-between">
                   <span>Class Roll Number</span>
                   <span className="text-[10px] text-gray-400 lowercase font-normal">(locked)</span>
                 </label>
@@ -218,14 +218,14 @@ export const StudentProfileForm: React.FC<StudentProfileFormProps> = ({
                   type="text"
                   value={profile.rollNumber}
                   disabled
-                  className="w-full px-3 py-2 bg-[#141822] border border-[#1E2330] rounded-xl text-xs font-mono text-gray-400 cursor-not-allowed opacity-75"
+                  className="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs font-mono text-gray-400 cursor-not-allowed opacity-75"
                 />
               </div>
             )}
           </div>
 
           {isEditing && (
-            <div className="pt-3 border-t border-[#1E2330] flex items-center justify-end gap-2">
+            <div className="pt-3 border-t border-slate-200 flex items-center justify-end gap-2">
               <Button
                 type="button"
                 variant="outline"

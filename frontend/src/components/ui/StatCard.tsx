@@ -36,22 +36,22 @@ export const StatCard: React.FC<StatCardProps> = ({
   action,
 }) => {
   const iconColors = {
-    teal: 'bg-teal-500/10 text-teal-300 border-teal-500/20',
-    purple: 'bg-purple-500/10 text-purple-300 border-purple-500/20',
-    blue: 'bg-blue-500/10 text-blue-300 border-blue-500/20',
-    orange: 'bg-orange-500/10 text-orange-300 border-orange-500/20',
-    rose: 'bg-rose-500/10 text-rose-300 border-rose-500/20',
-    emerald: 'bg-emerald-500/10 text-emerald-300 border-emerald-500/20',
+    teal: 'bg-[#EEF6F1]/90 text-[#3F7655] border-[#C1DFCD]/80',
+    purple: 'bg-[#F4F0E6]/90 text-[#202020] border-[#D8C9A8]/80',
+    blue: 'bg-[#EFF4F8]/90 text-[#657C91] border-[#C6D5E2]/80',
+    orange: 'bg-[#FAF4E8]/90 text-[#A87928] border-[#EED9B2]/80',
+    rose: 'bg-[#FDF0F0]/90 text-[#B44747] border-[#ECC6C6]/80',
+    emerald: 'bg-[#EEF6F1]/90 text-[#3F7655] border-[#C1DFCD]/80',
   };
 
   return (
-    <Card className={cn('p-5 flex flex-col justify-between hoverEffect', className)}>
+    <Card hoverEffect className={cn('p-5 flex flex-col justify-between bg-white/80 backdrop-blur-md border border-[#D8C9A8]/70 shadow-glass rounded-2xl', className)}>
       <div className="flex items-center justify-between gap-2">
-        <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider truncate">
+        <span className="text-xs font-serif font-bold text-[#555555] uppercase tracking-wider truncate">
           {title}
         </span>
         {Icon && (
-          <div className={cn('p-2 rounded-xl border shrink-0', iconColors[iconColor])}>
+          <div className={cn('p-2.5 rounded-xl border shrink-0 backdrop-blur-xs shadow-xs', iconColors[iconColor])}>
             <Icon className="w-4 h-4" />
           </div>
         )}
@@ -59,13 +59,13 @@ export const StatCard: React.FC<StatCardProps> = ({
 
       <div className="mt-3">
         <div className="flex items-baseline gap-2 flex-wrap">
-          <span className="text-2xl sm:text-3xl font-bold font-mono text-white tracking-tight">
+          <span className="text-2xl sm:text-3xl font-serif font-bold text-[#202020] tracking-tight">
             {value}
           </span>
           {badge ? (
             <div className="shrink-0">{badge}</div>
           ) : badgeText ? (
-            <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-white/5 text-gray-400 border border-white/10">
+            <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-full bg-[#F8F6F0]/90 text-[#202020] border border-[#D8C9A8] shadow-xs">
               {badgeText}
             </span>
           ) : null}
@@ -74,34 +74,34 @@ export const StatCard: React.FC<StatCardProps> = ({
         {trend && (
           <div className="flex items-center gap-1.5 mt-1.5 text-[11px]">
             {trend.direction === 'up' || trend.positive === true ? (
-              <span className="text-emerald-400 font-medium inline-flex items-center gap-0.5">
+              <span className="text-[#3F7655] font-semibold inline-flex items-center gap-0.5">
                 <TrendingUp className="w-3 h-3" />
                 {trend.value || trend.label}
               </span>
             ) : trend.direction === 'down' || trend.positive === false ? (
-              <span className="text-rose-400 font-medium inline-flex items-center gap-0.5">
+              <span className="text-[#B44747] font-semibold inline-flex items-center gap-0.5">
                 <TrendingDown className="w-3 h-3" />
                 {trend.value || trend.label}
               </span>
             ) : (
-              <span className="text-gray-400 font-medium inline-flex items-center gap-0.5">
-                <Minus className="w-3 h-3 text-gray-500" />
+              <span className="text-[#555555] font-medium inline-flex items-center gap-0.5">
+                <Minus className="w-3 h-3 text-[#77736A]" />
                 {trend.value || trend.label || 'Nominal'}
               </span>
             )}
-            {trend.value && <span className="text-gray-500">vs baseline</span>}
+            {trend.value && <span className="text-[#77736A] font-medium">vs baseline</span>}
           </div>
         )}
 
         {description && (
-          <p className="text-[11px] text-gray-400 mt-1 truncate">
+          <p className="text-xs text-[#555555] font-normal mt-1.5 line-clamp-1">
             {description}
           </p>
         )}
       </div>
 
       {(action || footerText) && (
-        <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-between text-[10px] text-gray-500 font-mono">
+        <div className="mt-4 pt-3 border-t border-[#E8E0D0] flex items-center justify-between text-xs text-[#555555] font-normal">
           <span>{footerText || ''}</span>
           {action && <div className="shrink-0">{action}</div>}
         </div>

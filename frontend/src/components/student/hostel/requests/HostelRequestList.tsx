@@ -30,40 +30,40 @@ export const HostelRequestList: React.FC<Props> = ({
   onCancelRequest,
 }) => {
   return (
-    <Card className="bg-[#11141C] border-[#1E2330] overflow-hidden">
+    <Card className="bg-white border-slate-200 overflow-hidden">
       {/* Desktop Table View */}
       <div className="hidden md:block overflow-x-auto">
         <table className="w-full text-left border-collapse">
           <thead>
-            <tr className="border-b border-[#1E2330] bg-[#0C0E14]/70">
-              <th className="py-3 px-4 text-[11px] font-semibold text-gray-400 uppercase tracking-wider">
+            <tr className="border-b border-slate-200 bg-[#0C0E14]/70">
+              <th className="py-3 px-4 text-[11px] font-semibold text-slate-600 font-bold uppercase tracking-wider">
                 Request ID
               </th>
-              <th className="py-3 px-4 text-[11px] font-semibold text-gray-400 uppercase tracking-wider">
+              <th className="py-3 px-4 text-[11px] font-semibold text-slate-600 font-bold uppercase tracking-wider">
                 Type
               </th>
-              <th className="py-3 px-4 text-[11px] font-semibold text-gray-400 uppercase tracking-wider">
+              <th className="py-3 px-4 text-[11px] font-semibold text-slate-600 font-bold uppercase tracking-wider">
                 Description
               </th>
-              <th className="py-3 px-4 text-[11px] font-semibold text-gray-400 uppercase tracking-wider">
+              <th className="py-3 px-4 text-[11px] font-semibold text-slate-600 font-bold uppercase tracking-wider">
                 Submitted
               </th>
-              <th className="py-3 px-4 text-[11px] font-semibold text-gray-400 uppercase tracking-wider">
+              <th className="py-3 px-4 text-[11px] font-semibold text-slate-600 font-bold uppercase tracking-wider">
                 Priority
               </th>
-              <th className="py-3 px-4 text-[11px] font-semibold text-gray-400 uppercase tracking-wider">
+              <th className="py-3 px-4 text-[11px] font-semibold text-slate-600 font-bold uppercase tracking-wider">
                 Status
               </th>
-              <th className="py-3 px-4 text-[11px] font-semibold text-gray-400 uppercase tracking-wider text-right">
+              <th className="py-3 px-4 text-[11px] font-semibold text-slate-600 font-bold uppercase tracking-wider text-right">
                 Actions
               </th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-[#1E2330]">
+          <tbody className="divide-y divide-slate-200">
             {requests.map((req) => (
               <tr
                 key={req.id}
-                className="hover:bg-[#151923] transition-colors cursor-pointer"
+                className="hover:bg-slate-50 transition-colors cursor-pointer"
                 onClick={() => onViewDetails(req)}
               >
                 <td className="py-3.5 px-4 font-mono text-xs font-semibold text-teal-400">
@@ -73,16 +73,16 @@ export const HostelRequestList: React.FC<Props> = ({
                   <RequestTypeBadge type={req.requestType} />
                 </td>
                 <td className="py-3.5 px-4 max-w-xs">
-                  <p className="text-xs text-gray-300 truncate">
+                  <p className="text-xs text-slate-700 font-medium truncate">
                     {req.description}
                   </p>
                   {req.hostelName && (
-                    <span className="text-[11px] text-gray-500">
+                    <span className="text-[11px] text-slate-500 font-medium">
                       {req.hostelName} {req.roomNumber ? `• Room ${req.roomNumber}` : ''}
                     </span>
                   )}
                 </td>
-                <td className="py-3.5 px-4 text-xs text-gray-400 whitespace-nowrap">
+                <td className="py-3.5 px-4 text-xs text-slate-600 font-medium whitespace-nowrap">
                   {new Date(req.createdAt).toLocaleDateString(undefined, {
                     month: 'short',
                     day: 'numeric',
@@ -104,7 +104,7 @@ export const HostelRequestList: React.FC<Props> = ({
                       variant="ghost"
                       size="sm"
                       onClick={() => onViewDetails(req)}
-                      className="text-gray-400 hover:text-white h-7 px-2"
+                      className="text-slate-600 font-medium hover:text-white h-7 px-2"
                     >
                       <Eye className="w-3.5 h-3.5 mr-1" />
                       View
@@ -129,11 +129,11 @@ export const HostelRequestList: React.FC<Props> = ({
       </div>
 
       {/* Mobile Card View */}
-      <div className="md:hidden divide-y divide-[#1E2330]">
+      <div className="md:hidden divide-y divide-slate-200">
         {requests.map((req) => (
           <div
             key={req.id}
-            className="p-4 space-y-3 hover:bg-[#151923] transition-colors"
+            className="p-4 space-y-3 hover:bg-slate-50 transition-colors"
             onClick={() => onViewDetails(req)}
           >
             <div className="flex items-center justify-between">
@@ -156,14 +156,14 @@ export const HostelRequestList: React.FC<Props> = ({
             </div>
 
             <div
-              className="flex items-center justify-end gap-2 pt-2 border-t border-[#1E2330]"
+              className="flex items-center justify-end gap-2 pt-2 border-t border-slate-200"
               onClick={(e) => e.stopPropagation()}
             >
               <Button
                 variant="outline"
                 size="sm"
                 onClick={() => onViewDetails(req)}
-                className="border-[#222838] text-gray-300 h-7 text-xs"
+                className="border-slate-200 text-gray-300 h-7 text-xs"
               >
                 <Eye className="w-3.5 h-3.5 mr-1" />
                 Details
@@ -185,7 +185,7 @@ export const HostelRequestList: React.FC<Props> = ({
       </div>
 
       {/* Pagination Footer */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 p-4 border-t border-[#1E2330] bg-[#0C0E14]/40">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 p-4 border-t border-slate-200 bg-[#0C0E14]/40">
         <span className="text-xs text-gray-400">
           Showing <span className="font-medium text-white">{requests.length}</span> of{' '}
           <span className="font-medium text-white">{totalElements}</span> requests
@@ -198,7 +198,7 @@ export const HostelRequestList: React.FC<Props> = ({
               size="sm"
               onClick={() => onPageChange(page - 1)}
               disabled={page === 0}
-              className="border-[#222838] text-gray-300 h-8 px-2"
+              className="border-slate-200 text-gray-300 h-8 px-2"
             >
               <ChevronLeft className="w-4 h-4" />
             </Button>
@@ -211,7 +211,7 @@ export const HostelRequestList: React.FC<Props> = ({
               size="sm"
               onClick={() => onPageChange(page + 1)}
               disabled={page >= totalPages - 1}
-              className="border-[#222838] text-gray-300 h-8 px-2"
+              className="border-slate-200 text-gray-300 h-8 px-2"
             >
               <ChevronRight className="w-4 h-4" />
             </Button>

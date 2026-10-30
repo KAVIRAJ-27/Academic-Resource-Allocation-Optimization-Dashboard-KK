@@ -13,11 +13,11 @@ export const FacultyTimetableCard: React.FC<FacultyTimetableCardProps> = ({ time
 
   if (!timetable || timetable.length === 0) {
     return (
-      <Card className="h-full bg-[#11141C] border-[#1E2330] flex flex-col">
-        <CardHeader className="border-b border-[#1E2330] pb-4">
+      <Card className="h-full bg-white border-slate-200 shadow-xs flex flex-col">
+        <CardHeader className="border-b border-slate-100 pb-4">
           <div className="flex items-center justify-between">
-            <CardTitle className="text-sm font-bold text-white flex items-center gap-2">
-              <Clock className="w-4 h-4 text-teal-400" />
+            <CardTitle className="text-sm font-bold text-slate-900 flex items-center gap-2">
+              <Clock className="w-4 h-4 text-teal-600" />
               Upcoming Scheduled Classes
             </CardTitle>
             <Badge variant="neutral">0 Periods</Badge>
@@ -44,12 +44,12 @@ export const FacultyTimetableCard: React.FC<FacultyTimetableCardProps> = ({ time
   };
 
   return (
-    <Card className="h-full bg-[#11141C] border-[#1E2330] flex flex-col shadow-card hover:border-[#2A3245] transition-all">
-      <CardHeader className="border-b border-[#1E2330] pb-4">
+    <Card className="h-full bg-white border-slate-200 shadow-xs flex flex-col hover:border-slate-300 transition-all">
+      <CardHeader className="border-b border-slate-100 pb-4">
         <div className="flex items-center justify-between">
           <div>
-            <CardTitle className="text-sm font-bold text-white flex items-center gap-2">
-              <Clock className="w-4 h-4 text-teal-400" />
+            <CardTitle className="text-sm font-bold text-slate-900 flex items-center gap-2">
+              <Clock className="w-4 h-4 text-teal-600" />
               Instruction Timetable Matrix
             </CardTitle>
             <CardDescription>
@@ -62,7 +62,7 @@ export const FacultyTimetableCard: React.FC<FacultyTimetableCardProps> = ({ time
               variant="ghost"
               size="sm"
               onClick={() => navigate('/faculty/timetable')}
-              className="text-teal-400 hover:text-teal-300 text-xs px-2 py-1 h-auto"
+              className="text-teal-700 hover:text-teal-800 text-xs px-2 py-1 h-auto"
             >
               <span>View All</span>
               <ArrowRight className="w-3 h-3 ml-1" />
@@ -75,31 +75,31 @@ export const FacultyTimetableCard: React.FC<FacultyTimetableCardProps> = ({ time
         {timetable.map((t) => (
           <div
             key={t.id}
-            className="p-3 bg-[#0E1017] border border-[#1E2330] rounded-xl hover:border-teal-500/30 transition-all flex items-center justify-between gap-3"
+            className="p-3 bg-slate-50/70 border border-slate-200/80 rounded-xl hover:border-teal-300 hover:bg-teal-50/20 transition-all flex items-center justify-between gap-3"
           >
             <div className="space-y-1 min-w-0">
               <div className="flex items-center gap-2">
-                <span className="font-mono text-xs font-semibold text-teal-300">
+                <span className="font-mono text-xs font-semibold text-teal-800">
                   {t.subjectCode}
                 </span>
-                <span className="text-xs font-medium text-white truncate max-w-[200px]" title={t.subjectName}>
+                <span className="text-xs font-medium text-slate-900 truncate max-w-[200px]" title={t.subjectName}>
                   {t.subjectName}
                 </span>
               </div>
-              <div className="flex items-center gap-3 text-[11px] text-gray-400 flex-wrap">
-                <span className="flex items-center gap-1 font-semibold text-gray-300">
-                  <Calendar className="w-3 h-3 text-gray-500" />
+              <div className="flex items-center gap-3 text-[11px] text-slate-500 flex-wrap">
+                <span className="flex items-center gap-1 font-semibold text-slate-700">
+                  <Calendar className="w-3 h-3 text-slate-400" />
                   {t.dayOfWeek}
                 </span>
                 {t.roomNumber && (
-                  <span className="flex items-center gap-1 text-teal-400">
-                    <MapPin className="w-3 h-3" />
+                  <span className="flex items-center gap-1 text-teal-700">
+                    <MapPin className="w-3 h-3 text-teal-600" />
                     {t.roomNumber} {t.roomName ? `(${t.roomName})` : ''}
                   </span>
                 )}
                 {t.sectionName && (
                   <span className="flex items-center gap-1">
-                    <Users className="w-3 h-3 text-gray-500" />
+                    <Users className="w-3 h-3 text-slate-400" />
                     Sec {t.sectionName}
                   </span>
                 )}
@@ -107,7 +107,7 @@ export const FacultyTimetableCard: React.FC<FacultyTimetableCardProps> = ({ time
             </div>
 
             <div className="shrink-0 text-right">
-              <span className="font-mono text-xs font-bold text-white bg-[#171A23] px-2.5 py-1 rounded-lg border border-[#262C3D] block">
+              <span className="font-mono text-xs font-bold text-slate-800 bg-white px-2.5 py-1 rounded-lg border border-slate-200 shadow-2xs block">
                 {formatTime(t.startTime)} - {formatTime(t.endTime)}
               </span>
             </div>

@@ -585,7 +585,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
   // RENDER
   // =========================================================================
   return (
-    <div className="space-y-6 text-slate-100">
+    <div className="space-y-6 text-slate-900">
       {/* Toast */}
       {feedbackToast && (
         <div
@@ -607,7 +607,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white flex items-center gap-3">
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 flex items-center gap-3">
             <GraduationCap className="w-8 h-8 text-teal-400" />
             Staff Management
           </h1>
@@ -621,7 +621,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
             variant="outline"
             size="sm"
             onClick={handleRefreshAll}
-            className="border-[#2A2E3D] hover:bg-[#1A1D27] text-slate-300"
+            className="border-slate-200 hover:bg-slate-100 text-slate-300"
           >
             <RefreshCw className="w-4 h-4 mr-2" />
             Refresh
@@ -679,35 +679,35 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
 
       {/* Telemetry KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <Card className="bg-[#11141C] border-[#222838] p-4 flex items-center gap-4">
+        <Card className="bg-white border-slate-200 p-4 flex items-center gap-4">
           <div className="p-3 rounded-xl bg-teal-500/10 text-teal-400 border border-teal-500/20">
             <Users className="w-6 h-6" />
           </div>
           <div>
-            <p className="text-xs uppercase tracking-wider text-slate-400 font-semibold">Total Faculty</p>
-            <p className="text-2xl font-bold text-white mt-0.5">{facultyModule.totalElements}</p>
+            <p className="text-xs uppercase tracking-wider text-slate-600 font-bold font-semibold">Total Faculty</p>
+            <p className="text-2xl font-bold text-slate-900 mt-0.5">{facultyModule.totalElements}</p>
             <p className="text-xs text-slate-400 mt-0.5">Active Academic Members</p>
           </div>
         </Card>
 
-        <Card className="bg-[#11141C] border-[#222838] p-4 flex items-center gap-4">
+        <Card className="bg-white border-slate-200 p-4 flex items-center gap-4">
           <div className="p-3 rounded-xl bg-purple-500/10 text-purple-400 border border-purple-500/20">
             <Briefcase className="w-6 h-6" />
           </div>
           <div>
-            <p className="text-xs uppercase tracking-wider text-slate-400 font-semibold">Department HODs</p>
-            <p className="text-2xl font-bold text-white mt-0.5">{hodModule.totalElements}</p>
+            <p className="text-xs uppercase tracking-wider text-slate-600 font-bold font-semibold">Department HODs</p>
+            <p className="text-2xl font-bold text-slate-900 mt-0.5">{hodModule.totalElements}</p>
             <p className="text-xs text-slate-400 mt-0.5">Chaired Departments</p>
           </div>
         </Card>
 
-        <Card className="bg-[#11141C] border-[#222838] p-4 flex items-center gap-4">
+        <Card className="bg-white border-slate-200 p-4 flex items-center gap-4">
           <div className="p-3 rounded-xl bg-blue-500/10 text-blue-400 border border-blue-500/20">
             <ShieldCheck className="w-6 h-6" />
           </div>
           <div>
-            <p className="text-xs uppercase tracking-wider text-slate-400 font-semibold">Principal Office</p>
-            <p className="text-base font-bold text-white mt-0.5 truncate max-w-[170px]">
+            <p className="text-xs uppercase tracking-wider text-slate-600 font-bold font-semibold">Principal Office</p>
+            <p className="text-base font-bold text-slate-900 mt-0.5 truncate max-w-[170px]">
               {principalModule.currentPrincipal
                 ? principalModule.currentPrincipal.facultyName
                 : 'Unassigned'}
@@ -718,29 +718,29 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
           </div>
         </Card>
 
-        <Card className="bg-[#11141C] border-[#222838] p-4 flex items-center gap-4">
+        <Card className="bg-white border-slate-200 p-4 flex items-center gap-4">
           <div className="p-3 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20">
             <KeyRound className="w-6 h-6" />
           </div>
           <div>
-            <p className="text-xs uppercase tracking-wider text-slate-400 font-semibold">Hostel Wardens</p>
-            <p className="text-2xl font-bold text-white mt-0.5">{wardenModule.totalElements}</p>
+            <p className="text-xs uppercase tracking-wider text-slate-600 font-bold font-semibold">Hostel Wardens</p>
+            <p className="text-2xl font-bold text-slate-900 mt-0.5">{wardenModule.totalElements}</p>
             <p className="text-xs text-slate-400 mt-0.5">Residential Wardens</p>
           </div>
         </Card>
       </div>
 
       {/* Main Container */}
-      <Card className="bg-[#11141C] border-[#222838] overflow-hidden">
+      <Card className="bg-white border-slate-200 overflow-hidden">
         {/* Navigation Tabs */}
-        <div className="p-4 border-b border-[#222838] flex flex-wrap items-center justify-between gap-4">
-          <div className="inline-flex p-1 rounded-xl bg-[#171A23] border border-[#2A2E3D]">
+        <div className="p-4 border-b border-slate-200 flex flex-wrap items-center justify-between gap-4 bg-slate-50/50">
+          <div className="inline-flex p-1 rounded-xl bg-slate-100 border border-slate-200">
             <button
               onClick={() => setTab('faculty')}
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
                 currentTab === 'faculty'
-                  ? 'bg-teal-500 text-black shadow-md font-semibold'
-                  : 'text-slate-400 hover:text-white'
+                  ? 'bg-white text-indigo-700 shadow-xs border border-slate-200/80 font-bold'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
               }`}
             >
               <Users className="w-4 h-4" />
@@ -749,10 +749,10 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
 
             <button
               onClick={() => setTab('hod')}
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
                 currentTab === 'hod'
-                  ? 'bg-teal-500 text-black shadow-md font-semibold'
-                  : 'text-slate-400 hover:text-white'
+                  ? 'bg-white text-indigo-700 shadow-xs border border-slate-200/80 font-bold'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
               }`}
             >
               <Briefcase className="w-4 h-4" />
@@ -761,10 +761,10 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
 
             <button
               onClick={() => setTab('principal')}
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
                 currentTab === 'principal'
-                  ? 'bg-teal-500 text-black shadow-md font-semibold'
-                  : 'text-slate-400 hover:text-white'
+                  ? 'bg-white text-indigo-700 shadow-xs border border-slate-200/80 font-bold'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
               }`}
             >
               <ShieldCheck className="w-4 h-4" />
@@ -773,10 +773,10 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
 
             <button
               onClick={() => setTab('warden')}
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
                 currentTab === 'warden'
-                  ? 'bg-teal-500 text-black shadow-md font-semibold'
-                  : 'text-slate-400 hover:text-white'
+                  ? 'bg-white text-indigo-700 shadow-xs border border-slate-200/80 font-bold'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
               }`}
             >
               <KeyRound className="w-4 h-4" />
@@ -788,7 +788,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
           <div className="flex flex-wrap items-center gap-3 w-full lg:w-auto">
             {/* Search */}
             <div className="relative flex-1 sm:w-64">
-              <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
+              <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
               <input
                 type="text"
                 placeholder={
@@ -816,7 +816,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
                   else if (currentTab === 'principal') principalModule.setSearch(val);
                   else if (currentTab === 'warden') wardenModule.setSearch(val);
                 }}
-                className="w-full pl-9 pr-3 py-1.5 text-sm bg-[#171A23] border border-[#2A2E3D] rounded-lg text-slate-200 placeholder-slate-500 focus:outline-none focus:border-teal-500"
+                className="w-full pl-9 pr-3 py-1.5 text-sm bg-white border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:border-indigo-500 shadow-2xs font-medium"
               />
             </div>
 
@@ -829,7 +829,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
                   if (currentTab === 'faculty') facultyModule.setDepartmentFilter(val);
                   else hodModule.setDepartmentFilter(val);
                 }}
-                className="text-sm bg-[#171A23] border border-[#2A2E3D] rounded-lg px-3 py-1.5 text-slate-300 focus:outline-none focus:border-teal-500"
+                className="text-sm bg-white border border-slate-300 rounded-lg px-3 py-1.5 text-slate-800 font-medium focus:outline-none focus:border-indigo-500 shadow-2xs"
               >
                 <option value="ALL">All Departments</option>
                 {referenceData?.departments.map((dept) => (
@@ -845,7 +845,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
               <select
                 value={wardenModule.hostelFilter}
                 onChange={(e) => wardenModule.setHostelFilter(e.target.value)}
-                className="text-sm bg-[#171A23] border border-[#2A2E3D] rounded-lg px-3 py-1.5 text-slate-300 focus:outline-none focus:border-teal-500"
+                className="text-sm bg-white border border-slate-300 rounded-lg px-3 py-1.5 text-slate-800 font-medium focus:outline-none focus:border-indigo-500 shadow-2xs"
               >
                 <option value="ALL">All Hostels</option>
                 {referenceData?.hostels.map((h) => (
@@ -874,7 +874,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
                 else if (currentTab === 'principal') principalModule.setStatusFilter(val);
                 else if (currentTab === 'warden') wardenModule.setStatusFilter(val);
               }}
-              className="text-sm bg-[#171A23] border border-[#2A2E3D] rounded-lg px-3 py-1.5 text-slate-300 focus:outline-none focus:border-teal-500"
+              className="text-sm bg-white border border-slate-300 rounded-lg px-3 py-1.5 text-slate-800 font-medium focus:outline-none focus:border-indigo-500 shadow-2xs"
             >
               <option value="ALL">All Status</option>
               <option value="ACTIVE">Active</option>
@@ -911,7 +911,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
             ) : (
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-sm">
-                  <thead className="bg-[#171A23] text-slate-400 uppercase tracking-wider text-xs border-b border-[#222838]">
+                  <thead className="bg-slate-50 text-slate-700 font-bold uppercase tracking-wider text-xs border-b border-slate-200">
                     <tr>
                       <th className="px-6 py-3 font-semibold">Employee ID</th>
                       <th className="px-6 py-3 font-semibold">Name</th>
@@ -922,26 +922,26 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
                       <th className="px-6 py-3 font-semibold text-right">Actions</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#222838]">
+                  <tbody className="divide-y divide-slate-200">
                     {facultyModule.faculty.map((f) => (
-                      <tr key={f.id} className="hover:bg-[#151924] transition-colors">
-                        <td className="px-6 py-4 font-mono font-medium text-teal-400">{f.employeeId}</td>
-                        <td className="px-6 py-4 font-semibold text-white">
+                      <tr key={f.id} className="hover:bg-slate-50/80 transition-colors">
+                        <td className="px-6 py-4 font-mono font-bold text-indigo-600">{f.employeeId}</td>
+                        <td className="px-6 py-4 font-bold text-slate-900">
                           {f.firstName} {f.lastName}
                         </td>
-                        <td className="px-6 py-4 text-slate-400">{f.email}</td>
+                        <td className="px-6 py-4 text-slate-700 font-medium">{f.email}</td>
                         <td className="px-6 py-4">
-                          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium bg-slate-800 text-slate-300 border border-slate-700">
+                          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-bold bg-slate-100 text-slate-800 border border-slate-200">
                             {f.departmentCode}
                           </span>
                         </td>
-                        <td className="px-6 py-4 text-slate-300">{f.designation}</td>
+                        <td className="px-6 py-4 text-slate-700 font-medium">{f.designation}</td>
                         <td className="px-6 py-4">
                           <span
-                            className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border ${
+                            className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold border ${
                               f.status === 'ACTIVE'
-                                ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'
-                                : 'bg-rose-500/10 text-rose-400 border-rose-500/20'
+                                ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                                : 'bg-rose-50 text-rose-700 border-rose-200'
                             }`}
                           >
                             {f.status}
@@ -951,14 +951,14 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
                           <div className="inline-flex items-center gap-1">
                             <button
                               onClick={() => handleOpenDetails('faculty', f.id)}
-                              className="p-1.5 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-teal-400 transition-colors"
+                              className="p-1.5 rounded-lg hover:bg-slate-100 text-slate-500 hover:text-indigo-600 transition-colors"
                               title="View Faculty Profile"
                             >
                               <Eye className="w-4 h-4" />
                             </button>
                             <button
                               onClick={() => handleOpenEditFaculty(f)}
-                              className="p-1.5 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-blue-400 transition-colors"
+                              className="p-1.5 rounded-lg hover:bg-slate-100 text-slate-500 hover:text-blue-600 transition-colors"
                               title="Edit Faculty Record"
                             >
                               <Edit3 className="w-4 h-4" />
@@ -972,10 +972,10 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
                                   f.status
                                 )
                               }
-                              className={`p-1.5 rounded-lg hover:bg-slate-800 transition-colors ${
+                              className={`p-1.5 rounded-lg hover:bg-slate-100 transition-colors ${
                                 f.status === 'ACTIVE'
-                                  ? 'text-slate-400 hover:text-rose-400'
-                                  : 'text-slate-400 hover:text-emerald-400'
+                                  ? 'text-slate-500 hover:text-rose-600'
+                                  : 'text-slate-500 hover:text-emerald-600'
                               }`}
                               title={f.status === 'ACTIVE' ? 'Deactivate Faculty' : 'Activate Faculty'}
                             >
@@ -995,7 +995,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
             )}
 
             {facultyModule.totalPages > 1 && (
-              <div className="p-4 border-t border-[#222838]">
+              <div className="p-4 border-t border-slate-200">
                 <Pagination
                   currentPage={facultyModule.page + 1}
                   totalPages={facultyModule.totalPages}
@@ -1033,7 +1033,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
             ) : (
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-sm">
-                  <thead className="bg-[#171A23] text-slate-400 uppercase tracking-wider text-xs border-b border-[#222838]">
+                  <thead className="bg-slate-50 text-slate-700 font-bold uppercase tracking-wider text-xs border-b border-slate-200">
                     <tr>
                       <th className="px-6 py-3 font-semibold">Department</th>
                       <th className="px-6 py-3 font-semibold">Head of Department</th>
@@ -1043,32 +1043,32 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
                       <th className="px-6 py-3 font-semibold text-right">Actions</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#222838]">
+                  <tbody className="divide-y divide-slate-200">
                     {hodModule.hods.map((h) => (
-                      <tr key={h.id} className="hover:bg-[#151924] transition-colors">
+                      <tr key={h.id} className="hover:bg-slate-50/80 transition-colors">
                         <td className="px-6 py-4">
                           <div>
-                            <p className="font-semibold text-white">{h.departmentName}</p>
-                            <p className="text-xs text-teal-400 font-mono">{h.departmentCode}</p>
+                            <p className="font-bold text-slate-900">{h.departmentName}</p>
+                            <p className="text-xs text-indigo-600 font-mono font-bold">{h.departmentCode}</p>
                           </div>
                         </td>
                         <td className="px-6 py-4">
-                          <p className="font-semibold text-slate-200">{h.facultyName}</p>
-                          <p className="text-xs text-slate-400">{h.facultyEmail}</p>
+                          <p className="font-bold text-slate-900">{h.facultyName}</p>
+                          <p className="text-xs text-slate-600 font-medium">{h.facultyEmail}</p>
                         </td>
-                        <td className="px-6 py-4 font-mono text-slate-300">{h.employeeId}</td>
-                        <td className="px-6 py-4 text-slate-400">
+                        <td className="px-6 py-4 font-mono font-bold text-slate-800">{h.employeeId}</td>
+                        <td className="px-6 py-4 text-slate-700 font-medium">
                           <div className="text-xs">
-                            <span className="text-slate-300 font-medium">Since {h.startDate}</span>
-                            {h.endDate && <p className="text-slate-500">until {h.endDate}</p>}
+                            <span className="text-slate-800 font-semibold">Since {h.startDate}</span>
+                            {h.endDate && <p className="text-slate-500 font-medium">until {h.endDate}</p>}
                           </div>
                         </td>
                         <td className="px-6 py-4">
                           <span
-                            className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border ${
+                            className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold border ${
                               h.status === 'ACTIVE'
-                                ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'
-                                : 'bg-rose-500/10 text-rose-400 border-rose-500/20'
+                                ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                                : 'bg-rose-50 text-rose-700 border-rose-200'
                             }`}
                           >
                             {h.status}
@@ -1078,14 +1078,14 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
                           <div className="inline-flex items-center gap-1">
                             <button
                               onClick={() => handleOpenDetails('hod', h.id)}
-                              className="p-1.5 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-teal-400 transition-colors"
+                              className="p-1.5 rounded-lg hover:bg-slate-100 text-slate-500 hover:text-indigo-600 transition-colors"
                               title="View HOD Assignment Details"
                             >
                               <Eye className="w-4 h-4" />
                             </button>
                             <button
                               onClick={() => handleOpenEditHod(h)}
-                              className="p-1.5 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-blue-400 transition-colors"
+                              className="p-1.5 rounded-lg hover:bg-slate-100 text-slate-500 hover:text-blue-600 transition-colors"
                               title="Edit Appointment Terms"
                             >
                               <Edit3 className="w-4 h-4" />
@@ -1094,10 +1094,10 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
                               onClick={() =>
                                 handleRequestStatusChange('hod', h.id, `${h.facultyName} (${h.departmentCode} HOD)`, h.status)
                               }
-                              className={`p-1.5 rounded-lg hover:bg-slate-800 transition-colors ${
+                              className={`p-1.5 rounded-lg hover:bg-slate-100 transition-colors ${
                                 h.status === 'ACTIVE'
-                                  ? 'text-slate-400 hover:text-rose-400'
-                                  : 'text-slate-400 hover:text-emerald-400'
+                                  ? 'text-slate-500 hover:text-rose-600'
+                                  : 'text-slate-500 hover:text-emerald-600'
                               }`}
                               title={h.status === 'ACTIVE' ? 'Deactivate HOD Assignment' : 'Reactivate HOD Assignment'}
                             >
@@ -1117,7 +1117,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
             )}
 
             {hodModule.totalPages > 1 && (
-              <div className="p-4 border-t border-[#222838]">
+              <div className="p-4 border-t border-slate-200">
                 <Pagination
                   currentPage={hodModule.page + 1}
                   totalPages={hodModule.totalPages}
@@ -1149,7 +1149,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
                           ID: {principalModule.currentPrincipal.employeeId}
                         </span>
                       </div>
-                      <h2 className="text-2xl font-bold text-white mt-1">
+                      <h2 className="text-2xl font-bold text-slate-900 mt-1">
                         {principalModule.currentPrincipal.facultyName}
                       </h2>
                       <p className="text-sm text-slate-300 flex items-center gap-4 mt-1">
@@ -1174,7 +1174,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
                       variant="outline"
                       size="sm"
                       onClick={() => handleOpenEditPrincipal(principalModule.currentPrincipal!)}
-                      className="border-slate-700 hover:bg-slate-800 text-blue-400"
+                      className="border-slate-200 hover:bg-slate-50 text-indigo-600 font-semibold"
                     >
                       <Edit3 className="w-4 h-4 mr-2" />
                       Edit Terms
@@ -1182,26 +1182,26 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6 pt-4 border-t border-slate-800/80 text-sm">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6 pt-4 border-t border-slate-200 text-sm">
                   <div>
-                    <span className="text-xs text-slate-500 uppercase tracking-wider block">Official Email</span>
-                    <span className="text-slate-300 font-medium">{principalModule.currentPrincipal.facultyEmail}</span>
+                    <span className="text-xs text-slate-600 font-bold uppercase tracking-wider block">Official Email</span>
+                    <span className="text-slate-900 font-semibold">{principalModule.currentPrincipal.facultyEmail}</span>
                   </div>
                   <div>
-                    <span className="text-xs text-slate-500 uppercase tracking-wider block">Appointment Start</span>
-                    <span className="text-slate-300 font-medium">{principalModule.currentPrincipal.startDate}</span>
+                    <span className="text-xs text-slate-600 font-bold uppercase tracking-wider block">Appointment Start</span>
+                    <span className="text-slate-900 font-semibold">{principalModule.currentPrincipal.startDate}</span>
                   </div>
                   <div>
-                    <span className="text-xs text-slate-500 uppercase tracking-wider block">Executive Role</span>
-                    <span className="text-teal-400 font-medium">Institutional Authority</span>
+                    <span className="text-xs text-slate-600 font-bold uppercase tracking-wider block">Executive Role</span>
+                    <span className="text-indigo-600 font-bold">Institutional Authority</span>
                   </div>
                 </div>
               </div>
             ) : (
-              <div className="p-8 border border-dashed border-amber-500/30 rounded-2xl bg-amber-500/5 text-center">
-                <AlertTriangle className="w-10 h-10 text-amber-400 mx-auto mb-2" />
-                <h3 className="text-lg font-bold text-white">No Active Principal Assigned</h3>
-                <p className="text-sm text-slate-400 mt-1 max-w-md mx-auto">
+              <div className="p-8 border border-dashed border-amber-300 rounded-2xl bg-amber-50/50 text-center">
+                <AlertTriangle className="w-10 h-10 text-amber-500 mx-auto mb-2" />
+                <h3 className="text-lg font-bold text-slate-900">No Active Principal Assigned</h3>
+                <p className="text-sm text-slate-600 mt-1 max-w-md mx-auto font-medium">
                   The institution currently does not have an active Principal assignment on record.
                 </p>
                 <Button
@@ -1219,7 +1219,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
             {/* Principal Assignment History Table */}
             <div>
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-base font-bold text-white flex items-center gap-2">
+                <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
                   <Calendar className="w-4 h-4 text-teal-400" />
                   Executive Assignment History
                 </h3>
@@ -1234,9 +1234,9 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
                   description="No historical principal assignments found."
                 />
               ) : (
-                <div className="overflow-x-auto border border-[#222838] rounded-xl">
+                <div className="overflow-x-auto border border-slate-200 rounded-xl">
                   <table className="w-full text-left text-sm">
-                    <thead className="bg-[#171A23] text-slate-400 uppercase tracking-wider text-xs border-b border-[#222838]">
+                    <thead className="bg-slate-50 text-slate-700 font-bold uppercase tracking-wider text-xs border-b border-slate-200">
                       <tr>
                         <th className="px-6 py-3 font-semibold">Principal Name</th>
                         <th className="px-6 py-3 font-semibold">Employee ID</th>
@@ -1247,20 +1247,20 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
                         <th className="px-6 py-3 font-semibold text-right">Actions</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-[#222838]">
+                    <tbody className="divide-y divide-slate-200">
                       {principalModule.history.map((pr) => (
-                        <tr key={pr.id} className="hover:bg-[#151924] transition-colors">
-                          <td className="px-6 py-4 font-semibold text-white">{pr.facultyName}</td>
-                          <td className="px-6 py-4 font-mono text-teal-400">{pr.employeeId}</td>
-                          <td className="px-6 py-4 text-slate-300">{pr.institutionName}</td>
-                          <td className="px-6 py-4 text-slate-400">{pr.startDate}</td>
-                          <td className="px-6 py-4 text-slate-400">{pr.endDate || 'Present'}</td>
+                        <tr key={pr.id} className="hover:bg-slate-50/80 transition-colors">
+                          <td className="px-6 py-4 font-bold text-slate-900">{pr.facultyName}</td>
+                          <td className="px-6 py-4 font-mono font-bold text-indigo-600">{pr.employeeId}</td>
+                          <td className="px-6 py-4 text-slate-700 font-medium">{pr.institutionName}</td>
+                          <td className="px-6 py-4 text-slate-700 font-medium">{pr.startDate}</td>
+                          <td className="px-6 py-4 text-slate-700 font-medium">{pr.endDate || 'Present'}</td>
                           <td className="px-6 py-4">
                             <span
-                              className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border ${
+                              className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold border ${
                                 pr.status === 'ACTIVE'
-                                  ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'
-                                  : 'bg-rose-500/10 text-rose-400 border-rose-500/20'
+                                  ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                                  : 'bg-rose-50 text-rose-700 border-rose-200'
                               }`}
                             >
                               {pr.status}
@@ -1270,7 +1270,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
                             <div className="inline-flex items-center gap-1">
                               <button
                                 onClick={() => handleOpenDetails('principal', pr.id)}
-                                className="p-1.5 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-teal-400 transition-colors"
+                                className="p-1.5 rounded-lg hover:bg-slate-100 text-slate-500 hover:text-indigo-600 transition-colors"
                                 title="View Record"
                               >
                                 <Eye className="w-4 h-4" />
@@ -1279,10 +1279,10 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
                                 onClick={() =>
                                   handleRequestStatusChange('principal', pr.id, pr.facultyName, pr.status)
                                 }
-                                className={`p-1.5 rounded-lg hover:bg-slate-800 transition-colors ${
+                                className={`p-1.5 rounded-lg hover:bg-slate-100 transition-colors ${
                                   pr.status === 'ACTIVE'
-                                    ? 'text-slate-400 hover:text-rose-400'
-                                    : 'text-slate-400 hover:text-emerald-400'
+                                    ? 'text-slate-500 hover:text-rose-600'
+                                    : 'text-slate-500 hover:text-emerald-600'
                                 }`}
                                 title={pr.status === 'ACTIVE' ? 'Conclude Assignment' : 'Activate Assignment'}
                               >
@@ -1331,7 +1331,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
             ) : (
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-sm">
-                  <thead className="bg-[#171A23] text-slate-400 uppercase tracking-wider text-xs border-b border-[#222838]">
+                  <thead className="bg-slate-50 text-slate-700 font-bold uppercase tracking-wider text-xs border-b border-slate-200">
                     <tr>
                       <th className="px-6 py-3 font-semibold">Employee ID</th>
                       <th className="px-6 py-3 font-semibold">Warden Name</th>
@@ -1341,21 +1341,21 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
                       <th className="px-6 py-3 font-semibold text-right">Actions</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#222838]">
+                  <tbody className="divide-y divide-slate-200">
                     {wardenModule.wardens.map((w) => (
-                      <tr key={w.id} className="hover:bg-[#151924] transition-colors">
-                        <td className="px-6 py-4 font-mono font-medium text-teal-400">{w.employeeId}</td>
+                      <tr key={w.id} className="hover:bg-slate-50/80 transition-colors">
+                        <td className="px-6 py-4 font-mono font-bold text-indigo-600">{w.employeeId}</td>
                         <td className="px-6 py-4">
-                          <p className="font-semibold text-white">
+                          <p className="font-bold text-slate-900">
                             {w.firstName} {w.lastName}
                           </p>
-                          <p className="text-xs text-slate-400 font-mono">@{w.username}</p>
+                          <p className="text-xs text-indigo-600 font-medium font-mono">@{w.username}</p>
                         </td>
-                        <td className="px-6 py-4 text-slate-300">
+                        <td className="px-6 py-4 text-slate-700 font-medium">
                           <div>
-                            <p className="text-xs text-slate-400">{w.email}</p>
-                            <p className="text-xs text-slate-400 flex items-center gap-1 mt-0.5">
-                              <Phone className="w-3 h-3 text-slate-500" />
+                            <p className="text-xs text-slate-700 font-medium">{w.email}</p>
+                            <p className="text-xs text-slate-600 font-medium flex items-center gap-1 mt-0.5">
+                              <Phone className="w-3 h-3 text-slate-400" />
                               {w.contactNumber || 'N/A'}
                             </p>
                           </div>
@@ -1366,15 +1366,15 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
                               {w.assignedHostels.map((h) => (
                                 <span
                                   key={h.id}
-                                  className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium bg-purple-500/10 text-purple-300 border border-purple-500/20"
+                                  className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-semibold bg-purple-50 text-purple-700 border border-purple-200"
                                 >
-                                  <Home className="w-3 h-3 text-purple-400" />
+                                  <Home className="w-3 h-3 text-purple-600" />
                                   {h.name}
                                 </span>
                               ))}
                             </div>
                           ) : (
-                            <span className="text-xs text-amber-400/80 italic flex items-center gap-1">
+                            <span className="text-xs text-amber-700 italic flex items-center gap-1">
                               <AlertTriangle className="w-3 h-3" />
                               Unassigned
                             </span>
@@ -1382,10 +1382,10 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
                         </td>
                         <td className="px-6 py-4">
                           <span
-                            className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border ${
+                            className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold border ${
                               w.status === 'ACTIVE'
-                                ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'
-                                : 'bg-rose-500/10 text-rose-400 border-rose-500/20'
+                                ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                                : 'bg-rose-50 text-rose-700 border-rose-200'
                             }`}
                           >
                             {w.status}
@@ -1395,21 +1395,21 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
                           <div className="inline-flex items-center gap-1">
                             <button
                               onClick={() => handleOpenDetails('warden', w.id)}
-                              className="p-1.5 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-teal-400 transition-colors"
+                              className="p-1.5 rounded-lg hover:bg-slate-100 text-slate-500 hover:text-indigo-600 transition-colors"
                               title="View Warden Profile"
                             >
                               <Eye className="w-4 h-4" />
                             </button>
                             <button
                               onClick={() => handleOpenAssignHostels(w)}
-                              className="p-1.5 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-purple-400 transition-colors"
+                              className="p-1.5 rounded-lg hover:bg-slate-100 text-slate-500 hover:text-purple-600 transition-colors"
                               title="Assign Supervised Hostels"
                             >
                               <Home className="w-4 h-4" />
                             </button>
                             <button
                               onClick={() => handleOpenEditWarden(w)}
-                              className="p-1.5 rounded-lg hover:bg-slate-800 text-slate-400 hover:text-blue-400 transition-colors"
+                              className="p-1.5 rounded-lg hover:bg-slate-100 text-slate-500 hover:text-blue-600 transition-colors"
                               title="Edit Warden"
                             >
                               <Edit3 className="w-4 h-4" />
@@ -1425,8 +1425,8 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
                               }
                               className={`p-1.5 rounded-lg hover:bg-slate-800 transition-colors ${
                                 w.status === 'ACTIVE'
-                                  ? 'text-slate-400 hover:text-rose-400'
-                                  : 'text-slate-400 hover:text-emerald-400'
+                                  ? 'text-slate-600 font-medium hover:text-rose-400'
+                                  : 'text-slate-600 font-medium hover:text-emerald-400'
                               }`}
                               title={w.status === 'ACTIVE' ? 'Deactivate Warden' : 'Activate Warden'}
                             >
@@ -1446,7 +1446,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
             )}
 
             {wardenModule.totalPages > 1 && (
-              <div className="p-4 border-t border-[#222838]">
+              <div className="p-4 border-t border-slate-200">
                 <Pagination
                   currentPage={wardenModule.page + 1}
                   totalPages={wardenModule.totalPages}
@@ -1467,7 +1467,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
         title="Provision Faculty Member"
       >
         <form onSubmit={handleSubmitCreateFaculty} className="space-y-4">
-          <div className="flex rounded-lg bg-[#171A23] p-1 border border-[#2A2E3D]">
+          <div className="flex rounded-lg bg-slate-50 p-1 border border-slate-200">
             <button
               type="button"
               onClick={() => setFacultyFormMode('NEW')}
@@ -1502,7 +1502,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
                 onChange={(e) =>
                   setCreateFacultyForm({ ...createFacultyForm, existingUserId: Number(e.target.value) })
                 }
-                className="w-full bg-[#171A23] border border-[#2A2E3D] rounded-lg px-3 py-2 text-sm text-slate-200"
+                className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm text-slate-200"
               >
                 <option value="">-- Choose Candidate User --</option>
                 {referenceData?.unassignedFacultyUsers.map((u) => (
@@ -1566,7 +1566,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
             </>
           )}
 
-          <div className="border-t border-[#2A2E3D] pt-3">
+          <div className="border-t border-slate-200 pt-3">
             <h4 className="text-xs uppercase font-bold text-teal-400 mb-3 tracking-wider">
               Academic Appointment Details
             </h4>
@@ -1587,7 +1587,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
                   onChange={(e) =>
                     setCreateFacultyForm({ ...createFacultyForm, departmentId: Number(e.target.value) })
                   }
-                  className="w-full bg-[#171A23] border border-[#2A2E3D] rounded-lg px-3 py-2 text-sm text-slate-200"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm text-slate-200"
                   required
                 >
                   <option value="">-- Choose Department --</option>
@@ -1617,7 +1617,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
             </div>
           </div>
 
-          <div className="flex justify-end gap-3 pt-4 border-t border-[#2A2E3D]">
+          <div className="flex justify-end gap-3 pt-4 border-t border-slate-200">
             <Button
               type="button"
               variant="outline"
@@ -1676,7 +1676,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
             />
           </div>
 
-          <div className="border-t border-[#2A2E3D] pt-3">
+          <div className="border-t border-slate-200 pt-3">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
                 <label className="block text-xs font-semibold text-slate-300 uppercase mb-1">
@@ -1687,7 +1687,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
                   onChange={(e) =>
                     setEditFacultyForm({ ...editFacultyForm, departmentId: Number(e.target.value) })
                   }
-                  className="w-full bg-[#171A23] border border-[#2A2E3D] rounded-lg px-3 py-2 text-sm text-slate-200"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm text-slate-200"
                   required
                 >
                   {referenceData?.departments.map((d) => (
@@ -1715,7 +1715,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
             </div>
           </div>
 
-          <div className="flex justify-end gap-3 pt-4 border-t border-[#2A2E3D]">
+          <div className="flex justify-end gap-3 pt-4 border-t border-slate-200">
             <Button
               type="button"
               variant="outline"
@@ -1757,7 +1757,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
             <select
               value={assignHodForm.departmentId}
               onChange={(e) => setAssignHodForm({ ...assignHodForm, departmentId: Number(e.target.value) })}
-              className="w-full bg-[#171A23] border border-[#2A2E3D] rounded-lg px-3 py-2 text-sm text-slate-200"
+              className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm text-slate-200"
               required
             >
               <option value="">-- Choose Department --</option>
@@ -1776,7 +1776,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
             <select
               value={assignHodForm.facultyId}
               onChange={(e) => setAssignHodForm({ ...assignHodForm, facultyId: Number(e.target.value) })}
-              className="w-full bg-[#171A23] border border-[#2A2E3D] rounded-lg px-3 py-2 text-sm text-slate-200"
+              className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm text-slate-200"
               required
             >
               <option value="">-- Choose Faculty Member --</option>
@@ -1804,7 +1804,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
             />
           </div>
 
-          <div className="flex justify-end gap-3 pt-4 border-t border-[#2A2E3D]">
+          <div className="flex justify-end gap-3 pt-4 border-t border-slate-200">
             <Button
               type="button"
               variant="outline"
@@ -1834,7 +1834,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
         title={`Update HOD Assignment: ${editingHod?.departmentCode}`}
       >
         <form onSubmit={handleSubmitEditHod} className="space-y-4">
-          <div className="bg-[#171A23] p-3 rounded-xl border border-[#2A2E3D] text-sm">
+          <div className="bg-slate-50 p-3 rounded-xl border border-slate-200 text-sm">
             <p className="text-slate-400">Department: <strong className="text-white">{editingHod?.departmentName}</strong></p>
             <p className="text-slate-400 mt-1">Appointed HOD: <strong className="text-teal-400">{editingHod?.facultyName}</strong></p>
           </div>
@@ -1855,7 +1855,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
             />
           </div>
 
-          <div className="flex justify-end gap-3 pt-4 border-t border-[#2A2E3D]">
+          <div className="flex justify-end gap-3 pt-4 border-t border-slate-200">
             <Button
               type="button"
               variant="outline"
@@ -1899,7 +1899,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
               onChange={(e) =>
                 setAssignPrincipalForm({ ...assignPrincipalForm, facultyId: Number(e.target.value) })
               }
-              className="w-full bg-[#171A23] border border-[#2A2E3D] rounded-lg px-3 py-2 text-sm text-slate-200"
+              className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm text-slate-200"
               required
             >
               <option value="">-- Choose Senior Faculty --</option>
@@ -1931,7 +1931,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
             />
           </div>
 
-          <div className="flex justify-end gap-3 pt-4 border-t border-[#2A2E3D]">
+          <div className="flex justify-end gap-3 pt-4 border-t border-slate-200">
             <Button
               type="button"
               variant="outline"
@@ -1977,7 +1977,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
             />
           </div>
 
-          <div className="flex justify-end gap-3 pt-4 border-t border-[#2A2E3D]">
+          <div className="flex justify-end gap-3 pt-4 border-t border-slate-200">
             <Button
               type="button"
               variant="outline"
@@ -2007,7 +2007,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
         title="Provision Hostel Warden"
       >
         <form onSubmit={handleSubmitCreateWarden} className="space-y-4">
-          <div className="flex rounded-lg bg-[#171A23] p-1 border border-[#2A2E3D]">
+          <div className="flex rounded-lg bg-slate-50 p-1 border border-slate-200">
             <button
               type="button"
               onClick={() => setWardenFormMode('NEW')}
@@ -2042,7 +2042,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
                 onChange={(e) =>
                   setCreateWardenForm({ ...createWardenForm, existingUserId: Number(e.target.value) })
                 }
-                className="w-full bg-[#171A23] border border-[#2A2E3D] rounded-lg px-3 py-2 text-sm text-slate-200"
+                className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm text-slate-200"
               >
                 <option value="">-- Choose Candidate User --</option>
                 {referenceData?.unassignedWardenUsers.map((u) => (
@@ -2098,7 +2098,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
             </>
           )}
 
-          <div className="border-t border-[#2A2E3D] pt-3">
+          <div className="border-t border-slate-200 pt-3">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <Input
                 label="Employee ID"
@@ -2117,7 +2117,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
             </div>
           </div>
 
-          <div className="flex justify-end gap-3 pt-4 border-t border-[#2A2E3D]">
+          <div className="flex justify-end gap-3 pt-4 border-t border-slate-200">
             <Button
               type="button"
               variant="outline"
@@ -2177,7 +2177,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
             />
           </div>
 
-          <div className="flex justify-end gap-3 pt-4 border-t border-[#2A2E3D]">
+          <div className="flex justify-end gap-3 pt-4 border-t border-slate-200">
             <Button
               type="button"
               variant="outline"
@@ -2222,7 +2222,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
                   className={`p-3 rounded-xl border cursor-pointer transition-all flex items-start justify-between ${
                     isSelected
                       ? 'bg-teal-500/10 border-teal-500/40 text-white shadow-md'
-                      : 'bg-[#171A23] border-[#2A2E3D] text-slate-400 hover:border-slate-600 hover:text-slate-200'
+                      : 'bg-slate-50 border-slate-200 text-slate-400 hover:border-slate-600 hover:text-slate-200'
                   }`}
                 >
                   <div className="flex items-start gap-2.5">
@@ -2246,7 +2246,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
             })}
           </div>
 
-          <div className="bg-[#171A23] p-3 rounded-xl border border-[#2A2E3D] text-xs text-slate-400 flex items-center justify-between">
+          <div className="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs text-slate-400 flex items-center justify-between">
             <span>
               Total Assigned Blocks: <strong className="text-teal-400">{selectedWardenHostelIds.length}</strong>
             </span>
@@ -2260,7 +2260,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
             </Button>
           </div>
 
-          <div className="flex justify-end gap-3 pt-4 border-t border-[#2A2E3D]">
+          <div className="flex justify-end gap-3 pt-4 border-t border-slate-200">
             <Button
               type="button"
               variant="outline"
@@ -2297,13 +2297,13 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
         ) : (
           <div className="space-y-4 text-sm">
             {/* Identity Header */}
-            <div className="p-4 rounded-xl bg-[#171A23] border border-[#2A2E3D] flex items-center justify-between">
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-xl bg-teal-500/10 text-teal-400 border border-teal-500/20 flex items-center justify-center">
                   <User className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-white">
+                  <h3 className="text-lg font-bold text-slate-900">
                     {detailsData.fullName || `${detailsData.firstName || ''} ${detailsData.lastName || ''}`.trim() || detailsData.facultyName}
                   </h3>
                   <p className="text-xs text-slate-400 font-mono">
@@ -2323,7 +2323,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
             </div>
 
             {/* Account & Contact */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-4 rounded-xl bg-[#171A23] border border-[#2A2E3D]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-4 rounded-xl bg-slate-50 border border-slate-200">
               <div>
                 <span className="text-xs text-slate-500 uppercase block">System Username</span>
                 <span className="text-slate-200 font-medium">@{detailsData.username}</span>
@@ -2346,7 +2346,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
 
             {/* Role Specific Section */}
             {detailsType === 'faculty' && (
-              <div className="p-4 rounded-xl bg-[#171A23] border border-[#2A2E3D] space-y-2">
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
                 <h4 className="text-xs font-bold text-teal-400 uppercase tracking-wider">Academic Appointment</h4>
                 <div className="grid grid-cols-2 gap-2 text-xs">
                   <div>
@@ -2370,7 +2370,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
             )}
 
             {detailsType === 'hod' && (
-              <div className="p-4 rounded-xl bg-[#171A23] border border-[#2A2E3D] space-y-2">
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
                 <h4 className="text-xs font-bold text-teal-400 uppercase tracking-wider">HOD Assignment Terms</h4>
                 <div className="grid grid-cols-2 gap-2 text-xs">
                   <div>
@@ -2394,7 +2394,7 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
             )}
 
             {detailsType === 'principal' && (
-              <div className="p-4 rounded-xl bg-[#171A23] border border-[#2A2E3D] space-y-2">
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
                 <h4 className="text-xs font-bold text-teal-400 uppercase tracking-wider">Principal Executive Office</h4>
                 <div className="grid grid-cols-2 gap-2 text-xs">
                   <div>
@@ -2418,13 +2418,13 @@ export const StaffManagementPage: React.FC<{ initialTab?: StaffTab }> = ({ initi
             )}
 
             {detailsType === 'warden' && (
-              <div className="p-4 rounded-xl bg-[#171A23] border border-[#2A2E3D] space-y-2">
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
                 <h4 className="text-xs font-bold text-teal-400 uppercase tracking-wider">Supervised Hostels</h4>
                 {detailsData.assignedHostels && detailsData.assignedHostels.length > 0 ? (
                   <div className="grid grid-cols-2 gap-2">
                     {detailsData.assignedHostels.map((h: any) => (
-                      <div key={h.id} className="p-2 rounded-lg bg-[#11141C] border border-[#2A2E3D] text-xs">
-                        <p className="font-semibold text-white">{h.name}</p>
+                      <div key={h.id} className="p-2 rounded-lg bg-white border border-slate-200 text-xs">
+                        <p className="font-semibold text-slate-900">{h.name}</p>
                         <p className="text-slate-500">Code: {h.code} • {h.type}</p>
                       </div>
                     ))}

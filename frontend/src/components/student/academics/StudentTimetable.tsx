@@ -45,7 +45,7 @@ export const StudentTimetable: React.FC<StudentTimetableProps> = ({
 
   if (timetable.length === 0) {
     return (
-      <Card className="bg-[#11141C] border-[#1E2330]">
+      <Card className="bg-white border-slate-200">
         <CardHeader>
           <div className="flex items-center gap-3">
             <div className="p-2 rounded-xl bg-teal-500/10 text-teal-400">
@@ -69,7 +69,7 @@ export const StudentTimetable: React.FC<StudentTimetableProps> = ({
   }
 
   return (
-    <Card className="bg-[#11141C] border-[#1E2330]">
+    <Card className="bg-white border-slate-200">
       <CardHeader>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -104,10 +104,10 @@ export const StudentTimetable: React.FC<StudentTimetableProps> = ({
           return (
             <div
               key={day}
-              className="p-4 rounded-xl bg-[#171A23] border border-[#222838] space-y-3"
+              className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3"
             >
               {/* Day Header */}
-              <div className="flex items-center justify-between border-b border-[#222838] pb-2.5">
+              <div className="flex items-center justify-between border-b border-slate-200 pb-2.5">
                 <div className="flex items-center gap-2">
                   <Calendar className="w-4 h-4 text-teal-400" />
                   <span className="font-bold text-xs text-gray-100 tracking-wider font-mono">
@@ -124,7 +124,7 @@ export const StudentTimetable: React.FC<StudentTimetableProps> = ({
                 {entries.map((period) => (
                   <div
                     key={period.id}
-                    className="p-3 rounded-lg bg-[#11141C] border border-[#1E2330] hover:border-teal-500/30 transition-all space-y-2 flex flex-col justify-between"
+                    className="p-3 rounded-lg bg-white border border-slate-200 hover:border-teal-500/30 transition-all space-y-2 flex flex-col justify-between"
                   >
                     <div>
                       {/* Time & Slot Badge */}
@@ -135,7 +135,7 @@ export const StudentTimetable: React.FC<StudentTimetableProps> = ({
                           {period.endTime ? period.endTime.slice(0, 5) : '--'}
                         </span>
                         {period.timeSlotName && (
-                          <span className="text-[9px] px-1.5 py-0.5 rounded bg-[#171A23] border border-[#222838] font-mono text-gray-400">
+                          <span className="text-[9px] px-1.5 py-0.5 rounded bg-slate-50 border border-slate-200 font-mono text-gray-400">
                             {period.timeSlotName}
                           </span>
                         )}
@@ -150,7 +150,7 @@ export const StudentTimetable: React.FC<StudentTimetableProps> = ({
                       </span>
                     </div>
 
-                    <div className="pt-2 border-t border-[#1E2330] space-y-1 text-[11px] text-gray-400">
+                    <div className="pt-2 border-t border-slate-200 space-y-1 text-[11px] text-gray-400">
                       {/* Venue / Room */}
                       <div className="flex items-center gap-1.5 text-gray-300">
                         <MapPin className="w-3 h-3 text-teal-400 shrink-0" />

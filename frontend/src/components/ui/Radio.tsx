@@ -32,14 +32,14 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
           />
           <div
             className={cn(
-              'w-4 h-4 rounded-full border border-[#1E2330] bg-[#171A23] transition-all duration-150',
-              'peer-checked:border-teal-500 peer-focus-visible:ring-2 peer-focus-visible:ring-teal-500/50',
-              'group-hover:border-gray-500'
+              'w-4 h-4 rounded-full border border-[#D9D2C3] bg-white transition-all duration-150',
+              'peer-checked:border-[#B8A16A] peer-focus-visible:ring-2 peer-focus-visible:ring-[#B8A16A]/30',
+              'group-hover:border-[#B8A16A]'
             )}
           />
           <div
             className={cn(
-              'w-2 h-2 rounded-full bg-teal-400 absolute transition-transform scale-0 duration-150 pointer-events-none',
+              'w-2 h-2 rounded-full bg-[#B8A16A] absolute transition-transform scale-0 duration-150 pointer-events-none',
               checked && 'scale-100'
             )}
           />
@@ -47,8 +47,8 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
 
         {(label || description) && (
           <div className="flex flex-col">
-            {label && <span className="text-xs sm:text-sm text-gray-200 font-medium">{label}</span>}
-            {description && <span className="text-[11px] text-gray-400 mt-0.5">{description}</span>}
+            {label && <span className="text-xs sm:text-sm text-[#202020] font-medium">{label}</span>}
+            {description && <span className="text-[11px] text-[#555555] mt-0.5">{description}</span>}
           </div>
         )}
       </label>

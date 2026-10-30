@@ -28,19 +28,19 @@ export const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose, rol
     <div className="fixed inset-0 z-50 lg:hidden">
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black/75 backdrop-blur-sm transition-opacity"
+        className="fixed inset-0 bg-[#202020]/30 backdrop-blur-sm transition-opacity duration-200"
         onClick={onClose}
       />
 
       {/* Drawer content */}
-      <div className="fixed inset-y-0 left-0 max-w-xs w-full bg-[#0B0D14] shadow-2xl flex flex-col z-50 animate-in slide-in-from-left duration-200">
-        <div className="absolute top-4 right-4 z-50">
+      <div className="fixed inset-y-0 left-0 max-w-xs w-full bg-[#FFFEFA]/95 backdrop-blur-2xl shadow-2xl flex flex-col z-50 animate-in slide-in-from-left duration-200 border-r border-[#D8C9A8]/70">
+        <div className="absolute top-3.5 right-3.5 z-50">
           <button
             onClick={onClose}
             aria-label="Close navigation"
-            className="p-1.5 rounded-lg bg-[#171A23] text-gray-400 hover:text-white border border-[#1E2330]"
+            className="p-1.5 rounded-lg bg-white/80 backdrop-blur-xs text-[#77736A] hover:text-[#202020] border border-[#D8C9A8]/80 transition-colors shadow-xs"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4" />
           </button>
         </div>
 

@@ -134,7 +134,7 @@ public class DepartmentManagementServiceImpl implements DepartmentManagementServ
         }
         response.setSubjectCount(totalSubjects);
 
-        Optional<DepartmentHOD> activeHod = departmentHODRepository.findByDepartmentIdAndStatus(id, "ACTIVE");
+        Optional<DepartmentHOD> activeHod = departmentHODRepository.findFirstByDepartmentIdAndStatus(id, "ACTIVE");
         if (activeHod.isPresent() && activeHod.get().getFaculty() != null) {
             var faculty = activeHod.get().getFaculty();
             response.setHodFacultyId(faculty.getId());
@@ -345,7 +345,7 @@ public class DepartmentManagementServiceImpl implements DepartmentManagementServ
         res.setFacultyCount(facultyRepository.countByDepartmentId(entity.getId()));
         res.setStudentCount(studentRepository.countByDepartmentId(entity.getId()));
 
-        Optional<DepartmentHOD> activeHod = departmentHODRepository.findByDepartmentIdAndStatus(entity.getId(), "ACTIVE");
+        Optional<DepartmentHOD> activeHod = departmentHODRepository.findFirstByDepartmentIdAndStatus(entity.getId(), "ACTIVE");
         if (activeHod.isPresent() && activeHod.get().getFaculty() != null) {
             var facUser = activeHod.get().getFaculty().getUser();
             res.setHodName(facUser.getFirstName() + " " + facUser.getLastName());

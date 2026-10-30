@@ -208,24 +208,24 @@ export const AcademicAllocationModal: React.FC<AcademicAllocationModalProps> = (
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
-      <div className="relative bg-slate-900 border border-slate-700 rounded-2xl w-full max-w-4xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-[#202020]/40 backdrop-blur-xs flex items-center justify-center p-4">
+      <div className="relative bg-[#FFFFFF] border border-[#D8C9A8] rounded-2xl w-full max-w-4xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-800 bg-slate-900/80">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-[#E8E0D0] bg-[#F8F6F0]">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400">
+            <div className="p-2.5 rounded-xl bg-[#F4F0E6] border border-[#D8C9A8] text-[#B8A16A]">
               <Layers className="w-5 h-5" />
             </div>
             <div>
-              <h2 className="text-xl font-bold text-white tracking-tight">Academic Resource Allocation</h2>
-              <p className="text-xs text-slate-400">
+              <h2 className="text-xl font-serif font-bold text-[#202020] tracking-tight">Academic Resource Allocation</h2>
+              <p className="text-xs text-[#555555] font-medium">
                 Deterministic conflict checking, explainable scoring & optimization engine
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-2 text-slate-400 hover:text-white rounded-lg hover:bg-slate-800 transition-colors"
+            className="p-2 text-[#77736A] hover:text-[#202020] rounded-lg hover:bg-[#F4F0E6] transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -236,22 +236,22 @@ export const AcademicAllocationModal: React.FC<AcademicAllocationModalProps> = (
           {/* Request Intake Form */}
           <form onSubmit={handleSearchPreview} className="flex gap-3 flex-wrap">
             <div className="relative flex-1 min-w-[200px]">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[#77736A]" />
               <input
                 type="number"
                 placeholder="Enter Academic Request ID (e.g., 101)..."
                 value={requestIdInput}
                 onChange={(e) => setRequestIdInput(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 bg-slate-800/80 border border-slate-700 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                className="w-full pl-10 pr-4 py-2.5 bg-[#FFFFFF] border border-[#D9D2C3] rounded-xl text-[#202020] placeholder-[#77736A] font-medium focus:outline-none focus:border-[#B8A16A] text-sm shadow-2xs"
               />
             </div>
             <Button
               type="button"
               onClick={handleOptimizeClick}
               disabled={optimizationLoading || !requestIdInput.trim()}
-              className="bg-indigo-600 hover:bg-indigo-500 text-white flex items-center gap-2 shadow-lg shadow-indigo-600/20"
+              className="bg-[#B8A16A] hover:bg-[#A38D57] text-[#FFFFFF] flex items-center gap-2 shadow-sm font-semibold"
             >
-              <Sparkles className="w-4 h-4 text-amber-300" />
+              <Sparkles className="w-4 h-4 text-[#FBF9F3]" />
               {optimizationLoading ? 'Finding best allocation...' : 'Optimize & Recommend'}
             </Button>
             <Button type="submit" variant="outline" disabled={previewLoading || !requestIdInput.trim()}>
@@ -261,82 +261,82 @@ export const AcademicAllocationModal: React.FC<AcademicAllocationModalProps> = (
 
           {/* Feedback Alerts */}
           {actionError && (
-            <div className="p-4 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-300 flex items-start gap-3 text-sm">
-              <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5 text-rose-400" />
+            <div className="p-4 rounded-xl bg-[#B44747]/10 border border-[#B44747]/20 text-[#B44747] flex items-start gap-3 text-sm">
+              <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#B44747]" />
               <div>
-                <p className="font-semibold text-rose-200">Allocation Constraint Violated</p>
-                <p className="text-xs mt-0.5 opacity-90">{actionError}</p>
+                <p className="font-semibold text-[#B44747]">Allocation Constraint Violated</p>
+                <p className="text-xs mt-0.5 text-[#555555]">{actionError}</p>
               </div>
             </div>
           )}
 
           {optimizationError && (
-            <div className="p-4 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-300 flex items-start gap-3 text-sm">
-              <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5 text-rose-400" />
+            <div className="p-4 rounded-xl bg-[#B44747]/10 border border-[#B44747]/20 text-[#B44747] flex items-start gap-3 text-sm">
+              <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#B44747]" />
               <div>
-                <p className="font-semibold text-rose-200">Optimization Error</p>
-                <p className="text-xs mt-0.5 opacity-90">{optimizationError}</p>
+                <p className="font-semibold text-[#B44747]">Optimization Error</p>
+                <p className="text-xs mt-0.5 text-[#555555]">{optimizationError}</p>
               </div>
             </div>
           )}
 
           {previewError && (
-            <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-300 flex items-start gap-3 text-sm">
-              <AlertTriangle className="w-5 h-5 flex-shrink-0 mt-0.5 text-amber-400" />
+            <div className="p-4 rounded-xl bg-[#A87928]/10 border border-[#A87928]/20 text-[#A87928] flex items-start gap-3 text-sm">
+              <AlertTriangle className="w-5 h-5 flex-shrink-0 mt-0.5 text-[#A87928]" />
               <div>
-                <p className="font-semibold text-amber-200">Candidate Evaluation Error</p>
-                <p className="text-xs mt-0.5 opacity-90">{previewError}</p>
+                <p className="font-semibold text-[#A87928]">Candidate Evaluation Error</p>
+                <p className="text-xs mt-0.5 text-[#555555]">{previewError}</p>
               </div>
             </div>
           )}
 
           {successMessage && (
-            <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 flex items-center gap-3 text-sm">
-              <CheckCircle className="w-5 h-5 text-emerald-400 flex-shrink-0" />
+            <div className="p-4 rounded-xl bg-[#3F7655]/10 border border-[#3F7655]/20 text-[#3F7655] flex items-center gap-3 text-sm">
+              <CheckCircle className="w-5 h-5 text-[#3F7655] flex-shrink-0" />
               <span>{successMessage}</span>
             </div>
           )}
 
           {/* Request Context Card */}
           {preview && (
-            <Card className="bg-slate-800/60 border-slate-750">
+            <Card className="bg-[#F8F6F0] border-[#D8C9A8] shadow-2xs">
               <CardContent className="p-4">
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
                   <div>
-                    <span className="text-slate-400 block">Requester / Dept:</span>
-                    <span className="font-medium text-white truncate block mt-0.5">
+                    <span className="text-[#77736A] font-semibold block">Requester / Dept:</span>
+                    <span className="font-bold text-[#202020] truncate block mt-0.5">
                       {preview.requesterName || 'N/A'}
                     </span>
-                    <span className="text-slate-400 text-[11px] block">
+                    <span className="text-[#555555] font-medium text-[11px] block">
                       {preview.departmentName || 'General'}
                     </span>
                   </div>
                   <div>
-                    <span className="text-slate-400 block">Schedule Window:</span>
-                    <div className="flex items-center gap-1 font-medium text-white mt-0.5">
-                      <Calendar className="w-3.5 h-3.5 text-blue-400" />
+                    <span className="text-[#77736A] font-semibold block">Schedule Window:</span>
+                    <div className="flex items-center gap-1 font-bold text-[#202020] mt-0.5">
+                      <Calendar className="w-3.5 h-3.5 text-[#B8A16A]" />
                       <span>{preview.requestedDate}</span>
                     </div>
-                    <div className="flex items-center gap-1 text-slate-300 text-[11px] mt-0.5">
-                      <Clock className="w-3 h-3 text-slate-400" />
+                    <div className="flex items-center gap-1 text-[#555555] font-medium text-[11px] mt-0.5">
+                      <Clock className="w-3 h-3 text-[#77736A]" />
                       <span>
                         {preview.startTime} - {preview.endTime}
                       </span>
                     </div>
                   </div>
                   <div>
-                    <span className="text-slate-400 block">Category & Seats:</span>
-                    <span className="font-medium text-white block mt-0.5">
+                    <span className="text-[#77736A] font-semibold block">Category & Seats:</span>
+                    <span className="font-bold text-[#202020] block mt-0.5">
                       {preview.categoryName || 'Academic Resource'}
                     </span>
-                    <div className="flex items-center gap-1 text-blue-400 text-[11px] mt-0.5">
+                    <div className="flex items-center gap-1 text-[#B8A16A] font-bold text-[11px] mt-0.5">
                       <Users className="w-3 h-3" />
                       <span>{preview.requestedCapacity} seats required</span>
                     </div>
                   </div>
                   <div>
-                    <span className="text-slate-400 block">Purpose:</span>
-                    <span className="font-medium text-slate-200 block truncate mt-0.5" title={preview.requestPurpose}>
+                    <span className="text-[#77736A] font-semibold block">Purpose:</span>
+                    <span className="font-medium text-[#202020] block truncate mt-0.5" title={preview.requestPurpose}>
                       {preview.requestPurpose}
                     </span>
                   </div>
@@ -347,17 +347,17 @@ export const AcademicAllocationModal: React.FC<AcademicAllocationModalProps> = (
 
           {/* Mode Switcher Tabs */}
           {(optimizationResult || preview) && (
-            <div className="flex border-b border-slate-800 gap-4">
+            <div className="flex border-b border-[#E8E0D0] gap-4">
               <button
                 type="button"
                 onClick={() => setActiveTab('OPTIMIZATION')}
-                className={`pb-2 text-xs font-semibold flex items-center gap-2 border-b-2 transition-colors ${
+                className={`pb-2 text-xs font-bold flex items-center gap-2 border-b-2 transition-colors ${
                   activeTab === 'OPTIMIZATION'
-                    ? 'border-indigo-500 text-indigo-400'
-                    : 'border-transparent text-slate-400 hover:text-slate-200'
+                    ? 'border-[#B8A16A] text-[#B8A16A]'
+                    : 'border-transparent text-[#77736A] hover:text-[#202020] font-medium'
                 }`}
               >
-                <Sparkles className="w-4 h-4 text-amber-400" />
+                <Sparkles className="w-4 h-4 text-[#B8A16A]" />
                 Explainable Recommendations (
                 {optimizationResult ? optimizationResult.recommendations.length : 0})
               </button>
@@ -365,10 +365,10 @@ export const AcademicAllocationModal: React.FC<AcademicAllocationModalProps> = (
                 <button
                   type="button"
                   onClick={() => setActiveTab('STANDARD')}
-                  className={`pb-2 text-xs font-semibold flex items-center gap-2 border-b-2 transition-colors ${
+                  className={`pb-2 text-xs font-bold flex items-center gap-2 border-b-2 transition-colors ${
                     activeTab === 'STANDARD'
-                      ? 'border-blue-500 text-blue-400'
-                      : 'border-transparent text-slate-400 hover:text-slate-200'
+                      ? 'border-[#B8A16A] text-[#B8A16A]'
+                      : 'border-transparent text-[#77736A] hover:text-[#202020] font-medium'
                   }`}
                 >
                   <Layers className="w-4 h-4" />
@@ -382,20 +382,20 @@ export const AcademicAllocationModal: React.FC<AcademicAllocationModalProps> = (
           {activeTab === 'OPTIMIZATION' && (
             <div className="space-y-4">
               {optimizationLoading && (
-                <div className="p-8 rounded-xl bg-slate-800/30 border border-slate-800 text-center space-y-3">
-                  <div className="w-8 h-8 border-2 border-indigo-500 border-t-transparent rounded-full animate-spin mx-auto" />
-                  <p className="text-sm font-semibold text-slate-300">Finding best allocation...</p>
-                  <p className="text-xs text-slate-500">
+                <div className="p-8 rounded-xl bg-[#F8F6F0] border border-[#D8C9A8] text-center space-y-3">
+                  <div className="w-8 h-8 border-2 border-[#B8A16A] border-t-transparent rounded-full animate-spin mx-auto" />
+                  <p className="text-sm font-semibold text-[#202020]">Finding best allocation...</p>
+                  <p className="text-xs text-[#555555]">
                     Evaluating capacity efficiency, scheduling constraints & workload balance
                   </p>
                 </div>
               )}
 
               {!optimizationLoading && optimizationResult && optimizationResult.recommendations.length === 0 && (
-                <div className="p-6 rounded-xl bg-slate-800/40 border border-slate-700/60 text-center space-y-2">
-                  <AlertTriangle className="w-6 h-6 text-amber-400 mx-auto" />
-                  <p className="text-sm font-semibold text-slate-300">No valid allocation candidates found.</p>
-                  <p className="text-xs text-slate-500">
+                <div className="p-6 rounded-xl bg-[#F8F6F0] border border-[#D8C9A8] text-center space-y-2">
+                  <AlertTriangle className="w-6 h-6 text-[#A87928] mx-auto" />
+                  <p className="text-sm font-semibold text-[#202020]">No valid allocation candidates found.</p>
+                  <p className="text-xs text-[#555555]">
                     {optimizationResult.message || 'All evaluated resources violated hard capacity or scheduling constraints.'}
                   </p>
                 </div>
@@ -406,14 +406,14 @@ export const AcademicAllocationModal: React.FC<AcademicAllocationModalProps> = (
                   {/* Results summary header */}
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                      <span className="text-xs font-bold uppercase tracking-wider text-[#555555]">
                         Optimization Results:
                       </span>
                       <Badge variant="success">
                         {optimizationResult.recommendations.length} suitable {optimizationResult.recommendations.length === 1 ? 'allocation' : 'allocations'} found
                       </Badge>
                     </div>
-                    <span className="text-xs text-slate-400">
+                    <span className="text-xs text-[#77736A]">
                       Evaluated {optimizationResult.totalCandidatesEvaluated} candidate resources
                     </span>
                   </div>
@@ -428,8 +428,8 @@ export const AcademicAllocationModal: React.FC<AcademicAllocationModalProps> = (
 
                   {/* Top Recommendations Cards with explainability */}
                   <div className="space-y-3">
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
-                      <Sliders className="w-3.5 h-3.5 text-blue-400" />
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-[#555555] flex items-center gap-1.5">
+                      <Sliders className="w-3.5 h-3.5 text-[#B8A16A]" />
                       Detailed Recommendations & Explainable Breakdown
                     </h4>
                     {optimizationResult.recommendations.map((rec) => (
@@ -462,19 +462,19 @@ export const AcademicAllocationModal: React.FC<AcademicAllocationModalProps> = (
 
               {/* Auto Allocate Banner */}
               {preview.recommendedResource && (
-                <div className="p-4 rounded-xl bg-gradient-to-r from-blue-900/40 via-indigo-900/30 to-purple-900/20 border border-blue-500/30 flex items-center justify-between flex-wrap gap-4">
+                <div className="p-4 rounded-xl bg-[#F8F6F0] border border-[#D8C9A8] flex items-center justify-between flex-wrap gap-4">
                   <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-blue-500/20 text-blue-300">
-                      <Sparkles className="w-5 h-5 text-blue-400" />
+                    <div className="p-2 rounded-lg bg-[#F4F0E6] text-[#B8A16A]">
+                      <Sparkles className="w-5 h-5 text-[#B8A16A]" />
                     </div>
                     <div>
                       <div className="flex items-center gap-2">
-                        <span className="text-sm font-semibold text-white">
+                        <span className="text-sm font-semibold text-[#202020]">
                           Recommended Match: {preview.recommendedResource.resourceName}
                         </span>
                         <Badge variant="success">Best Fit</Badge>
                       </div>
-                      <p className="text-xs text-slate-300 mt-0.5">
+                      <p className="text-xs text-[#555555] mt-0.5">
                         {preview.recommendedResource.resourceCode} • Capacity: {preview.recommendedResource.capacity} seats • Wasted: +
                         {preview.recommendedResource.wastedCapacity} seats
                       </p>
@@ -484,7 +484,7 @@ export const AcademicAllocationModal: React.FC<AcademicAllocationModalProps> = (
                     size="sm"
                     onClick={handleAutoAllocate}
                     disabled={submitting || hasBlockingConflicts}
-                    className="bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-500/20"
+                    className="bg-[#B8A16A] hover:bg-[#A38D57] text-[#FFFFFF] shadow-sm font-semibold flex items-center gap-1.5"
                   >
                     <Sparkles className="w-4 h-4 mr-1.5" />
                     {submitting ? 'Allocating...' : 'Auto-Allocate Best Match'}
@@ -495,17 +495,17 @@ export const AcademicAllocationModal: React.FC<AcademicAllocationModalProps> = (
               {/* Candidate Resources Grid */}
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-sm font-semibold text-white flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-emerald-400" />
+                  <h3 className="text-sm font-semibold text-[#202020] flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-[#3F7655]" />
                     Eligible Resources ({preview.eligibleResources.length})
                   </h3>
-                  <span className="text-xs text-slate-400">
+                  <span className="text-xs text-[#77736A]">
                     Ranked deterministically by minimal capacity waste
                   </span>
                 </div>
 
                 {preview.eligibleResources.length === 0 ? (
-                  <div className="p-4 rounded-xl bg-slate-800/40 border border-slate-700/60 text-center text-xs text-slate-400">
+                  <div className="p-4 rounded-xl bg-[#F8F6F0] border border-[#D8C9A8] text-center text-xs text-[#555555]">
                     No eligible resource found meeting all time and capacity constraints.
                   </div>
                 ) : (
@@ -518,39 +518,39 @@ export const AcademicAllocationModal: React.FC<AcademicAllocationModalProps> = (
                           onClick={() => setSelectedResourceId(res.resourceId)}
                           className={`p-3.5 rounded-xl border transition-all cursor-pointer flex flex-col justify-between ${
                             isSelected
-                              ? 'bg-blue-600/15 border-blue-500 ring-1 ring-blue-500/50 shadow-md'
-                              : 'bg-slate-800/50 border-slate-700/80 hover:bg-slate-800 hover:border-slate-600'
+                              ? 'bg-[#F4F0E6] border-[#B8A16A] ring-1 ring-[#B8A16A]/50 shadow-xs'
+                              : 'bg-[#FFFFFF] border-[#D8C9A8] hover:bg-[#F8F6F0] shadow-2xs'
                           }`}
                         >
                           <div className="flex items-start justify-between gap-2">
                             <div>
                               <div className="flex items-center gap-2">
-                                <span className="font-semibold text-white text-sm">
+                                <span className="font-bold text-[#202020] text-sm">
                                   {res.resourceName}
                                 </span>
-                                <Badge variant="gray" className="text-[10px] py-0">
+                                <Badge variant="neutral" className="text-[10px] py-0 font-bold font-mono">
                                   {res.resourceCode}
                                 </Badge>
                               </div>
-                              <p className="text-xs text-slate-400 mt-1 flex items-center gap-1.5">
-                                <Building className="w-3.5 h-3.5 text-slate-500" />
+                              <p className="text-xs text-[#555555] font-medium mt-1 flex items-center gap-1.5">
+                                <Building className="w-3.5 h-3.5 text-[#77736A]" />
                                 {res.building ? `${res.building} - ${res.roomNumber}` : res.location || 'Campus'}
                               </p>
                             </div>
                             <div className="text-right">
-                              <span className="text-xs font-semibold text-emerald-400 block">
+                              <span className="text-xs font-bold text-[#3F7655] block">
                                 {res.capacity} Seats
                               </span>
-                              <span className="text-[10px] text-slate-400">
+                              <span className="text-[10px] text-[#77736A] font-medium">
                                 +{res.wastedCapacity} spare
                               </span>
                             </div>
                           </div>
-                          <div className="mt-3 pt-2.5 border-t border-slate-700/60 flex items-center justify-between text-xs">
-                            <span className="text-slate-400 text-[11px]">{res.categoryName}</span>
+                          <div className="mt-3 pt-2.5 border-t border-[#E8E0D0] flex items-center justify-between text-xs">
+                            <span className="text-[#555555] font-medium text-[11px]">{res.categoryName}</span>
                             <span
-                              className={`text-xs font-medium ${
-                                isSelected ? 'text-blue-400' : 'text-slate-400'
+                              className={`text-xs font-bold ${
+                                isSelected ? 'text-[#B8A16A]' : 'text-[#77736A]'
                               }`}
                             >
                               {isSelected ? '✓ Selected' : 'Click to Select'}
@@ -567,7 +567,7 @@ export const AcademicAllocationModal: React.FC<AcademicAllocationModalProps> = (
 
           {/* Purpose / Remarks Override */}
           <div className="space-y-1.5 pt-2">
-            <label className="text-xs font-medium text-slate-300">
+            <label className="text-xs font-bold text-[#202020]">
               Allocation Remarks / Purpose Override (Optional):
             </label>
             <input
@@ -575,13 +575,13 @@ export const AcademicAllocationModal: React.FC<AcademicAllocationModalProps> = (
               placeholder="Enter remarks or leave blank to keep request purpose..."
               value={purposeOverride}
               onChange={(e) => setPurposeOverride(e.target.value)}
-              className="w-full px-3.5 py-2 bg-slate-800/80 border border-slate-700 rounded-xl text-white placeholder-slate-500 text-xs focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3.5 py-2 bg-[#FFFFFF] border border-[#D9D2C3] rounded-xl text-[#202020] placeholder-[#77736A] text-xs focus:outline-none focus:border-[#B8A16A] font-medium shadow-2xs"
             />
           </div>
         </div>
 
         {/* Footer Controls */}
-        <div className="flex items-center justify-between px-6 py-4 border-t border-slate-800 bg-slate-900/80">
+        <div className="flex items-center justify-between px-6 py-4 border-t border-[#E8E0D0] bg-[#F8F6F0]">
           <Button variant="outline" onClick={onClose} disabled={submitting}>
             Cancel
           </Button>

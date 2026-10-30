@@ -84,11 +84,11 @@ export function DataTable<T>({
   }, [data, sortKey, sortDirection]);
 
   return (
-    <Card className={cn('overflow-hidden p-0 border-[#1E2330] bg-[#11141C]', className)}>
+    <Card className={cn('overflow-hidden p-0 border-[#D8C9A8]/70 bg-white/80 backdrop-blur-md shadow-glass rounded-2xl', className)}>
       <div className="overflow-x-auto w-full">
         <table className="w-full text-left border-collapse">
           <thead>
-            <tr className="border-b border-[#1E2330] bg-[#141822] text-[11px] font-semibold text-gray-400 uppercase tracking-wider select-none">
+            <tr className="border-b border-[#E8E0D0]/80 bg-[#F8F6F0]/80 backdrop-blur-sm text-[11px] font-serif font-bold text-[#555555] uppercase tracking-wider select-none">
               {columns.map((col) => {
                 const isSorted = sortKey === col.key;
                 return (
@@ -97,10 +97,10 @@ export function DataTable<T>({
                     scope="col"
                     style={{ width: col.width }}
                     className={cn(
-                      'py-3.5 px-4 font-semibold',
+                      'py-3.5 px-4 font-bold',
                       col.align === 'center' && 'text-center',
                       col.align === 'right' && 'text-right',
-                      col.sortable && 'cursor-pointer hover:text-white transition-colors',
+                      col.sortable && 'cursor-pointer hover:text-[#202020] transition-colors',
                       col.className
                     )}
                     onClick={() => col.sortable && handleSort(col.key)}
@@ -114,15 +114,15 @@ export function DataTable<T>({
                     >
                       <span>{col.header}</span>
                       {col.sortable && (
-                        <span className="text-gray-500">
+                        <span className="text-[#77736A]">
                           {isSorted ? (
                             sortDirection === 'asc' ? (
-                              <ArrowUp className="w-3.5 h-3.5 text-teal-400" />
+                              <ArrowUp className="w-3.5 h-3.5 text-[#B8A16A]" />
                             ) : (
-                              <ArrowDown className="w-3.5 h-3.5 text-teal-400" />
+                              <ArrowDown className="w-3.5 h-3.5 text-[#B8A16A]" />
                             )
                           ) : (
-                            <ArrowUpDown className="w-3 h-3 text-gray-600" />
+                            <ArrowUpDown className="w-3 h-3 text-[#77736A]" />
                           )}
                         </span>
                       )}
@@ -133,7 +133,7 @@ export function DataTable<T>({
             </tr>
           </thead>
 
-          <tbody className="divide-y divide-white/5 text-xs text-gray-300">
+          <tbody className="divide-y divide-[#E8E0D0]/80 text-xs text-[#202020]">
             {isLoading ? (
               Array.from({ length: 5 }).map((_, r) => (
                 <tr key={`skeleton-${r}`}>
@@ -148,11 +148,11 @@ export function DataTable<T>({
               <tr>
                 <td colSpan={columns.length} className="py-12 px-4 text-center">
                   <div className="flex flex-col items-center justify-center max-w-sm mx-auto space-y-3">
-                    <div className="p-3 rounded-full bg-rose-500/10 text-rose-400 border border-rose-500/20">
+                    <div className="p-3 rounded-full bg-[#FDF0F0] text-[#B44747] border border-[#ECC6C6]">
                       <AlertCircle className="w-6 h-6" />
                     </div>
-                    <div className="text-sm font-semibold text-white">Error Loading Data</div>
-                    <p className="text-xs text-gray-400">{errorMessage}</p>
+                    <div className="text-sm font-serif font-bold text-[#202020]">Error Loading Data</div>
+                    <p className="text-xs text-[#555555]">{errorMessage}</p>
                     {onRetry && (
                       <Button variant="outline" size="sm" onClick={onRetry} iconLeft={<RefreshCw className="w-3.5 h-3.5" />}>
                         Retry Connection
@@ -165,11 +165,11 @@ export function DataTable<T>({
               <tr>
                 <td colSpan={columns.length} className="py-12 px-4 text-center">
                   <div className="flex flex-col items-center justify-center max-w-sm mx-auto space-y-2">
-                    <div className="p-3 rounded-2xl bg-white/[0.02] text-gray-500 border border-white/5 mb-1">
+                    <div className="p-3 rounded-2xl bg-[#F8F6F0] text-[#77736A] border border-[#E8E0D0] mb-1">
                       <Inbox className="w-6 h-6 stroke-[1.5]" />
                     </div>
-                    <div className="text-sm font-semibold text-gray-300">{emptyTitle}</div>
-                    <p className="text-xs text-gray-500">{emptyDescription}</p>
+                    <div className="text-sm font-serif font-bold text-[#202020]">{emptyTitle}</div>
+                    <p className="text-xs text-[#555555]">{emptyDescription}</p>
                   </div>
                 </td>
               </tr>
@@ -180,7 +180,7 @@ export function DataTable<T>({
                   onClick={() => onRowClick && onRowClick(row)}
                   className={cn(
                     'transition-colors duration-150',
-                    onRowClick ? 'cursor-pointer hover:bg-white/[0.03]' : 'hover:bg-white/[0.015]'
+                    onRowClick ? 'cursor-pointer hover:bg-[#F4F0E6]/90' : 'hover:bg-[#F4F0E6]/50'
                   )}
                 >
                   {columns.map((col) => (
@@ -204,7 +204,7 @@ export function DataTable<T>({
       </div>
 
       {pagination && !isLoading && !isError && sortedData.length > 0 && (
-        <div className="p-4 border-t border-white/5 bg-[#141822]/60">
+        <div className="p-4 border-t border-[#E8E0D0]/80 bg-[#F8F6F0]/60 backdrop-blur-sm">
           <Pagination
             currentPage={pagination.currentPage}
             totalPages={pagination.totalPages}

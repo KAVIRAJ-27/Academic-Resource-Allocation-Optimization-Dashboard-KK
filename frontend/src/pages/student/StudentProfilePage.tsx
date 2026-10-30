@@ -79,7 +79,7 @@ export const StudentProfilePage: React.FC = () => {
       {profile && (
         <div className="space-y-6">
           {/* 1. Student Identity Header Banner */}
-          <Card className="p-5 bg-gradient-to-r from-[#11141C] via-[#141824] to-[#11141C] border-[#1E2330]">
+          <Card className="p-5 bg-gradient-to-r from-white via-slate-50 to-white border-slate-200">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div className="flex items-center gap-4">
                 <div className="w-14 h-14 rounded-2xl bg-teal-500/10 border border-teal-500/30 flex items-center justify-center text-teal-400 shrink-0 shadow-card">
@@ -87,7 +87,7 @@ export const StudentProfilePage: React.FC = () => {
                 </div>
                 <div>
                   <div className="flex items-center gap-2.5 flex-wrap">
-                    <h2 className="text-base sm:text-lg font-bold text-white tracking-tight">
+                    <h2 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight">
                       {profile.fullName || `${profile.firstName} ${profile.lastName}`}
                     </h2>
                     <Badge variant={profile.status === 'ACTIVE' ? 'teal' : 'neutral'} dot size="sm">
@@ -118,7 +118,7 @@ export const StudentProfilePage: React.FC = () => {
               </div>
 
               <div className="flex items-center gap-3">
-                <div className="px-3.5 py-1.5 rounded-xl bg-[#171A23] border border-[#222838] text-right">
+                <div className="px-3.5 py-1.5 rounded-xl bg-slate-50 border border-slate-200 text-right">
                   <div className="text-[10px] uppercase font-mono text-gray-400 tracking-wider">
                     Degree Level
                   </div>

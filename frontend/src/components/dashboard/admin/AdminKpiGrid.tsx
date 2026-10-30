@@ -39,9 +39,9 @@ export const AdminKpiGrid: React.FC<AdminKpiGridProps> = ({ data, loading }) => 
           description={userSubtext}
           icon={Users}
           iconColor="teal"
-          badge={<Badge variant="teal">RBAC Verified</Badge>}
+          badge={<Badge variant="neutral">RBAC Verified</Badge>}
           footerText={`Admin: ${data.userDistribution.adminCount} · HOD: ${data.userDistribution.hodCount}`}
-          className="hover:border-teal-500/40 transition-colors"
+          className="hover:border-[#B8A16A] transition-colors"
         />
       </div>
       <StatCard

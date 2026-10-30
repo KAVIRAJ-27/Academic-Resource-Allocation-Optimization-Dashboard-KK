@@ -150,7 +150,7 @@ export const WardenRoomsPage: React.FC = () => {
         subtitle="Filter by floor, status, or search specific room numbers"
       >
         <Card>
-          <CardHeader className="border-b border-[#1E2330] pb-4">
+          <CardHeader className="border-b border-slate-200 pb-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div className="flex flex-wrap items-center gap-3 flex-1">
                 {/* Search input */}
@@ -161,7 +161,7 @@ export const WardenRoomsPage: React.FC = () => {
                     placeholder="Search room number..."
                     value={filters.search || ''}
                     onChange={(e) => updateFilters({ search: e.target.value })}
-                    className="w-full bg-[#11141C] border border-[#1E2330] rounded-xl pl-9 pr-3 py-1.5 text-xs text-gray-200 placeholder-gray-500 focus:outline-none focus:border-orange-500"
+                    className="w-full bg-white border border-slate-200 rounded-xl pl-9 pr-3 py-1.5 text-xs text-gray-200 placeholder-gray-500 focus:outline-none focus:border-orange-500"
                   />
                 </div>
 
@@ -173,7 +173,7 @@ export const WardenRoomsPage: React.FC = () => {
                       floorNumber: e.target.value !== '' ? Number(e.target.value) : undefined,
                     })
                   }
-                  className="bg-[#11141C] border border-[#1E2330] rounded-xl px-3 py-1.5 text-xs text-gray-300 focus:outline-none focus:border-orange-500"
+                  className="bg-white border border-slate-200 rounded-xl px-3 py-1.5 text-xs text-gray-300 focus:outline-none focus:border-orange-500"
                 >
                   <option value="">All Floors</option>
                   <option value="1">Floor 1</option>
@@ -186,7 +186,7 @@ export const WardenRoomsPage: React.FC = () => {
                 <select
                   value={filters.status || ''}
                   onChange={(e) => updateFilters({ status: e.target.value || undefined })}
-                  className="bg-[#11141C] border border-[#1E2330] rounded-xl px-3 py-1.5 text-xs text-gray-300 focus:outline-none focus:border-orange-500"
+                  className="bg-white border border-slate-200 rounded-xl px-3 py-1.5 text-xs text-gray-300 focus:outline-none focus:border-orange-500"
                 >
                   <option value="">All Statuses</option>
                   <option value="AVAILABLE">Available</option>
@@ -244,7 +244,7 @@ export const WardenRoomsPage: React.FC = () => {
             ) : (
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs text-gray-300">
-                  <thead className="bg-[#11141C] text-[11px] font-mono text-gray-400 uppercase tracking-wider border-b border-[#1E2330]">
+                  <thead className="bg-white text-[11px] font-mono text-slate-700 font-bold uppercase tracking-wider border-b border-slate-200">
                     <tr>
                       <th className="py-3 px-4">Room</th>
                       <th className="py-3 px-4">Block & Floor</th>
@@ -255,7 +255,7 @@ export const WardenRoomsPage: React.FC = () => {
                       <th className="py-3 px-4 text-right">Actions</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#1E2330]">
+                  <tbody className="divide-y divide-slate-200">
                     {rooms.map((room) => {
                       const occupancyRate =
                         room.capacity > 0 ? (room.occupiedBeds / room.capacity) * 100 : 0;
@@ -264,10 +264,10 @@ export const WardenRoomsPage: React.FC = () => {
                       return (
                         <tr
                           key={room.id}
-                          className="hover:bg-[#171A23]/60 transition-colors group cursor-pointer"
+                          className="hover:bg-slate-50/60 transition-colors group cursor-pointer"
                           onClick={() => navigate(`/warden/rooms/${room.id}`)}
                         >
-                          <td className="py-3 px-4 font-mono font-semibold text-gray-200">
+                          <td className="py-3 px-4 font-mono font-semibold text-slate-800 font-medium">
                             <div className="flex items-center gap-2">
                               <div className="w-7 h-7 rounded-lg bg-orange-500/10 text-orange-400 flex items-center justify-center font-bold">
                                 {room.roomNumber.slice(0, 2)}
@@ -277,9 +277,9 @@ export const WardenRoomsPage: React.FC = () => {
                               </span>
                             </div>
                           </td>
-                          <td className="py-3 px-4 text-gray-300">
+                          <td className="py-3 px-4 text-slate-700 font-medium">
                             <div>{room.blockName}</div>
-                            <div className="text-[11px] text-gray-400 font-mono">
+                            <div className="text-[11px] text-slate-600 font-medium font-mono">
                               Floor {room.floorNumber} ({room.floorName})
                             </div>
                           </td>
@@ -289,11 +289,11 @@ export const WardenRoomsPage: React.FC = () => {
                             </Badge>
                           </td>
                           <td className="py-3 px-4 font-mono">
-                            <span className="text-gray-200 font-medium">{room.capacity}</span> Beds
+                            <span className="text-slate-800 font-medium font-medium">{room.capacity}</span> Beds
                           </td>
                           <td className="py-3 px-4">
                             <div className="w-36">
-                              <div className="flex justify-between text-[10px] font-mono text-gray-400 mb-1">
+                              <div className="flex justify-between text-[10px] font-mono text-slate-600 font-medium mb-1">
                                 <span>{room.occupiedBeds} occupied</span>
                                 <span className={isFull ? 'text-orange-400 font-bold' : 'text-teal-400'}>
                                   {room.availableBeds} free
@@ -346,7 +346,7 @@ export const WardenRoomsPage: React.FC = () => {
 
             {/* Pagination Controls */}
             {totalPages > 1 && (
-              <div className="flex items-center justify-between px-4 py-3 border-t border-[#1E2330] bg-[#11141C]">
+              <div className="flex items-center justify-between px-4 py-3 border-t border-slate-200 bg-white">
                 <div className="text-xs text-gray-400 font-mono">
                   Page {currentPage + 1} of {totalPages}
                 </div>

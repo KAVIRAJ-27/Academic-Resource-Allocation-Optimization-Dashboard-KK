@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/warden/hostels")
-@PreAuthorize("hasRole('WARDEN')")
+@PreAuthorize("hasAnyRole('WARDEN', 'ADMIN')")
 public class WardenHostelController {
 
     private final WardenScopeService wardenScopeService;

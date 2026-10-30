@@ -158,18 +158,18 @@ export const AnalyticsDashboardPage: React.FC<AnalyticsDashboardPageProps> = ({
   return (
     <div className="space-y-6">
       {/* Header Banner */}
-      <div className="flex flex-col justify-between gap-4 border-b border-slate-800 pb-5 sm:flex-row sm:items-center">
+      <div className="flex flex-col justify-between gap-4 border-b border-[#D8C9A8]/70 pb-5 sm:flex-row sm:items-center">
         <div>
           <div className="flex items-center gap-2">
-            <span className="flex h-2.5 w-2.5 rounded-full bg-teal-400 animate-pulse" />
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-teal-400">
+            <span className="flex h-2.5 w-2.5 rounded-full bg-indigo-600 animate-pulse" />
+            <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#B8A16A]">
               Live Telemetry & Intelligence
             </span>
           </div>
-          <h1 className="mt-1 text-2xl font-black tracking-tight text-white sm:text-3xl">
+          <h1 className="mt-1 text-2xl font-black tracking-tight text-slate-900 sm:text-3xl">
             Institutional Utilization Analytics
           </h1>
-          <p className="mt-1 text-xs text-slate-400">
+          <p className="mt-1 text-xs font-medium text-slate-600">
             Real-time mathematical aggregation across physical infrastructure, academic allocations, hostel living, and operations.
           </p>
         </div>
@@ -178,7 +178,7 @@ export const AnalyticsDashboardPage: React.FC<AnalyticsDashboardPageProps> = ({
         <div className="flex items-center gap-2">
           <button
             onClick={() => setActiveTab('reports')}
-            className="flex items-center gap-2 rounded-xl border border-teal-500/30 bg-teal-500/10 px-4 py-2 text-xs font-bold text-teal-300 transition hover:bg-teal-500/20 active:scale-95"
+            className="flex items-center gap-2 rounded-xl border border-indigo-200 bg-indigo-50 px-4 py-2 text-xs font-bold text-indigo-700 transition hover:bg-indigo-100 shadow-2xs active:scale-95"
           >
             <FileText className="h-4 w-4" />
             <span>Generate Reports</span>
@@ -195,7 +195,7 @@ export const AnalyticsDashboardPage: React.FC<AnalyticsDashboardPageProps> = ({
       />
 
       {/* Tab Navigation */}
-      <div className="flex gap-2 overflow-x-auto border-b border-slate-800/80 pb-2 text-xs font-medium">
+      <div className="flex gap-2 overflow-x-auto border-b border-[#D8C9A8]/70 pb-2 text-xs font-medium">
         {navTabs.map((tab) => {
           const Icon = tab.icon;
           const isActive = activeTab === tab.id;
@@ -205,11 +205,11 @@ export const AnalyticsDashboardPage: React.FC<AnalyticsDashboardPageProps> = ({
               onClick={() => setActiveTab(tab.id)}
               className={`flex items-center gap-2 whitespace-nowrap rounded-xl px-4 py-2.5 transition ${
                 isActive
-                  ? 'border border-teal-500/30 bg-teal-500/10 font-bold text-teal-300 shadow-sm'
-                  : 'text-slate-400 hover:bg-slate-800/50 hover:text-slate-200'
+                  ? 'border border-[#B8A16A] bg-[#F4F0E6] font-bold text-[#202020] shadow-xs font-serif'
+                  : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900 font-medium'
               }`}
             >
-              <Icon className={`h-4 w-4 ${isActive ? 'text-teal-400' : 'text-slate-500'}`} />
+              <Icon className={`h-4 w-4 ${isActive ? 'text-[#B8A16A]' : 'text-slate-500'}`} />
               <span>{tab.label}</span>
             </button>
           );
@@ -452,39 +452,39 @@ export const AnalyticsDashboardPage: React.FC<AnalyticsDashboardPageProps> = ({
 
           {/* Room Inventory Sample */}
           {roomUtil && roomUtil.roomList.length > 0 && (
-            <div className="rounded-2xl border border-slate-800/80 bg-slate-900/60 p-5 backdrop-blur-md">
-              <h3 className="mb-4 text-xs font-semibold uppercase tracking-wider text-slate-300">
+            <div className="rounded-2xl border border-[#D8C9A8]/70 bg-white p-5 shadow-xs">
+              <h3 className="mb-4 text-xs font-bold uppercase tracking-wider text-slate-800">
                 Sample Residential Room Occupancy (Top 20)
               </h3>
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs">
                   <thead>
-                    <tr className="border-b border-slate-800 text-slate-400">
-                      <th className="pb-2.5 font-medium">Room Number</th>
-                      <th className="pb-2.5 font-medium">Hostel & Block</th>
-                      <th className="pb-2.5 font-medium">Floor</th>
-                      <th className="pb-2.5 font-medium text-right">Capacity</th>
-                      <th className="pb-2.5 font-medium text-right">Occupied</th>
-                      <th className="pb-2.5 font-medium text-right">Available</th>
-                      <th className="pb-2.5 font-medium text-right">Utilization</th>
+                    <tr className="border-b border-[#D8C9A8]/70 bg-slate-50 text-slate-600 font-semibold">
+                      <th className="py-2.5 px-3 font-semibold">Room Number</th>
+                      <th className="py-2.5 px-3 font-semibold">Hostel & Block</th>
+                      <th className="py-2.5 px-3 font-semibold">Floor</th>
+                      <th className="py-2.5 px-3 font-semibold text-right">Capacity</th>
+                      <th className="py-2.5 px-3 font-semibold text-right">Occupied</th>
+                      <th className="py-2.5 px-3 font-semibold text-right">Available</th>
+                      <th className="py-2.5 px-3 font-semibold text-right">Utilization</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-slate-800/60 text-slate-300">
+                  <tbody className="divide-y divide-slate-100 text-slate-700">
                     {roomUtil.roomList.slice(0, 20).map((r) => (
-                      <tr key={r.roomId} className="hover:bg-slate-800/30">
-                        <td className="py-2.5 font-semibold text-white">{r.roomNumber}</td>
-                        <td className="py-2.5 text-slate-400">
+                      <tr key={r.roomId} className="hover:bg-slate-50/80 transition-colors">
+                        <td className="py-2.5 px-3 font-bold text-slate-900">{r.roomNumber}</td>
+                        <td className="py-2.5 px-3 text-slate-600 font-medium">
                           {r.hostelName} - {r.blockName}
                         </td>
-                        <td className="py-2.5">{r.floorNumber}</td>
-                        <td className="py-2.5 text-right font-mono">{r.capacity}</td>
-                        <td className="py-2.5 text-right font-mono text-emerald-400">
+                        <td className="py-2.5 px-3 text-slate-600 font-medium">{r.floorNumber}</td>
+                        <td className="py-2.5 px-3 text-right font-mono font-semibold text-slate-800">{r.capacity}</td>
+                        <td className="py-2.5 px-3 text-right font-mono font-bold text-emerald-600">
                           {r.occupiedBeds}
                         </td>
-                        <td className="py-2.5 text-right font-mono text-slate-400">
+                        <td className="py-2.5 px-3 text-right font-mono font-medium text-slate-600">
                           {r.availableBeds}
                         </td>
-                        <td className="py-2.5 text-right font-mono font-bold">
+                        <td className="py-2.5 px-3 text-right font-mono font-bold text-[#B8A16A]">
                           {r.utilizationPercentage}%
                         </td>
                       </tr>
@@ -607,27 +607,27 @@ export const AnalyticsDashboardPage: React.FC<AnalyticsDashboardPageProps> = ({
           <ReportToolbar onExport={handleExportCsv} filters={filters} />
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-            <div className="rounded-2xl border border-slate-800/80 bg-slate-900/60 p-5 backdrop-blur-md">
-              <h4 className="text-xs font-semibold text-slate-300 uppercase tracking-wider">
+            <div className="rounded-2xl border border-[#D8C9A8]/70 bg-white p-5 shadow-xs">
+              <h4 className="text-xs font-bold text-slate-800 uppercase tracking-wider">
                 Export Format
               </h4>
-              <p className="mt-2 text-xs text-slate-400">
+              <p className="mt-2 text-xs font-medium text-slate-600 leading-relaxed">
                 Standard RFC-4180 UTF-8 CSV format suitable for Microsoft Excel, Google Sheets, or data pipeline ingestion.
               </p>
             </div>
-            <div className="rounded-2xl border border-slate-800/80 bg-slate-900/60 p-5 backdrop-blur-md">
-              <h4 className="text-xs font-semibold text-slate-300 uppercase tracking-wider">
+            <div className="rounded-2xl border border-[#D8C9A8]/70 bg-white p-5 shadow-xs">
+              <h4 className="text-xs font-bold text-slate-800 uppercase tracking-wider">
                 Audited & Governed
               </h4>
-              <p className="mt-2 text-xs text-slate-400">
+              <p className="mt-2 text-xs font-medium text-slate-600 leading-relaxed">
                 Every exported file is automatically recorded in institutional audit logs with timestamp, actor, and row volume.
               </p>
             </div>
-            <div className="rounded-2xl border border-slate-800/80 bg-slate-900/60 p-5 backdrop-blur-md">
-              <h4 className="text-xs font-semibold text-slate-300 uppercase tracking-wider">
+            <div className="rounded-2xl border border-[#D8C9A8]/70 bg-white p-5 shadow-xs">
+              <h4 className="text-xs font-bold text-slate-800 uppercase tracking-wider">
                 Scoped & Filtered
               </h4>
-              <p className="mt-2 text-xs text-slate-400">
+              <p className="mt-2 text-xs font-medium text-slate-600 leading-relaxed">
                 Active date ranges and scope filters are strictly honored in the exported tabular data.
               </p>
             </div>

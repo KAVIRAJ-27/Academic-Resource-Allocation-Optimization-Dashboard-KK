@@ -103,23 +103,23 @@ export const FacultyProfilePage: React.FC = () => {
     return (
       <PageContainer>
         <div className="space-y-6 animate-pulse" aria-busy="true">
-          <div className="p-6 bg-[#11141C] border border-[#1E2330] rounded-2xl space-y-3">
-            <Skeleton className="h-6 w-32 bg-[#171A23]" />
-            <Skeleton className="h-9 w-64 bg-[#171A23]" />
-            <Skeleton className="h-4 w-96 bg-[#171A23]" />
+          <div className="p-6 bg-white border border-slate-200 rounded-2xl space-y-3">
+            <Skeleton className="h-6 w-32 bg-slate-50" />
+            <Skeleton className="h-9 w-64 bg-slate-50" />
+            <Skeleton className="h-4 w-96 bg-slate-50" />
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <div className="lg:col-span-2 p-6 bg-[#11141C] border border-[#1E2330] rounded-2xl space-y-4">
-              <Skeleton className="h-5 w-48 bg-[#171A23]" />
+            <div className="lg:col-span-2 p-6 bg-white border border-slate-200 rounded-2xl space-y-4">
+              <Skeleton className="h-5 w-48 bg-slate-50" />
               <div className="grid grid-cols-2 gap-4">
-                <Skeleton className="h-10 rounded-xl bg-[#171A23]" />
-                <Skeleton className="h-10 rounded-xl bg-[#171A23]" />
+                <Skeleton className="h-10 rounded-xl bg-slate-50" />
+                <Skeleton className="h-10 rounded-xl bg-slate-50" />
               </div>
-              <Skeleton className="h-10 rounded-xl bg-[#171A23]" />
+              <Skeleton className="h-10 rounded-xl bg-slate-50" />
             </div>
-            <div className="p-6 bg-[#11141C] border border-[#1E2330] rounded-2xl space-y-4">
-              <Skeleton className="h-5 w-36 bg-[#171A23]" />
-              <Skeleton className="h-20 rounded-xl bg-[#171A23]" />
+            <div className="p-6 bg-white border border-slate-200 rounded-2xl space-y-4">
+              <Skeleton className="h-5 w-36 bg-slate-50" />
+              <Skeleton className="h-20 rounded-xl bg-slate-50" />
             </div>
           </div>
         </div>
@@ -175,14 +175,14 @@ export const FacultyProfilePage: React.FC = () => {
       />
 
       {/* Profile Overview Card */}
-      <div className="mb-6 p-6 bg-[#11141C] border border-[#1E2330] rounded-2xl shadow-card flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div className="mb-6 p-6 bg-white border border-slate-200 rounded-2xl shadow-card flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <div className="flex items-center gap-4">
-          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-500 to-teal-700 flex items-center justify-center text-white font-extrabold text-xl shadow-card-glow tracking-wider shrink-0">
+          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-500 to-teal-700 flex items-center justify-center text-slate-900 font-extrabold text-xl shadow-card-glow tracking-wider shrink-0">
             {initials}
           </div>
           <div>
             <div className="flex items-center gap-3 flex-wrap">
-              <h2 className="text-xl font-bold text-white">{profile?.fullName}</h2>
+              <h2 className="text-xl font-bold text-slate-900">{profile?.fullName}</h2>
               <Badge variant="teal" size="sm">
                 {profile?.accountStatus || 'ACTIVE'}
               </Badge>
@@ -209,8 +209,8 @@ export const FacultyProfilePage: React.FC = () => {
       <DashboardGrid cols={3} className="gap-6">
         {/* Left 2 Cols: Editable Personal Information Form */}
         <GridCol span={2}>
-          <Card className="bg-[#11141C] border-[#1E2330] shadow-card">
-            <CardHeader className="border-b border-[#1E2330] pb-4">
+          <Card className="bg-white border-slate-200 shadow-card">
+            <CardHeader className="border-b border-slate-200 pb-4">
               <div className="flex items-center justify-between">
                 <div>
                   <CardTitle className="text-sm font-bold text-white flex items-center gap-2">
@@ -306,7 +306,7 @@ export const FacultyProfilePage: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="flex items-center justify-end gap-3 pt-4 border-t border-[#1E2330]">
+                <div className="flex items-center justify-end gap-3 pt-4 border-t border-slate-200">
                   <Button
                     type="button"
                     variant="outline"
@@ -336,8 +336,8 @@ export const FacultyProfilePage: React.FC = () => {
         <GridCol span={1}>
           <div className="space-y-6">
             {/* Employment Lineage */}
-            <Card className="bg-[#11141C] border-[#1E2330] shadow-card">
-              <CardHeader className="border-b border-[#1E2330] pb-4">
+            <Card className="bg-white border-slate-200 shadow-card">
+              <CardHeader className="border-b border-slate-200 pb-4">
                 <CardTitle className="text-sm font-bold text-white flex items-center gap-2">
                   <Briefcase className="w-4 h-4 text-purple-400" />
                   Employment Lineage
@@ -381,8 +381,8 @@ export const FacultyProfilePage: React.FC = () => {
             </Card>
 
             {/* Account & Security */}
-            <Card className="bg-[#11141C] border-[#1E2330] shadow-card">
-              <CardHeader className="border-b border-[#1E2330] pb-4">
+            <Card className="bg-white border-slate-200 shadow-card">
+              <CardHeader className="border-b border-slate-200 pb-4">
                 <CardTitle className="text-sm font-bold text-white flex items-center gap-2">
                   <Key className="w-4 h-4 text-blue-400" />
                   Account & Security

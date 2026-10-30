@@ -54,7 +54,7 @@ export const FacultySubjectsPage: React.FC = () => {
             size="sm"
             onClick={refresh}
             disabled={loading}
-            className="border-[#1E2330] text-gray-300 hover:text-white"
+            className="border-slate-200 text-gray-300 hover:text-white"
           >
             <RefreshCw className={`w-3.5 h-3.5 mr-1.5 ${loading ? 'animate-spin' : ''}`} />
             Refresh

@@ -82,7 +82,7 @@ export const HodFacultyTable: React.FC<HodFacultyTableProps> = ({
       {/* Table Header Controls */}
       <div className="p-5 border-b border-gray-800 flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h3 className="text-base font-semibold text-white">Department Faculty Directory</h3>
+          <h3 className="text-base font-semibold text-slate-900">Department Faculty Directory</h3>
           <p className="text-xs text-gray-400 mt-0.5">
             Faculty members affiliated with your department ({totalElements} total)
           </p>
@@ -134,7 +134,7 @@ export const HodFacultyTable: React.FC<HodFacultyTableProps> = ({
       <div className="overflow-x-auto">
         <table className="w-full text-left text-xs border-collapse">
           <thead>
-            <tr className="border-b border-gray-800 bg-gray-900/60 text-gray-400 font-semibold uppercase tracking-wider text-[10px]">
+            <tr className="border-b border-gray-800 bg-gray-900/60 text-slate-600 font-bold font-semibold uppercase tracking-wider text-[10px]">
               <th className="py-3 px-4">Faculty Member</th>
               <th className="py-3 px-4">Designation & Degree</th>
               <th className="py-3 px-4">Email</th>
@@ -176,10 +176,10 @@ export const HodFacultyTable: React.FC<HodFacultyTableProps> = ({
               ))
             ) : faculty.length === 0 ? (
               <tr>
-                <td colSpan={7} className="py-16 text-center text-gray-400">
+                <td colSpan={7} className="py-16 text-center text-slate-600 font-medium">
                   <Users className="w-10 h-10 mx-auto mb-2 text-gray-600 opacity-60" />
-                  <p className="font-semibold text-gray-300 text-sm">No faculty members found</p>
-                  <p className="text-gray-500 mt-1 max-w-sm mx-auto">
+                  <p className="font-semibold text-slate-700 font-medium text-sm">No faculty members found</p>
+                  <p className="text-slate-500 font-medium mt-1 max-w-sm mx-auto">
                     {search || statusFilter !== 'ALL'
                       ? 'No department faculty matched the current search or status filter.'
                       : 'No faculty members are currently assigned to this department.'}
@@ -191,13 +191,13 @@ export const HodFacultyTable: React.FC<HodFacultyTableProps> = ({
                 <tr key={f.id} className="hover:bg-gray-800/30 transition-colors">
                   <td className="py-3.5 px-4">
                     <div className="font-medium text-white">{f.fullName}</div>
-                    <div className="text-[11px] text-gray-400 font-mono">{f.employeeId}</div>
+                    <div className="text-[11px] text-slate-600 font-medium font-mono">{f.employeeId}</div>
                   </td>
                   <td className="py-3.5 px-4">
-                    <div className="text-gray-200">{f.designation || 'Faculty'}</div>
-                    <div className="text-[11px] text-gray-400">{f.qualification || '—'}</div>
+                    <div className="text-slate-800 font-medium">{f.designation || 'Faculty'}</div>
+                    <div className="text-[11px] text-slate-600 font-medium">{f.qualification || '—'}</div>
                   </td>
-                  <td className="py-3.5 px-4 text-gray-300 font-mono text-[11px]">
+                  <td className="py-3.5 px-4 text-slate-700 font-medium font-mono text-[11px]">
                     {f.email || '—'}
                   </td>
                   <td className="py-3.5 px-4 text-center">
@@ -224,7 +224,7 @@ export const HodFacultyTable: React.FC<HodFacultyTableProps> = ({
                         variant="ghost"
                         size="sm"
                         onClick={() => onViewDetails(f.id)}
-                        className="text-gray-300 hover:text-white px-2 py-1 h-auto"
+                        className="text-slate-700 font-medium hover:text-white px-2 py-1 h-auto"
                         title="View Faculty Details"
                       >
                         <Eye className="w-3.5 h-3.5" />

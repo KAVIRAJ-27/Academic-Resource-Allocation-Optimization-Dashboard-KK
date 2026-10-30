@@ -16,7 +16,7 @@ export const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({ size = 'md', cla
   return (
     <div
       className={cn(
-        'rounded-full border-teal-500/20 border-t-teal-400 animate-spin',
+        'rounded-full border-[#B8A16A]/20 border-t-[#B8A16A] animate-spin',
         sizes[size],
         className
       )}

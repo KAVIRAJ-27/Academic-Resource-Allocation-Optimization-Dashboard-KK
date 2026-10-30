@@ -24,14 +24,14 @@ export const ContentSection: React.FC<ContentSectionProps> = ({
           <div className="space-y-0.5">
             <div className="flex items-center gap-2">
               {title && (
-                <h2 className="text-sm font-bold text-gray-200 uppercase tracking-wider font-mono">
+                <h2 className="text-sm font-bold font-serif text-[#202020] uppercase tracking-wider">
                   {title}
                 </h2>
               )}
               {badge}
             </div>
             {subtitle && (
-              <p className="text-xs text-gray-400">
+              <p className="text-xs text-[#555555] font-normal">
                 {subtitle}
               </p>
             )}

@@ -33,7 +33,7 @@ export const FacultyRequestCancelModal: React.FC<FacultyRequestCancelModalProps>
           </div>
         </div>
 
-        <div className="bg-[#171A23] border border-[#1E2330] rounded-xl p-4 text-xs space-y-2">
+        <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 text-xs space-y-2">
           <div className="flex justify-between">
             <span className="text-gray-400">Request ID:</span>
             <span className="font-mono text-white font-medium">#{request.id}</span>

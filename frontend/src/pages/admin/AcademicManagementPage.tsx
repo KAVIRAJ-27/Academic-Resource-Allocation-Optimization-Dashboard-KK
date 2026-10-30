@@ -364,13 +364,13 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <div>
           <div className="flex items-center gap-2">
-            <h1 className="text-2xl font-bold text-white tracking-tight flex items-center gap-2.5">
-              <School className="w-7 h-7 text-teal-400" />
+            <h1 className="text-2xl font-bold text-slate-900 tracking-tight flex items-center gap-2.5">
+              <School className="w-7 h-7 text-[#B8A16A]" />
               Academic Structure & Curriculum
             </h1>
             <Badge variant="teal">Master Hierarchy</Badge>
           </div>
-          <p className="text-sm text-gray-400 mt-1">
+          <p className="text-sm text-slate-500 mt-1">
             Centrally manage Institution profile, Departments, Academic Terms, Degree Programs, Curricular Subjects, and Class Sections.
           </p>
         </div>
@@ -399,28 +399,28 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
 
       {/* KPI Overview Cards */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-        <Card className="p-3 bg-[#11141C] border-[#1E2330]">
-          <div className="flex items-center gap-2 text-gray-400 text-xs font-medium">
-            <Building2 className="w-4 h-4 text-teal-400" />
+        <Card className="p-3 bg-white border-slate-200">
+          <div className="flex items-center gap-2 text-slate-500 text-xs font-medium">
+            <Building2 className="w-4 h-4 text-[#B8A16A]" />
             Departments
           </div>
-          <p className="text-xl font-bold text-white mt-1">
+          <p className="text-xl font-bold text-slate-900 mt-1">
             {institutionHook.institution?.totalDepartments ?? departmentsHook.totalElements}
           </p>
         </Card>
 
-        <Card className="p-3 bg-[#11141C] border-[#1E2330]">
-          <div className="flex items-center gap-2 text-gray-400 text-xs font-medium">
+        <Card className="p-3 bg-white border-slate-200">
+          <div className="flex items-center gap-2 text-slate-500 text-xs font-medium">
             <GraduationCap className="w-4 h-4 text-purple-400" />
             Programs
           </div>
-          <p className="text-xl font-bold text-white mt-1">
+          <p className="text-xl font-bold text-slate-900 mt-1">
             {institutionHook.institution?.totalPrograms ?? programsHook.totalElements}
           </p>
         </Card>
 
-        <Card className="p-3 bg-[#11141C] border-[#1E2330]">
-          <div className="flex items-center gap-2 text-gray-400 text-xs font-medium">
+        <Card className="p-3 bg-white border-slate-200">
+          <div className="flex items-center gap-2 text-slate-500 text-xs font-medium">
             <CalendarDays className="w-4 h-4 text-blue-400" />
             Active Year
           </div>
@@ -429,32 +429,32 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
           </p>
         </Card>
 
-        <Card className="p-3 bg-[#11141C] border-[#1E2330]">
-          <div className="flex items-center gap-2 text-gray-400 text-xs font-medium">
+        <Card className="p-3 bg-white border-slate-200">
+          <div className="flex items-center gap-2 text-slate-500 text-xs font-medium">
             <BookOpen className="w-4 h-4 text-amber-400" />
             Subjects
           </div>
-          <p className="text-xl font-bold text-white mt-1">
+          <p className="text-xl font-bold text-slate-900 mt-1">
             {subjectsHook.totalElements}
           </p>
         </Card>
 
-        <Card className="p-3 bg-[#11141C] border-[#1E2330]">
-          <div className="flex items-center gap-2 text-gray-400 text-xs font-medium">
+        <Card className="p-3 bg-white border-slate-200">
+          <div className="flex items-center gap-2 text-slate-500 text-xs font-medium">
             <Layers className="w-4 h-4 text-emerald-400" />
             Sections
           </div>
-          <p className="text-xl font-bold text-white mt-1">
+          <p className="text-xl font-bold text-slate-900 mt-1">
             {sectionsHook.totalElements}
           </p>
         </Card>
 
-        <Card className="p-3 bg-[#11141C] border-[#1E2330]">
-          <div className="flex items-center gap-2 text-gray-400 text-xs font-medium">
+        <Card className="p-3 bg-white border-slate-200">
+          <div className="flex items-center gap-2 text-slate-500 text-xs font-medium">
             <Users className="w-4 h-4 text-rose-400" />
             Active Students
           </div>
-          <p className="text-xl font-bold text-white mt-1">
+          <p className="text-xl font-bold text-slate-900 mt-1">
             {institutionHook.institution?.totalActiveStudents ?? 0}
           </p>
         </Card>
@@ -486,7 +486,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
       )}
 
       {/* Tabs Navigation */}
-      <div className="border-b border-[#1E2330] flex gap-2 overflow-x-auto scrollbar-none">
+      <div className="border-b border-slate-200 flex gap-2 overflow-x-auto scrollbar-none">
         {[
           { id: 'institution', label: 'Institution Profile', icon: School },
           { id: 'departments', label: 'Departments', icon: Building2 },
@@ -504,11 +504,11 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               onClick={() => handleTabChange(tab.id as AcademicTab)}
               className={`flex items-center gap-2 px-4 py-3 text-sm font-medium border-b-2 transition-colors whitespace-nowrap ${
                 isActive
-                  ? 'border-teal-500 text-teal-400 bg-teal-500/5'
-                  : 'border-transparent text-gray-400 hover:text-gray-200 hover:border-gray-700'
+                  ? 'border-[#B8A16A] text-[#202020] bg-[#F4F0E6]/90 font-bold font-serif shadow-xs rounded-t-xl'
+                  : 'border-transparent text-[#77736A] hover:text-[#202020] hover:border-[#D8C9A8]'
               }`}
             >
-              <Icon className={`w-4 h-4 ${isActive ? 'text-teal-400' : 'text-gray-400'}`} />
+              <Icon className={`w-4 h-4 ${isActive ? 'text-[#B8A16A]' : 'text-slate-500'}`} />
               {tab.label}
             </button>
           );
@@ -519,25 +519,25 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
       {activeTab === 'institution' && (
         <div className="space-y-4">
           {institutionHook.loading && !institutionHook.institution ? (
-            <Card className="p-8 text-center text-gray-400 bg-[#11141C] border-[#1E2330]">
-              <RefreshCw className="w-6 h-6 animate-spin mx-auto text-teal-400 mb-2" />
+            <Card className="p-8 text-center text-slate-500 bg-white border-slate-200">
+              <RefreshCw className="w-6 h-6 animate-spin mx-auto text-[#B8A16A] mb-2" />
               Loading institution profile...
             </Card>
           ) : institutionHook.error ? (
             <ErrorMessage message={institutionHook.error} />
           ) : (
             institutionHook.institution && (
-              <Card className="p-6 bg-[#11141C] border-[#1E2330] space-y-6">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#1E2330] pb-6">
+              <Card className="p-6 bg-white border-slate-200 space-y-6">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-6">
                   <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-500 to-teal-700 flex items-center justify-center text-white font-black text-xl shadow-card-glow">
+                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-500 to-teal-700 flex items-center justify-center text-slate-900 font-black text-xl shadow-card-glow">
                       {institutionHook.institution.code || 'INST'}
                     </div>
                     <div>
-                      <h2 className="text-xl font-bold text-white">{institutionHook.institution.name}</h2>
+                      <h2 className="text-xl font-bold text-slate-900">{institutionHook.institution.name}</h2>
                       <div className="flex items-center gap-2 mt-1">
                         <Badge variant="teal">{institutionHook.institution.code}</Badge>
-                        <span className="text-xs text-gray-400">Autonomous Technical Institute</span>
+                        <span className="text-xs text-slate-500">Autonomous Technical Institute</span>
                       </div>
                     </div>
                   </div>
@@ -549,22 +549,22 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   <div className="space-y-1">
-                    <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Contact Email</span>
-                    <p className="text-sm font-medium text-gray-200">
+                    <span className="text-xs font-semibold text-slate-600 font-bold uppercase tracking-wider">Contact Email</span>
+                    <p className="text-sm font-medium text-slate-800">
                       {institutionHook.institution.contactEmail || '—'}
                     </p>
                   </div>
 
                   <div className="space-y-1">
-                    <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Contact Phone</span>
-                    <p className="text-sm font-medium text-gray-200">
+                    <span className="text-xs font-semibold text-slate-600 font-bold uppercase tracking-wider">Contact Phone</span>
+                    <p className="text-sm font-medium text-slate-800">
                       {institutionHook.institution.contactPhone || '—'}
                     </p>
                   </div>
 
                   <div className="space-y-1">
-                    <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Official Website</span>
-                    <p className="text-sm font-medium text-teal-400">
+                    <span className="text-xs font-semibold text-slate-600 font-bold uppercase tracking-wider">Official Website</span>
+                    <p className="text-sm font-medium text-[#B8A16A]">
                       {institutionHook.institution.website ? (
                         <a href={institutionHook.institution.website} target="_blank" rel="noreferrer" className="underline hover:text-teal-300">
                           {institutionHook.institution.website}
@@ -576,29 +576,29 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
                   </div>
 
                   <div className="space-y-1 md:col-span-2 lg:col-span-3">
-                    <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Campus Address</span>
-                    <p className="text-sm font-medium text-gray-200">
+                    <span className="text-xs font-semibold text-slate-600 font-bold uppercase tracking-wider">Campus Address</span>
+                    <p className="text-sm font-medium text-slate-800">
                       {institutionHook.institution.address || '—'}
                     </p>
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-[#1E2330] grid grid-cols-2 sm:grid-cols-4 gap-4">
-                  <div className="p-3 bg-[#0B0D14] rounded-lg border border-[#1E2330]">
-                    <span className="text-xs text-gray-400">Departments</span>
-                    <p className="text-lg font-bold text-white mt-0.5">{institutionHook.institution.totalDepartments}</p>
+                <div className="pt-4 border-t border-slate-200 grid grid-cols-2 sm:grid-cols-4 gap-4">
+                  <div className="p-3 bg-slate-50 rounded-lg border border-slate-200">
+                    <span className="text-xs text-slate-500">Departments</span>
+                    <p className="text-lg font-bold text-slate-900 mt-0.5">{institutionHook.institution.totalDepartments}</p>
                   </div>
-                  <div className="p-3 bg-[#0B0D14] rounded-lg border border-[#1E2330]">
-                    <span className="text-xs text-gray-400">Programs Offered</span>
-                    <p className="text-lg font-bold text-white mt-0.5">{institutionHook.institution.totalPrograms}</p>
+                  <div className="p-3 bg-slate-50 rounded-lg border border-slate-200">
+                    <span className="text-xs text-slate-500">Programs Offered</span>
+                    <p className="text-lg font-bold text-slate-900 mt-0.5">{institutionHook.institution.totalPrograms}</p>
                   </div>
-                  <div className="p-3 bg-[#0B0D14] rounded-lg border border-[#1E2330]">
-                    <span className="text-xs text-gray-400">Appointed Faculty</span>
-                    <p className="text-lg font-bold text-white mt-0.5">{institutionHook.institution.totalFaculty}</p>
+                  <div className="p-3 bg-slate-50 rounded-lg border border-slate-200">
+                    <span className="text-xs text-slate-500">Appointed Faculty</span>
+                    <p className="text-lg font-bold text-slate-900 mt-0.5">{institutionHook.institution.totalFaculty}</p>
                   </div>
-                  <div className="p-3 bg-[#0B0D14] rounded-lg border border-[#1E2330]">
-                    <span className="text-xs text-gray-400">Active Students</span>
-                    <p className="text-lg font-bold text-white mt-0.5">{institutionHook.institution.totalActiveStudents}</p>
+                  <div className="p-3 bg-slate-50 rounded-lg border border-slate-200">
+                    <span className="text-xs text-slate-500">Active Students</span>
+                    <p className="text-lg font-bold text-slate-900 mt-0.5">{institutionHook.institution.totalActiveStudents}</p>
                   </div>
                 </div>
               </Card>
@@ -611,22 +611,22 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
       {activeTab === 'departments' && (
         <div className="space-y-4">
           {/* Controls Bar */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-[#11141C] p-3 rounded-xl border border-[#1E2330]">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white p-3 rounded-xl border border-slate-200">
             <div className="flex flex-wrap items-center gap-2.5 flex-1">
               <div className="relative w-full sm:w-64">
-                <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+                <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
                 <Input
                   placeholder="Search name or code..."
                   value={departmentsHook.search}
                   onChange={(e) => departmentsHook.setSearch(e.target.value)}
-                  className="pl-9 bg-[#0B0D14] border-[#1E2330] text-sm h-9"
+                  className="pl-9 bg-white border-slate-300 text-slate-900 placeholder-slate-400 text-sm h-9 shadow-2xs"
                 />
               </div>
 
               <Select
                 value={departmentsHook.statusFilter}
                 onChange={(e) => departmentsHook.setStatusFilter(e.target.value)}
-                className="bg-[#0B0D14] border-[#1E2330] text-sm h-9 w-32"
+                className="bg-white border-slate-300 text-slate-900 text-sm h-9 w-32 shadow-2xs"
               >
                 <option value="ALL">All Status</option>
                 <option value="ACTIVE">Active</option>
@@ -664,10 +664,10 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               }}
             />
           ) : (
-            <Card className="bg-[#11141C] border-[#1E2330] overflow-hidden">
+            <Card className="bg-white border-slate-200 overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-sm">
-                  <thead className="bg-[#0B0D14] border-b border-[#1E2330] text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                  <thead className="bg-slate-50 border-b border-slate-200 text-xs font-semibold text-slate-600 font-bold uppercase tracking-wider">
                     <tr>
                       <th className="py-3 px-4">Code</th>
                       <th className="py-3 px-4">Department Name</th>
@@ -679,19 +679,19 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
                       <th className="py-3 px-4 text-right">Actions</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#1E2330] text-gray-300">
+                  <tbody className="divide-y divide-slate-200 text-slate-700">
                     {departmentsHook.departments.map((dept) => (
                       <tr key={dept.id} className="hover:bg-[#161B26] transition-colors">
-                        <td className="py-3 px-4 font-mono font-bold text-teal-400">{dept.code}</td>
+                        <td className="py-3 px-4 font-mono font-bold text-[#B8A16A]">{dept.code}</td>
                         <td className="py-3 px-4 font-medium text-white">{dept.name}</td>
-                        <td className="py-3 px-4 text-gray-300">
+                        <td className="py-3 px-4 text-slate-700">
                           {dept.activeHodName ? (
                             <span className="flex items-center gap-1.5">
                               <span className="w-2 h-2 rounded-full bg-purple-400" />
                               {dept.activeHodName}
                             </span>
                           ) : (
-                            <span className="text-gray-500 italic">Unassigned</span>
+                            <span className="text-slate-500 font-medium italic">Unassigned</span>
                           )}
                         </td>
                         <td className="py-3 px-4 text-center font-mono">{dept.totalPrograms}</td>
@@ -709,7 +709,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
                                 const res = await departmentsHook.getDepartmentDetails(dept.id);
                                 setSelectedDeptDetails(res.data);
                               }}
-                              className="p-1.5 text-gray-400 hover:text-white rounded hover:bg-[#1E2330]"
+                              className="p-1.5 text-slate-500 hover:text-white rounded hover:bg-[#1E2330]"
                               title="View Details"
                             >
                               <Eye className="w-4 h-4" />
@@ -727,7 +727,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
                                 });
                                 setShowDeptModal(true);
                               }}
-                              className="p-1.5 text-gray-400 hover:text-teal-400 rounded hover:bg-[#1E2330]"
+                              className="p-1.5 text-slate-500 hover:text-[#B8A16A] rounded hover:bg-[#1E2330]"
                               title="Edit Department"
                             >
                               <Edit3 className="w-4 h-4" />
@@ -752,7 +752,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
                                   }
                                 });
                               }}
-                              className="p-1.5 text-gray-400 hover:text-amber-400 rounded hover:bg-[#1E2330]"
+                              className="p-1.5 text-slate-500 hover:text-amber-400 rounded hover:bg-[#1E2330]"
                               title={dept.status === 'ACTIVE' ? 'Deactivate' : 'Activate'}
                             >
                               {dept.status === 'ACTIVE' ? <XCircle className="w-4 h-4" /> : <CheckCircle2 className="w-4 h-4" />}
@@ -776,7 +776,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
                                   }
                                 });
                               }}
-                              className="p-1.5 text-gray-400 hover:text-rose-400 rounded hover:bg-[#1E2330]"
+                              className="p-1.5 text-slate-500 hover:text-rose-400 rounded hover:bg-[#1E2330]"
                               title="Delete Department"
                             >
                               <Trash2 className="w-4 h-4" />
@@ -790,7 +790,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               </div>
 
               {departmentsHook.totalPages > 1 && (
-                <div className="p-3 border-t border-[#1E2330]">
+                <div className="p-3 border-t border-slate-200">
                   <Pagination
                     currentPage={departmentsHook.page + 1}
                     totalPages={departmentsHook.totalPages}
@@ -807,22 +807,22 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
       {activeTab === 'years' && (
         <div className="space-y-4">
           {/* Controls Bar */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-[#11141C] p-3 rounded-xl border border-[#1E2330]">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white p-3 rounded-xl border border-slate-200">
             <div className="flex flex-wrap items-center gap-2.5 flex-1">
               <div className="relative w-full sm:w-64">
-                <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+                <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
                 <Input
                   placeholder="Search year name (e.g. 2026-2027)..."
                   value={yearsHook.search}
                   onChange={(e) => yearsHook.setSearch(e.target.value)}
-                  className="pl-9 bg-[#0B0D14] border-[#1E2330] text-sm h-9"
+                  className="pl-9 bg-slate-50 border-slate-200 text-sm h-9"
                 />
               </div>
 
               <Select
                 value={yearsHook.statusFilter}
                 onChange={(e) => yearsHook.setStatusFilter(e.target.value)}
-                className="bg-[#0B0D14] border-[#1E2330] text-sm h-9 w-32"
+                className="bg-slate-50 border-slate-200 text-sm h-9 w-32"
               >
                 <option value="ALL">All Status</option>
                 <option value="ACTIVE">Active</option>
@@ -860,10 +860,10 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               }}
             />
           ) : (
-            <Card className="bg-[#11141C] border-[#1E2330] overflow-hidden">
+            <Card className="bg-white border-slate-200 overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-sm">
-                  <thead className="bg-[#0B0D14] border-b border-[#1E2330] text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                  <thead className="bg-slate-50 border-b border-slate-200 text-xs font-semibold text-slate-600 font-bold uppercase tracking-wider">
                     <tr>
                       <th className="py-3 px-4">Academic Year</th>
                       <th className="py-3 px-4">Start Date</th>
@@ -873,12 +873,12 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
                       <th className="py-3 px-4 text-right">Actions</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#1E2330] text-gray-300">
+                  <tbody className="divide-y divide-slate-200 text-slate-700">
                     {yearsHook.years.map((year) => (
                       <tr key={year.id} className="hover:bg-[#161B26] transition-colors">
                         <td className="py-3 px-4 font-medium text-white font-mono">{year.name}</td>
-                        <td className="py-3 px-4 text-gray-300">{year.startDate}</td>
-                        <td className="py-3 px-4 text-gray-300">{year.endDate}</td>
+                        <td className="py-3 px-4 text-slate-700">{year.startDate}</td>
+                        <td className="py-3 px-4 text-slate-700">{year.endDate}</td>
                         <td className="py-3 px-4 text-center font-mono">{year.totalSemesters}</td>
                         <td className="py-3 px-4 text-center">
                           <Badge variant={year.status === 'ACTIVE' ? 'teal' : 'neutral'}>
@@ -909,7 +909,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
                                     }
                                   });
                                 }}
-                                className="text-teal-400 border-teal-500/30 hover:bg-teal-500/10 text-xs px-2 py-1"
+                                className="text-[#B8A16A] border-teal-500/30 hover:bg-teal-500/10 text-xs px-2 py-1"
                               >
                                 Activate
                               </Button>
@@ -919,7 +919,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
                                 const res = await yearsHook.getYearDetails(year.id);
                                 setSelectedYearDetails(res.data);
                               }}
-                              className="p-1.5 text-gray-400 hover:text-white rounded hover:bg-[#1E2330]"
+                              className="p-1.5 text-slate-500 hover:text-white rounded hover:bg-[#1E2330]"
                               title="View Details"
                             >
                               <Eye className="w-4 h-4" />
@@ -937,7 +937,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
                                 });
                                 setShowYearModal(true);
                               }}
-                              className="p-1.5 text-gray-400 hover:text-teal-400 rounded hover:bg-[#1E2330]"
+                              className="p-1.5 text-slate-500 hover:text-[#B8A16A] rounded hover:bg-[#1E2330]"
                               title="Edit Academic Year"
                             >
                               <Edit3 className="w-4 h-4" />
@@ -961,7 +961,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
                                   }
                                 });
                               }}
-                              className="p-1.5 text-gray-400 hover:text-rose-400 rounded hover:bg-[#1E2330]"
+                              className="p-1.5 text-slate-500 hover:text-rose-400 rounded hover:bg-[#1E2330]"
                               title="Delete Year"
                             >
                               <Trash2 className="w-4 h-4" />
@@ -975,7 +975,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               </div>
 
               {yearsHook.totalPages > 1 && (
-                <div className="p-3 border-t border-[#1E2330]">
+                <div className="p-3 border-t border-slate-200">
                   <Pagination
                     currentPage={yearsHook.page + 1}
                     totalPages={yearsHook.totalPages}
@@ -992,12 +992,12 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
       {activeTab === 'semesters' && (
         <div className="space-y-4">
           {/* Controls Bar */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-[#11141C] p-3 rounded-xl border border-[#1E2330]">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white p-3 rounded-xl border border-slate-200">
             <div className="flex flex-wrap items-center gap-2.5 flex-1">
               <Select
                 value={semestersHook.academicYearFilter}
                 onChange={(e) => semestersHook.setAcademicYearFilter(e.target.value)}
-                className="bg-[#0B0D14] border-[#1E2330] text-sm h-9 w-44"
+                className="bg-slate-50 border-slate-200 text-sm h-9 w-44"
               >
                 <option value="ALL">All Academic Years</option>
                 {referenceData?.academicYears.map((ay) => (
@@ -1010,7 +1010,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               <Select
                 value={semestersHook.statusFilter}
                 onChange={(e) => semestersHook.setStatusFilter(e.target.value)}
-                className="bg-[#0B0D14] border-[#1E2330] text-sm h-9 w-32"
+                className="bg-slate-50 border-slate-200 text-sm h-9 w-32"
               >
                 <option value="ALL">All Status</option>
                 <option value="ACTIVE">Active</option>
@@ -1062,10 +1062,10 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               }}
             />
           ) : (
-            <Card className="bg-[#11141C] border-[#1E2330] overflow-hidden">
+            <Card className="bg-white border-slate-200 overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-sm">
-                  <thead className="bg-[#0B0D14] border-b border-[#1E2330] text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                  <thead className="bg-slate-50 border-b border-slate-200 text-xs font-semibold text-slate-600 font-bold uppercase tracking-wider">
                     <tr>
                       <th className="py-3 px-4">Academic Year</th>
                       <th className="py-3 px-4">Semester</th>
@@ -1075,14 +1075,14 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
                       <th className="py-3 px-4 text-right">Actions</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#1E2330] text-gray-300">
+                  <tbody className="divide-y divide-slate-200 text-slate-700">
                     {semestersHook.semesters.map((sem) => (
                       <tr key={sem.id} className="hover:bg-[#161B26] transition-colors">
                         <td className="py-3 px-4 font-mono font-medium text-white">{sem.academicYearName}</td>
-                        <td className="py-3 px-4 font-semibold text-teal-400">
+                        <td className="py-3 px-4 font-semibold text-[#B8A16A]">
                           Semester {sem.semesterNumber}
                         </td>
-                        <td className="py-3 px-4 text-gray-400">
+                        <td className="py-3 px-4 text-slate-500">
                           {sem.startDate} &rarr; {sem.endDate}
                         </td>
                         <td className="py-3 px-4 text-center font-mono">{sem.totalSections}</td>
@@ -1098,7 +1098,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
                                 const res = await semestersHook.getSemesterDetails(sem.id);
                                 setSelectedSemesterDetails(res.data);
                               }}
-                              className="p-1.5 text-gray-400 hover:text-white rounded hover:bg-[#1E2330]"
+                              className="p-1.5 text-slate-500 hover:text-white rounded hover:bg-[#1E2330]"
                               title="View Details"
                             >
                               <Eye className="w-4 h-4" />
@@ -1117,7 +1117,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
                                 });
                                 setShowSemesterModal(true);
                               }}
-                              className="p-1.5 text-gray-400 hover:text-teal-400 rounded hover:bg-[#1E2330]"
+                              className="p-1.5 text-slate-500 hover:text-[#B8A16A] rounded hover:bg-[#1E2330]"
                               title="Edit Semester"
                             >
                               <Edit3 className="w-4 h-4" />
@@ -1142,7 +1142,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
                                   }
                                 });
                               }}
-                              className="p-1.5 text-gray-400 hover:text-amber-400 rounded hover:bg-[#1E2330]"
+                              className="p-1.5 text-slate-500 hover:text-amber-400 rounded hover:bg-[#1E2330]"
                               title={sem.status === 'ACTIVE' ? 'Deactivate' : 'Activate'}
                             >
                               {sem.status === 'ACTIVE' ? <XCircle className="w-4 h-4" /> : <CheckCircle2 className="w-4 h-4" />}
@@ -1166,7 +1166,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
                                   }
                                 });
                               }}
-                              className="p-1.5 text-gray-400 hover:text-rose-400 rounded hover:bg-[#1E2330]"
+                              className="p-1.5 text-slate-500 hover:text-rose-400 rounded hover:bg-[#1E2330]"
                               title="Delete Semester"
                             >
                               <Trash2 className="w-4 h-4" />
@@ -1180,7 +1180,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               </div>
 
               {semestersHook.totalPages > 1 && (
-                <div className="p-3 border-t border-[#1E2330]">
+                <div className="p-3 border-t border-slate-200">
                   <Pagination
                     currentPage={semestersHook.page + 1}
                     totalPages={semestersHook.totalPages}
@@ -1197,22 +1197,22 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
       {activeTab === 'programs' && (
         <div className="space-y-4">
           {/* Controls Bar */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-[#11141C] p-3 rounded-xl border border-[#1E2330]">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white p-3 rounded-xl border border-slate-200">
             <div className="flex flex-wrap items-center gap-2.5 flex-1">
               <div className="relative w-full sm:w-56">
-                <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+                <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
                 <Input
                   placeholder="Search program..."
                   value={programsHook.search}
                   onChange={(e) => programsHook.setSearch(e.target.value)}
-                  className="pl-9 bg-[#0B0D14] border-[#1E2330] text-sm h-9"
+                  className="pl-9 bg-slate-50 border-slate-200 text-sm h-9"
                 />
               </div>
 
               <Select
                 value={programsHook.departmentFilter}
                 onChange={(e) => programsHook.setDepartmentFilter(e.target.value)}
-                className="bg-[#0B0D14] border-[#1E2330] text-sm h-9 w-44"
+                className="bg-slate-50 border-slate-200 text-sm h-9 w-44"
               >
                 <option value="ALL">All Departments</option>
                 {activeDepartments.map((dept) => (
@@ -1225,7 +1225,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               <Select
                 value={programsHook.typeFilter}
                 onChange={(e) => programsHook.setTypeFilter(e.target.value)}
-                className="bg-[#0B0D14] border-[#1E2330] text-sm h-9 w-32"
+                className="bg-slate-50 border-slate-200 text-sm h-9 w-32"
               >
                 <option value="ALL">All Degrees</option>
                 <option value="UG">UG</option>
@@ -1237,7 +1237,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               <Select
                 value={programsHook.statusFilter}
                 onChange={(e) => programsHook.setStatusFilter(e.target.value)}
-                className="bg-[#0B0D14] border-[#1E2330] text-sm h-9 w-32"
+                className="bg-slate-50 border-slate-200 text-sm h-9 w-32"
               >
                 <option value="ALL">All Status</option>
                 <option value="ACTIVE">Active</option>
@@ -1293,10 +1293,10 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               }}
             />
           ) : (
-            <Card className="bg-[#11141C] border-[#1E2330] overflow-hidden">
+            <Card className="bg-white border-slate-200 overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-sm">
-                  <thead className="bg-[#0B0D14] border-b border-[#1E2330] text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                  <thead className="bg-slate-50 border-b border-slate-200 text-xs font-semibold text-slate-600 font-bold uppercase tracking-wider">
                     <tr>
                       <th className="py-3 px-4">Code</th>
                       <th className="py-3 px-4">Program Name</th>
@@ -1308,18 +1308,18 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
                       <th className="py-3 px-4 text-right">Actions</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#1E2330] text-gray-300">
+                  <tbody className="divide-y divide-slate-200 text-slate-700">
                     {programsHook.programs.map((prog) => (
                       <tr key={prog.id} className="hover:bg-[#161B26] transition-colors">
-                        <td className="py-3 px-4 font-mono font-bold text-teal-400">{prog.code}</td>
+                        <td className="py-3 px-4 font-mono font-bold text-[#B8A16A]">{prog.code}</td>
                         <td className="py-3 px-4 font-medium text-white">{prog.name}</td>
-                        <td className="py-3 px-4 text-gray-300">{prog.departmentName}</td>
+                        <td className="py-3 px-4 text-slate-700">{prog.departmentName}</td>
                         <td className="py-3 px-4 text-center">
                           <Badge variant={prog.programType === 'UG' ? 'teal' : 'purple'}>
                             {prog.programType}
                           </Badge>
                         </td>
-                        <td className="py-3 px-4 text-center font-mono text-gray-400">
+                        <td className="py-3 px-4 text-center font-mono text-slate-500">
                           {prog.durationYears}y ({prog.totalSemesters} sem)
                         </td>
                         <td className="py-3 px-4 text-center font-mono">{prog.totalStudents}</td>
@@ -1335,7 +1335,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
                                 const res = await programsHook.getProgramDetails(prog.id);
                                 setSelectedProgramDetails(res.data);
                               }}
-                              className="p-1.5 text-gray-400 hover:text-white rounded hover:bg-[#1E2330]"
+                              className="p-1.5 text-slate-500 hover:text-white rounded hover:bg-[#1E2330]"
                               title="View Details"
                             >
                               <Eye className="w-4 h-4" />
@@ -1356,7 +1356,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
                                 });
                                 setShowProgramModal(true);
                               }}
-                              className="p-1.5 text-gray-400 hover:text-teal-400 rounded hover:bg-[#1E2330]"
+                              className="p-1.5 text-slate-500 hover:text-[#B8A16A] rounded hover:bg-[#1E2330]"
                               title="Edit Program"
                             >
                               <Edit3 className="w-4 h-4" />
@@ -1381,7 +1381,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
                                   }
                                 });
                               }}
-                              className="p-1.5 text-gray-400 hover:text-amber-400 rounded hover:bg-[#1E2330]"
+                              className="p-1.5 text-slate-500 hover:text-amber-400 rounded hover:bg-[#1E2330]"
                               title={prog.status === 'ACTIVE' ? 'Deactivate' : 'Activate'}
                             >
                               {prog.status === 'ACTIVE' ? <XCircle className="w-4 h-4" /> : <CheckCircle2 className="w-4 h-4" />}
@@ -1405,7 +1405,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
                                   }
                                 });
                               }}
-                              className="p-1.5 text-gray-400 hover:text-rose-400 rounded hover:bg-[#1E2330]"
+                              className="p-1.5 text-slate-500 hover:text-rose-400 rounded hover:bg-[#1E2330]"
                               title="Delete Program"
                             >
                               <Trash2 className="w-4 h-4" />
@@ -1419,7 +1419,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               </div>
 
               {programsHook.totalPages > 1 && (
-                <div className="p-3 border-t border-[#1E2330]">
+                <div className="p-3 border-t border-slate-200">
                   <Pagination
                     currentPage={programsHook.page + 1}
                     totalPages={programsHook.totalPages}
@@ -1436,22 +1436,22 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
       {activeTab === 'subjects' && (
         <div className="space-y-4">
           {/* Controls Bar with Cascades */}
-          <div className="flex flex-col gap-3 bg-[#11141C] p-3 rounded-xl border border-[#1E2330]">
+          <div className="flex flex-col gap-3 bg-white p-3 rounded-xl border border-slate-200">
             <div className="flex flex-wrap items-center gap-2.5">
               <div className="relative w-full sm:w-56">
-                <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+                <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
                 <Input
                   placeholder="Search code or subject..."
                   value={subjectsHook.search}
                   onChange={(e) => subjectsHook.setSearch(e.target.value)}
-                  className="pl-9 bg-[#0B0D14] border-[#1E2330] text-sm h-9"
+                  className="pl-9 bg-slate-50 border-slate-200 text-sm h-9"
                 />
               </div>
 
               <Select
                 value={subjectsHook.departmentFilter}
                 onChange={(e) => subjectsHook.setDepartmentFilter(e.target.value)}
-                className="bg-[#0B0D14] border-[#1E2330] text-sm h-9 w-44"
+                className="bg-slate-50 border-slate-200 text-sm h-9 w-44"
               >
                 <option value="ALL">All Departments</option>
                 {activeDepartments.map((dept) => (
@@ -1464,7 +1464,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               <Select
                 value={subjectsHook.programFilter}
                 onChange={(e) => subjectsHook.setProgramFilter(e.target.value)}
-                className="bg-[#0B0D14] border-[#1E2330] text-sm h-9 w-44"
+                className="bg-slate-50 border-slate-200 text-sm h-9 w-44"
               >
                 <option value="ALL">All Programs</option>
                 {activeProgramsForDept(Number(subjectsHook.departmentFilter)).map((prog) => (
@@ -1477,7 +1477,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               <Select
                 value={subjectsHook.semesterNumberFilter}
                 onChange={(e) => subjectsHook.setSemesterNumberFilter(e.target.value)}
-                className="bg-[#0B0D14] border-[#1E2330] text-sm h-9 w-32"
+                className="bg-slate-50 border-slate-200 text-sm h-9 w-32"
               >
                 <option value="ALL">All Semesters</option>
                 {[1, 2, 3, 4, 5, 6, 7, 8].map((sem) => (
@@ -1490,7 +1490,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               <Select
                 value={subjectsHook.typeFilter}
                 onChange={(e) => subjectsHook.setTypeFilter(e.target.value)}
-                className="bg-[#0B0D14] border-[#1E2330] text-sm h-9 w-32"
+                className="bg-slate-50 border-slate-200 text-sm h-9 w-32"
               >
                 <option value="ALL">All Types</option>
                 <option value="THEORY">THEORY</option>
@@ -1501,7 +1501,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               <Select
                 value={subjectsHook.statusFilter}
                 onChange={(e) => subjectsHook.setStatusFilter(e.target.value)}
-                className="bg-[#0B0D14] border-[#1E2330] text-sm h-9 w-32"
+                className="bg-slate-50 border-slate-200 text-sm h-9 w-32"
               >
                 <option value="ALL">All Status</option>
                 <option value="ACTIVE">Active</option>
@@ -1567,10 +1567,10 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               }}
             />
           ) : (
-            <Card className="bg-[#11141C] border-[#1E2330] overflow-hidden">
+            <Card className="bg-white border-slate-200 overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-sm">
-                  <thead className="bg-[#0B0D14] border-b border-[#1E2330] text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                  <thead className="bg-slate-50 border-b border-slate-200 text-xs font-semibold text-slate-600 font-bold uppercase tracking-wider">
                     <tr>
                       <th className="py-3 px-4">Code</th>
                       <th className="py-3 px-4">Subject Name</th>
@@ -1582,15 +1582,15 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
                       <th className="py-3 px-4 text-right">Actions</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#1E2330] text-gray-300">
+                  <tbody className="divide-y divide-slate-200 text-slate-700">
                     {subjectsHook.subjects.map((sub) => (
                       <tr key={sub.id} className="hover:bg-[#161B26] transition-colors">
-                        <td className="py-3 px-4 font-mono font-bold text-teal-400">{sub.code}</td>
+                        <td className="py-3 px-4 font-mono font-bold text-[#B8A16A]">{sub.code}</td>
                         <td className="py-3 px-4 font-medium text-white">{sub.name}</td>
-                        <td className="py-3 px-4 text-gray-300">
-                          <span className="font-semibold text-gray-200">{sub.departmentCode}</span>
-                          <span className="text-gray-500 mx-1">&bull;</span>
-                          <span className="text-gray-400 text-xs">{sub.programName}</span>
+                        <td className="py-3 px-4 text-slate-700">
+                          <span className="font-semibold text-slate-800">{sub.departmentCode}</span>
+                          <span className="text-slate-500 font-medium mx-1">&bull;</span>
+                          <span className="text-slate-500 text-xs">{sub.programName}</span>
                         </td>
                         <td className="py-3 px-4 text-center font-mono">Sem {sub.semesterNumber}</td>
                         <td className="py-3 px-4 text-center font-mono font-bold text-teal-300">{sub.credits}</td>
@@ -1619,7 +1619,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
                                 const res = await subjectsHook.getSubjectDetails(sub.id);
                                 setSelectedSubjectDetails(res.data);
                               }}
-                              className="p-1.5 text-gray-400 hover:text-white rounded hover:bg-[#1E2330]"
+                              className="p-1.5 text-slate-500 hover:text-white rounded hover:bg-[#1E2330]"
                               title="View Details"
                             >
                               <Eye className="w-4 h-4" />
@@ -1643,7 +1643,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
                                 });
                                 setShowSubjectModal(true);
                               }}
-                              className="p-1.5 text-gray-400 hover:text-teal-400 rounded hover:bg-[#1E2330]"
+                              className="p-1.5 text-slate-500 hover:text-[#B8A16A] rounded hover:bg-[#1E2330]"
                               title="Edit Subject"
                             >
                               <Edit3 className="w-4 h-4" />
@@ -1668,7 +1668,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
                                   }
                                 });
                               }}
-                              className="p-1.5 text-gray-400 hover:text-amber-400 rounded hover:bg-[#1E2330]"
+                              className="p-1.5 text-slate-500 hover:text-amber-400 rounded hover:bg-[#1E2330]"
                               title={sub.status === 'ACTIVE' ? 'Deactivate' : 'Activate'}
                             >
                               {sub.status === 'ACTIVE' ? <XCircle className="w-4 h-4" /> : <CheckCircle2 className="w-4 h-4" />}
@@ -1692,7 +1692,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
                                   }
                                 });
                               }}
-                              className="p-1.5 text-gray-400 hover:text-rose-400 rounded hover:bg-[#1E2330]"
+                              className="p-1.5 text-slate-500 hover:text-rose-400 rounded hover:bg-[#1E2330]"
                               title="Delete Subject"
                             >
                               <Trash2 className="w-4 h-4" />
@@ -1706,7 +1706,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               </div>
 
               {subjectsHook.totalPages > 1 && (
-                <div className="p-3 border-t border-[#1E2330]">
+                <div className="p-3 border-t border-slate-200">
                   <Pagination
                     currentPage={subjectsHook.page + 1}
                     totalPages={subjectsHook.totalPages}
@@ -1723,22 +1723,22 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
       {activeTab === 'sections' && (
         <div className="space-y-4">
           {/* Controls Bar with Cascades */}
-          <div className="flex flex-col gap-3 bg-[#11141C] p-3 rounded-xl border border-[#1E2330]">
+          <div className="flex flex-col gap-3 bg-white p-3 rounded-xl border border-slate-200">
             <div className="flex flex-wrap items-center gap-2.5">
               <div className="relative w-full sm:w-56">
-                <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+                <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
                 <Input
                   placeholder="Search section name..."
                   value={sectionsHook.search}
                   onChange={(e) => sectionsHook.setSearch(e.target.value)}
-                  className="pl-9 bg-[#0B0D14] border-[#1E2330] text-sm h-9"
+                  className="pl-9 bg-slate-50 border-slate-200 text-sm h-9"
                 />
               </div>
 
               <Select
                 value={sectionsHook.departmentFilter}
                 onChange={(e) => sectionsHook.setDepartmentFilter(e.target.value)}
-                className="bg-[#0B0D14] border-[#1E2330] text-sm h-9 w-44"
+                className="bg-slate-50 border-slate-200 text-sm h-9 w-44"
               >
                 <option value="ALL">All Departments</option>
                 {activeDepartments.map((dept) => (
@@ -1751,7 +1751,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               <Select
                 value={sectionsHook.programFilter}
                 onChange={(e) => sectionsHook.setProgramFilter(e.target.value)}
-                className="bg-[#0B0D14] border-[#1E2330] text-sm h-9 w-44"
+                className="bg-slate-50 border-slate-200 text-sm h-9 w-44"
               >
                 <option value="ALL">All Programs</option>
                 {activeProgramsForDept(Number(sectionsHook.departmentFilter)).map((prog) => (
@@ -1764,7 +1764,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               <Select
                 value={sectionsHook.semesterFilter}
                 onChange={(e) => sectionsHook.setSemesterFilter(e.target.value)}
-                className="bg-[#0B0D14] border-[#1E2330] text-sm h-9 w-40"
+                className="bg-slate-50 border-slate-200 text-sm h-9 w-40"
               >
                 <option value="ALL">All Semesters</option>
                 {referenceData?.semesters.map((s) => (
@@ -1777,7 +1777,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               <Select
                 value={sectionsHook.statusFilter}
                 onChange={(e) => sectionsHook.setStatusFilter(e.target.value)}
-                className="bg-[#0B0D14] border-[#1E2330] text-sm h-9 w-32"
+                className="bg-slate-50 border-slate-200 text-sm h-9 w-32"
               >
                 <option value="ALL">All Status</option>
                 <option value="ACTIVE">Active</option>
@@ -1837,10 +1837,10 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               }}
             />
           ) : (
-            <Card className="bg-[#11141C] border-[#1E2330] overflow-hidden">
+            <Card className="bg-white border-slate-200 overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-sm">
-                  <thead className="bg-[#0B0D14] border-b border-[#1E2330] text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                  <thead className="bg-slate-50 border-b border-slate-200 text-xs font-semibold text-slate-600 font-bold uppercase tracking-wider">
                     <tr>
                       <th className="py-3 px-4">Section</th>
                       <th className="py-3 px-4">Department / Program</th>
@@ -1851,16 +1851,16 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
                       <th className="py-3 px-4 text-right">Actions</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#1E2330] text-gray-300">
+                  <tbody className="divide-y divide-slate-200 text-slate-700">
                     {sectionsHook.sections.map((sec) => (
                       <tr key={sec.id} className="hover:bg-[#161B26] transition-colors">
                         <td className="py-3 px-4 font-medium text-white font-mono">{sec.name}</td>
-                        <td className="py-3 px-4 text-gray-300">
-                          <span className="font-semibold text-gray-200">{sec.departmentCode}</span>
-                          <span className="text-gray-500 mx-1">&bull;</span>
-                          <span className="text-gray-400 text-xs">{sec.programName}</span>
+                        <td className="py-3 px-4 text-slate-700">
+                          <span className="font-semibold text-slate-800">{sec.departmentCode}</span>
+                          <span className="text-slate-500 font-medium mx-1">&bull;</span>
+                          <span className="text-slate-500 text-xs">{sec.programName}</span>
                         </td>
-                        <td className="py-3 px-4 text-gray-300 font-mono text-xs">
+                        <td className="py-3 px-4 text-slate-700 font-mono text-xs">
                           {sec.academicYearName} - Sem {sec.semesterNumber}
                         </td>
                         <td className="py-3 px-4 text-center font-mono">{sec.capacity}</td>
@@ -1869,7 +1869,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
                             className={
                               sec.studentCount >= sec.capacity
                                 ? 'text-amber-400 font-bold'
-                                : 'text-gray-300'
+                                : 'text-slate-700'
                             }
                           >
                             {sec.studentCount} / {sec.capacity}
@@ -1887,7 +1887,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
                                 const res = await sectionsHook.getSectionDetails(sec.id);
                                 setSelectedSectionDetails(res.data);
                               }}
-                              className="p-1.5 text-gray-400 hover:text-white rounded hover:bg-[#1E2330]"
+                              className="p-1.5 text-slate-500 hover:text-white rounded hover:bg-[#1E2330]"
                               title="View Details"
                             >
                               <Eye className="w-4 h-4" />
@@ -1907,7 +1907,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
                                 });
                                 setShowSectionModal(true);
                               }}
-                              className="p-1.5 text-gray-400 hover:text-teal-400 rounded hover:bg-[#1E2330]"
+                              className="p-1.5 text-slate-500 hover:text-[#B8A16A] rounded hover:bg-[#1E2330]"
                               title="Edit Section"
                             >
                               <Edit3 className="w-4 h-4" />
@@ -1932,7 +1932,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
                                   }
                                 });
                               }}
-                              className="p-1.5 text-gray-400 hover:text-amber-400 rounded hover:bg-[#1E2330]"
+                              className="p-1.5 text-slate-500 hover:text-amber-400 rounded hover:bg-[#1E2330]"
                               title={sec.status === 'ACTIVE' ? 'Deactivate' : 'Activate'}
                             >
                               {sec.status === 'ACTIVE' ? <XCircle className="w-4 h-4" /> : <CheckCircle2 className="w-4 h-4" />}
@@ -1956,7 +1956,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
                                   }
                                 });
                               }}
-                              className="p-1.5 text-gray-400 hover:text-rose-400 rounded hover:bg-[#1E2330]"
+                              className="p-1.5 text-slate-500 hover:text-rose-400 rounded hover:bg-[#1E2330]"
                               title="Delete Section"
                             >
                               <Trash2 className="w-4 h-4" />
@@ -1970,7 +1970,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               </div>
 
               {sectionsHook.totalPages > 1 && (
-                <div className="p-3 border-t border-[#1E2330]">
+                <div className="p-3 border-t border-slate-200">
                   <Pagination
                     currentPage={sectionsHook.page + 1}
                     totalPages={sectionsHook.totalPages}
@@ -1996,7 +1996,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
         >
           <form onSubmit={handleSaveInstitution} className="space-y-4">
             <div>
-              <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+              <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                 Institution Name *
               </label>
               <Input
@@ -2009,7 +2009,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+                <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                   Institution Code *
                 </label>
                 <Input
@@ -2021,7 +2021,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+                <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                   Contact Phone
                 </label>
                 <Input
@@ -2034,7 +2034,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+                <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                   Contact Email
                 </label>
                 <Input
@@ -2046,7 +2046,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+                <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                   Website URL
                 </label>
                 <Input
@@ -2058,7 +2058,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+              <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                 Campus Address
               </label>
               <Input
@@ -2068,7 +2068,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               />
             </div>
 
-            <div className="flex justify-end gap-2 pt-4 border-t border-[#1E2330]">
+            <div className="flex justify-end gap-2 pt-4 border-t border-slate-200">
               <Button type="button" variant="outline" onClick={() => setShowEditInstitutionModal(false)}>
                 Cancel
               </Button>
@@ -2089,7 +2089,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
         >
           <form onSubmit={handleSaveDepartment} className="space-y-4">
             <div>
-              <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+              <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                 Department Name *
               </label>
               <Input
@@ -2102,7 +2102,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+                <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                   Department Code *
                 </label>
                 <Input
@@ -2114,7 +2114,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+                <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                   Status
                 </label>
                 <Select
@@ -2128,7 +2128,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+              <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                 Description
               </label>
               <Input
@@ -2138,7 +2138,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               />
             </div>
 
-            <div className="flex justify-end gap-2 pt-4 border-t border-[#1E2330]">
+            <div className="flex justify-end gap-2 pt-4 border-t border-slate-200">
               <Button type="button" variant="outline" onClick={() => setShowDeptModal(false)}>
                 Cancel
               </Button>
@@ -2159,7 +2159,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
         >
           <form onSubmit={handleSaveYear} className="space-y-4">
             <div>
-              <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+              <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                 Academic Year Title *
               </label>
               <Input
@@ -2172,7 +2172,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+                <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                   Start Date *
                 </label>
                 <Input
@@ -2184,7 +2184,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+                <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                   End Date *
                 </label>
                 <Input
@@ -2197,7 +2197,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+              <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                 Initial Status
               </label>
               <Select
@@ -2209,7 +2209,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               </Select>
             </div>
 
-            <div className="flex justify-end gap-2 pt-4 border-t border-[#1E2330]">
+            <div className="flex justify-end gap-2 pt-4 border-t border-slate-200">
               <Button type="button" variant="outline" onClick={() => setShowYearModal(false)}>
                 Cancel
               </Button>
@@ -2230,7 +2230,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
         >
           <form onSubmit={handleSaveSemester} className="space-y-4">
             <div>
-              <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+              <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                 Academic Year *
               </label>
               <Select
@@ -2249,7 +2249,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+                <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                   Semester Number (1-12) *
                 </label>
                 <Input
@@ -2263,7 +2263,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+                <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                   Status
                 </label>
                 <Select
@@ -2278,7 +2278,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+                <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                   Term Start Date *
                 </label>
                 <Input
@@ -2290,7 +2290,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+                <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                   Term End Date *
                 </label>
                 <Input
@@ -2302,7 +2302,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               </div>
             </div>
 
-            <div className="flex justify-end gap-2 pt-4 border-t border-[#1E2330]">
+            <div className="flex justify-end gap-2 pt-4 border-t border-slate-200">
               <Button type="button" variant="outline" onClick={() => setShowSemesterModal(false)}>
                 Cancel
               </Button>
@@ -2323,7 +2323,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
         >
           <form onSubmit={handleSaveProgram} className="space-y-4">
             <div>
-              <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+              <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                 Parent Department *
               </label>
               <Select
@@ -2341,7 +2341,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+              <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                 Program Title *
               </label>
               <Input
@@ -2354,7 +2354,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+                <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                   Program Code *
                 </label>
                 <Input
@@ -2366,7 +2366,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+                <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                   Program Level / Degree
                 </label>
                 <Select
@@ -2383,7 +2383,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
 
             <div className="grid grid-cols-3 gap-4">
               <div>
-                <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+                <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                   Duration (Years) *
                 </label>
                 <Input
@@ -2397,7 +2397,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+                <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                   Total Semesters *
                 </label>
                 <Input
@@ -2411,7 +2411,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+                <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                   Status
                 </label>
                 <Select
@@ -2424,7 +2424,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               </div>
             </div>
 
-            <div className="flex justify-end gap-2 pt-4 border-t border-[#1E2330]">
+            <div className="flex justify-end gap-2 pt-4 border-t border-slate-200">
               <Button type="button" variant="outline" onClick={() => setShowProgramModal(false)}>
                 Cancel
               </Button>
@@ -2446,7 +2446,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
           <form onSubmit={handleSaveSubject} className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+                <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                   Department *
                 </label>
                 <Select
@@ -2472,7 +2472,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+                <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                   Degree Program *
                 </label>
                 <Select
@@ -2491,7 +2491,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+              <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                 Subject Title *
               </label>
               <Input
@@ -2504,7 +2504,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
 
             <div className="grid grid-cols-3 gap-4">
               <div>
-                <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+                <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                   Subject Code *
                 </label>
                 <Input
@@ -2516,7 +2516,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+                <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                   Semester # *
                 </label>
                 <Input
@@ -2530,7 +2530,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+                <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                   Credits *
                 </label>
                 <Input
@@ -2546,7 +2546,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
 
             <div className="grid grid-cols-3 gap-4">
               <div>
-                <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+                <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                   Subject Type
                 </label>
                 <Select
@@ -2560,7 +2560,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+                <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                   Weekly Hours
                 </label>
                 <Input
@@ -2573,7 +2573,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+                <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                   Status
                 </label>
                 <Select
@@ -2592,14 +2592,14 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
                 id="requiresLabCheck"
                 checked={subjectForm.requiresLab}
                 onChange={(e) => setSubjectForm({ ...subjectForm, requiresLab: e.target.checked })}
-                className="rounded border-[#1E2330] bg-[#0B0D14] text-teal-500 focus:ring-teal-500 w-4 h-4"
+                className="rounded border-slate-200 bg-slate-50 text-teal-500 focus:ring-teal-500 w-4 h-4"
               />
-              <label htmlFor="requiresLabCheck" className="text-sm text-gray-300">
+              <label htmlFor="requiresLabCheck" className="text-sm text-slate-700">
                 Requires Laboratory Infrastructure for Practical Sessions
               </label>
             </div>
 
-            <div className="flex justify-end gap-2 pt-4 border-t border-[#1E2330]">
+            <div className="flex justify-end gap-2 pt-4 border-t border-slate-200">
               <Button type="button" variant="outline" onClick={() => setShowSubjectModal(false)}>
                 Cancel
               </Button>
@@ -2621,7 +2621,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
           <form onSubmit={handleSaveSection} className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+                <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                   Department *
                 </label>
                 <Select
@@ -2647,7 +2647,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+                <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                   Degree Program *
                 </label>
                 <Select
@@ -2666,7 +2666,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+              <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                 Semester Term *
               </label>
               <Select
@@ -2685,7 +2685,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
 
             <div className="grid grid-cols-3 gap-4">
               <div>
-                <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+                <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                   Section Name *
                 </label>
                 <Input
@@ -2697,7 +2697,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+                <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                   Capacity *
                 </label>
                 <Input
@@ -2711,7 +2711,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-gray-300 uppercase mb-1">
+                <label className="block text-xs font-semibold text-slate-700 uppercase mb-1">
                   Status
                 </label>
                 <Select
@@ -2724,7 +2724,7 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               </div>
             </div>
 
-            <div className="flex justify-end gap-2 pt-4 border-t border-[#1E2330]">
+            <div className="flex justify-end gap-2 pt-4 border-t border-slate-200">
               <Button type="button" variant="outline" onClick={() => setShowSectionModal(false)}>
                 Cancel
               </Button>
@@ -2744,10 +2744,10 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
           title={`Department Details: ${selectedDeptDetails.name}`}
         >
           <div className="space-y-4">
-            <div className="flex items-center justify-between border-b border-[#1E2330] pb-3">
+            <div className="flex items-center justify-between border-b border-slate-200 pb-3">
               <div>
-                <span className="font-mono font-bold text-teal-400 text-lg">{selectedDeptDetails.code}</span>
-                <p className="text-sm text-gray-300">{selectedDeptDetails.name}</p>
+                <span className="font-mono font-bold text-[#B8A16A] text-lg">{selectedDeptDetails.code}</span>
+                <p className="text-sm text-slate-700">{selectedDeptDetails.name}</p>
               </div>
               <Badge variant={selectedDeptDetails.status === 'ACTIVE' ? 'teal' : 'neutral'}>
                 {selectedDeptDetails.status}
@@ -2755,44 +2755,44 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
             </div>
 
             {selectedDeptDetails.description && (
-              <p className="text-sm text-gray-400 italic bg-[#0B0D14] p-3 rounded border border-[#1E2330]">
+              <p className="text-sm text-slate-500 italic bg-slate-50 p-3 rounded border border-slate-200">
                 {selectedDeptDetails.description}
               </p>
             )}
 
             <div className="grid grid-cols-2 gap-3 text-sm">
-              <div className="p-3 bg-[#0B0D14] rounded border border-[#1E2330]">
-                <span className="text-xs text-gray-400 uppercase">Head of Department</span>
-                <p className="font-semibold text-white mt-1">
+              <div className="p-3 bg-slate-50 rounded border border-slate-200">
+                <span className="text-xs text-slate-500 uppercase">Head of Department</span>
+                <p className="font-semibold text-slate-900 mt-1">
                   {selectedDeptDetails.activeHodName || 'Unassigned'}
                 </p>
               </div>
-              <div className="p-3 bg-[#0B0D14] rounded border border-[#1E2330]">
-                <span className="text-xs text-gray-400 uppercase">Parent Institution</span>
-                <p className="font-semibold text-white mt-1">{selectedDeptDetails.institutionName}</p>
+              <div className="p-3 bg-slate-50 rounded border border-slate-200">
+                <span className="text-xs text-slate-500 uppercase">Parent Institution</span>
+                <p className="font-semibold text-slate-900 mt-1">{selectedDeptDetails.institutionName}</p>
               </div>
             </div>
 
             <div className="grid grid-cols-4 gap-2 text-center pt-2">
-              <div className="p-2 bg-[#0B0D14] rounded border border-[#1E2330]">
-                <span className="text-xs text-gray-400">Programs</span>
-                <p className="text-base font-bold text-white mt-0.5">{selectedDeptDetails.totalPrograms}</p>
+              <div className="p-2 bg-slate-50 rounded border border-slate-200">
+                <span className="text-xs text-slate-500">Programs</span>
+                <p className="text-base font-bold text-slate-900 mt-0.5">{selectedDeptDetails.totalPrograms}</p>
               </div>
-              <div className="p-2 bg-[#0B0D14] rounded border border-[#1E2330]">
-                <span className="text-xs text-gray-400">Faculty</span>
-                <p className="text-base font-bold text-white mt-0.5">{selectedDeptDetails.totalFaculty}</p>
+              <div className="p-2 bg-slate-50 rounded border border-slate-200">
+                <span className="text-xs text-slate-500">Faculty</span>
+                <p className="text-base font-bold text-slate-900 mt-0.5">{selectedDeptDetails.totalFaculty}</p>
               </div>
-              <div className="p-2 bg-[#0B0D14] rounded border border-[#1E2330]">
-                <span className="text-xs text-gray-400">Students</span>
-                <p className="text-base font-bold text-white mt-0.5">{selectedDeptDetails.totalStudents}</p>
+              <div className="p-2 bg-slate-50 rounded border border-slate-200">
+                <span className="text-xs text-slate-500">Students</span>
+                <p className="text-base font-bold text-slate-900 mt-0.5">{selectedDeptDetails.totalStudents}</p>
               </div>
-              <div className="p-2 bg-[#0B0D14] rounded border border-[#1E2330]">
-                <span className="text-xs text-gray-400">Rooms</span>
-                <p className="text-base font-bold text-white mt-0.5">{selectedDeptDetails.totalRooms}</p>
+              <div className="p-2 bg-slate-50 rounded border border-slate-200">
+                <span className="text-xs text-slate-500">Rooms</span>
+                <p className="text-base font-bold text-slate-900 mt-0.5">{selectedDeptDetails.totalRooms}</p>
               </div>
             </div>
 
-            <div className="flex justify-end pt-3 border-t border-[#1E2330]">
+            <div className="flex justify-end pt-3 border-t border-slate-200">
               <Button variant="outline" onClick={() => setSelectedDeptDetails(null)}>
                 Close
               </Button>
@@ -2809,10 +2809,10 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
           title={`Academic Year: ${selectedYearDetails.name}`}
         >
           <div className="space-y-4">
-            <div className="flex items-center justify-between border-b border-[#1E2330] pb-3">
+            <div className="flex items-center justify-between border-b border-slate-200 pb-3">
               <div>
-                <span className="font-mono font-bold text-teal-400 text-lg">{selectedYearDetails.name}</span>
-                <p className="text-xs text-gray-400">
+                <span className="font-mono font-bold text-[#B8A16A] text-lg">{selectedYearDetails.name}</span>
+                <p className="text-xs text-slate-500">
                   {selectedYearDetails.startDate} &rarr; {selectedYearDetails.endDate}
                 </p>
               </div>
@@ -2822,17 +2822,17 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
             </div>
 
             <div className="grid grid-cols-2 gap-3 text-center">
-              <div className="p-3 bg-[#0B0D14] rounded border border-[#1E2330]">
-                <span className="text-xs text-gray-400 uppercase">Defined Semesters</span>
-                <p className="text-xl font-bold text-white mt-1">{selectedYearDetails.totalSemesters}</p>
+              <div className="p-3 bg-slate-50 rounded border border-slate-200">
+                <span className="text-xs text-slate-500 uppercase">Defined Semesters</span>
+                <p className="text-xl font-bold text-slate-900 mt-1">{selectedYearDetails.totalSemesters}</p>
               </div>
-              <div className="p-3 bg-[#0B0D14] rounded border border-[#1E2330]">
-                <span className="text-xs text-gray-400 uppercase">Resource Allocations</span>
-                <p className="text-xl font-bold text-white mt-1">{selectedYearDetails.totalAllocations}</p>
+              <div className="p-3 bg-slate-50 rounded border border-slate-200">
+                <span className="text-xs text-slate-500 uppercase">Resource Allocations</span>
+                <p className="text-xl font-bold text-slate-900 mt-1">{selectedYearDetails.totalAllocations}</p>
               </div>
             </div>
 
-            <div className="flex justify-end pt-3 border-t border-[#1E2330]">
+            <div className="flex justify-end pt-3 border-t border-slate-200">
               <Button variant="outline" onClick={() => setSelectedYearDetails(null)}>
                 Close
               </Button>
@@ -2849,37 +2849,37 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
           title={`Semester ${selectedSemesterDetails.semesterNumber} Details`}
         >
           <div className="space-y-4">
-            <div className="flex items-center justify-between border-b border-[#1E2330] pb-3">
+            <div className="flex items-center justify-between border-b border-slate-200 pb-3">
               <div>
-                <span className="font-mono font-bold text-teal-400 text-lg">
+                <span className="font-mono font-bold text-[#B8A16A] text-lg">
                   Semester {selectedSemesterDetails.semesterNumber}
                 </span>
-                <p className="text-xs text-gray-400">{selectedSemesterDetails.academicYearName}</p>
+                <p className="text-xs text-slate-500">{selectedSemesterDetails.academicYearName}</p>
               </div>
               <Badge variant={selectedSemesterDetails.status === 'ACTIVE' ? 'teal' : 'neutral'}>
                 {selectedSemesterDetails.status}
               </Badge>
             </div>
 
-            <div className="p-3 bg-[#0B0D14] rounded border border-[#1E2330] text-sm">
-              <span className="text-xs text-gray-400 uppercase">Term Dates</span>
-              <p className="font-semibold text-white mt-1">
+            <div className="p-3 bg-slate-50 rounded border border-slate-200 text-sm">
+              <span className="text-xs text-slate-500 uppercase">Term Dates</span>
+              <p className="font-semibold text-slate-900 mt-1">
                 {selectedSemesterDetails.startDate} to {selectedSemesterDetails.endDate}
               </p>
             </div>
 
             <div className="grid grid-cols-2 gap-3 text-center">
-              <div className="p-3 bg-[#0B0D14] rounded border border-[#1E2330]">
-                <span className="text-xs text-gray-400 uppercase">Active Sections</span>
-                <p className="text-xl font-bold text-white mt-1">{selectedSemesterDetails.totalSections}</p>
+              <div className="p-3 bg-slate-50 rounded border border-slate-200">
+                <span className="text-xs text-slate-500 uppercase">Active Sections</span>
+                <p className="text-xl font-bold text-slate-900 mt-1">{selectedSemesterDetails.totalSections}</p>
               </div>
-              <div className="p-3 bg-[#0B0D14] rounded border border-[#1E2330]">
-                <span className="text-xs text-gray-400 uppercase">Allocations</span>
-                <p className="text-xl font-bold text-white mt-1">{selectedSemesterDetails.totalAllocations}</p>
+              <div className="p-3 bg-slate-50 rounded border border-slate-200">
+                <span className="text-xs text-slate-500 uppercase">Allocations</span>
+                <p className="text-xl font-bold text-slate-900 mt-1">{selectedSemesterDetails.totalAllocations}</p>
               </div>
             </div>
 
-            <div className="flex justify-end pt-3 border-t border-[#1E2330]">
+            <div className="flex justify-end pt-3 border-t border-slate-200">
               <Button variant="outline" onClick={() => setSelectedSemesterDetails(null)}>
                 Close
               </Button>
@@ -2896,10 +2896,10 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
           title={`Program Details: ${selectedProgramDetails.name}`}
         >
           <div className="space-y-4">
-            <div className="flex items-center justify-between border-b border-[#1E2330] pb-3">
+            <div className="flex items-center justify-between border-b border-slate-200 pb-3">
               <div>
-                <span className="font-mono font-bold text-teal-400 text-lg">{selectedProgramDetails.code}</span>
-                <p className="text-sm text-gray-300">{selectedProgramDetails.name}</p>
+                <span className="font-mono font-bold text-[#B8A16A] text-lg">{selectedProgramDetails.code}</span>
+                <p className="text-sm text-slate-700">{selectedProgramDetails.name}</p>
               </div>
               <div className="flex items-center gap-2">
                 <Badge variant="purple">{selectedProgramDetails.programType}</Badge>
@@ -2909,33 +2909,33 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
               </div>
             </div>
 
-            <div className="p-3 bg-[#0B0D14] rounded border border-[#1E2330] text-sm">
-              <span className="text-xs text-gray-400 uppercase">Department</span>
-              <p className="font-semibold text-white mt-1">
+            <div className="p-3 bg-slate-50 rounded border border-slate-200 text-sm">
+              <span className="text-xs text-slate-500 uppercase">Department</span>
+              <p className="font-semibold text-slate-900 mt-1">
                 {selectedProgramDetails.departmentName} ({selectedProgramDetails.departmentCode})
               </p>
             </div>
 
             <div className="grid grid-cols-4 gap-2 text-center">
-              <div className="p-2 bg-[#0B0D14] rounded border border-[#1E2330]">
-                <span className="text-xs text-gray-400">Duration</span>
-                <p className="text-base font-bold text-white mt-0.5">{selectedProgramDetails.durationYears}y</p>
+              <div className="p-2 bg-slate-50 rounded border border-slate-200">
+                <span className="text-xs text-slate-500">Duration</span>
+                <p className="text-base font-bold text-slate-900 mt-0.5">{selectedProgramDetails.durationYears}y</p>
               </div>
-              <div className="p-2 bg-[#0B0D14] rounded border border-[#1E2330]">
-                <span className="text-xs text-gray-400">Semesters</span>
-                <p className="text-base font-bold text-white mt-0.5">{selectedProgramDetails.totalSemesters}</p>
+              <div className="p-2 bg-slate-50 rounded border border-slate-200">
+                <span className="text-xs text-slate-500">Semesters</span>
+                <p className="text-base font-bold text-slate-900 mt-0.5">{selectedProgramDetails.totalSemesters}</p>
               </div>
-              <div className="p-2 bg-[#0B0D14] rounded border border-[#1E2330]">
-                <span className="text-xs text-gray-400">Subjects</span>
-                <p className="text-base font-bold text-white mt-0.5">{selectedProgramDetails.totalSubjects}</p>
+              <div className="p-2 bg-slate-50 rounded border border-slate-200">
+                <span className="text-xs text-slate-500">Subjects</span>
+                <p className="text-base font-bold text-slate-900 mt-0.5">{selectedProgramDetails.totalSubjects}</p>
               </div>
-              <div className="p-2 bg-[#0B0D14] rounded border border-[#1E2330]">
-                <span className="text-xs text-gray-400">Students</span>
-                <p className="text-base font-bold text-white mt-0.5">{selectedProgramDetails.totalStudents}</p>
+              <div className="p-2 bg-slate-50 rounded border border-slate-200">
+                <span className="text-xs text-slate-500">Students</span>
+                <p className="text-base font-bold text-slate-900 mt-0.5">{selectedProgramDetails.totalStudents}</p>
               </div>
             </div>
 
-            <div className="flex justify-end pt-3 border-t border-[#1E2330]">
+            <div className="flex justify-end pt-3 border-t border-slate-200">
               <Button variant="outline" onClick={() => setSelectedProgramDetails(null)}>
                 Close
               </Button>
@@ -2952,10 +2952,10 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
           title={`Subject Details: ${selectedSubjectDetails.code}`}
         >
           <div className="space-y-4">
-            <div className="flex items-center justify-between border-b border-[#1E2330] pb-3">
+            <div className="flex items-center justify-between border-b border-slate-200 pb-3">
               <div>
-                <span className="font-mono font-bold text-teal-400 text-lg">{selectedSubjectDetails.code}</span>
-                <p className="text-sm text-gray-200 font-semibold">{selectedSubjectDetails.name}</p>
+                <span className="font-mono font-bold text-[#B8A16A] text-lg">{selectedSubjectDetails.code}</span>
+                <p className="text-sm text-slate-800 font-semibold">{selectedSubjectDetails.name}</p>
               </div>
               <div className="flex items-center gap-2">
                 <Badge variant="blue">{selectedSubjectDetails.type}</Badge>
@@ -2966,38 +2966,38 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
             </div>
 
             <div className="grid grid-cols-2 gap-3 text-sm">
-              <div className="p-3 bg-[#0B0D14] rounded border border-[#1E2330]">
-                <span className="text-xs text-gray-400 uppercase">Department</span>
-                <p className="font-semibold text-white mt-1">
+              <div className="p-3 bg-slate-50 rounded border border-slate-200">
+                <span className="text-xs text-slate-500 uppercase">Department</span>
+                <p className="font-semibold text-slate-900 mt-1">
                   {selectedSubjectDetails.departmentName} ({selectedSubjectDetails.departmentCode})
                 </p>
               </div>
-              <div className="p-3 bg-[#0B0D14] rounded border border-[#1E2330]">
-                <span className="text-xs text-gray-400 uppercase">Program & Semester</span>
-                <p className="font-semibold text-white mt-1">
+              <div className="p-3 bg-slate-50 rounded border border-slate-200">
+                <span className="text-xs text-slate-500 uppercase">Program & Semester</span>
+                <p className="font-semibold text-slate-900 mt-1">
                   {selectedSubjectDetails.programName} &bull; Sem {selectedSubjectDetails.semesterNumber}
                 </p>
               </div>
             </div>
 
             <div className="grid grid-cols-3 gap-2 text-center">
-              <div className="p-2 bg-[#0B0D14] rounded border border-[#1E2330]">
-                <span className="text-xs text-gray-400">Credits</span>
-                <p className="text-base font-bold text-teal-400 mt-0.5">{selectedSubjectDetails.credits}</p>
+              <div className="p-2 bg-slate-50 rounded border border-slate-200">
+                <span className="text-xs text-slate-500">Credits</span>
+                <p className="text-base font-bold text-[#B8A16A] mt-0.5">{selectedSubjectDetails.credits}</p>
               </div>
-              <div className="p-2 bg-[#0B0D14] rounded border border-[#1E2330]">
-                <span className="text-xs text-gray-400">Weekly Hours</span>
-                <p className="text-base font-bold text-white mt-0.5">{selectedSubjectDetails.weeklyHours} hrs</p>
+              <div className="p-2 bg-slate-50 rounded border border-slate-200">
+                <span className="text-xs text-slate-500">Weekly Hours</span>
+                <p className="text-base font-bold text-slate-900 mt-0.5">{selectedSubjectDetails.weeklyHours} hrs</p>
               </div>
-              <div className="p-2 bg-[#0B0D14] rounded border border-[#1E2330]">
-                <span className="text-xs text-gray-400">Lab Required</span>
-                <p className="text-base font-bold text-white mt-0.5">
+              <div className="p-2 bg-slate-50 rounded border border-slate-200">
+                <span className="text-xs text-slate-500">Lab Required</span>
+                <p className="text-base font-bold text-slate-900 mt-0.5">
                   {selectedSubjectDetails.requiresLab ? 'Yes' : 'No'}
                 </p>
               </div>
             </div>
 
-            <div className="flex justify-end pt-3 border-t border-[#1E2330]">
+            <div className="flex justify-end pt-3 border-t border-slate-200">
               <Button variant="outline" onClick={() => setSelectedSubjectDetails(null)}>
                 Close
               </Button>
@@ -3014,10 +3014,10 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
           title={`Section Details: ${selectedSectionDetails.name}`}
         >
           <div className="space-y-4">
-            <div className="flex items-center justify-between border-b border-[#1E2330] pb-3">
+            <div className="flex items-center justify-between border-b border-slate-200 pb-3">
               <div>
-                <span className="font-mono font-bold text-teal-400 text-lg">{selectedSectionDetails.name}</span>
-                <p className="text-xs text-gray-400">
+                <span className="font-mono font-bold text-[#B8A16A] text-lg">{selectedSectionDetails.name}</span>
+                <p className="text-xs text-slate-500">
                   {selectedSectionDetails.academicYearName} &bull; Sem {selectedSectionDetails.semesterNumber}
                 </p>
               </div>
@@ -3027,34 +3027,34 @@ export const AcademicManagementPage: React.FC<AcademicManagementPageProps> = ({
             </div>
 
             <div className="grid grid-cols-2 gap-3 text-sm">
-              <div className="p-3 bg-[#0B0D14] rounded border border-[#1E2330]">
-                <span className="text-xs text-gray-400 uppercase">Department</span>
-                <p className="font-semibold text-white mt-1">
+              <div className="p-3 bg-slate-50 rounded border border-slate-200">
+                <span className="text-xs text-slate-500 uppercase">Department</span>
+                <p className="font-semibold text-slate-900 mt-1">
                   {selectedSectionDetails.departmentName} ({selectedSectionDetails.departmentCode})
                 </p>
               </div>
-              <div className="p-3 bg-[#0B0D14] rounded border border-[#1E2330]">
-                <span className="text-xs text-gray-400 uppercase">Degree Program</span>
-                <p className="font-semibold text-white mt-1">{selectedSectionDetails.programName}</p>
+              <div className="p-3 bg-slate-50 rounded border border-slate-200">
+                <span className="text-xs text-slate-500 uppercase">Degree Program</span>
+                <p className="font-semibold text-slate-900 mt-1">{selectedSectionDetails.programName}</p>
               </div>
             </div>
 
             <div className="grid grid-cols-3 gap-2 text-center">
-              <div className="p-2 bg-[#0B0D14] rounded border border-[#1E2330]">
-                <span className="text-xs text-gray-400">Capacity</span>
-                <p className="text-base font-bold text-white mt-0.5">{selectedSectionDetails.capacity}</p>
+              <div className="p-2 bg-slate-50 rounded border border-slate-200">
+                <span className="text-xs text-slate-500">Capacity</span>
+                <p className="text-base font-bold text-slate-900 mt-0.5">{selectedSectionDetails.capacity}</p>
               </div>
-              <div className="p-2 bg-[#0B0D14] rounded border border-[#1E2330]">
-                <span className="text-xs text-gray-400">Enrolled Students</span>
-                <p className="text-base font-bold text-teal-400 mt-0.5">{selectedSectionDetails.studentCount}</p>
+              <div className="p-2 bg-slate-50 rounded border border-slate-200">
+                <span className="text-xs text-slate-500">Enrolled Students</span>
+                <p className="text-base font-bold text-[#B8A16A] mt-0.5">{selectedSectionDetails.studentCount}</p>
               </div>
-              <div className="p-2 bg-[#0B0D14] rounded border border-[#1E2330]">
-                <span className="text-xs text-gray-400">Allocations</span>
-                <p className="text-base font-bold text-white mt-0.5">{selectedSectionDetails.totalAllocations}</p>
+              <div className="p-2 bg-slate-50 rounded border border-slate-200">
+                <span className="text-xs text-slate-500">Allocations</span>
+                <p className="text-base font-bold text-slate-900 mt-0.5">{selectedSectionDetails.totalAllocations}</p>
               </div>
             </div>
 
-            <div className="flex justify-end pt-3 border-t border-[#1E2330]">
+            <div className="flex justify-end pt-3 border-t border-slate-200">
               <Button variant="outline" onClick={() => setSelectedSectionDetails(null)}>
                 Close
               </Button>

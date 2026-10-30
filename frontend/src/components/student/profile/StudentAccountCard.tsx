@@ -9,7 +9,7 @@ interface StudentAccountCardProps {
 
 export const StudentAccountCard: React.FC<StudentAccountCardProps> = ({ profile }) => {
   return (
-    <Card className="bg-[#11141C] border-[#1E2330]">
+    <Card className="bg-white border-slate-200">
       <CardHeader>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -34,8 +34,8 @@ export const StudentAccountCard: React.FC<StudentAccountCardProps> = ({ profile 
       <CardContent className="space-y-4">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {/* Username */}
-          <div className="p-3.5 rounded-xl bg-[#171A23] border border-[#222838]">
-            <div className="flex items-center gap-2 text-gray-400 text-[10px] font-mono uppercase tracking-wider mb-1">
+          <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+            <div className="flex items-center gap-2 text-slate-600 font-bold text-[10px] font-mono uppercase tracking-wider mb-1">
               <Key className="w-3.5 h-3.5 text-purple-400" />
               Username
             </div>
@@ -45,8 +45,8 @@ export const StudentAccountCard: React.FC<StudentAccountCardProps> = ({ profile 
           </div>
 
           {/* Assigned System Role */}
-          <div className="p-3.5 rounded-xl bg-[#171A23] border border-[#222838]">
-            <div className="flex items-center gap-2 text-gray-400 text-[10px] font-mono uppercase tracking-wider mb-1">
+          <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+            <div className="flex items-center gap-2 text-slate-600 font-bold text-[10px] font-mono uppercase tracking-wider mb-1">
               <Lock className="w-3.5 h-3.5 text-teal-400" />
               System Role
             </div>
@@ -66,8 +66,8 @@ export const StudentAccountCard: React.FC<StudentAccountCardProps> = ({ profile 
           </div>
 
           {/* Last Login */}
-          <div className="p-3.5 rounded-xl bg-[#171A23] border border-[#222838]">
-            <div className="flex items-center gap-2 text-gray-400 text-[10px] font-mono uppercase tracking-wider mb-1">
+          <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+            <div className="flex items-center gap-2 text-slate-600 font-bold text-[10px] font-mono uppercase tracking-wider mb-1">
               <Clock className="w-3.5 h-3.5 text-blue-400" />
               Last Session
             </div>

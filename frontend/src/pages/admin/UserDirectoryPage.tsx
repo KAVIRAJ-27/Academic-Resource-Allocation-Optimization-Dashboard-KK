@@ -285,17 +285,17 @@ export const UserDirectoryPage: React.FC = () => {
     <div className="space-y-6">
       {/* Toast Notification */}
       {feedbackToast && (
-        <div className="fixed top-5 right-5 z-50 p-4 rounded-xl shadow-2xl flex items-center gap-3 backdrop-blur-md transition-all border bg-[#11141C] text-sm animate-in fade-in slide-in-from-top-4 border-white/10">
+        <div className="fixed top-5 right-5 z-50 p-4 rounded-xl shadow-2xl flex items-center gap-3 backdrop-blur-md transition-all border bg-white border-slate-200 text-slate-900 text-sm animate-in fade-in slide-in-from-top-4">
           {feedbackToast.type === 'success' ? (
-            <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
+            <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
           ) : (
-            <AlertTriangle className="w-5 h-5 text-rose-400 shrink-0" />
+            <AlertTriangle className="w-5 h-5 text-rose-600 shrink-0" />
           )}
-          <span className="text-gray-200">{feedbackToast.message}</span>
+          <span className="text-slate-800 font-medium">{feedbackToast.message}</span>
           <button
             type="button"
             onClick={() => setFeedbackToast(null)}
-            className="text-gray-400 hover:text-white text-xs ml-2"
+            className="text-slate-400 hover:text-slate-600 text-xs ml-2"
           >
             ✕
           </button>
@@ -303,15 +303,15 @@ export const UserDirectoryPage: React.FC = () => {
       )}
 
       {/* Header & Title */}
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-slate-200 pb-5">
         <div>
-          <div className="flex items-center gap-2 mb-1">
-            <span className="text-xs font-semibold uppercase tracking-wider text-teal-400">Admin</span>
-            <span className="text-xs text-gray-500">/</span>
-            <span className="text-xs font-semibold uppercase tracking-wider text-gray-400">User Management</span>
+          <div className="flex items-center gap-2 mb-1.5">
+            <span className="text-xs font-bold uppercase tracking-wider text-indigo-600">Admin</span>
+            <span className="text-xs text-slate-300">/</span>
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-600 font-bold">User Management</span>
           </div>
-          <h1 className="text-2xl font-bold text-white tracking-tight">User Management</h1>
-          <p className="text-xs sm:text-sm text-gray-400 mt-0.5">
+          <h1 className="text-2xl font-black text-slate-900 tracking-tight sm:text-3xl">User Management</h1>
+          <p className="text-xs sm:text-sm text-slate-600 mt-1 font-medium">
             Manage system accounts, roles and account status.
           </p>
         </div>
@@ -322,7 +322,7 @@ export const UserDirectoryPage: React.FC = () => {
             size="sm"
             onClick={refresh}
             isLoading={loading}
-            className="flex items-center gap-1.5"
+            className="flex items-center gap-1.5 border-slate-200 text-slate-700 hover:bg-slate-50 shadow-2xs font-semibold"
             title="Refresh user list from database"
           >
             <RefreshCw className="w-3.5 h-3.5" />
@@ -332,7 +332,7 @@ export const UserDirectoryPage: React.FC = () => {
             variant="primary"
             size="sm"
             onClick={() => setIsCreateModalOpen(true)}
-            className="flex items-center gap-1.5"
+            className="flex items-center gap-1.5 shadow-xs font-bold"
           >
             <UserPlus className="w-4 h-4" />
             <span>Add User</span>
@@ -342,68 +342,68 @@ export const UserDirectoryPage: React.FC = () => {
 
       {/* Telemetry Counters */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <Card className="p-4 bg-[#11141C] border-[#1E2330]">
+        <Card className="p-5 bg-white border border-slate-200 shadow-xs hover:border-slate-300 transition-all">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold uppercase tracking-wider text-gray-400">Total Filtered</span>
-            <div className="p-2 rounded-lg bg-teal-500/10 text-teal-300">
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-600">Total Filtered</span>
+            <div className="p-2 rounded-xl bg-indigo-50 border border-indigo-200 text-indigo-700 shadow-2xs">
               <Users className="w-4 h-4" />
             </div>
           </div>
-          <div className="mt-2 text-2xl font-bold text-white">{totalElements}</div>
-          <div className="text-[11px] text-gray-400 mt-1">Across 6 institutional roles</div>
+          <div className="mt-2 text-2xl font-bold font-mono text-slate-900">{totalElements}</div>
+          <div className="text-[11px] text-slate-500 font-medium mt-1">Across 6 institutional roles</div>
         </Card>
 
-        <Card className="p-4 bg-[#11141C] border-[#1E2330]">
+        <Card className="p-5 bg-white border border-slate-200 shadow-xs hover:border-slate-300 transition-all">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold uppercase tracking-wider text-gray-400">Active (Page)</span>
-            <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-300">
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-600">Active (Page)</span>
+            <div className="p-2 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 shadow-2xs">
               <CheckCircle2 className="w-4 h-4" />
             </div>
           </div>
-          <div className="mt-2 text-2xl font-bold text-emerald-400">
+          <div className="mt-2 text-2xl font-bold font-mono text-emerald-600">
             {users.filter((u) => u.status === 'ACTIVE').length}
           </div>
-          <div className="text-[11px] text-gray-400 mt-1">Authorized for JWT session</div>
+          <div className="text-[11px] text-slate-500 font-medium mt-1">Authorized for JWT session</div>
         </Card>
 
-        <Card className="p-4 bg-[#11141C] border-[#1E2330]">
+        <Card className="p-5 bg-white border border-slate-200 shadow-xs hover:border-slate-300 transition-all">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold uppercase tracking-wider text-gray-400">Suspended (Page)</span>
-            <div className="p-2 rounded-lg bg-rose-500/10 text-rose-300">
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-600">Suspended (Page)</span>
+            <div className="p-2 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 shadow-2xs">
               <XCircle className="w-4 h-4" />
             </div>
           </div>
-          <div className="mt-2 text-2xl font-bold text-rose-400">
+          <div className="mt-2 text-2xl font-bold font-mono text-rose-600">
             {users.filter((u) => u.status === 'SUSPENDED').length}
           </div>
-          <div className="text-[11px] text-gray-400 mt-1">Authentication locked</div>
+          <div className="text-[11px] text-slate-500 font-medium mt-1">Authentication locked</div>
         </Card>
 
-        <Card className="p-4 bg-[#11141C] border-[#1E2330]">
+        <Card className="p-5 bg-white border border-slate-200 shadow-xs hover:border-slate-300 transition-all">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold uppercase tracking-wider text-gray-400">Inactive / Pending</span>
-            <div className="p-2 rounded-lg bg-amber-500/10 text-amber-300">
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-600">Inactive / Pending</span>
+            <div className="p-2 rounded-xl bg-amber-50 border border-amber-200 text-amber-700 shadow-2xs">
               <AlertTriangle className="w-4 h-4" />
             </div>
           </div>
-          <div className="mt-2 text-2xl font-bold text-amber-400">
+          <div className="mt-2 text-2xl font-bold font-mono text-amber-600">
             {users.filter((u) => u.status === 'INACTIVE' || u.status === 'PENDING').length}
           </div>
-          <div className="text-[11px] text-gray-400 mt-1">Dormant or awaiting activation</div>
+          <div className="text-[11px] text-slate-500 font-medium mt-1">Dormant or awaiting activation</div>
         </Card>
       </div>
 
       {/* Toolbar: Search, Filters, Clear */}
-      <Card className="p-4 bg-[#11141C] border-[#1E2330]">
+      <Card className="p-4 bg-white border border-slate-200 shadow-xs">
         <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
           <div className="sm:col-span-2 relative">
-            <Search className="w-4 h-4 absolute left-3 top-3 text-gray-400" />
+            <Search className="w-4 h-4 absolute left-3 top-2.5 text-slate-400" />
             <input
               type="text"
               placeholder="Search by username, email, first name, last name..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-9 pr-3 py-2 bg-[#171A23] border border-white/10 rounded-xl text-xs text-gray-200 placeholder-gray-500 focus:outline-none focus:border-teal-500 transition-colors"
+              className="w-full pl-9 pr-3 py-2 bg-white border border-slate-300 rounded-xl text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 shadow-2xs transition-colors font-medium"
             />
           </div>
 
@@ -411,7 +411,7 @@ export const UserDirectoryPage: React.FC = () => {
             <select
               value={roleFilter}
               onChange={(e) => setRoleFilter(e.target.value)}
-              className="w-full px-3 py-2 bg-[#171A23] border border-white/10 rounded-xl text-xs text-gray-200 focus:outline-none focus:border-teal-500 transition-colors"
+              className="w-full px-3 py-2 bg-white border border-slate-300 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 shadow-2xs transition-colors font-medium"
             >
               <option value="ALL">All Roles</option>
               <option value="ADMIN">ADMIN</option>
@@ -427,7 +427,7 @@ export const UserDirectoryPage: React.FC = () => {
             <select
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
-              className="w-full px-3 py-2 bg-[#171A23] border border-white/10 rounded-xl text-xs text-gray-200 focus:outline-none focus:border-teal-500 transition-colors"
+              className="w-full px-3 py-2 bg-white border border-slate-300 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 shadow-2xs transition-colors font-medium"
             >
               <option value="ALL">All Statuses</option>
               <option value="ACTIVE">ACTIVE</option>
@@ -445,7 +445,7 @@ export const UserDirectoryPage: React.FC = () => {
                   setRoleFilter('ALL');
                   setStatusFilter('ALL');
                 }}
-                className="text-gray-400 hover:text-white shrink-0"
+                className="text-slate-500 hover:text-slate-900 hover:bg-slate-100 font-medium shrink-0"
                 title="Clear all filters"
               >
                 Clear
@@ -466,7 +466,7 @@ export const UserDirectoryPage: React.FC = () => {
       )}
 
       {/* User Table Card */}
-      <Card className="overflow-hidden bg-[#11141C] border-[#1E2330]">
+      <Card className="overflow-hidden bg-white border border-slate-200 shadow-xs">
         {loading && users.length === 0 ? (
           <div className="p-4">
             <SkeletonTable rows={6} columns={6} />
@@ -497,36 +497,36 @@ export const UserDirectoryPage: React.FC = () => {
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="border-b border-white/5 bg-[#141822] text-[11px] font-semibold text-gray-400 uppercase tracking-wider">
-                  <th className="py-3.5 px-4">User</th>
-                  <th className="py-3.5 px-4">Username</th>
-                  <th className="py-3.5 px-4">Email</th>
-                  <th className="py-3.5 px-4">Role</th>
-                  <th className="py-3.5 px-4">Status</th>
-                  <th className="py-3.5 px-4">Created Date</th>
-                  <th className="py-3.5 px-4 text-right">Actions</th>
+                <tr className="border-b border-slate-200 bg-slate-50 text-[11px] font-bold text-slate-600 uppercase tracking-wider">
+                  <th className="py-3.5 px-4 font-bold">User</th>
+                  <th className="py-3.5 px-4 font-bold">Username</th>
+                  <th className="py-3.5 px-4 font-bold">Email</th>
+                  <th className="py-3.5 px-4 font-bold">Role</th>
+                  <th className="py-3.5 px-4 font-bold">Status</th>
+                  <th className="py-3.5 px-4 font-bold">Created Date</th>
+                  <th className="py-3.5 px-4 text-right font-bold">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/5 text-xs text-gray-300">
+              <tbody className="divide-y divide-slate-100 text-xs text-slate-700">
                 {users.map((user) => {
                   const self = isSelf(user.username);
                   return (
-                    <tr key={user.id} className="hover:bg-white/[0.02] transition-colors">
+                    <tr key={user.id} className="hover:bg-slate-50/80 transition-colors">
                       {/* Full Name & Phone */}
                       <td className="py-3.5 px-4">
-                        <div className="font-semibold text-gray-100 flex items-center gap-1.5">
+                        <div className="font-bold text-slate-900 flex items-center gap-1.5">
                           <span>
                             {user.firstName} {user.lastName}
                           </span>
                           {self && (
-                            <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-teal-500/20 text-teal-300 border border-teal-500/30">
+                            <span className="text-[10px] font-mono px-1.5 py-0.5 rounded-md bg-indigo-50 text-indigo-700 border border-indigo-200 font-bold">
                               You
                             </span>
                           )}
                         </div>
                         {user.phone && (
-                          <div className="text-[11px] text-gray-400 flex items-center gap-1 mt-0.5">
-                            <Phone className="w-3 h-3" />
+                          <div className="text-[11px] text-slate-500 font-medium flex items-center gap-1 mt-0.5">
+                            <Phone className="w-3 h-3 text-slate-600 font-medium" />
                             <span>{user.phone}</span>
                           </div>
                         )}
@@ -534,13 +534,13 @@ export const UserDirectoryPage: React.FC = () => {
 
                       {/* Username */}
                       <td className="py-3.5 px-4">
-                        <span className="font-mono text-teal-400">@{user.username}</span>
+                        <span className="font-mono text-indigo-600 font-bold">@{user.username}</span>
                       </td>
 
                       {/* Email */}
                       <td className="py-3.5 px-4">
-                        <div className="text-gray-300 flex items-center gap-1">
-                          <Mail className="w-3 h-3 text-gray-500 shrink-0" />
+                        <div className="text-slate-700 font-medium flex items-center gap-1.5">
+                          <Mail className="w-3.5 h-3.5 text-slate-600 font-medium shrink-0" />
                           <span className="truncate max-w-[180px]">{user.email}</span>
                         </div>
                       </td>
@@ -551,7 +551,7 @@ export const UserDirectoryPage: React.FC = () => {
                           {user.roles && user.roles.length > 0 ? (
                             user.roles.map((r) => <span key={r}>{renderRoleBadge(r)}</span>)
                           ) : (
-                            <span className="text-gray-500 text-[11px]">None</span>
+                            <span className="text-slate-600 font-medium text-[11px]">None</span>
                           )}
                         </div>
                       </td>
@@ -561,10 +561,10 @@ export const UserDirectoryPage: React.FC = () => {
 
                       {/* Created Date */}
                       <td className="py-3.5 px-4">
-                        <div className="text-gray-300 text-[11px]">
+                        <div className="text-slate-800 font-medium text-[11px]">
                           {user.createdAt ? new Date(user.createdAt).toLocaleDateString() : 'N/A'}
                         </div>
-                        <div className="text-[10px] text-gray-500">
+                        <div className="text-[10px] text-slate-500">
                           {user.lastLoginAt ? `Login ${new Date(user.lastLoginAt).toLocaleDateString()}` : 'Never logged in'}
                         </div>
                       </td>
@@ -577,7 +577,7 @@ export const UserDirectoryPage: React.FC = () => {
                             type="button"
                             onClick={() => handleOpenDetails(user)}
                             title="View Full Profile Details"
-                            className="p-1.5 rounded-lg bg-[#171A23] hover:bg-[#222838] text-gray-300 border border-white/5 transition-colors"
+                            className="p-1.5 rounded-lg bg-slate-50 hover:bg-slate-100 text-slate-600 border border-slate-200 transition-colors shadow-2xs"
                           >
                             <Eye className="w-3.5 h-3.5" />
                           </button>
@@ -587,7 +587,7 @@ export const UserDirectoryPage: React.FC = () => {
                             type="button"
                             onClick={() => handleOpenEdit(user)}
                             title="Edit User Profile"
-                            className="p-1.5 rounded-lg bg-[#171A23] hover:bg-[#222838] text-teal-300 border border-white/5 transition-colors"
+                            className="p-1.5 rounded-lg bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 transition-colors shadow-2xs"
                           >
                             <Edit3 className="w-3.5 h-3.5" />
                           </button>
@@ -597,7 +597,7 @@ export const UserDirectoryPage: React.FC = () => {
                             type="button"
                             onClick={() => handleOpenRoles(user)}
                             title="Manage Assigned Roles"
-                            className="p-1.5 rounded-lg bg-[#171A23] hover:bg-[#222838] text-indigo-300 border border-white/5 transition-colors"
+                            className="p-1.5 rounded-lg bg-purple-50 hover:bg-purple-100 text-purple-700 border border-purple-200 transition-colors shadow-2xs"
                           >
                             <ShieldCheck className="w-3.5 h-3.5" />
                           </button>
@@ -610,10 +610,10 @@ export const UserDirectoryPage: React.FC = () => {
                               handleOpenStatusConfirm(user, nextStatus);
                             }}
                             title={user.status === 'ACTIVE' ? 'Suspend Account' : 'Activate Account'}
-                            className={`p-1.5 rounded-lg border transition-colors ${
+                            className={`p-1.5 rounded-lg border transition-colors shadow-2xs ${
                               user.status === 'ACTIVE'
-                                ? 'bg-rose-500/10 text-rose-300 border-rose-500/20 hover:bg-rose-500/20'
-                                : 'bg-emerald-500/10 text-emerald-300 border-emerald-500/20 hover:bg-emerald-500/20'
+                                ? 'bg-rose-50 text-rose-700 border-rose-200 hover:bg-rose-100'
+                                : 'bg-emerald-50 text-emerald-700 border-emerald-200 hover:bg-emerald-100'
                             }`}
                           >
                             {user.status === 'ACTIVE' ? (
@@ -628,7 +628,7 @@ export const UserDirectoryPage: React.FC = () => {
                             type="button"
                             onClick={() => handleOpenResetPassword(user)}
                             title="Reset User Password"
-                            className="p-1.5 rounded-lg bg-[#171A23] hover:bg-[#222838] text-purple-300 border border-white/5 transition-colors"
+                            className="p-1.5 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-700 border border-amber-200 transition-colors shadow-2xs"
                           >
                             <KeyRound className="w-3.5 h-3.5" />
                           </button>
@@ -644,7 +644,7 @@ export const UserDirectoryPage: React.FC = () => {
 
         {/* Server Pagination */}
         {totalPages > 0 && (
-          <div className="p-4 border-t border-white/5 bg-[#141822]">
+          <div className="p-4 border-t border-slate-200 bg-white">
             <Pagination
               currentPage={page + 1}
               totalPages={totalPages}
@@ -666,7 +666,7 @@ export const UserDirectoryPage: React.FC = () => {
         maxWidth="lg"
       >
         <form onSubmit={handleCreateUser} className="space-y-4">
-          <p className="text-xs text-gray-400">
+          <p className="text-xs text-slate-500 font-medium">
             Create an account with role-based access. Passwords are encrypted with BCrypt before persistence.
           </p>
 
@@ -750,7 +750,7 @@ export const UserDirectoryPage: React.FC = () => {
             />
           </div>
 
-          <div className="pt-3 flex items-center justify-end gap-2 border-t border-white/5">
+          <div className="pt-3 flex items-center justify-end gap-2 border-t border-slate-200">
             <Button
               type="button"
               variant="outline"
@@ -808,7 +808,7 @@ export const UserDirectoryPage: React.FC = () => {
               onChange={(e) => setEditUserForm({ ...editUserForm, phone: e.target.value })}
             />
 
-            <div className="pt-3 flex items-center justify-end gap-2 border-t border-white/5">
+            <div className="pt-3 flex items-center justify-end gap-2 border-t border-slate-200">
               <Button
                 type="button"
                 variant="outline"
@@ -837,7 +837,7 @@ export const UserDirectoryPage: React.FC = () => {
           maxWidth="md"
         >
           <div className="space-y-4">
-            <p className="text-xs text-gray-400">
+            <p className="text-xs text-slate-600 font-medium">
               Select one or more institutional roles for this account. Note: Removing the last active ADMIN or removing your own admin privileges is protected and prevented.
             </p>
 
@@ -856,8 +856,8 @@ export const UserDirectoryPage: React.FC = () => {
                     key={r.name}
                     className={`flex items-start gap-2.5 p-3 rounded-xl border text-xs cursor-pointer transition-colors ${
                       isChecked
-                        ? 'bg-teal-500/10 border-teal-500/40 text-teal-300'
-                        : 'bg-[#171A23] border-white/5 text-gray-400 hover:bg-[#222838]'
+                        ? 'bg-indigo-50/70 border-indigo-300 text-indigo-900 shadow-2xs'
+                        : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100/80'
                     }`}
                   >
                     <input
@@ -870,18 +870,18 @@ export const UserDirectoryPage: React.FC = () => {
                           setEditRoles(editRoles.filter((role) => role !== r.name));
                         }
                       }}
-                      className="mt-0.5 rounded text-teal-500 focus:ring-0"
+                      className="mt-0.5 rounded text-indigo-600 focus:ring-0"
                     />
                     <div>
-                      <span className="font-mono font-bold text-gray-200 block">{r.name}</span>
-                      <span className="text-[11px] text-gray-500 leading-tight block mt-0.5">{r.desc}</span>
+                      <span className="font-mono font-bold text-slate-900 block">{r.name}</span>
+                      <span className="text-[11px] text-slate-500 font-medium leading-tight block mt-0.5">{r.desc}</span>
                     </div>
                   </label>
                 );
               })}
             </div>
 
-            <div className="pt-3 flex items-center justify-end gap-2 border-t border-white/5">
+            <div className="pt-3 flex items-center justify-end gap-2 border-t border-slate-200">
               <Button
                 type="button"
                 variant="outline"
@@ -916,39 +916,39 @@ export const UserDirectoryPage: React.FC = () => {
           maxWidth="md"
         >
           <div className="space-y-4">
-            <div className="flex items-center gap-3 p-3 rounded-xl bg-[#171A23] border border-white/5">
-              <div className="w-10 h-10 rounded-xl bg-teal-500/10 text-teal-300 flex items-center justify-center font-bold text-sm font-mono">
+            <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200">
+              <div className="w-10 h-10 rounded-xl bg-indigo-50 border border-indigo-200 text-indigo-700 flex items-center justify-center font-bold text-sm font-mono shadow-2xs">
                 {selectedUser.username.slice(0, 2).toUpperCase()}
               </div>
               <div className="flex-1 min-w-0">
-                <div className="font-semibold text-white truncate">
+                <div className="font-semibold text-slate-900 truncate">
                   {selectedUser.firstName} {selectedUser.lastName}
                 </div>
-                <div className="text-xs text-teal-400 font-mono">@{selectedUser.username}</div>
+                <div className="text-xs text-indigo-600 font-mono font-medium">@{selectedUser.username}</div>
               </div>
               <div>{renderStatusBadge(selectedUser.status)}</div>
             </div>
 
             <div className="grid grid-cols-2 gap-3 text-xs">
-              <div className="p-3 rounded-xl bg-[#171A23] border border-white/5">
-                <span className="text-[10px] text-gray-500 uppercase tracking-wider block font-semibold">User ID</span>
-                <span className="font-mono text-gray-200 mt-1 block">#{selectedUser.id}</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 font-bold uppercase tracking-wider block font-bold">User ID</span>
+                <span className="font-mono text-slate-900 font-bold mt-1 block">#{selectedUser.id}</span>
               </div>
-              <div className="p-3 rounded-xl bg-[#171A23] border border-white/5">
-                <span className="text-[10px] text-gray-500 uppercase tracking-wider block font-semibold">Phone</span>
-                <span className="text-gray-200 mt-1 block">{selectedUser.phone || 'Not configured'}</span>
+              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <span className="text-[10px] text-slate-600 font-bold uppercase tracking-wider block font-bold">Phone</span>
+                <span className="text-slate-800 font-medium mt-1 block">{selectedUser.phone || 'Not configured'}</span>
               </div>
             </div>
 
-            <div className="p-3 rounded-xl bg-[#171A23] border border-white/5 text-xs">
-              <span className="text-[10px] text-gray-500 uppercase tracking-wider block font-semibold mb-1">
+            <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs">
+              <span className="text-[10px] text-slate-600 font-bold uppercase tracking-wider block font-bold mb-1">
                 Institutional Email
               </span>
-              <span className="text-gray-200 font-mono">{selectedUser.email}</span>
+              <span className="text-slate-900 font-mono font-semibold">{selectedUser.email}</span>
             </div>
 
-            <div className="p-3 rounded-xl bg-[#171A23] border border-white/5 text-xs">
-              <span className="text-[10px] text-gray-500 uppercase tracking-wider block font-semibold mb-1.5">
+            <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs">
+              <span className="text-[10px] text-slate-600 font-bold uppercase tracking-wider block font-bold mb-1.5">
                 Assigned Roles ({selectedUser.roles?.length || 0})
               </span>
               <div className="flex flex-wrap gap-1.5">
@@ -958,8 +958,8 @@ export const UserDirectoryPage: React.FC = () => {
               </div>
             </div>
 
-            <div className="p-3 rounded-xl bg-[#171A23] border border-white/5 text-xs">
-              <span className="text-[10px] text-gray-500 uppercase tracking-wider block font-semibold mb-1.5">
+            <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs">
+              <span className="text-[10px] text-slate-600 font-bold uppercase tracking-wider block font-bold mb-1.5">
                 Effective Granted Permissions ({selectedUser.permissions?.length || 0})
               </span>
               <div className="flex flex-wrap gap-1 max-h-24 overflow-y-auto">
@@ -967,25 +967,25 @@ export const UserDirectoryPage: React.FC = () => {
                   selectedUser.permissions.map((p) => (
                     <span
                       key={p}
-                      className="px-2 py-0.5 rounded text-[10px] font-mono bg-white/[0.04] text-gray-300 border border-white/5"
+                      className="px-2 py-0.5 rounded text-[10px] font-mono bg-white text-slate-700 border border-slate-200 shadow-2xs"
                     >
                       {p}
                     </span>
                   ))
                 ) : (
-                  <span className="text-gray-500 text-[11px]">No fine-grained permissions attached</span>
+                  <span className="text-slate-500 text-[11px] font-medium">No fine-grained permissions attached</span>
                 )}
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 text-[11px] text-gray-400">
+            <div className="grid grid-cols-2 gap-3 text-[11px] text-slate-600">
               <div className="flex items-center gap-1.5">
-                <Calendar className="w-3.5 h-3.5 text-gray-500" />
-                <span>Created {new Date(selectedUser.createdAt).toLocaleDateString()}</span>
+                <Calendar className="w-3.5 h-3.5 text-slate-400" />
+                <span className="font-medium">Created {new Date(selectedUser.createdAt).toLocaleDateString()}</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <Clock className="w-3.5 h-3.5 text-gray-500" />
-                <span>
+                <Clock className="w-3.5 h-3.5 text-slate-400" />
+                <span className="font-medium">
                   {selectedUser.lastLoginAt
                     ? `Last login ${new Date(selectedUser.lastLoginAt).toLocaleDateString()}`
                     : 'Never logged in'}
@@ -993,7 +993,7 @@ export const UserDirectoryPage: React.FC = () => {
               </div>
             </div>
 
-            <div className="pt-3 flex justify-end border-t border-white/5">
+            <div className="pt-3 flex justify-end border-t border-slate-200">
               <Button variant="outline" size="sm" onClick={() => setIsDetailsModalOpen(false)}>
                 Close
               </Button>
@@ -1013,9 +1013,9 @@ export const UserDirectoryPage: React.FC = () => {
           maxWidth="sm"
         >
           <form onSubmit={handleResetPasswordSubmit} className="space-y-4">
-            <p className="text-xs text-gray-400 leading-relaxed">
+            <p className="text-xs text-slate-600 leading-relaxed font-medium">
               Enter a new secure password for{' '}
-              <span className="text-teal-300 font-semibold">
+              <span className="text-indigo-600 font-bold">
                 {selectedUser.firstName} {selectedUser.lastName}
               </span>
               . The credential will be hashed via BCrypt and the action logged in the audit journal.
@@ -1030,7 +1030,7 @@ export const UserDirectoryPage: React.FC = () => {
               required
             />
 
-            <div className="pt-3 flex items-center justify-end gap-2 border-t border-white/5">
+            <div className="pt-3 flex items-center justify-end gap-2 border-t border-slate-200">
               <Button
                 type="button"
                 variant="outline"

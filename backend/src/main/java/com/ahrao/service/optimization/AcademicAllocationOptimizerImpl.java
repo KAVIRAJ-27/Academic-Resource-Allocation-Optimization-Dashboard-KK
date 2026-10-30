@@ -37,7 +37,7 @@ import java.time.LocalTime;
 import java.util.*;
 
 @Service
-@Transactional(readOnly = true)
+@Transactional
 public class AcademicAllocationOptimizerImpl implements AcademicAllocationOptimizer {
 
     private static final Logger log = LoggerFactory.getLogger(AcademicAllocationOptimizerImpl.class);

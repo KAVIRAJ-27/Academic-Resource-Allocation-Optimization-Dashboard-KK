@@ -85,7 +85,7 @@ export const CreateHostelRequestModal: React.FC<Props> = ({
             value={requestType}
             onChange={(e) => setRequestType(e.target.value)}
             disabled={submitting}
-            className="w-full px-3 py-2 bg-[#0C0E14] border border-[#1E2330] rounded-lg text-xs text-white focus:outline-none focus:border-teal-500/50"
+            className="w-full px-3 py-2 bg-[#0C0E14] border border-slate-200 rounded-lg text-xs text-white focus:outline-none focus:border-teal-500/50"
           >
             <option value="ROOM_CHANGE">Room Change Request</option>
             <option value="MAINTENANCE">Hostel Maintenance & Repair</option>
@@ -121,7 +121,7 @@ export const CreateHostelRequestModal: React.FC<Props> = ({
                         : p === 'MEDIUM'
                         ? 'bg-blue-500/20 text-blue-300 border-blue-500/40'
                         : 'bg-gray-500/20 text-gray-300 border-gray-500/40'
-                      : 'bg-[#0C0E14] text-gray-400 border-[#1E2330] hover:border-gray-600'
+                      : 'bg-[#0C0E14] text-gray-400 border-slate-200 hover:border-gray-600'
                   }`}
                 >
                   {p}
@@ -142,7 +142,7 @@ export const CreateHostelRequestModal: React.FC<Props> = ({
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             disabled={submitting}
-            className="w-full px-3 py-2 bg-[#0C0E14] border border-[#1E2330] rounded-lg text-xs text-white placeholder-gray-500 focus:outline-none focus:border-teal-500/50 resize-none"
+            className="w-full px-3 py-2 bg-[#0C0E14] border border-slate-200 rounded-lg text-xs text-white placeholder-gray-500 focus:outline-none focus:border-teal-500/50 resize-none"
           />
           <div className="flex justify-between text-[11px] text-gray-500 mt-1">
             <span>Minimum 10 characters</span>
@@ -153,14 +153,14 @@ export const CreateHostelRequestModal: React.FC<Props> = ({
         </div>
 
         {/* Action Buttons */}
-        <div className="flex items-center justify-end gap-3 pt-3 border-t border-[#1E2330]">
+        <div className="flex items-center justify-end gap-3 pt-3 border-t border-slate-200">
           <Button
             type="button"
             variant="outline"
             size="sm"
             onClick={handleClose}
             disabled={submitting}
-            className="border-[#222838] text-gray-400"
+            className="border-slate-200 text-gray-400"
           >
             Cancel
           </Button>

@@ -102,7 +102,7 @@ export const HODResourceRequestsPage: React.FC = () => {
               <FileText className="w-5 h-5" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-white tracking-tight">
+              <h1 className="text-xl font-bold text-slate-900 tracking-tight">
                 Academic Resource Requests
               </h1>
               <p className="text-xs text-gray-400 mt-0.5">

@@ -1,126 +1,155 @@
 /**
- * AHRAO Centralized Design Tokens
+ * AHRAO Centralized Classical Academic Design Tokens
  * 
  * Enforces unified visual standards across all six institutional roles:
- * Dark SaaS Palette, Typography Scale, Spacing, Shadows, and Semantic Statuses.
+ * Classical Ivory & Champagne Gold Palette, Serif Headings, Delicate Borders.
  */
 
 export const COLOR_TOKENS = {
-  // Core Dark SaaS Surfaces
+  // Core Surfaces with Classical Ivory Glassmorphism
   background: {
-    base: '#080A0F',        // Primary canvas
-    surface: '#11141C',     // Primary card / panel surface
-    secondary: '#171A23',   // Elevated card / input background
-    tertiary: '#141822',    // Nested containers / table headers
-    hover: '#222838',       // Interactive hover state
-    active: '#2A3245',      // Interactive active state
+    base: '#FFFEFA',        // Primary warm ivory canvas
+    surface: '#FFFFFF',     // Pure white card / panel surface
+    surfaceGlass: 'rgba(255, 255, 255, 0.78)', // Translucent glass surface
+    secondary: '#F8F6F0',   // Subtle ivory beige surface
+    tertiary: '#FBF9F3',    // Warm parchment containers & alternate cards
+    tertiaryGlass: 'rgba(251, 249, 243, 0.72)', // Translucent parchment
+    hover: '#F4F0E6',       // Creamy warm hover state
+    active: '#E8E0D0',      // Soft parchment active state
+    sidebar: '#FFFFFF',     // Clean classical sidebar
+    sidebarGlass: 'rgba(255, 254, 250, 0.86)', // Glass sidebar
+    headerGlass: 'rgba(255, 254, 250, 0.82)',  // Glass header
   },
 
   // Borders & Dividers
   border: {
-    subtle: 'rgba(255, 255, 255, 0.05)',
-    default: '#1E2330',
-    hover: '#2E3547',
-    focus: '#0D9488',
+    subtle: '#E8E0D0',      // Soft parchment divider
+    default: '#D8C9A8',     // Delicate champagne gold border
+    glass: 'rgba(216, 201, 168, 0.65)', // Glass border
+    hover: '#B8A16A',       // Primary accent gold hover
+    focus: '#B8A16A',       // Primary accent gold focus
+    dark: '#D8C9A8',
   },
 
   // Text & Content Hierarchy
   text: {
-    primary: '#F3F4F6',     // High-emphasis text
-    secondary: '#9CA3AF',   // Medium-emphasis / body text
-    muted: '#6B7280',       // Low-emphasis / captions / placeholders
-    inverse: '#080A0F',     // Text on light backgrounds
+    primary: '#202020',     // High-emphasis deep charcoal / obsidian
+    secondary: '#555555',   // Refined graphite body text
+    muted: '#77736A',       // Warm stone gray captions & labels
+    inverse: '#FFFEFA',     // Ivory white on dark buttons
   },
 
   // Brand Accents
   brand: {
+    gold: {
+      DEFAULT: '#B8A16A',
+      light: '#D8C9A8',
+      dark: '#8C7748',
+      subtle: '#F4F0E6',
+    },
+    indigo: {
+      DEFAULT: '#B8A16A',
+      light: '#D8C9A8',
+      dark: '#A38C57',
+      subtle: '#F4F0E6',
+    },
     teal: {
-      DEFAULT: '#0D9488',
-      light: '#14B8A6',
-      dark: '#0F766E',
-      glow: 'rgba(20, 184, 166, 0.20)',
+      DEFAULT: '#3F7655',
+      light: '#538D6B',
+      dark: '#326044',
+      subtle: '#EEF6F1',
     },
     purple: {
-      DEFAULT: '#8B5CF6',
-      light: '#A78BFA',
-      dark: '#6D28D9',
-      glow: 'rgba(139, 92, 246, 0.20)',
+      DEFAULT: '#657C91',
+      light: '#889BB0',
+      dark: '#4B5E70',
+      subtle: '#EFF4F8',
     },
     blue: {
-      DEFAULT: '#3B82F6',
-      light: '#60A5FA',
-      dark: '#1D4ED8',
-      glow: 'rgba(59, 130, 246, 0.20)',
+      DEFAULT: '#657C91',
+      light: '#889BB0',
+      dark: '#4B5E70',
+      subtle: '#EFF4F8',
     },
     orange: {
-      DEFAULT: '#F97316',
-      light: '#FB923C',
-      dark: '#C2410C',
-      glow: 'rgba(249, 115, 22, 0.20)',
+      DEFAULT: '#A87928',
+      light: '#C79744',
+      dark: '#8A621D',
+      subtle: '#FAF4E8',
     },
   },
 
   // Semantic Status Accents
   status: {
     success: {
-      bg: 'rgba(16, 185, 129, 0.12)',
-      text: '#34D399',
-      border: 'rgba(16, 185, 129, 0.30)',
+      bg: '#EEF6F1',
+      text: '#3F7655',
+      border: '#C1DFCD',
     },
     warning: {
-      bg: 'rgba(245, 158, 11, 0.12)',
-      text: '#FBBF24',
-      border: 'rgba(245, 158, 11, 0.30)',
+      bg: '#FAF4E8',
+      text: '#A87928',
+      border: '#EED9B2',
     },
     danger: {
-      bg: 'rgba(244, 63, 94, 0.12)',
-      text: '#FB7185',
-      border: 'rgba(244, 63, 94, 0.30)',
+      bg: '#FDF0F0',
+      text: '#B44747',
+      border: '#ECC6C6',
     },
     info: {
-      bg: 'rgba(59, 130, 246, 0.12)',
-      text: '#60A5FA',
-      border: 'rgba(59, 130, 246, 0.30)',
+      bg: '#EFF4F8',
+      text: '#657C91',
+      border: '#C6D5E2',
     },
     neutral: {
-      bg: 'rgba(107, 114, 128, 0.15)',
-      text: '#9CA3AF',
-      border: 'rgba(107, 114, 128, 0.30)',
+      bg: '#F8F6F0',
+      text: '#555555',
+      border: '#E8E0D0',
     },
   },
 
   // Role Emphasis Accents
   role: {
-    ADMIN: { accent: '#0D9488', bgGlow: 'rgba(13, 148, 136, 0.15)', badgeVariant: 'teal' },
-    PRINCIPAL: { accent: '#3B82F6', bgGlow: 'rgba(59, 130, 246, 0.15)', badgeVariant: 'blue' },
-    HOD: { accent: '#8B5CF6', bgGlow: 'rgba(139, 92, 246, 0.15)', badgeVariant: 'purple' },
-    FACULTY: { accent: '#6366F1', bgGlow: 'rgba(99, 102, 241, 0.15)', badgeVariant: 'purple' },
-    STUDENT: { accent: '#14B8A6', bgGlow: 'rgba(20, 184, 166, 0.15)', badgeVariant: 'teal' },
-    WARDEN: { accent: '#F97316', bgGlow: 'rgba(249, 115, 22, 0.15)', badgeVariant: 'orange' },
+    ADMIN: { accent: '#B8A16A', bgGlow: 'rgba(184, 161, 106, 0.12)', badgeVariant: 'gold' },
+    PRINCIPAL: { accent: '#202020', bgGlow: 'rgba(32, 32, 32, 0.08)', badgeVariant: 'charcoal' },
+    HOD: { accent: '#657C91', bgGlow: 'rgba(101, 124, 145, 0.12)', badgeVariant: 'blue' },
+    FACULTY: { accent: '#B8A16A', bgGlow: 'rgba(184, 161, 106, 0.12)', badgeVariant: 'gold' },
+    STUDENT: { accent: '#3F7655', bgGlow: 'rgba(63, 118, 85, 0.12)', badgeVariant: 'teal' },
+    WARDEN: { accent: '#A87928', bgGlow: 'rgba(168, 121, 40, 0.12)', badgeVariant: 'orange' },
   },
 } as const;
 
 export const TYPOGRAPHY_TOKENS = {
-  display: 'text-3xl font-extrabold tracking-tight',
-  pageTitle: 'text-2xl font-bold tracking-tight',
-  sectionTitle: 'text-lg font-semibold tracking-normal',
-  cardTitle: 'text-sm font-semibold tracking-normal',
-  body: 'text-xs sm:text-sm font-normal text-gray-300 leading-relaxed',
-  secondary: 'text-xs text-gray-400',
-  caption: 'text-[11px] text-gray-500 font-mono',
-  label: 'text-xs font-semibold text-gray-300 uppercase tracking-wider',
+  display: 'text-3xl font-serif font-bold tracking-tight text-[#202020]',
+  pageTitle: 'text-2xl font-serif font-bold tracking-tight text-[#202020]',
+  sectionTitle: 'text-lg font-serif font-semibold tracking-normal text-[#202020]',
+  cardTitle: 'text-sm font-semibold tracking-normal text-[#202020]',
+  body: 'text-xs sm:text-sm font-normal text-[#555555] leading-relaxed',
+  secondary: 'text-xs text-[#77736A]',
+  caption: 'text-[11px] text-[#77736A] font-mono',
+  label: 'text-xs font-semibold text-[#555555] uppercase tracking-wider',
 } as const;
 
 export const SHADOW_TOKENS = {
-  card: '0 4px 20px -2px rgba(0, 0, 0, 0.5), 0 2px 6px -1px rgba(0, 0, 0, 0.4)',
-  glowTeal: '0 0 25px -5px rgba(20, 184, 166, 0.15)',
-  glowPurple: '0 0 25px -5px rgba(139, 92, 246, 0.15)',
-  dropdown: '0 10px 30px -5px rgba(0, 0, 0, 0.7), 0 4px 10px -2px rgba(0, 0, 0, 0.5)',
-  modal: '0 20px 40px -10px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.05)',
+  card: '0 8px 24px rgba(90, 75, 45, 0.06)',
+  cardHover: '0 12px 30px rgba(90, 75, 45, 0.10)',
+  dropdown: '0 14px 28px rgba(90, 75, 45, 0.08), 0 4px 10px rgba(90, 75, 45, 0.04)',
+  modal: '0 24px 48px -12px rgba(40, 30, 15, 0.20), 0 8px 24px rgba(90, 75, 45, 0.08)',
+  glass: '0 8px 24px rgba(90, 75, 45, 0.06)',
+  glassHover: '0 12px 32px rgba(90, 75, 45, 0.10)',
+} as const;
+
+export const GLASS_STYLE = {
+  card: 'bg-white/80 backdrop-blur-md border border-[#D8C9A8]/65 shadow-glass rounded-2xl',
+  cardHover: 'hover:bg-white/90 hover:border-[#B8A16A]/85 hover:shadow-glass-hover transition-all duration-200',
+  subtle: 'bg-[#FBF9F3]/75 backdrop-blur-sm border border-[#E8E0D0]/80 shadow-glass-sm rounded-xl',
+  header: 'bg-[#FFFEFA]/85 backdrop-blur-md border-b border-[#D8C9A8]/50 shadow-sm',
+  sidebar: 'bg-[#FFFEFA]/88 backdrop-blur-lg border-r border-[#D8C9A8]/55',
+  input: 'bg-white/80 backdrop-blur-sm border border-[#D8C9A8]/70 focus:bg-white/95 focus:border-[#B8A16A] focus:ring-2 focus:ring-[#B8A16A]/20 transition-all',
 } as const;
 
 export const TRANSITION_TOKENS = {
-  default: 'transition-all duration-200 ease-in-out',
-  fast: 'transition-all duration-150 ease-out',
-  smooth: 'transition-all duration-300 ease-in-out',
+  default: 'transition-all duration-150 ease-in-out',
+  fast: 'transition-all duration-100 ease-out',
+  smooth: 'transition-all duration-200 ease-in-out',
 } as const;

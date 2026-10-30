@@ -24,7 +24,7 @@ export const ApprovalStatusBadge: React.FC<ApprovalStatusBadgeProps> = ({ status
     case 'PENDING':
       return (
         <span
-          className={`inline-flex items-center gap-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-400 ${sizeClasses[size]}`}
+          className={`inline-flex items-center gap-1.5 rounded-full border border-[#E8D8BA] bg-[#FAF7F0] text-[#A87928] ${sizeClasses[size]}`}
         >
           <Clock size={iconSizes[size]} className="animate-pulse" />
           Pending Review
@@ -33,7 +33,7 @@ export const ApprovalStatusBadge: React.FC<ApprovalStatusBadgeProps> = ({ status
     case 'APPROVED':
       return (
         <span
-          className={`inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 ${sizeClasses[size]}`}
+          className={`inline-flex items-center gap-1.5 rounded-full border border-[#C2D6C9] bg-[#F0F5F2] text-[#3F7655] ${sizeClasses[size]}`}
         >
           <CheckCircle2 size={iconSizes[size]} />
           Approved
@@ -42,7 +42,7 @@ export const ApprovalStatusBadge: React.FC<ApprovalStatusBadgeProps> = ({ status
     case 'REJECTED':
       return (
         <span
-          className={`inline-flex items-center gap-1.5 rounded-full border border-rose-500/30 bg-rose-500/10 text-rose-400 ${sizeClasses[size]}`}
+          className={`inline-flex items-center gap-1.5 rounded-full border border-[#EBBABA] bg-[#FBF0F0] text-[#B44747] ${sizeClasses[size]}`}
         >
           <XCircle size={iconSizes[size]} />
           Rejected
@@ -51,7 +51,7 @@ export const ApprovalStatusBadge: React.FC<ApprovalStatusBadgeProps> = ({ status
     case 'CANCELLED':
       return (
         <span
-          className={`inline-flex items-center gap-1.5 rounded-full border border-slate-600 bg-slate-800/80 text-slate-400 ${sizeClasses[size]}`}
+          className={`inline-flex items-center gap-1.5 rounded-full border border-[#E8E0D0] bg-[#F8F6F0] text-[#77736A] ${sizeClasses[size]}`}
         >
           <Ban size={iconSizes[size]} />
           Cancelled
@@ -59,7 +59,7 @@ export const ApprovalStatusBadge: React.FC<ApprovalStatusBadgeProps> = ({ status
       );
     default:
       return (
-        <span className={`inline-flex items-center gap-1.5 rounded-full bg-slate-800 text-slate-400 ${sizeClasses[size]}`}>
+        <span className={`inline-flex items-center gap-1.5 rounded-full border border-[#D8C9A8] bg-[#FBF9F3] text-[#555555] ${sizeClasses[size]}`}>
           {status}
         </span>
       );

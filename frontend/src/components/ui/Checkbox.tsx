@@ -33,14 +33,14 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           />
           <div
             className={cn(
-              'w-4 h-4 rounded-md border border-[#1E2330] bg-[#171A23] transition-all duration-150',
-              'peer-checked:bg-teal-600 peer-checked:border-teal-500 peer-focus-visible:ring-2 peer-focus-visible:ring-teal-500/50',
-              'group-hover:border-gray-500'
+              'w-4 h-4 rounded-md border border-[#D9D2C3] bg-white transition-all duration-150',
+              'peer-checked:bg-[#B8A16A] peer-checked:border-[#A38C57] peer-focus-visible:ring-2 peer-focus-visible:ring-[#B8A16A]/30',
+              'group-hover:border-[#B8A16A]'
             )}
           />
           <Check
             className={cn(
-              'w-3 h-3 text-white absolute transition-transform scale-0 duration-150 pointer-events-none',
+              'w-3 h-3 text-[#202020] absolute transition-transform scale-0 duration-150 pointer-events-none stroke-[3]',
               checked && 'scale-100'
             )}
           />
@@ -48,8 +48,8 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 
         {(label || description) && (
           <div className="flex flex-col">
-            {label && <span className="text-xs sm:text-sm text-gray-200 font-medium">{label}</span>}
-            {description && <span className="text-[11px] text-gray-400 mt-0.5">{description}</span>}
+            {label && <span className="text-xs sm:text-sm text-[#202020] font-medium">{label}</span>}
+            {description && <span className="text-[11px] text-[#555555] mt-0.5">{description}</span>}
           </div>
         )}
       </label>

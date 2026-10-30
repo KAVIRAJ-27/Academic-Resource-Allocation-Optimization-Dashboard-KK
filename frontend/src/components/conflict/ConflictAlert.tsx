@@ -21,12 +21,12 @@ export const ConflictAlert: React.FC<ConflictAlertProps> = ({
   if (isAllValid) {
     return (
       <div
-        className={`flex items-start gap-3 rounded-lg border border-emerald-500/30 bg-emerald-950/20 p-4 text-emerald-300 ${className}`}
+        className={`flex items-start gap-3 rounded border border-[#B6D1C1] bg-[#F0F5F2] p-4 text-[#3F7655] ${className}`}
       >
-        <CheckCircle2 className="h-5 w-5 shrink-0 text-emerald-400 mt-0.5" />
+        <CheckCircle2 className="h-5 w-5 shrink-0 text-[#3F7655] mt-0.5" />
         <div>
-          <h4 className="font-semibold text-emerald-200">Constraint Verification Passed</h4>
-          <p className="mt-1 text-sm text-emerald-400/90">
+          <h4 className="font-serif font-bold text-[#3F7655]">Constraint Verification Passed</h4>
+          <p className="mt-1 text-sm text-[#3F7655]/90">
             No scheduling, double-booking, capacity, or scoping conflicts detected. This resource can be allocated safely.
           </p>
         </div>
@@ -37,14 +37,14 @@ export const ConflictAlert: React.FC<ConflictAlertProps> = ({
   if (hasErrors) {
     return (
       <div
-        className={`flex items-start gap-3 rounded-lg border border-rose-500/40 bg-rose-950/25 p-4 text-rose-300 ${className}`}
+        className={`flex items-start gap-3 rounded border border-[#ECC0C0] bg-[#FBF0F0] p-4 text-[#B44747] ${className}`}
       >
-        <AlertCircle className="h-5 w-5 shrink-0 text-rose-400 mt-0.5" />
+        <AlertCircle className="h-5 w-5 shrink-0 text-[#B44747] mt-0.5" />
         <div>
-          <h4 className="font-semibold text-rose-200">
+          <h4 className="font-serif font-bold text-[#B44747]">
             Allocation Blocked — {errorCount} Critical Conflict{errorCount > 1 ? 's' : ''} Detected
           </h4>
-          <p className="mt-1 text-sm text-rose-400/90">
+          <p className="mt-1 text-sm text-[#B44747]/90">
             Resource cannot be allocated because critical business or physical constraints are violated. Final allocation is blocked until these conflicts are resolved.
           </p>
         </div>
@@ -55,14 +55,14 @@ export const ConflictAlert: React.FC<ConflictAlertProps> = ({
   if (warningCount > 0) {
     return (
       <div
-        className={`flex items-start gap-3 rounded-lg border border-amber-500/40 bg-amber-950/25 p-4 text-amber-300 ${className}`}
+        className={`flex items-start gap-3 rounded border border-[#E8DEC8] bg-[#FAF7F0] p-4 text-[#A87928] ${className}`}
       >
-        <AlertTriangle className="h-5 w-5 shrink-0 text-amber-400 mt-0.5" />
+        <AlertTriangle className="h-5 w-5 shrink-0 text-[#A87928] mt-0.5" />
         <div>
-          <h4 className="font-semibold text-amber-200">
+          <h4 className="font-serif font-bold text-[#A87928]">
             Constraint Advisory — {warningCount} Warning{warningCount > 1 ? 's' : ''}
           </h4>
-          <p className="mt-1 text-sm text-amber-400/90">
+          <p className="mt-1 text-sm text-[#A87928]/90">
             Resource can be allocated, but review the warnings below before confirming.
           </p>
         </div>
@@ -72,12 +72,12 @@ export const ConflictAlert: React.FC<ConflictAlertProps> = ({
 
   return (
     <div
-      className={`flex items-start gap-3 rounded-lg border border-sky-500/40 bg-sky-950/25 p-4 text-sky-300 ${className}`}
+      className={`flex items-start gap-3 rounded border border-[#C2D1DD] bg-[#EFF3F6] p-4 text-[#657C91] ${className}`}
     >
-      <Info className="h-5 w-5 shrink-0 text-sky-400 mt-0.5" />
+      <Info className="h-5 w-5 shrink-0 text-[#657C91] mt-0.5" />
       <div>
-        <h4 className="font-semibold text-sky-200">Constraint Information</h4>
-        <p className="mt-1 text-sm text-sky-400/90">
+        <h4 className="font-serif font-bold text-[#657C91]">Constraint Information</h4>
+        <p className="mt-1 text-sm text-[#657C91]/90">
           Review the informational notes below for this allocation request.
         </p>
       </div>

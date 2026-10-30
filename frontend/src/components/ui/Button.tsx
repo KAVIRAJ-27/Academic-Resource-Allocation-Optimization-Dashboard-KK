@@ -34,23 +34,23 @@ export const Button: React.FC<ButtonProps> = ({
   const endIcon = rightIcon || iconRight;
 
   const baseStyles =
-    'inline-flex items-center justify-center font-medium rounded-xl transition-all duration-150 select-none focus:outline-none focus:ring-2 focus:ring-teal-500/50 focus:ring-offset-2 focus:ring-offset-[#080A0F] active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none disabled:active:scale-100';
+    'inline-flex items-center justify-center font-medium rounded-xl transition-all duration-200 select-none focus:outline-none focus:ring-2 focus:ring-[#B8A16A]/30 focus:ring-offset-2 focus:ring-offset-[#FFFEFA] active:scale-[0.99] disabled:opacity-50 disabled:pointer-events-none disabled:active:scale-100';
 
   const variants = {
     primary:
-      'bg-teal-600 hover:bg-teal-500 text-white shadow-md shadow-teal-900/30 border border-teal-500/30',
+      'bg-gradient-to-r from-[#C2AB75] via-[#B8A16A] to-[#A89158] hover:from-[#B8A16A] hover:to-[#967F47] text-[#202020] font-semibold shadow-xs hover:shadow-sm border border-[#A38C57]/70',
     secondary:
-      'bg-[#171A23] hover:bg-[#222838] text-gray-200 border border-[#1E2330] hover:border-gray-600',
+      'bg-white/80 backdrop-blur-sm hover:bg-[#F4F0E6] text-[#202020] border border-[#D8C9A8]/80 shadow-xs hover:border-[#B8A16A]',
     outline:
-      'bg-transparent hover:bg-white/[0.04] text-gray-300 border border-[#1E2330] hover:text-white hover:border-gray-500',
+      'bg-white/40 backdrop-blur-xs hover:bg-[#F4F0E6]/80 text-[#202020] border border-[#D8C9A8]',
     ghost:
-      'bg-transparent hover:bg-white/[0.06] text-gray-400 hover:text-white',
+      'bg-transparent hover:bg-[#F4F0E6]/70 text-[#555555] hover:text-[#202020]',
     danger:
-      'bg-rose-600/90 hover:bg-rose-500 text-white border border-rose-500/30 shadow-md shadow-rose-950/30',
+      'bg-[#B44747] hover:bg-[#9B3C3C] text-white shadow-xs border border-transparent',
     success:
-      'bg-emerald-600/90 hover:bg-emerald-500 text-white border border-emerald-500/30 shadow-md shadow-emerald-950/30',
+      'bg-[#3F7655] hover:bg-[#326044] text-white shadow-xs border border-transparent',
     link:
-      'bg-transparent text-teal-400 hover:text-teal-300 underline-offset-4 hover:underline p-0 h-auto',
+      'bg-transparent text-[#B8A16A] hover:text-[#8C7748] underline-offset-4 hover:underline p-0 h-auto font-medium',
   };
 
   const sizes = {

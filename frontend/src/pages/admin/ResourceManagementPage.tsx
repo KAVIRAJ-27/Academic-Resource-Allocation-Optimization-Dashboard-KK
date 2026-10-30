@@ -1358,7 +1358,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
       />
 
       {/* Navigation Tabs Bar */}
-      <div className="mb-6 border-b border-[#1E2330]">
+      <div className="mb-6 border-b border-slate-200">
         <div className="flex items-center gap-1 overflow-x-auto scrollbar-none pb-px">
           {tabItems.map((item) => {
             const IconComponent = item.icon;
@@ -1462,7 +1462,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
 
               {/* No resources zero state */}
               {overview?.totalResources === 0 && (
-                <Card className="p-8 text-center bg-[#11141C] border-[#1E2330]">
+                <Card className="p-8 text-center bg-white border-slate-200">
                   <Layers className="w-12 h-12 text-gray-500 mx-auto mb-3 opacity-60" />
                   <h3 className="text-lg font-semibold text-gray-200 mb-1">
                     No academic resources have been configured yet.
@@ -1488,7 +1488,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
               {/* Module Quick Jumper Cards */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
                 <Card
-                  className="p-5 hover:border-teal-500/40 cursor-pointer transition-all bg-[#11141C] border-[#1E2330] group"
+                  className="p-5 hover:border-teal-500/40 cursor-pointer transition-all bg-white border-slate-200 group"
                   onClick={() => handleTabChange('categories')}
                 >
                   <div className="flex items-center justify-between mb-3">
@@ -1497,14 +1497,14 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
                     </div>
                     <ArrowRight className="w-4 h-4 text-gray-500 group-hover:text-teal-400 group-hover:translate-x-1 transition-all" />
                   </div>
-                  <h4 className="text-base font-semibold text-white mb-1">Resource Categories</h4>
+                  <h4 className="text-base font-semibold text-slate-900 mb-1">Resource Categories</h4>
                   <p className="text-xs text-gray-400 leading-relaxed">
                     Classroom, Laboratory, Equipment, Auditorium, and Seminar Hall taxonomic categories.
                   </p>
                 </Card>
 
                 <Card
-                  className="p-5 hover:border-purple-500/40 cursor-pointer transition-all bg-[#11141C] border-[#1E2330] group"
+                  className="p-5 hover:border-purple-500/40 cursor-pointer transition-all bg-white border-slate-200 group"
                   onClick={() => handleTabChange('classrooms')}
                 >
                   <div className="flex items-center justify-between mb-3">
@@ -1513,14 +1513,14 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
                     </div>
                     <ArrowRight className="w-4 h-4 text-gray-500 group-hover:text-purple-400 group-hover:translate-x-1 transition-all" />
                   </div>
-                  <h4 className="text-base font-semibold text-white mb-1">Classroom Management</h4>
+                  <h4 className="text-base font-semibold text-slate-900 mb-1">Classroom Management</h4>
                   <p className="text-xs text-gray-400 leading-relaxed">
                     Room numbers, seating capacities, smart boards, projector capabilities, and building floors.
                   </p>
                 </Card>
 
                 <Card
-                  className="p-5 hover:border-blue-500/40 cursor-pointer transition-all bg-[#11141C] border-[#1E2330] group"
+                  className="p-5 hover:border-blue-500/40 cursor-pointer transition-all bg-white border-slate-200 group"
                   onClick={() => handleTabChange('laboratories')}
                 >
                   <div className="flex items-center justify-between mb-3">
@@ -1529,14 +1529,14 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
                     </div>
                     <ArrowRight className="w-4 h-4 text-gray-500 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
                   </div>
-                  <h4 className="text-base font-semibold text-white mb-1">Laboratory Directory</h4>
+                  <h4 className="text-base font-semibold text-slate-900 mb-1">Laboratory Directory</h4>
                   <p className="text-xs text-gray-400 leading-relaxed">
                     Department affiliations, workstation capacities, specialized lab types, and equipment links.
                   </p>
                 </Card>
 
                 <Card
-                  className="p-5 hover:border-amber-500/40 cursor-pointer transition-all bg-[#11141C] border-[#1E2330] group"
+                  className="p-5 hover:border-amber-500/40 cursor-pointer transition-all bg-white border-slate-200 group"
                   onClick={() => handleTabChange('equipment')}
                 >
                   <div className="flex items-center justify-between mb-3">
@@ -1545,14 +1545,14 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
                     </div>
                     <ArrowRight className="w-4 h-4 text-gray-500 group-hover:text-amber-400 group-hover:translate-x-1 transition-all" />
                   </div>
-                  <h4 className="text-base font-semibold text-white mb-1">Apparatus & Equipment</h4>
+                  <h4 className="text-base font-semibold text-slate-900 mb-1">Apparatus & Equipment</h4>
                   <p className="text-xs text-gray-400 leading-relaxed">
                     Serial numbers, manufacturers, model identifiers, warranty schedules, and operational conditions.
                   </p>
                 </Card>
 
                 <Card
-                  className="p-5 hover:border-emerald-500/40 cursor-pointer transition-all bg-[#11141C] border-[#1E2330] group"
+                  className="p-5 hover:border-emerald-500/40 cursor-pointer transition-all bg-white border-slate-200 group"
                   onClick={() => handleTabChange('time-slots')}
                 >
                   <div className="flex items-center justify-between mb-3">
@@ -1561,14 +1561,14 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
                     </div>
                     <ArrowRight className="w-4 h-4 text-gray-500 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all" />
                   </div>
-                  <h4 className="text-base font-semibold text-white mb-1">Master Time Slots</h4>
+                  <h4 className="text-base font-semibold text-slate-900 mb-1">Master Time Slots</h4>
                   <p className="text-xs text-gray-400 leading-relaxed">
                     Weekly scheduling periods, standard class durations, and institutional timetable slots.
                   </p>
                 </Card>
 
                 <Card
-                  className="p-5 hover:border-cyan-500/40 cursor-pointer transition-all bg-[#11141C] border-[#1E2330] group"
+                  className="p-5 hover:border-cyan-500/40 cursor-pointer transition-all bg-white border-slate-200 group"
                   onClick={() => handleTabChange('resources')}
                 >
                   <div className="flex items-center justify-between mb-3">
@@ -1577,7 +1577,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
                     </div>
                     <ArrowRight className="w-4 h-4 text-gray-500 group-hover:text-cyan-400 group-hover:translate-x-1 transition-all" />
                   </div>
-                  <h4 className="text-base font-semibold text-white mb-1">All Academic Resources</h4>
+                  <h4 className="text-base font-semibold text-slate-900 mb-1">All Academic Resources</h4>
                   <p className="text-xs text-gray-400 leading-relaxed">
                     Unified catalog table with multi-factor search, category filtering, and status controls.
                   </p>
@@ -1593,7 +1593,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
       {/* ==================================================================== */}
       {activeTab === 'categories' && (
         <div className="space-y-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-[#11141C] p-4 rounded-xl border border-[#1E2330]">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white p-4 rounded-xl border border-slate-200">
             <div className="flex flex-wrap items-center gap-3 flex-1">
               <div className="relative flex-1 min-w-[200px] max-w-sm">
                 <Search className="absolute left-3 top-2.5 w-4 h-4 text-gray-500" />
@@ -1621,10 +1621,10 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
             </Button>
           </div>
 
-          <Card className="overflow-hidden border-[#1E2330] bg-[#11141C]">
+          <Card className="overflow-hidden border-slate-200 bg-white">
             <div className="overflow-x-auto">
               <table className="w-full text-left text-sm">
-                <thead className="bg-[#0E1017] text-gray-400 uppercase text-[11px] font-semibold border-b border-[#1E2330]">
+                <thead className="bg-[#0E1017] text-slate-700 font-bold uppercase text-[11px] font-semibold border-b border-slate-200">
                   <tr>
                     <th className="px-5 py-3">Category Code</th>
                     <th className="px-5 py-3">Category Name</th>
@@ -1634,7 +1634,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
                     <th className="px-5 py-3 text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#1E2330] text-gray-300">
+                <tbody className="divide-y divide-slate-200 text-gray-300">
                   {categoriesModule.loading ? (
                     [...Array(4)].map((_, i) => (
                       <tr key={i}>
@@ -1662,11 +1662,11 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
                           {cat.code}
                         </td>
                         <td className="px-5 py-3.5 font-medium text-white">{cat.name}</td>
-                        <td className="px-5 py-3.5 text-gray-400 max-w-xs truncate">
+                        <td className="px-5 py-3.5 text-slate-600 font-medium max-w-xs truncate">
                           {cat.description || <span className="text-gray-600 italic">No description</span>}
                         </td>
                         <td className="px-5 py-3.5">
-                          <span className="px-2 py-0.5 rounded-full text-xs font-mono bg-[#1E2330] text-gray-300">
+                          <span className="px-2 py-0.5 rounded-full text-xs font-mono bg-[#1E2330] text-slate-700 font-medium">
                             {cat.totalResources} assets
                           </span>
                         </td>
@@ -1714,7 +1714,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
               </table>
             </div>
             {categoriesModule.data && categoriesModule.data.totalPages > 1 && (
-              <div className="p-4 border-t border-[#1E2330]">
+              <div className="p-4 border-t border-slate-200">
                 <Pagination
                   currentPage={categoriesModule.page + 1}
                   totalPages={categoriesModule.data.totalPages}
@@ -1733,7 +1733,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
       {/* ==================================================================== */}
       {activeTab === 'resources' && (
         <div className="space-y-4">
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 bg-[#11141C] p-4 rounded-xl border border-[#1E2330]">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 bg-white p-4 rounded-xl border border-slate-200">
             <div className="flex flex-wrap items-center gap-3 flex-1">
               <div className="relative flex-1 min-w-[180px] max-w-sm">
                 <Search className="absolute left-3 top-2.5 w-4 h-4 text-gray-500" />
@@ -1749,7 +1749,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
                 onChange={(e) => resourcesModule.setCategoryId(e.target.value ? parseInt(e.target.value, 10) : undefined)}
                 options={[
                   { value: '', label: 'All Categories' },
-                  ...(referenceData?.categories.map((c) => ({ value: c.id.toString(), label: c.name })) || [])
+                  ...(referenceData?.categories?.map((c) => ({ value: c.id.toString(), label: c.name })) || [])
                 ]}
                 className="w-40"
               />
@@ -1758,7 +1758,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
                 onChange={(e) => resourcesModule.setDepartmentId(e.target.value ? parseInt(e.target.value, 10) : undefined)}
                 options={[
                   { value: '', label: 'All Departments' },
-                  ...(referenceData?.departments.map((d) => ({ value: d.id.toString(), label: d.name })) || [])
+                  ...(referenceData?.departments?.map((d) => ({ value: d.id.toString(), label: d.name })) || [])
                 ]}
                 className="w-44"
               />
@@ -1781,10 +1781,10 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
             </Button>
           </div>
 
-          <Card className="overflow-hidden border-[#1E2330] bg-[#11141C]">
+          <Card className="overflow-hidden border-slate-200 bg-white">
             <div className="overflow-x-auto">
               <table className="w-full text-left text-sm">
-                <thead className="bg-[#0E1017] text-gray-400 uppercase text-[11px] font-semibold border-b border-[#1E2330]">
+                <thead className="bg-[#0E1017] text-slate-700 font-bold uppercase text-[11px] font-semibold border-b border-slate-200">
                   <tr>
                     <th className="px-5 py-3">Resource Code</th>
                     <th className="px-5 py-3">Resource Name</th>
@@ -1796,7 +1796,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
                     <th className="px-5 py-3 text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#1E2330] text-gray-300">
+                <tbody className="divide-y divide-slate-200 text-gray-300">
                   {resourcesModule.loading ? (
                     [...Array(5)].map((_, i) => (
                       <tr key={i}>
@@ -1829,13 +1829,13 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
                             {res.categoryName}
                           </span>
                         </td>
-                        <td className="px-5 py-3.5 text-gray-400">
+                        <td className="px-5 py-3.5 text-slate-600 font-medium">
                           {res.departmentName || <span className="text-gray-600">Institutional</span>}
                         </td>
-                        <td className="px-5 py-3.5 font-mono text-xs text-gray-300">
+                        <td className="px-5 py-3.5 font-mono text-xs text-slate-700 font-medium">
                           {res.capacity ? `${res.capacity} seats` : '—'}
                         </td>
-                        <td className="px-5 py-3.5 text-gray-400 text-xs">
+                        <td className="px-5 py-3.5 text-slate-600 font-medium text-xs">
                           {res.location || '—'}
                         </td>
                         <td className="px-5 py-3.5">
@@ -1897,7 +1897,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
               </table>
             </div>
             {resourcesModule.data && resourcesModule.data.totalPages > 1 && (
-              <div className="p-4 border-t border-[#1E2330]">
+              <div className="p-4 border-t border-slate-200">
                 <Pagination
                   currentPage={resourcesModule.page + 1}
                   totalPages={resourcesModule.data.totalPages}
@@ -1916,7 +1916,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
       {/* ==================================================================== */}
       {activeTab === 'classrooms' && (
         <div className="space-y-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-[#11141C] p-4 rounded-xl border border-[#1E2330]">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white p-4 rounded-xl border border-slate-200">
             <div className="flex flex-wrap items-center gap-3 flex-1">
               <div className="relative flex-1 min-w-[200px] max-w-sm">
                 <Search className="absolute left-3 top-2.5 w-4 h-4 text-gray-500" />
@@ -1952,10 +1952,10 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
             </Button>
           </div>
 
-          <Card className="overflow-hidden border-[#1E2330] bg-[#11141C]">
+          <Card className="overflow-hidden border-slate-200 bg-white">
             <div className="overflow-x-auto">
               <table className="w-full text-left text-sm">
-                <thead className="bg-[#0E1017] text-gray-400 uppercase text-[11px] font-semibold border-b border-[#1E2330]">
+                <thead className="bg-[#0E1017] text-slate-700 font-bold uppercase text-[11px] font-semibold border-b border-slate-200">
                   <tr>
                     <th className="px-5 py-3">Room / Code</th>
                     <th className="px-5 py-3">Classroom Name</th>
@@ -1967,7 +1967,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
                     <th className="px-5 py-3 text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#1E2330] text-gray-300">
+                <tbody className="divide-y divide-slate-200 text-gray-300">
                   {classroomsModule.loading ? (
                     [...Array(5)].map((_, i) => (
                       <tr key={i}>
@@ -1996,14 +1996,14 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
                           <div className="text-[11px] text-teal-400/80 font-mono">{cls.resourceCode}</div>
                         </td>
                         <td className="px-5 py-3.5 font-medium text-white">{cls.resourceName}</td>
-                        <td className="px-5 py-3.5 text-gray-300 text-xs">
+                        <td className="px-5 py-3.5 text-slate-700 font-medium text-xs">
                           {cls.building}, Floor {cls.floor}
                         </td>
-                        <td className="px-5 py-3.5 font-mono text-xs text-gray-300">
+                        <td className="px-5 py-3.5 font-mono text-xs text-slate-700 font-medium">
                           {cls.capacity} seats
                         </td>
                         <td className="px-5 py-3.5">
-                          <span className="text-xs px-2 py-0.5 rounded bg-[#1E2330] text-gray-300">
+                          <span className="text-xs px-2 py-0.5 rounded bg-[#1E2330] text-slate-700 font-medium">
                             {cls.roomType}
                           </span>
                         </td>
@@ -2088,7 +2088,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
               </table>
             </div>
             {classroomsModule.data && classroomsModule.data.totalPages > 1 && (
-              <div className="p-4 border-t border-[#1E2330]">
+              <div className="p-4 border-t border-slate-200">
                 <Pagination
                   currentPage={classroomsModule.page + 1}
                   totalPages={classroomsModule.data.totalPages}
@@ -2107,7 +2107,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
       {/* ==================================================================== */}
       {activeTab === 'laboratories' && (
         <div className="space-y-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-[#11141C] p-4 rounded-xl border border-[#1E2330]">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white p-4 rounded-xl border border-slate-200">
             <div className="flex flex-wrap items-center gap-3 flex-1">
               <div className="relative flex-1 min-w-[200px] max-w-sm">
                 <Search className="absolute left-3 top-2.5 w-4 h-4 text-gray-500" />
@@ -2123,7 +2123,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
                 onChange={(e) => laboratoriesModule.setDepartmentId(e.target.value ? parseInt(e.target.value, 10) : undefined)}
                 options={[
                   { value: '', label: 'All Departments' },
-                  ...(referenceData?.departments.map((d) => ({ value: d.id.toString(), label: d.name })) || [])
+                  ...(referenceData?.departments?.map((d) => ({ value: d.id.toString(), label: d.name })) || [])
                 ]}
                 className="w-48"
               />
@@ -2146,10 +2146,10 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
             </Button>
           </div>
 
-          <Card className="overflow-hidden border-[#1E2330] bg-[#11141C]">
+          <Card className="overflow-hidden border-slate-200 bg-white">
             <div className="overflow-x-auto">
               <table className="w-full text-left text-sm">
-                <thead className="bg-[#0E1017] text-gray-400 uppercase text-[11px] font-semibold border-b border-[#1E2330]">
+                <thead className="bg-[#0E1017] text-slate-700 font-bold uppercase text-[11px] font-semibold border-b border-slate-200">
                   <tr>
                     <th className="px-5 py-3">Lab Room / Code</th>
                     <th className="px-5 py-3">Laboratory Name</th>
@@ -2161,7 +2161,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
                     <th className="px-5 py-3 text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#1E2330] text-gray-300">
+                <tbody className="divide-y divide-slate-200 text-gray-300">
                   {laboratoriesModule.loading ? (
                     [...Array(5)].map((_, i) => (
                       <tr key={i}>
@@ -2190,10 +2190,10 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
                           <div className="text-[11px] text-blue-400/80 font-mono">{lab.resourceCode}</div>
                         </td>
                         <td className="px-5 py-3.5 font-medium text-white">{lab.resourceName}</td>
-                        <td className="px-5 py-3.5 text-gray-300 text-xs">
+                        <td className="px-5 py-3.5 text-slate-700 font-medium text-xs">
                           {lab.departmentName || <span className="text-gray-600">Institutional</span>}
                         </td>
-                        <td className="px-5 py-3.5 text-gray-300 text-xs">
+                        <td className="px-5 py-3.5 text-slate-700 font-medium text-xs">
                           {lab.building}, Floor {lab.floor}
                         </td>
                         <td className="px-5 py-3.5">
@@ -2202,8 +2202,8 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
                           </span>
                         </td>
                         <td className="px-5 py-3.5">
-                          <div className="text-xs font-mono text-gray-300">{lab.capacity} seats</div>
-                          <div className="text-[11px] text-gray-400 flex items-center gap-1">
+                          <div className="text-xs font-mono text-slate-700 font-medium">{lab.capacity} seats</div>
+                          <div className="text-[11px] text-slate-600 font-medium flex items-center gap-1">
                             <Monitor className="w-3 h-3 text-teal-400" />
                             {lab.computerCount} workstations
                           </div>
@@ -2267,7 +2267,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
               </table>
             </div>
             {laboratoriesModule.data && laboratoriesModule.data.totalPages > 1 && (
-              <div className="p-4 border-t border-[#1E2330]">
+              <div className="p-4 border-t border-slate-200">
                 <Pagination
                   currentPage={laboratoriesModule.page + 1}
                   totalPages={laboratoriesModule.data.totalPages}
@@ -2286,7 +2286,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
       {/* ==================================================================== */}
       {activeTab === 'equipment' && (
         <div className="space-y-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-[#11141C] p-4 rounded-xl border border-[#1E2330]">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white p-4 rounded-xl border border-slate-200">
             <div className="flex flex-wrap items-center gap-3 flex-1">
               <div className="relative flex-1 min-w-[200px] max-w-sm">
                 <Search className="absolute left-3 top-2.5 w-4 h-4 text-gray-500" />
@@ -2316,10 +2316,10 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
             </Button>
           </div>
 
-          <Card className="overflow-hidden border-[#1E2330] bg-[#11141C]">
+          <Card className="overflow-hidden border-slate-200 bg-white">
             <div className="overflow-x-auto">
               <table className="w-full text-left text-sm">
-                <thead className="bg-[#0E1017] text-gray-400 uppercase text-[11px] font-semibold border-b border-[#1E2330]">
+                <thead className="bg-[#0E1017] text-slate-700 font-bold uppercase text-[11px] font-semibold border-b border-slate-200">
                   <tr>
                     <th className="px-5 py-3">Serial Number</th>
                     <th className="px-5 py-3">Asset Item</th>
@@ -2330,7 +2330,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
                     <th className="px-5 py-3 text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#1E2330] text-gray-300">
+                <tbody className="divide-y divide-slate-200 text-gray-300">
                   {equipmentModule.loading ? (
                     [...Array(5)].map((_, i) => (
                       <tr key={i}>
@@ -2359,19 +2359,19 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
                         </td>
                         <td className="px-5 py-3.5">
                           <div className="font-medium text-white">{eq.resourceName}</div>
-                          <div className="text-[11px] text-gray-500 font-mono">{eq.resourceCode}</div>
+                          <div className="text-[11px] text-slate-500 font-medium font-mono">{eq.resourceCode}</div>
                         </td>
-                        <td className="px-5 py-3.5 text-gray-300 text-xs">
+                        <td className="px-5 py-3.5 text-slate-700 font-medium text-xs">
                           {eq.manufacturer ? `${eq.manufacturer} ` : ''}
-                          {eq.model && <span className="text-gray-400">({eq.model})</span>}
+                          {eq.model && <span className="text-slate-600 font-medium">({eq.model})</span>}
                           {!eq.manufacturer && !eq.model && <span className="text-gray-600">—</span>}
                         </td>
                         <td className="px-5 py-3.5">
-                          <span className="text-xs px-2 py-0.5 rounded bg-[#1E2330] text-gray-300">
+                          <span className="text-xs px-2 py-0.5 rounded bg-[#1E2330] text-slate-700 font-medium">
                             {eq.conditionStatus || 'OPERATIONAL'}
                           </span>
                         </td>
-                        <td className="px-5 py-3.5 font-mono text-xs text-gray-300">
+                        <td className="px-5 py-3.5 font-mono text-xs text-slate-700 font-medium">
                           {eq.quantity} units
                         </td>
                         <td className="px-5 py-3.5">
@@ -2444,7 +2444,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
               </table>
             </div>
             {equipmentModule.data && equipmentModule.data.totalPages > 1 && (
-              <div className="p-4 border-t border-[#1E2330]">
+              <div className="p-4 border-t border-slate-200">
                 <Pagination
                   currentPage={equipmentModule.page + 1}
                   totalPages={equipmentModule.data.totalPages}
@@ -2463,7 +2463,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
       {/* ==================================================================== */}
       {activeTab === 'time-slots' && (
         <div className="space-y-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-[#11141C] p-4 rounded-xl border border-[#1E2330]">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white p-4 rounded-xl border border-slate-200">
             <div className="flex flex-wrap items-center gap-3 flex-1">
               <div className="relative flex-1 min-w-[200px] max-w-sm">
                 <Search className="absolute left-3 top-2.5 w-4 h-4 text-gray-500" />
@@ -2505,10 +2505,10 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
             </Button>
           </div>
 
-          <Card className="overflow-hidden border-[#1E2330] bg-[#11141C]">
+          <Card className="overflow-hidden border-slate-200 bg-white">
             <div className="overflow-x-auto">
               <table className="w-full text-left text-sm">
-                <thead className="bg-[#0E1017] text-gray-400 uppercase text-[11px] font-semibold border-b border-[#1E2330]">
+                <thead className="bg-[#0E1017] text-slate-700 font-bold uppercase text-[11px] font-semibold border-b border-slate-200">
                   <tr>
                     <th className="px-5 py-3">Slot Designation</th>
                     <th className="px-5 py-3">Day of Week</th>
@@ -2518,7 +2518,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
                     <th className="px-5 py-3 text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#1E2330] text-gray-300">
+                <tbody className="divide-y divide-slate-200 text-gray-300">
                   {timeSlotsModule.loading ? (
                     [...Array(5)].map((_, i) => (
                       <tr key={i}>
@@ -2551,10 +2551,10 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
                             {ts.dayOfWeek}
                           </span>
                         </td>
-                        <td className="px-5 py-3.5 font-mono text-sm text-gray-200">
+                        <td className="px-5 py-3.5 font-mono text-sm text-slate-800 font-medium">
                           {ts.startTime}
                         </td>
-                        <td className="px-5 py-3.5 font-mono text-sm text-gray-200">
+                        <td className="px-5 py-3.5 font-mono text-sm text-slate-800 font-medium">
                           {ts.endTime}
                         </td>
                         <td className="px-5 py-3.5">
@@ -2609,7 +2609,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
               </table>
             </div>
             {timeSlotsModule.data && timeSlotsModule.data.totalPages > 1 && (
-              <div className="p-4 border-t border-[#1E2330]">
+              <div className="p-4 border-t border-slate-200">
                 <Pagination
                   currentPage={timeSlotsModule.page + 1}
                   totalPages={timeSlotsModule.data.totalPages}
@@ -2700,7 +2700,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
               <label className="block text-xs font-semibold text-gray-400 uppercase mb-1.5">
                 Category Code (Immutable)
               </label>
-              <div className="px-3 py-2 bg-[#0E1017] border border-[#1E2330] rounded-lg text-xs font-mono text-gray-400">
+              <div className="px-3 py-2 bg-[#0E1017] border border-slate-200 rounded-lg text-xs font-mono text-gray-400">
                 {categoryModal.formData.code}
               </div>
             </div>
@@ -2781,7 +2781,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
                     }))
                   }
                   options={
-                    referenceData?.categories.map((c) => ({
+                    referenceData?.categories?.map((c) => ({
                       value: c.id.toString(),
                       label: `${c.name} (${c.code})`
                     })) || []
@@ -2802,7 +2802,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
                   }
                   options={[
                     { value: '', label: 'Institutional / Common' },
-                    ...(referenceData?.departments.map((d) => ({
+                    ...(referenceData?.departments?.map((d) => ({
                       value: d.id.toString(),
                       label: d.name
                     })) || [])
@@ -2834,7 +2834,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
                 <label className="block text-xs font-semibold text-gray-400 uppercase mb-1.5">
                   Resource Code
                 </label>
-                <div className="px-3 py-2 bg-[#0E1017] border border-[#1E2330] rounded-lg text-xs font-mono text-gray-400">
+                <div className="px-3 py-2 bg-[#0E1017] border border-slate-200 rounded-lg text-xs font-mono text-gray-400">
                   {resourceModal.formData.code}
                 </div>
               </div>
@@ -3081,7 +3081,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
             <label className="block text-xs font-semibold text-gray-300 uppercase mb-2">
               Equipped Amenities
             </label>
-            <div className="flex flex-wrap items-center gap-4 p-3 bg-[#0E1017] border border-[#1E2330] rounded-lg">
+            <div className="flex flex-wrap items-center gap-4 p-3 bg-[#0E1017] border border-slate-200 rounded-lg">
               <label className="flex items-center gap-2 cursor-pointer text-xs text-gray-300">
                 <input
                   type="checkbox"
@@ -3092,7 +3092,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
                       formData: { ...prev.formData, hasProjector: e.target.checked }
                     }))
                   }
-                  className="rounded border-[#1E2330] bg-[#11141C] text-teal-500 focus:ring-teal-500/20"
+                  className="rounded border-slate-200 bg-white text-teal-500 focus:ring-teal-500/20"
                 />
                 <span>Digital Projector</span>
               </label>
@@ -3106,7 +3106,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
                       formData: { ...prev.formData, hasAc: e.target.checked }
                     }))
                   }
-                  className="rounded border-[#1E2330] bg-[#11141C] text-teal-500 focus:ring-teal-500/20"
+                  className="rounded border-slate-200 bg-white text-teal-500 focus:ring-teal-500/20"
                 />
                 <span>Air Conditioning (AC)</span>
               </label>
@@ -3120,7 +3120,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
                       formData: { ...prev.formData, hasSmartBoard: e.target.checked }
                     }))
                   }
-                  className="rounded border-[#1E2330] bg-[#11141C] text-teal-500 focus:ring-teal-500/20"
+                  className="rounded border-slate-200 bg-white text-teal-500 focus:ring-teal-500/20"
                 />
                 <span>Smart Board</span>
               </label>
@@ -3222,7 +3222,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
                 }
                 options={[
                   { value: '', label: 'Common Institutional Lab' },
-                  ...(referenceData?.departments.map((d) => ({
+                  ...(referenceData?.departments?.map((d) => ({
                     value: d.id.toString(),
                     label: d.name
                   })) || [])
@@ -3399,7 +3399,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
                   }))
                 }
                 options={
-                  referenceData?.equipmentResources.map((r) => ({
+                  referenceData?.equipmentResources?.map((r) => ({
                     value: r.id.toString(),
                     label: `${r.name} (${r.code})`
                   })) || []
@@ -3430,7 +3430,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
                 <label className="block text-xs font-semibold text-gray-400 uppercase mb-1.5">
                   Serial Number (Immutable)
                 </label>
-                <div className="px-3 py-2 bg-[#0E1017] border border-[#1E2330] rounded-lg text-xs font-mono text-gray-400">
+                <div className="px-3 py-2 bg-[#0E1017] border border-slate-200 rounded-lg text-xs font-mono text-gray-400">
                   {equipmentModal.formData.serialNumber}
                 </div>
               </div>
@@ -3642,7 +3642,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
               />
             </div>
           </div>
-          <div className="p-3 bg-[#0E1017] border border-[#1E2330] rounded-lg text-xs text-gray-400 flex items-center gap-2">
+          <div className="p-3 bg-[#0E1017] border border-slate-200 rounded-lg text-xs text-gray-400 flex items-center gap-2">
             <Clock className="w-4 h-4 text-teal-400 shrink-0" />
             <span>
               Validation: Start time must precede End time (e.g. 09:00 to 10:00). Inverse time values are rejected.
@@ -3676,7 +3676,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
           <div className="space-y-4 text-sm text-gray-300">
             {detailsModal.type === 'resource' && (
               <>
-                <div className="grid grid-cols-2 gap-3 p-3 bg-[#0E1017] rounded-lg border border-[#1E2330]">
+                <div className="grid grid-cols-2 gap-3 p-3 bg-[#0E1017] rounded-lg border border-slate-200">
                   <div>
                     <div className="text-[11px] text-gray-400 uppercase font-semibold">Resource Code</div>
                     <div className="font-mono text-teal-400 font-semibold">{detailsModal.data.code}</div>
@@ -3707,7 +3707,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
                 {detailsModal.data.description && (
                   <div>
                     <div className="text-xs font-semibold text-gray-400 uppercase mb-1">Description</div>
-                    <p className="text-xs text-gray-300 bg-[#0E1017] p-3 rounded-lg border border-[#1E2330]">
+                    <p className="text-xs text-gray-300 bg-[#0E1017] p-3 rounded-lg border border-slate-200">
                       {detailsModal.data.description}
                     </p>
                   </div>
@@ -3742,7 +3742,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
             )}
 
             {detailsModal.type === 'classroom' && (
-              <div className="grid grid-cols-2 gap-3 p-3 bg-[#0E1017] rounded-lg border border-[#1E2330]">
+              <div className="grid grid-cols-2 gap-3 p-3 bg-[#0E1017] rounded-lg border border-slate-200">
                 <div>
                   <div className="text-[11px] text-gray-400 uppercase font-semibold">Room Number</div>
                   <div className="font-mono text-teal-400 font-semibold">{detailsModal.data.roomNumber}</div>
@@ -3777,7 +3777,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
             )}
 
             {detailsModal.type === 'laboratory' && (
-              <div className="grid grid-cols-2 gap-3 p-3 bg-[#0E1017] rounded-lg border border-[#1E2330]">
+              <div className="grid grid-cols-2 gap-3 p-3 bg-[#0E1017] rounded-lg border border-slate-200">
                 <div>
                   <div className="text-[11px] text-gray-400 uppercase font-semibold">Lab Room</div>
                   <div className="font-mono text-blue-400 font-semibold">{detailsModal.data.roomNumber}</div>
@@ -3806,7 +3806,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
             )}
 
             {detailsModal.type === 'equipment' && (
-              <div className="grid grid-cols-2 gap-3 p-3 bg-[#0E1017] rounded-lg border border-[#1E2330]">
+              <div className="grid grid-cols-2 gap-3 p-3 bg-[#0E1017] rounded-lg border border-slate-200">
                 <div>
                   <div className="text-[11px] text-gray-400 uppercase font-semibold">Serial Number</div>
                   <div className="font-mono text-amber-400 font-semibold">{detailsModal.data.serialNumber}</div>
@@ -3837,7 +3837,7 @@ export const ResourceManagementPage: React.FC<ResourceManagementPageProps> = ({ 
             )}
 
             {detailsModal.type === 'time-slot' && (
-              <div className="grid grid-cols-2 gap-3 p-3 bg-[#0E1017] rounded-lg border border-[#1E2330]">
+              <div className="grid grid-cols-2 gap-3 p-3 bg-[#0E1017] rounded-lg border border-slate-200">
                 <div>
                   <div className="text-[11px] text-gray-400 uppercase font-semibold">Slot Name</div>
                   <div className="font-semibold text-white">{detailsModal.data.name}</div>

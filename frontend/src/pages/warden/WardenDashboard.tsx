@@ -253,17 +253,17 @@ export const WardenDashboard: React.FC = () => {
             <Card className="h-full min-h-[260px] flex flex-col justify-between">
               <CardHeader>
                 <div className="flex items-center justify-between">
-                  <CardTitle className="flex items-center gap-2">
-                    <Wrench className="w-4 h-4 text-orange-400" />
+                  <CardTitle className="flex items-center gap-2 font-serif font-bold text-[#202020]">
+                    <Wrench className="w-4 h-4 text-[#A87928]" />
                     Technician Dispatch
                   </CardTitle>
                   <span
                     className={`w-2 h-2 rounded-full ${
-                      overview && overview.openMaintenance > 0 ? 'bg-amber-400 animate-pulse' : 'bg-teal-400'
+                      overview && overview.openMaintenance > 0 ? 'bg-[#A87928] animate-pulse' : 'bg-[#3F7655]'
                     }`}
                   />
                 </div>
-                <CardDescription>
+                <CardDescription className="text-xs text-[#77736A]">
                   {overview && overview.openMaintenance > 0
                     ? `${overview.openMaintenance} work order(s) awaiting dispatch`
                     : 'Residential repair tickets status'}
@@ -272,14 +272,14 @@ export const WardenDashboard: React.FC = () => {
               <CardContent className="flex-1 flex flex-col items-center justify-center p-4">
                 {overview && overview.openMaintenance > 0 ? (
                   <div className="text-center space-y-3">
-                    <div className="w-12 h-12 rounded-full bg-amber-500/20 border border-amber-500/40 flex items-center justify-center mx-auto text-amber-400">
+                    <div className="w-12 h-12 rounded-full bg-[#FAF7F0] border border-[#E8D8BA] flex items-center justify-center mx-auto text-[#A87928]">
                       <Clock className="w-6 h-6" />
                     </div>
                     <div>
-                      <h4 className="text-sm font-semibold text-slate-100">
+                      <h4 className="text-sm font-serif font-bold text-[#202020]">
                         {overview.openMaintenance} Urgent Orders
                       </h4>
-                      <p className="text-xs text-slate-400 max-w-xs mx-auto">
+                      <p className="text-xs text-[#555555] max-w-xs mx-auto">
                         New maintenance requests require technician assignment.
                       </p>
                     </div>

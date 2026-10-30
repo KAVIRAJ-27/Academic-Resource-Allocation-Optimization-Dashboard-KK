@@ -11,6 +11,8 @@ import java.util.Optional;
 @Repository
 public interface DepartmentHODRepository extends JpaRepository<DepartmentHOD, Long>, JpaSpecificationExecutor<DepartmentHOD> {
     List<DepartmentHOD> findByDepartmentId(Long departmentId);
+    Optional<DepartmentHOD> findFirstByDepartmentIdAndStatus(Long departmentId, String status);
+    Optional<DepartmentHOD> findFirstByDepartmentIdAndStatusOrderByStartDateDesc(Long departmentId, String status);
     Optional<DepartmentHOD> findByDepartmentIdAndStatus(Long departmentId, String status);
     List<DepartmentHOD> findByFacultyId(Long facultyId);
     Optional<DepartmentHOD> findFirstByFacultyUserIdAndStatus(Long userId, String status);

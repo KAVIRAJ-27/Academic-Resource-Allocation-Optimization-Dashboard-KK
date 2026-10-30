@@ -167,8 +167,8 @@ export const WardenResourcesPage: React.FC = () => {
       </ContentSection>
 
       {/* Main Table Card */}
-      <Card className="bg-[#0D1017] border-[#1E2330] shadow-xl mt-6">
-        <CardHeader className="border-b border-[#1E2330] pb-4">
+      <Card className="bg-[#0D1017] border-slate-200 shadow-xl mt-6">
+        <CardHeader className="border-b border-slate-200 pb-4">
           <div className="flex flex-col gap-4">
             <div className="flex items-center justify-between">
               <div>
@@ -185,7 +185,7 @@ export const WardenResourcesPage: React.FC = () => {
             </div>
 
             {/* Status Filter Tabs */}
-            <div className="flex items-center gap-2 border-b border-[#1E2330] pb-3 overflow-x-auto">
+            <div className="flex items-center gap-2 border-b border-slate-200 pb-3 overflow-x-auto">
               {statusTabs.map((tab) => {
                 const isActive = (filters.status || '') === tab.key;
                 return (
@@ -196,7 +196,7 @@ export const WardenResourcesPage: React.FC = () => {
                     className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all whitespace-nowrap ${
                       isActive
                         ? 'bg-teal-500/20 text-teal-300 border border-teal-500/40'
-                        : 'text-gray-400 hover:text-gray-200 hover:bg-[#11141C]'
+                        : 'text-gray-400 hover:text-gray-200 hover:bg-white'
                     }`}
                   >
                     {tab.label}
@@ -214,7 +214,7 @@ export const WardenResourcesPage: React.FC = () => {
                   placeholder="Search facility name or description..."
                   value={filters.search || ''}
                   onChange={(e) => updateFilters({ search: e.target.value })}
-                  className="w-full bg-[#11141C] border border-[#1E2330] rounded-xl pl-9 pr-3 py-1.5 text-xs text-gray-200 placeholder-gray-500 focus:outline-none focus:border-teal-500"
+                  className="w-full bg-white border border-slate-200 rounded-xl pl-9 pr-3 py-1.5 text-xs text-gray-200 placeholder-gray-500 focus:outline-none focus:border-teal-500"
                 />
               </div>
 
@@ -261,7 +261,7 @@ export const WardenResourcesPage: React.FC = () => {
           ) : (
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs text-gray-300">
-                <thead className="bg-[#11141C] text-[11px] font-mono text-gray-400 uppercase tracking-wider border-b border-[#1E2330]">
+                <thead className="bg-white text-[11px] font-mono text-slate-700 font-bold uppercase tracking-wider border-b border-slate-200">
                   <tr>
                     <th className="py-3 px-4">Facility / Amenity</th>
                     <th className="py-3 px-4">Hostel</th>
@@ -270,7 +270,7 @@ export const WardenResourcesPage: React.FC = () => {
                     <th className="py-3 px-4 text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#1E2330]">
+                <tbody className="divide-y divide-slate-200">
                   {resources.map((item) => {
                     const statusVariant =
                       item.status === 'ACTIVE'
@@ -280,23 +280,23 @@ export const WardenResourcesPage: React.FC = () => {
                         : 'gray';
 
                     return (
-                      <tr key={item.id} className="hover:bg-[#171A23]/60 transition-colors">
+                      <tr key={item.id} className="hover:bg-slate-50/60 transition-colors">
                         <td className="py-3 px-4">
                           <div className="font-semibold text-gray-100 flex items-center gap-2">
                             <Wifi className="w-3.5 h-3.5 text-teal-400 shrink-0" />
                             {item.name}
                           </div>
                           {item.description && (
-                            <div className="text-[11px] text-gray-400 mt-0.5 truncate max-w-sm">
+                            <div className="text-[11px] text-slate-600 font-medium mt-0.5 truncate max-w-sm">
                               {item.description}
                             </div>
                           )}
                         </td>
                         <td className="py-3 px-4">
-                          <div className="text-gray-200">{item.hostelName}</div>
-                          <div className="text-[10px] text-gray-500 font-mono">{item.hostelCode}</div>
+                          <div className="text-slate-800 font-medium">{item.hostelName}</div>
+                          <div className="text-[10px] text-slate-500 font-medium font-mono">{item.hostelCode}</div>
                         </td>
-                        <td className="py-3 px-4 font-mono font-bold text-gray-200">
+                        <td className="py-3 px-4 font-mono font-bold text-slate-800 font-medium">
                           {item.quantity} units
                         </td>
                         <td className="py-3 px-4">
@@ -324,7 +324,7 @@ export const WardenResourcesPage: React.FC = () => {
 
           {/* Pagination */}
           {totalPages > 1 && (
-            <div className="flex items-center justify-between p-4 border-t border-[#1E2330]">
+            <div className="flex items-center justify-between p-4 border-t border-slate-200">
               <div className="text-xs text-gray-400 font-mono">
                 Page {currentPage + 1} of {totalPages}
               </div>
@@ -356,8 +356,8 @@ export const WardenResourcesPage: React.FC = () => {
       {/* Edit Modal */}
       {selectedFacility && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
-          <div className="bg-[#0D1017] border border-[#1E2330] rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
-            <div className="flex items-center justify-between border-b border-[#1E2330] pb-3">
+          <div className="bg-[#0D1017] border border-slate-200 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
+            <div className="flex items-center justify-between border-b border-slate-200 pb-3">
               <h3 className="text-sm font-bold text-gray-100 flex items-center gap-2">
                 <Edit3 className="w-4 h-4 text-teal-400" />
                 Update Facility: {selectedFacility.name}
@@ -383,7 +383,7 @@ export const WardenResourcesPage: React.FC = () => {
                 <select
                   value={newStatus}
                   onChange={(e) => setNewStatus(e.target.value)}
-                  className="w-full bg-[#11141C] border border-[#1E2330] rounded-xl px-3 py-2 text-xs text-gray-200 focus:outline-none focus:border-teal-500"
+                  className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs text-gray-200 focus:outline-none focus:border-teal-500"
                 >
                   <option value="ACTIVE">ACTIVE — Online and operational</option>
                   <option value="MAINTENANCE">MAINTENANCE — Under repair / offline</option>
@@ -398,7 +398,7 @@ export const WardenResourcesPage: React.FC = () => {
                   min="0"
                   value={newQuantity}
                   onChange={(e) => setNewQuantity(parseInt(e.target.value, 10) || 0)}
-                  className="w-full bg-[#11141C] border border-[#1E2330] rounded-xl px-3 py-2 text-xs text-gray-200 focus:outline-none focus:border-teal-500"
+                  className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs text-gray-200 focus:outline-none focus:border-teal-500"
                 />
               </div>
 
@@ -409,12 +409,12 @@ export const WardenResourcesPage: React.FC = () => {
                   value={newDescription}
                   onChange={(e) => setNewDescription(e.target.value)}
                   placeholder="Location details, model, specifications..."
-                  className="w-full bg-[#11141C] border border-[#1E2330] rounded-xl px-3 py-2 text-xs text-gray-200 focus:outline-none focus:border-teal-500"
+                  className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs text-gray-200 focus:outline-none focus:border-teal-500"
                 />
               </div>
             </div>
 
-            <div className="flex justify-end gap-2 pt-3 border-t border-[#1E2330]">
+            <div className="flex justify-end gap-2 pt-3 border-t border-slate-200">
               <Button
                 variant="outline"
                 size="sm"

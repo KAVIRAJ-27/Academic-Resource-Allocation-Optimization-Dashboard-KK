@@ -9,7 +9,6 @@ import {
 } from '../../components/layout';
 import {
   StatCard,
-  ChartCard,
   ActionCard,
   Button,
   Badge,
@@ -25,13 +24,10 @@ import {
   Clock,
   Hotel,
   AlertCircle,
-  Layers,
   User,
   BedDouble,
   RefreshCw,
-  Plus,
   CheckCircle2,
-  Calendar,
   Activity,
   Hash,
 } from 'lucide-react';
@@ -55,7 +51,7 @@ export const StudentDashboard: React.FC = () => {
         <PageHeader
           title="Student Academic & Hostel Portal"
           description="Unified hub for enrolled course schedules, classroom directions, academic resource reservations, hostel room assignment, and maintenance tickets."
-          badge={<Badge variant="teal" dot>STUDENT DESK</Badge>}
+          badge={<Badge variant="neutral" dot>STUDENT DESK</Badge>}
         />
         <StudentProfileSkeleton />
       </PageContainer>
@@ -67,7 +63,7 @@ export const StudentDashboard: React.FC = () => {
       <PageHeader
         title="Student Academic & Hostel Portal"
         description="Unified hub for enrolled course schedules, classroom directions, academic resource reservations, hostel room assignment, and maintenance tickets."
-        badge={<Badge variant="teal" dot>STUDENT DESK</Badge>}
+        badge={<Badge variant="neutral" dot>STUDENT DESK</Badge>}
         primaryAction={
           <Button
             variant="primary"
@@ -93,45 +89,45 @@ export const StudentDashboard: React.FC = () => {
 
       {/* 1. Student Personal Welcome Banner */}
       {dashboard && (
-        <Card className="p-5 bg-gradient-to-r from-[#11141C] via-[#141824] to-[#11141C] border-[#1E2330]">
+        <Card className="p-5 bg-white/80 backdrop-blur-md border border-[#D8C9A8]/70 shadow-glass rounded-2xl">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-teal-500/10 border border-teal-500/30 flex items-center justify-center text-teal-400 shrink-0 shadow-card">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#FAF7F0] to-[#F4F0E6] border border-[#D8C9A8] flex items-center justify-center text-[#B8A16A] shrink-0 shadow-xs">
                 <User className="w-6 h-6" />
               </div>
               <div>
                 <div className="flex items-center gap-2.5 flex-wrap">
-                  <h2 className="text-base font-bold text-white tracking-tight">
+                  <h2 className="text-base font-serif font-bold text-[#202020] tracking-tight">
                     {getGreeting()}, {dashboard.student?.name || 'Student'}
                   </h2>
                   <Badge
-                    variant={dashboard.student?.status === 'ACTIVE' ? 'teal' : 'neutral'}
+                    variant={dashboard.student?.status === 'ACTIVE' ? 'success' : 'neutral'}
                     dot
                     size="sm"
                   >
                     {dashboard.student?.status || 'ACTIVE'}
                   </Badge>
                 </div>
-                <div className="flex items-center gap-3 text-xs text-gray-400 mt-1 flex-wrap font-mono">
-                  <span className="flex items-center gap-1">
-                    <Hash className="w-3.5 h-3.5 text-gray-400" />
+                <div className="flex items-center gap-3 text-xs text-[#555555] mt-1 flex-wrap font-mono">
+                  <span className="flex items-center gap-1 text-[#202020] font-semibold">
+                    <Hash className="w-3.5 h-3.5 text-[#77736A]" />
                     {dashboard.student?.registerNumber}
                   </span>
                   {dashboard.academic?.programName && (
                     <>
-                      <span className="text-gray-400">•</span>
+                      <span className="text-[#D8C9A8]">•</span>
                       <span>{dashboard.academic.programName}</span>
                     </>
                   )}
                   {dashboard.academic?.currentSemester && (
                     <>
-                      <span className="text-gray-400">•</span>
+                      <span className="text-[#D8C9A8]">•</span>
                       <span>Sem {dashboard.academic.currentSemester}</span>
                     </>
                   )}
                   {dashboard.academic?.sectionName && (
                     <>
-                      <span className="text-gray-400">•</span>
+                      <span className="text-[#D8C9A8]">•</span>
                       <span>Sec {dashboard.academic.sectionName}</span>
                     </>
                   )}
@@ -273,16 +269,16 @@ export const StudentDashboard: React.FC = () => {
             title="Recent Activity"
             subtitle="Verified session and profile events"
           >
-            <Card className="h-full min-h-[260px] flex flex-col justify-between bg-[#11141C] border-[#1E2330]">
-              <CardHeader>
+            <Card className="h-full min-h-[260px] flex flex-col justify-between bg-white/80 backdrop-blur-md border border-[#D8C9A8]/70 shadow-glass rounded-2xl">
+              <CardHeader className="border-b border-[#E8E0D0]/80 pb-3">
                 <div className="flex items-center justify-between">
-                  <CardTitle className="flex items-center gap-2 text-sm font-bold text-gray-100">
-                    <Activity className="w-4 h-4 text-teal-400" />
+                  <CardTitle className="flex items-center gap-2 text-sm font-serif font-bold text-[#202020]">
+                    <Activity className="w-4 h-4 text-[#B8A16A]" />
                     Security & Event Log
                   </CardTitle>
-                  <span className="w-2 h-2 rounded-full bg-teal-400" />
+                  <span className="w-2 h-2 rounded-full bg-[#3F7655]" />
                 </div>
-                <CardDescription className="text-xs text-gray-400">
+                <CardDescription className="text-xs text-[#77736A]">
                   Audit trail for authenticated account
                 </CardDescription>
               </CardHeader>
@@ -292,16 +288,16 @@ export const StudentDashboard: React.FC = () => {
                     {dashboard.recentActivities.map((act) => (
                       <div
                         key={act.id}
-                        className="p-2.5 rounded-xl bg-[#171A23] border border-[#222838] flex items-start gap-2.5"
+                        className="p-2.5 rounded-xl bg-white/70 backdrop-blur-xs border border-[#D8C9A8]/60 flex items-start gap-2.5 hover:border-[#B8A16A] transition-all shadow-xs"
                       >
-                        <div className="p-1.5 rounded-lg bg-teal-500/10 text-teal-400 shrink-0 mt-0.5">
+                        <div className="p-1.5 rounded-lg bg-[#FAF7F0] text-[#B8A16A] shrink-0 mt-0.5 border border-[#E8D8BA]">
                           <Activity className="w-3 h-3" />
                         </div>
                         <div className="min-w-0 flex-1">
-                          <p className="text-xs font-semibold text-gray-200 truncate">
+                          <p className="text-xs font-semibold text-[#202020] truncate">
                             {act.description || act.action}
                           </p>
-                          <span className="text-[10px] font-mono text-gray-400 block mt-0.5">
+                          <span className="text-[10px] font-mono text-[#77736A] block mt-0.5">
                             {new Date(act.timestamp).toLocaleDateString(undefined, {
                               month: 'short',
                               day: 'numeric',

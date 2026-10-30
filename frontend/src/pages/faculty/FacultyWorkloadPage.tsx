@@ -37,7 +37,7 @@ export const FacultyWorkloadPage: React.FC = () => {
             size="sm"
             onClick={refetch}
             disabled={loading}
-            className="border-[#1E2330] text-gray-300 hover:text-white"
+            className="border-slate-200 text-gray-300 hover:text-white"
           >
             <RefreshCw className={`w-3.5 h-3.5 mr-1.5 ${loading ? 'animate-spin' : ''}`} />
             Refresh
@@ -55,7 +55,7 @@ export const FacultyWorkloadPage: React.FC = () => {
 
         {/* Empty State when no summary or data */}
         {!data && !error && (
-          <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-8 shadow-card">
+          <div className="bg-white border border-slate-200 rounded-xl p-8 shadow-card">
             <EmptyState
               icon={Clock}
               title="Workload information is not currently available."

@@ -171,7 +171,7 @@ export const HostelAllocationsPage: React.FC = () => {
           <CardContent className="p-4">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
               {/* Status Tabs */}
-              <div className="flex bg-[#0B0D14] p-1 rounded-lg border border-[#1E2330] w-fit">
+              <div className="flex bg-[#0B0D14] p-1 rounded-lg border border-slate-200 w-fit">
                 {['ALL', 'ACTIVE', 'COMPLETED'].map((status) => (
                   <button
                     key={status}
@@ -196,7 +196,7 @@ export const HostelAllocationsPage: React.FC = () => {
                     placeholder="Search by student name, roll no, bed or room..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full pl-9 pr-3 py-1.5 text-sm rounded-lg border border-[#1E2330] bg-[#0B0D14] text-white focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 outline-none transition"
+                    className="w-full pl-9 pr-3 py-1.5 text-sm rounded-lg border border-slate-200 bg-[#0B0D14] text-white focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 outline-none transition"
                   />
                 </div>
                 <Button type="submit" size="sm" variant="secondary">
@@ -225,7 +225,7 @@ export const HostelAllocationsPage: React.FC = () => {
       {/* Allocations Table */}
       <ContentSection>
         <Card>
-          <CardHeader className="pb-3 border-b border-[#1E2330]">
+          <CardHeader className="pb-3 border-b border-slate-200">
             <CardTitle className="text-base flex items-center justify-between">
               <span>Bed Allocations Ledger</span>
               <span className="text-xs font-normal text-gray-400">
@@ -259,7 +259,7 @@ export const HostelAllocationsPage: React.FC = () => {
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-sm border-collapse">
                   <thead>
-                    <tr className="border-b border-[#1E2330] bg-[#0E1017] text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                    <tr className="border-b border-slate-200 bg-[#0E1017] text-xs font-semibold text-slate-600 font-bold uppercase tracking-wider">
                       <th className="px-4 py-3">Student</th>
                       <th className="px-4 py-3">Hostel & Room</th>
                       <th className="px-4 py-3">Bed</th>
@@ -269,14 +269,14 @@ export const HostelAllocationsPage: React.FC = () => {
                       <th className="px-4 py-3 text-right">Actions</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#1E2330]">
+                  <tbody className="divide-y divide-slate-200">
                     {allocations.map((alloc) => (
                       <tr key={alloc.id} className="hover:bg-white/[0.02] transition">
                         <td className="px-4 py-3">
                           <div className="font-semibold text-white">
                             {alloc.studentName || 'Student #' + alloc.studentId}
                           </div>
-                          <div className="text-xs text-gray-400 flex items-center gap-2">
+                          <div className="text-xs text-slate-600 font-medium flex items-center gap-2">
                             <span className="font-mono text-teal-300">{alloc.rollNumber}</span>
                             {alloc.departmentName && <span>&bull; {alloc.departmentName}</span>}
                           </div>
@@ -285,7 +285,7 @@ export const HostelAllocationsPage: React.FC = () => {
                           <div className="font-medium text-white">
                             {alloc.hostelName}
                           </div>
-                          <div className="text-xs text-gray-400">
+                          <div className="text-xs text-slate-600 font-medium">
                             {alloc.blockName} &bull; Floor {alloc.floorNumber} &bull; Room {alloc.roomNumber}
                           </div>
                         </td>
@@ -312,7 +312,7 @@ export const HostelAllocationsPage: React.FC = () => {
                             {alloc.status}
                           </Badge>
                         </td>
-                        <td className="px-4 py-3 text-xs text-gray-400">
+                        <td className="px-4 py-3 text-xs text-slate-600 font-medium">
                           <div>From: {alloc.startDate}</div>
                           {alloc.endDate && <div>To: {alloc.endDate}</div>}
                           {alloc.releasedAt && (
@@ -352,7 +352,7 @@ export const HostelAllocationsPage: React.FC = () => {
 
             {/* Pagination Controls */}
             {totalPages > 1 && (
-              <div className="flex items-center justify-between px-6 py-4 border-t border-[#1E2330]">
+              <div className="flex items-center justify-between px-6 py-4 border-t border-slate-200">
                 <span className="text-xs text-gray-400">
                   Page {currentPage + 1} of {totalPages}
                 </span>
@@ -383,10 +383,10 @@ export const HostelAllocationsPage: React.FC = () => {
       {/* Release Confirmation Dialog */}
       {releaseModalId && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-          <div className="w-full max-w-md bg-[#11141C] border border-[#1E2330] rounded-xl p-6 shadow-2xl space-y-4">
+          <div className="w-full max-w-md bg-white border border-slate-200 rounded-xl p-6 shadow-2xl space-y-4">
             <div className="flex items-center gap-3 text-rose-400">
               <AlertTriangle className="w-6 h-6" />
-              <h4 className="text-base font-bold text-white">Confirm Bed Release</h4>
+              <h4 className="text-base font-bold text-slate-900">Confirm Bed Release</h4>
             </div>
             <p className="text-sm text-gray-300">
               Are you sure you want to release this bed allocation? The allocation status will be marked

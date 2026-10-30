@@ -132,12 +132,12 @@ export const ApprovalCenterPage: React.FC = () => {
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2">
-            <h1 className="text-2xl font-bold tracking-tight text-slate-100">Approval Center</h1>
-            <span className="rounded-full border border-indigo-500/30 bg-indigo-500/10 px-2.5 py-0.5 text-xs font-semibold text-indigo-400">
+            <h1 className="text-2xl font-serif font-bold tracking-tight text-[#202020] sm:text-3xl">Approval Center</h1>
+            <span className="rounded-full border border-[#D8C9A8] bg-[#FBF9F3] px-2.5 py-0.5 text-xs font-semibold text-[#B8A16A]">
               Phase 32
             </span>
           </div>
-          <p className="mt-1 text-sm text-slate-400">
+          <p className="mt-1 text-sm text-[#555555]">
             Review resource allocation requests, evaluate real-time Phase 30 conflict safety, and
             authorize allocations.
           </p>
@@ -145,7 +145,7 @@ export const ApprovalCenterPage: React.FC = () => {
 
         <button
           onClick={fetchApprovals}
-          className="flex items-center gap-2 rounded-xl border border-slate-700 bg-slate-800/80 px-4 py-2 text-xs font-medium text-slate-300 hover:bg-slate-800 transition"
+          className="flex items-center gap-2 rounded-xl border border-[#D8C9A8] bg-white px-4 py-2 text-xs font-semibold text-[#202020] hover:bg-[#F4F0E6] transition"
         >
           <RefreshCw size={14} className={isLoading ? 'animate-spin' : ''} />
           Refresh
@@ -154,44 +154,44 @@ export const ApprovalCenterPage: React.FC = () => {
 
       {/* Metrics Banner */}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-        <div className="rounded-2xl border border-amber-500/20 bg-amber-500/5 p-4 shadow-sm">
+        <div className="rounded-xl border border-[#E8D8BA] bg-[#FAF7F0] p-4 shadow-none">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-amber-400 uppercase tracking-wider">
+            <span className="text-xs font-bold text-[#A87928] uppercase tracking-wider">
               Pending My Action
             </span>
-            <Clock className="h-5 w-5 text-amber-400" />
+            <Clock className="h-5 w-5 text-[#A87928]" />
           </div>
-          <p className="mt-2 text-2xl font-bold text-slate-100">{pendingCount}</p>
-          <p className="text-xs text-slate-400">Requests requiring authority decision</p>
+          <p className="mt-2 text-2xl font-serif font-bold text-[#202020]">{pendingCount}</p>
+          <p className="text-xs text-[#555555]">Requests requiring authority decision</p>
         </div>
 
-        <div className="rounded-2xl border border-emerald-500/20 bg-emerald-500/5 p-4 shadow-sm">
+        <div className="rounded-xl border border-[#C2D6C9] bg-[#F0F5F2] p-4 shadow-none">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-emerald-400 uppercase tracking-wider">
+            <span className="text-xs font-bold text-[#3F7655] uppercase tracking-wider">
               Conflict-Free Gatekeeper
             </span>
-            <CheckCircle2 className="h-5 w-5 text-emerald-400" />
+            <CheckCircle2 className="h-5 w-5 text-[#3F7655]" />
           </div>
-          <p className="mt-2 text-base font-semibold text-emerald-300">Phase 30 Active</p>
-          <p className="text-xs text-slate-400">Double-booking blocked before final allocation</p>
+          <p className="mt-2 text-base font-bold text-[#3F7655]">Phase 30 Active</p>
+          <p className="text-xs text-[#555555]">Double-booking blocked before final allocation</p>
         </div>
 
-        <div className="rounded-2xl border border-indigo-500/20 bg-indigo-500/5 p-4 shadow-sm">
+        <div className="rounded-xl border border-[#D8C9A8] bg-[#FBF9F3] p-4 shadow-none">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-indigo-400 uppercase tracking-wider">
+            <span className="text-xs font-bold text-[#B8A16A] uppercase tracking-wider">
               Allocation Tracking
             </span>
-            <ShieldCheck className="h-5 w-5 text-indigo-400" />
+            <ShieldCheck className="h-5 w-5 text-[#B8A16A]" />
           </div>
-          <p className="mt-2 text-base font-semibold text-indigo-300">Full Audit History</p>
-          <p className="text-xs text-slate-400">Complete lifecycle timestamps & decisions</p>
+          <p className="mt-2 text-base font-serif font-bold text-[#202020]">Full Audit History</p>
+          <p className="text-xs text-[#555555]">Complete lifecycle timestamps & decisions</p>
         </div>
       </div>
 
       {/* Main Container */}
-      <div className="rounded-2xl border border-slate-800 bg-slate-900 shadow-xl">
+      <div className="rounded-xl border border-[#D8C9A8] bg-white shadow-none overflow-hidden">
         {/* Navigation Tabs & Filters */}
-        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 p-4">
+        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#E8E0D0] p-4 bg-[#F8F6F0]">
           <div className="flex gap-2">
             <button
               onClick={() => {
@@ -200,8 +200,8 @@ export const ApprovalCenterPage: React.FC = () => {
               }}
               className={`flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-semibold transition ${
                 activeTab === 'pending'
-                  ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/20'
-                  : 'text-slate-400 hover:bg-slate-800 hover:text-slate-200'
+                  ? 'border border-[#B8A16A] bg-[#B8A16A] text-[#202020]'
+                  : 'bg-white border border-[#D8C9A8] text-[#555555] hover:bg-[#F4F0E6]'
               }`}
             >
               <Clock size={14} />
@@ -214,8 +214,8 @@ export const ApprovalCenterPage: React.FC = () => {
               }}
               className={`flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-semibold transition ${
                 activeTab === 'all'
-                  ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/20'
-                  : 'text-slate-400 hover:bg-slate-800 hover:text-slate-200'
+                  ? 'border border-[#B8A16A] bg-[#B8A16A] text-[#202020]'
+                  : 'bg-white border border-[#D8C9A8] text-[#555555] hover:bg-[#F4F0E6]'
               }`}
             >
               <Filter size={14} />
@@ -231,7 +231,7 @@ export const ApprovalCenterPage: React.FC = () => {
                   setSelectedType(e.target.value);
                   setPage(0);
                 }}
-                className="rounded-xl border border-slate-800 bg-slate-950 px-3 py-1.5 text-slate-300 focus:border-indigo-500 focus:outline-none"
+                className="rounded-xl border border-[#D9D2C3] bg-white px-3 py-1.5 text-[#202020] font-medium focus:border-[#B8A16A] focus:outline-none"
               >
                 <option value="">All Domains</option>
                 <option value="ACADEMIC_RESOURCE">Academic Resources</option>
@@ -244,7 +244,7 @@ export const ApprovalCenterPage: React.FC = () => {
                   setSelectedStatus(e.target.value);
                   setPage(0);
                 }}
-                className="rounded-xl border border-slate-800 bg-slate-950 px-3 py-1.5 text-slate-300 focus:border-indigo-500 focus:outline-none"
+                className="rounded-xl border border-[#D9D2C3] bg-white px-3 py-1.5 text-[#202020] font-medium focus:border-[#B8A16A] focus:outline-none"
               >
                 <option value="">All Statuses</option>
                 <option value="PENDING">Pending</option>
@@ -266,7 +266,7 @@ export const ApprovalCenterPage: React.FC = () => {
 
         {/* Pagination Footer */}
         {totalPages > 1 && (
-          <div className="flex items-center justify-between border-t border-slate-800 px-6 py-3 text-xs text-slate-400">
+          <div className="flex items-center justify-between border-t border-[#E8E0D0] px-6 py-3 text-xs text-[#555555] font-medium bg-[#F8F6F0]">
             <span>
               Showing Page {page + 1} of {totalPages} ({totalElements} total requests)
             </span>
@@ -274,14 +274,14 @@ export const ApprovalCenterPage: React.FC = () => {
               <button
                 disabled={page === 0}
                 onClick={() => setPage((p) => Math.max(0, p - 1))}
-                className="rounded-lg border border-slate-800 bg-slate-950 px-3 py-1.5 hover:bg-slate-800 disabled:opacity-50 transition"
+                className="rounded-lg border border-[#D8C9A8] bg-white px-3 py-1.5 font-semibold text-[#202020] hover:bg-[#F4F0E6] disabled:opacity-50 transition"
               >
                 Previous
               </button>
               <button
                 disabled={page >= totalPages - 1}
                 onClick={() => setPage((p) => p + 1)}
-                className="rounded-lg border border-slate-800 bg-slate-950 px-3 py-1.5 hover:bg-slate-800 disabled:opacity-50 transition"
+                className="rounded-lg border border-[#D8C9A8] bg-white px-3 py-1.5 font-semibold text-[#202020] hover:bg-[#F4F0E6] disabled:opacity-50 transition"
               >
                 Next
               </button>
@@ -303,18 +303,18 @@ export const ApprovalCenterPage: React.FC = () => {
 
       {/* Standalone Timeline Modal */}
       {timelineItems && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-slate-950/80 p-4 backdrop-blur-sm">
-          <div className="relative w-full max-w-2xl rounded-2xl border border-slate-800 bg-slate-900 shadow-2xl">
-            <div className="flex items-center justify-between border-b border-slate-800 px-6 py-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-[#202020]/40 p-4 backdrop-blur-xs">
+          <div className="relative w-full max-w-2xl rounded-2xl border border-[#D8C9A8] bg-white shadow-xl">
+            <div className="flex items-center justify-between border-b border-[#E8E0D0] bg-[#F8F6F0] px-6 py-4">
               <div className="flex items-center gap-2.5">
-                <Clock className="h-5 w-5 text-indigo-400" />
-                <h3 className="text-base font-semibold text-slate-100">
+                <Clock className="h-5 w-5 text-[#B8A16A]" />
+                <h3 className="text-base font-serif font-bold text-[#202020]">
                   Lifecycle Tracking Timeline
                 </h3>
               </div>
               <button
                 onClick={() => setTimelineItems(null)}
-                className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-800 hover:text-slate-200"
+                className="rounded-lg p-1.5 text-[#77736A] hover:bg-[#F4F0E6] hover:text-[#202020]"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -322,10 +322,10 @@ export const ApprovalCenterPage: React.FC = () => {
             <div className="max-h-[60vh] overflow-y-auto p-6">
               <ApprovalTimeline timeline={timelineItems} isLoading={isTimelineLoading} />
             </div>
-            <div className="flex justify-end border-t border-slate-800 px-6 py-3">
+            <div className="flex justify-end border-t border-[#E8E0D0] bg-[#F8F6F0] px-6 py-3">
               <button
                 onClick={() => setTimelineItems(null)}
-                className="rounded-xl border border-slate-700 bg-slate-800 px-4 py-2 text-xs font-medium text-slate-300 hover:bg-slate-700"
+                className="rounded-xl border border-[#D8C9A8] bg-white px-4 py-2 text-xs font-semibold text-[#202020] hover:bg-[#F4F0E6]"
               >
                 Close
               </button>

@@ -47,7 +47,7 @@ export const HodWorkloadTable: React.FC<HodWorkloadTableProps> = ({
       {/* Table Header */}
       <div className="p-5 border-b border-gray-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h3 className="text-base font-semibold text-white">Department Faculty Workload Status</h3>
+          <h3 className="text-base font-semibold text-slate-900">Department Faculty Workload Status</h3>
           <p className="text-xs text-gray-400 mt-0.5">
             Teaching and departmental service workload hours per faculty ({facultyWorkloads.length} total)
           </p>
@@ -69,7 +69,7 @@ export const HodWorkloadTable: React.FC<HodWorkloadTableProps> = ({
       <div className="overflow-x-auto">
         <table className="w-full text-left text-xs border-collapse">
           <thead>
-            <tr className="border-b border-gray-800 bg-gray-900/60 text-gray-400 font-semibold uppercase tracking-wider text-[10px]">
+            <tr className="border-b border-gray-800 bg-gray-900/60 text-slate-600 font-bold font-semibold uppercase tracking-wider text-[10px]">
               <th className="py-3 px-4">Faculty Member</th>
               <th className="py-3 px-4">Designation</th>
               <th className="py-3 px-4 text-center">Courses</th>
@@ -81,10 +81,10 @@ export const HodWorkloadTable: React.FC<HodWorkloadTableProps> = ({
           <tbody className="divide-y divide-gray-800/60">
             {filteredFaculty.length === 0 ? (
               <tr>
-                <td colSpan={6} className="py-16 text-center text-gray-400">
+                <td colSpan={6} className="py-16 text-center text-slate-600 font-medium">
                   <Users className="w-10 h-10 mx-auto mb-2 text-gray-600 opacity-60" />
-                  <p className="font-semibold text-gray-300 text-sm">No faculty records found</p>
-                  <p className="text-gray-500 mt-1 max-w-sm mx-auto">
+                  <p className="font-semibold text-slate-700 font-medium text-sm">No faculty records found</p>
+                  <p className="text-slate-500 font-medium mt-1 max-w-sm mx-auto">
                     {search
                       ? 'No faculty matched the active search query.'
                       : 'No faculty members are currently assigned to this department.'}
@@ -96,9 +96,9 @@ export const HodWorkloadTable: React.FC<HodWorkloadTableProps> = ({
                 <tr key={f.id} className="hover:bg-gray-800/30 transition-colors">
                   <td className="py-3.5 px-4">
                     <div className="font-medium text-white">{f.fullName}</div>
-                    <div className="text-[11px] text-gray-400 font-mono">{f.employeeId}</div>
+                    <div className="text-[11px] text-slate-600 font-medium font-mono">{f.employeeId}</div>
                   </td>
-                  <td className="py-3.5 px-4 text-gray-200">
+                  <td className="py-3.5 px-4 text-slate-800 font-medium">
                     {f.designation || 'Faculty'}
                   </td>
                   <td className="py-3.5 px-4 text-center">

@@ -72,10 +72,10 @@ export const AnalyticsFilterBar: React.FC<AnalyticsFilterBarProps> = ({
   };
 
   return (
-    <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-slate-800/80 bg-slate-900/60 p-3.5 backdrop-blur-md">
+    <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-[#D8C9A8] bg-white p-3.5 shadow-card">
       <div className="flex flex-wrap items-center gap-2.5">
-        <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-400">
-          <Filter className="h-3.5 w-3.5 text-teal-400" />
+        <div className="flex items-center gap-1.5 text-xs font-serif font-bold text-[#202020]">
+          <Filter className="h-3.5 w-3.5 text-[#B8A16A]" />
           <span>Filters:</span>
         </div>
 
@@ -83,7 +83,7 @@ export const AnalyticsFilterBar: React.FC<AnalyticsFilterBarProps> = ({
         <select
           value={filters.preset || 'ALL'}
           onChange={(e) => handlePresetChange(e.target.value)}
-          className="rounded-xl border border-slate-700 bg-slate-800/80 px-3 py-1.5 text-xs text-slate-200 outline-none transition focus:border-teal-500 focus:ring-1 focus:ring-teal-500"
+          className="rounded-xl border border-[#D9D2C3] bg-white px-3 py-1.5 text-xs text-[#202020] font-medium outline-none transition focus:border-[#B8A16A] focus:ring-1 focus:ring-[#B8A16A] shadow-xs"
         >
           <option value="ALL">All Time</option>
           <option value="TODAY">Today</option>
@@ -96,22 +96,22 @@ export const AnalyticsFilterBar: React.FC<AnalyticsFilterBarProps> = ({
         {/* Custom Date Pickers */}
         {filters.preset === 'CUSTOM' && (
           <div className="flex items-center gap-1.5">
-            <div className="flex items-center gap-1 rounded-xl border border-slate-700 bg-slate-800/80 px-2 py-1 text-xs text-slate-300">
-              <Calendar className="h-3.5 w-3.5 text-slate-400" />
+            <div className="flex items-center gap-1 rounded-xl border border-[#D9D2C3] bg-white px-2 py-1 text-xs text-[#202020]">
+              <Calendar className="h-3.5 w-3.5 text-[#77736A]" />
               <input
                 type="date"
                 value={filters.startDate || ''}
                 onChange={(e) => onChange({ ...filters, startDate: e.target.value || undefined })}
-                className="bg-transparent text-xs text-slate-200 outline-none"
+                className="bg-transparent text-xs text-[#202020] outline-none"
               />
             </div>
-            <span className="text-xs text-slate-500">to</span>
-            <div className="flex items-center gap-1 rounded-xl border border-slate-700 bg-slate-800/80 px-2 py-1 text-xs text-slate-300">
+            <span className="text-xs text-[#77736A]">to</span>
+            <div className="flex items-center gap-1 rounded-xl border border-[#D9D2C3] bg-white px-2 py-1 text-xs text-[#202020]">
               <input
                 type="date"
                 value={filters.endDate || ''}
                 onChange={(e) => onChange({ ...filters, endDate: e.target.value || undefined })}
-                className="bg-transparent text-xs text-slate-200 outline-none"
+                className="bg-transparent text-xs text-[#202020] outline-none"
               />
             </div>
           </div>
@@ -127,7 +127,7 @@ export const AnalyticsFilterBar: React.FC<AnalyticsFilterBarProps> = ({
                 departmentId: e.target.value ? Number(e.target.value) : undefined,
               })
             }
-            className="rounded-xl border border-slate-700 bg-slate-800/80 px-3 py-1.5 text-xs text-slate-200 outline-none transition focus:border-teal-500 focus:ring-1 focus:ring-teal-500"
+            className="rounded-xl border border-[#D9D2C3] bg-white px-3 py-1.5 text-xs text-[#202020] font-medium outline-none transition focus:border-[#B8A16A] focus:ring-1 focus:ring-[#B8A16A] shadow-xs"
           >
             <option value="">All Departments</option>
             {departments.map((d) => (
@@ -148,7 +148,7 @@ export const AnalyticsFilterBar: React.FC<AnalyticsFilterBarProps> = ({
                 hostelId: e.target.value ? Number(e.target.value) : undefined,
               })
             }
-            className="rounded-xl border border-slate-700 bg-slate-800/80 px-3 py-1.5 text-xs text-slate-200 outline-none transition focus:border-teal-500 focus:ring-1 focus:ring-teal-500"
+            className="rounded-xl border border-[#D9D2C3] bg-white px-3 py-1.5 text-xs text-[#202020] font-medium outline-none transition focus:border-[#B8A16A] focus:ring-1 focus:ring-[#B8A16A] shadow-xs"
           >
             <option value="">All Hostels</option>
             {hostels.map((h) => (
@@ -163,7 +163,7 @@ export const AnalyticsFilterBar: React.FC<AnalyticsFilterBarProps> = ({
         {(filters.preset !== 'ALL' || filters.departmentId || filters.hostelId) && (
           <button
             onClick={handleClear}
-            className="flex items-center gap-1 rounded-xl border border-slate-700/60 bg-slate-800/40 px-2.5 py-1 text-xs text-slate-400 hover:bg-slate-700 hover:text-slate-200"
+            className="flex items-center gap-1 rounded-xl border border-[#E8E0D0] bg-[#F8F6F0] px-2.5 py-1 text-xs text-[#555555] hover:bg-[#F4F0E6] font-medium transition-colors"
           >
             <X className="h-3 w-3" />
             Clear
@@ -175,7 +175,7 @@ export const AnalyticsFilterBar: React.FC<AnalyticsFilterBarProps> = ({
       <button
         onClick={onRefresh}
         disabled={isLoading}
-        className="flex items-center gap-1.5 rounded-xl border border-teal-500/30 bg-teal-500/10 px-3 py-1.5 text-xs font-semibold text-teal-300 transition hover:bg-teal-500/20 active:scale-95 disabled:opacity-50"
+        className="flex items-center gap-1.5 rounded-xl border border-[#A38C57] bg-[#B8A16A] px-3.5 py-1.5 text-xs font-semibold text-[#202020] transition hover:bg-[#A38C57] active:scale-95 disabled:opacity-50 shadow-xs"
       >
         <RefreshCw className={`h-3.5 w-3.5 ${isLoading ? 'animate-spin' : ''}`} />
         <span>Refresh</span>

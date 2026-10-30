@@ -18,7 +18,7 @@ export const MetricPlaceholderCard: React.FC<MetricPlaceholderCardProps> = ({
 }) => {
   return (
     <Card hoverEffect className={cn('relative flex items-center gap-4', className)}>
-      <div className="w-12 h-12 rounded-xl bg-[#171A23] border border-[#1E2330] flex items-center justify-center text-teal-400 shrink-0">
+      <div className="w-12 h-12 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-teal-400 shrink-0">
         <IconComponent className="w-6 h-6" />
       </div>
       <div className="flex-1 min-w-0">

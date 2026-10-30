@@ -139,8 +139,8 @@ export const WardenCreateMaintenancePage: React.FC = () => {
 
                   {/* Title */}
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">
-                      Work Order Title <span className="text-red-400">*</span>
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                      Work Order Title <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="text"
@@ -148,20 +148,20 @@ export const WardenCreateMaintenancePage: React.FC = () => {
                       value={title}
                       onChange={(e) => setTitle(e.target.value)}
                       required
-                      className="w-full bg-slate-900 border border-slate-700 rounded-lg text-slate-100 p-2.5 text-sm focus:outline-none focus:border-orange-500"
+                      className="w-full bg-white border border-slate-300 rounded-xl text-slate-900 font-medium p-2.5 text-sm shadow-2xs focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
                     />
                   </div>
 
                   {/* Priority and Equipment */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">
-                        Severity / Priority <span className="text-red-400">*</span>
+                      <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                        Severity / Priority <span className="text-red-500">*</span>
                       </label>
                       <select
                         value={priority}
                         onChange={(e) => setPriority(e.target.value as PriorityLevel)}
-                        className="w-full bg-slate-900 border border-slate-700 rounded-lg text-slate-100 p-2.5 text-xs focus:outline-none focus:border-orange-500"
+                        className="w-full bg-white border border-slate-300 rounded-xl text-slate-900 font-medium p-2.5 text-xs shadow-2xs focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
                       >
                         <option value="LOW">LOW - Routine maintenance</option>
                         <option value="MEDIUM">MEDIUM - Standard repair</option>
@@ -171,7 +171,7 @@ export const WardenCreateMaintenancePage: React.FC = () => {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">
+                      <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
                         Linked Facility Asset ID (Optional)
                       </label>
                       <input
@@ -179,15 +179,15 @@ export const WardenCreateMaintenancePage: React.FC = () => {
                         placeholder="e.g. 10 (Water Purifier / Wi-Fi)"
                         value={resourceId}
                         onChange={(e) => setResourceId(e.target.value)}
-                        className="w-full bg-slate-900 border border-slate-700 rounded-lg text-slate-100 p-2.5 text-xs focus:outline-none focus:border-orange-500"
+                        className="w-full bg-white border border-slate-300 rounded-xl text-slate-900 font-medium p-2.5 text-xs shadow-2xs focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
                       />
                     </div>
                   </div>
 
                   {/* Description */}
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">
-                      Detailed Issue Description <span className="text-red-400">*</span>
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                      Detailed Issue Description <span className="text-red-500">*</span>
                     </label>
                     <textarea
                       rows={5}
@@ -195,7 +195,7 @@ export const WardenCreateMaintenancePage: React.FC = () => {
                       value={description}
                       onChange={(e) => setDescription(e.target.value)}
                       required
-                      className="w-full bg-slate-900 border border-slate-700 rounded-lg text-slate-100 p-3 text-sm focus:outline-none focus:border-orange-500 resize-none"
+                      className="w-full bg-white border border-slate-300 rounded-xl text-slate-900 font-medium p-3 text-sm shadow-2xs focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 resize-none"
                     />
                   </div>
                 </CardContent>
@@ -212,22 +212,22 @@ export const WardenCreateMaintenancePage: React.FC = () => {
               <Card className="mb-6">
                 <CardHeader>
                   <CardTitle className="text-base flex items-center gap-2">
-                    <Building className="w-4 h-4 text-orange-400" />
+                    <Building className="w-4 h-4 text-indigo-600" />
                     Residential Facility
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   {/* Hostel Selection */}
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">
-                      Authorized Hostel Block <span className="text-red-400">*</span>
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                      Authorized Hostel Block <span className="text-red-500">*</span>
                     </label>
                     <select
                       value={hostelId}
                       onChange={(e) => setHostelId(Number(e.target.value) || '')}
                       required
                       disabled={hostelsLoading}
-                      className="w-full bg-slate-900 border border-slate-700 rounded-lg text-slate-100 p-2.5 text-xs focus:outline-none focus:border-orange-500"
+                      className="w-full bg-white border border-slate-300 rounded-xl text-slate-900 font-medium p-2.5 text-xs shadow-2xs focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
                     >
                       <option value="">Select Hostel...</option>
                       {hostels.map((h) => (
@@ -240,7 +240,7 @@ export const WardenCreateMaintenancePage: React.FC = () => {
 
                   {/* Room / Location */}
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">
+                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
                       Room / Area (Optional)
                     </label>
                     <input
@@ -248,16 +248,16 @@ export const WardenCreateMaintenancePage: React.FC = () => {
                       placeholder="e.g. 204 or 'Wing B Corridors'"
                       value={roomNumber}
                       onChange={(e) => setRoomNumber(e.target.value)}
-                      className="w-full bg-slate-900 border border-slate-700 rounded-lg text-slate-100 p-2.5 text-xs focus:outline-none focus:border-orange-500"
+                      className="w-full bg-white border border-slate-300 rounded-xl text-slate-900 font-medium p-2.5 text-xs shadow-2xs focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
                     />
                   </div>
 
-                  <div className="p-3 bg-slate-900/60 rounded-lg border border-slate-800 text-xs text-slate-400 space-y-1.5">
-                    <div className="flex items-center gap-1.5 text-orange-400 font-medium">
+                  <div className="p-3.5 bg-indigo-50/60 rounded-xl border border-indigo-200 text-xs text-slate-700 space-y-1.5 font-medium">
+                    <div className="flex items-center gap-1.5 text-indigo-700 font-bold">
                       <Info className="w-3.5 h-3.5" />
                       <span>Technician Notification</span>
                     </div>
-                    <p className="text-[11px] leading-relaxed">
+                    <p className="text-[11px] leading-relaxed text-slate-600">
                       Logging this ticket places it in the active maintenance dispatch queue. You can assign a specific technician from the detail page once created.
                     </p>
                   </div>

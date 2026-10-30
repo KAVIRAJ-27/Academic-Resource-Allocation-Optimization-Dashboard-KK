@@ -110,18 +110,18 @@ export const StudentAcademicsPage: React.FC = () => {
       )}
 
       {/* 2. Navigation Tabs */}
-      <div className="flex items-center gap-2 border-b border-[#1E2330] pb-2 pt-2">
+      <div className="flex items-center gap-2 border-b border-slate-200 pb-2 pt-2">
         <button
           onClick={() => setActiveTab('subjects')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-150 ${
             activeTab === 'subjects'
               ? 'bg-teal-500/10 text-teal-300 border border-teal-500/30'
-              : 'text-gray-400 hover:text-gray-200 hover:bg-[#171A23]'
+              : 'text-gray-400 hover:text-gray-200 hover:bg-slate-50'
           }`}
         >
           <BookOpen className="w-3.5 h-3.5" />
           Enrolled Subjects
-          <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-[#11141C] border border-[#222838] font-mono">
+          <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-white border border-slate-200 font-mono">
             {subjects.length}
           </span>
         </button>
@@ -131,12 +131,12 @@ export const StudentAcademicsPage: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-150 ${
             activeTab === 'timetable'
               ? 'bg-teal-500/10 text-teal-300 border border-teal-500/30'
-              : 'text-gray-400 hover:text-gray-200 hover:bg-[#171A23]'
+              : 'text-gray-400 hover:text-gray-200 hover:bg-slate-50'
           }`}
         >
           <Clock className="w-3.5 h-3.5" />
           Weekly Timetable
-          <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-[#11141C] border border-[#222838] font-mono">
+          <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-white border border-slate-200 font-mono">
             {timetable.length}
           </span>
         </button>
@@ -146,7 +146,7 @@ export const StudentAcademicsPage: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-150 ${
             activeTab === 'structure'
               ? 'bg-teal-500/10 text-teal-300 border border-teal-500/30'
-              : 'text-gray-400 hover:text-gray-200 hover:bg-[#171A23]'
+              : 'text-gray-400 hover:text-gray-200 hover:bg-slate-50'
           }`}
         >
           <Layers className="w-3.5 h-3.5" />

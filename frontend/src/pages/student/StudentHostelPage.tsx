@@ -47,12 +47,12 @@ export const StudentHostelPage: React.FC = () => {
           description="Verified residential quarters, allocated room/bedspace, block facilities, and designated warden information."
           badge={<Badge variant="teal" dot>HOSTEL DESK</Badge>}
         />
-        <div className="p-8 text-center bg-[#11141C] border border-[#1E2330] rounded-xl max-w-md mx-auto my-12 space-y-4">
+        <div className="p-8 text-center bg-white border border-slate-200 rounded-xl max-w-md mx-auto my-12 space-y-4">
           <div className="w-12 h-12 rounded-2xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400 mx-auto">
             <AlertCircle className="w-6 h-6" />
           </div>
           <div className="space-y-1">
-            <h3 className="text-sm font-semibold text-white">Unable to load hostel details</h3>
+            <h3 className="text-sm font-semibold text-slate-900">Unable to load hostel details</h3>
             <p className="text-xs text-gray-400">{error}</p>
           </div>
           <Button
@@ -60,7 +60,7 @@ export const StudentHostelPage: React.FC = () => {
             size="sm"
             onClick={refresh}
             leftIcon={<RefreshCw className="w-3.5 h-3.5" />}
-            className="border-[#222838] text-gray-300"
+            className="border-slate-200 text-gray-300"
           >
             Retry Connection
           </Button>
@@ -84,7 +84,7 @@ export const StudentHostelPage: React.FC = () => {
             leftIcon={<RefreshCw className="w-3.5 h-3.5" />}
             onClick={refresh}
             isLoading={loading}
-            className="border-[#222838] text-gray-300"
+            className="border-slate-200 text-gray-300"
           >
             Refresh Details
           </Button>

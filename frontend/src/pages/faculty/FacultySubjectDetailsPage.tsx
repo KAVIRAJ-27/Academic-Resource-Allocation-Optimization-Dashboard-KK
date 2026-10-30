@@ -54,7 +54,7 @@ export const FacultySubjectDetailsPage: React.FC = () => {
           Back to Assigned Subjects
         </Button>
 
-        <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-8 shadow-card">
+        <div className="bg-white border border-slate-200 rounded-xl p-8 shadow-card">
           <EmptyState
             icon={ShieldAlert}
             title="Subject details unavailable or unauthorized"
@@ -89,7 +89,7 @@ export const FacultySubjectDetailsPage: React.FC = () => {
       </Button>
 
       {/* Main Subject Header Card */}
-      <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-6 mb-6 shadow-card">
+      <div className="bg-white border border-slate-200 rounded-xl p-6 mb-6 shadow-card">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="space-y-2">
             <div className="flex flex-wrap items-center gap-2">
@@ -103,7 +103,7 @@ export const FacultySubjectDetailsPage: React.FC = () => {
                 {details.status}
               </Badge>
             </div>
-            <h1 className="text-2xl font-bold text-white tracking-tight">
+            <h1 className="text-2xl font-bold text-slate-900 tracking-tight">
               {details.subjectName}
             </h1>
             <p className="text-xs text-gray-400">
@@ -112,11 +112,11 @@ export const FacultySubjectDetailsPage: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="bg-[#171A23] border border-[#1E2330] rounded-lg p-3 text-center min-w-[90px]">
+            <div className="bg-slate-50 border border-slate-200 rounded-lg p-3 text-center min-w-[90px]">
               <span className="text-xs text-gray-400 block">Credits</span>
-              <span className="text-xl font-bold text-white">{details.credits}</span>
+              <span className="text-xl font-bold text-slate-900">{details.credits}</span>
             </div>
-            <div className="bg-[#171A23] border border-[#1E2330] rounded-lg p-3 text-center min-w-[90px]">
+            <div className="bg-slate-50 border border-slate-200 rounded-lg p-3 text-center min-w-[90px]">
               <span className="text-xs text-gray-400 block">Total Workload</span>
               <span className="text-xl font-bold text-teal-400">
                 {details.totalHoursPerWeek} <span className="text-xs font-normal">hrs</span>
@@ -128,7 +128,7 @@ export const FacultySubjectDetailsPage: React.FC = () => {
 
       {/* Metadata Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-4 shadow-card">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-card">
           <div className="flex items-center gap-2 text-xs text-gray-400 mb-1">
             <GraduationCap className="w-4 h-4 text-teal-400" />
             <span>Academic Program</span>
@@ -139,7 +139,7 @@ export const FacultySubjectDetailsPage: React.FC = () => {
           <span className="text-[11px] text-gray-500">{details.degreeType || 'Degree Program'}</span>
         </div>
 
-        <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-4 shadow-card">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-card">
           <div className="flex items-center gap-2 text-xs text-gray-400 mb-1">
             <Building2 className="w-4 h-4 text-blue-400" />
             <span>Department</span>
@@ -150,7 +150,7 @@ export const FacultySubjectDetailsPage: React.FC = () => {
           <span className="text-[11px] text-gray-500">{details.departmentCode || 'Academic Dept'}</span>
         </div>
 
-        <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-4 shadow-card">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-card">
           <div className="flex items-center gap-2 text-xs text-gray-400 mb-1">
             <Clock className="w-4 h-4 text-purple-400" />
             <span>Semester Level</span>
@@ -161,7 +161,7 @@ export const FacultySubjectDetailsPage: React.FC = () => {
           <span className="text-[11px] text-gray-500">{details.academicYearName || 'Current Term'}</span>
         </div>
 
-        <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-4 shadow-card">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-card">
           <div className="flex items-center gap-2 text-xs text-gray-400 mb-1">
             <Users className="w-4 h-4 text-amber-400" />
             <span>Assigned Sections</span>
@@ -180,7 +180,7 @@ export const FacultySubjectDetailsPage: React.FC = () => {
         className="mb-8"
       >
         {details.assignedSections.length === 0 ? (
-          <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-6 shadow-card">
+          <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-card">
             <EmptyState
               icon={Users}
               title="No sections are currently associated with your assignments."
@@ -193,7 +193,7 @@ export const FacultySubjectDetailsPage: React.FC = () => {
             {details.assignedSections.map((sec) => (
               <div
                 key={sec.assignmentId}
-                className="bg-[#11141C] border border-[#1E2330] rounded-xl p-4 shadow-card space-y-3"
+                className="bg-white border border-slate-200 rounded-xl p-4 shadow-card space-y-3"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
@@ -207,7 +207,7 @@ export const FacultySubjectDetailsPage: React.FC = () => {
                   </Badge>
                 </div>
 
-                <div className="grid grid-cols-2 gap-2 text-xs text-gray-400 pt-2 border-t border-[#1E2330]">
+                <div className="grid grid-cols-2 gap-2 text-xs text-gray-400 pt-2 border-t border-slate-200">
                   <div>
                     <span className="text-gray-500 block">Student Capacity:</span>
                     <span className="text-gray-200 font-medium">{sec.capacity ?? 60} Students</span>
@@ -229,7 +229,7 @@ export const FacultySubjectDetailsPage: React.FC = () => {
         subtitle="Weekly periods, lecture halls, and laboratory rooms reserved for this subject"
       >
         {details.timetableSlots.length === 0 ? (
-          <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-6 shadow-card">
+          <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-card">
             <EmptyState
               icon={Calendar}
               title="No timetable entries are currently available for this subject."
@@ -242,7 +242,7 @@ export const FacultySubjectDetailsPage: React.FC = () => {
             {details.timetableSlots.map((slot) => (
               <div
                 key={slot.id}
-                className="bg-[#11141C] border border-[#1E2330] rounded-xl p-4 shadow-card hover:border-teal-500/30 transition-all space-y-3"
+                className="bg-white border border-slate-200 rounded-xl p-4 shadow-card hover:border-teal-500/30 transition-all space-y-3"
               >
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-bold text-teal-300 bg-teal-500/10 px-2 py-0.5 rounded border border-teal-500/20 capitalize">
@@ -258,12 +258,12 @@ export const FacultySubjectDetailsPage: React.FC = () => {
                   <span className="text-xs text-gray-400">
                     {slot.sectionName ? `Section ${slot.sectionName}` : 'All Sections'}
                   </span>
-                  <h4 className="text-sm font-bold text-white truncate pt-0.5">
+                  <h4 className="text-sm font-bold text-slate-900 truncate pt-0.5">
                     {slot.subjectName}
                   </h4>
                 </div>
 
-                <div className="pt-2 border-t border-[#1E2330] flex items-center justify-between text-xs text-gray-400">
+                <div className="pt-2 border-t border-slate-200 flex items-center justify-between text-xs text-gray-400">
                   <div className="flex items-center gap-1 truncate">
                     <MapPin className="w-3.5 h-3.5 text-teal-400" />
                     <span className="truncate text-gray-200 font-medium">

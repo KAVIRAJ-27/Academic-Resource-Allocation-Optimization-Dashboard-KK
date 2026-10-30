@@ -9,8 +9,8 @@ interface FacultyCourseCardProps {
 
 export const FacultyCourseCard: React.FC<FacultyCourseCardProps> = ({ course }) => {
   return (
-    <Card className="bg-[#11141C] border-[#1E2330] hover:border-[#2A3245] transition-all flex flex-col justify-between shadow-card">
-      <CardHeader className="pb-3 border-b border-[#1E2330]">
+    <Card className="bg-white border-slate-200 hover:border-[#2A3245] transition-all flex flex-col justify-between shadow-card">
+      <CardHeader className="pb-3 border-b border-slate-200">
         <div className="flex items-start justify-between gap-3">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
@@ -21,7 +21,7 @@ export const FacultyCourseCard: React.FC<FacultyCourseCardProps> = ({ course }) 
                 {course.degreeType.replace('_', ' ')}
               </Badge>
             </div>
-            <CardTitle className="text-base font-bold text-white pt-1">
+            <CardTitle className="text-base font-bold text-slate-900 pt-1">
               {course.programName}
             </CardTitle>
           </div>
@@ -48,7 +48,7 @@ export const FacultyCourseCard: React.FC<FacultyCourseCardProps> = ({ course }) 
           </div>
         </div>
 
-        <div className="p-2.5 rounded-lg bg-[#171A23] border border-[#1E2330] flex items-center justify-between">
+        <div className="p-2.5 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-between">
           <div className="flex items-center gap-2 text-xs text-gray-300">
             <BookOpen className="w-4 h-4 text-teal-400" />
             <span>Teaching Allocation:</span>

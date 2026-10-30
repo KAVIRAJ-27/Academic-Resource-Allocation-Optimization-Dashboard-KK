@@ -76,7 +76,7 @@ export const FacultyDashboard: React.FC = () => {
         }
         description={
           deptName
-            ? `${deptName} &bull; Personal instructional schedule, assigned syllabus modules, workload metrics, and requisitions.`
+            ? `${deptName} • Personal instructional schedule, assigned syllabus modules, workload metrics, and requisitions.`
             : 'Instructional schedule overview, assigned lecture halls and labs, personal teaching workload metrics, and resource requisitions.'
         }
         badge={

@@ -27,56 +27,56 @@ export const AiMetricCard: React.FC<AiMetricCardProps> = ({
   confidence,
 }) => {
   return (
-    <div className="bg-[#11141C] border border-[#1E2330] rounded-xl p-5 shadow-card hover:border-teal-500/30 transition-all">
+    <div className="bg-white border border-[#D8C9A8] rounded-xl p-5 shadow-none hover:border-[#B8A16A] transition-all">
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2">
-          <div className="p-2 rounded-lg bg-[#171A23] border border-[#262B3B]">
-            <Icon className={`w-5 h-5 ${iconColor}`} />
+          <div className="p-2 rounded bg-[#FBF9F3] border border-[#E8E0D0] text-[#B8A16A]">
+            <Icon className="w-4 h-4 text-[#B8A16A]" />
           </div>
-          <span className="text-xs font-semibold text-gray-400 tracking-wide uppercase">{title}</span>
+          <span className="text-xs font-serif font-bold text-[#202020] tracking-wide uppercase">{title}</span>
         </div>
-        <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-teal-500/10 border border-teal-500/30 text-[10px] font-mono text-teal-300">
-          <Sparkles className="w-3 h-3" />
+        <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[#F4F0E6] border border-[#D8C9A8] text-[10px] font-medium text-[#B8A16A]">
+          <Sparkles className="w-3 h-3 text-[#B8A16A]" />
           <span>AI Forecast</span>
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-3 my-2 pt-1 border-t border-[#1E2330]">
+      <div className="grid grid-cols-2 gap-3 my-2 pt-2 border-t border-[#E8E0D0]">
         <div>
-          <span className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider block mb-0.5">
+          <span className="text-[10px] font-medium text-[#77736A] uppercase tracking-wider block mb-0.5">
             Actual
           </span>
-          <span className="text-xl font-bold text-gray-200 font-mono">
+          <span className="text-xl font-serif font-bold text-[#202020]">
             {actualValue}{unit}
           </span>
         </div>
         <div>
-          <span className="text-[10px] font-semibold text-teal-400 uppercase tracking-wider block mb-0.5">
+          <span className="text-[10px] font-medium text-[#B8A16A] uppercase tracking-wider block mb-0.5">
             Predicted
           </span>
-          <span className="text-xl font-bold text-teal-300 font-mono">
+          <span className="text-xl font-serif font-bold text-[#B8A16A]">
             {predictedValue}{unit}
           </span>
         </div>
       </div>
 
-      <div className="mt-3 pt-2 border-t border-[#1E2330]/60 flex items-center justify-between text-xs">
+      <div className="mt-3 pt-2.5 border-t border-[#E8E0D0] flex items-center justify-between text-xs">
         {changeLabel && (
           <span
             className={`font-medium ${
               changeType === 'positive'
-                ? 'text-emerald-400'
+                ? 'text-[#3F7655]'
                 : changeType === 'negative'
-                ? 'text-rose-400'
-                : 'text-gray-400'
+                ? 'text-[#B44747]'
+                : 'text-[#77736A]'
             }`}
           >
             {changeLabel}
           </span>
         )}
-        <div className="flex items-center gap-2 ml-auto text-[10px] text-gray-400 font-mono">
+        <div className="flex items-center gap-2 ml-auto text-[10px] text-[#77736A] font-mono">
           {confidence !== undefined && <span>Confidence: {confidence}%</span>}
-          <span className="px-1.5 py-0.5 rounded bg-[#171A23] border border-[#262B3B]">{modelVersion}</span>
+          <span className="px-1.5 py-0.5 rounded bg-[#FBF9F3] border border-[#E8E0D0] text-[#77736A]">{modelVersion}</span>
         </div>
       </div>
     </div>

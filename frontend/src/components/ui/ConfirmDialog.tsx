@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal } from './Modal';
 import { Button } from './Button';
-import { AlertTriangle, Info, CheckCircle2 } from 'lucide-react';
+import { AlertTriangle, Info } from 'lucide-react';
 
 export interface ConfirmDialogProps {
   isOpen: boolean;
@@ -27,9 +27,9 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
   isLoading = false,
 }) => {
   const icons = {
-    danger: <AlertTriangle className="w-5 h-5 text-rose-400" />,
-    warning: <AlertTriangle className="w-5 h-5 text-amber-400" />,
-    primary: <Info className="w-5 h-5 text-teal-400" />,
+    danger: <AlertTriangle className="w-5 h-5 text-[#B44747]" />,
+    warning: <AlertTriangle className="w-5 h-5 text-[#A87928]" />,
+    primary: <Info className="w-5 h-5 text-[#B8A16A]" />,
   };
 
   const buttonVariants = {
@@ -60,12 +60,12 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
       }
     >
       <div className="flex items-start gap-3 py-2">
-        <div className="p-2.5 rounded-xl bg-white/[0.03] border border-white/5 shrink-0 mt-0.5">
+        <div className="p-2.5 rounded-lg bg-[#F8F6F0] border border-[#D8C9A8] shrink-0 mt-0.5">
           {icons[variant]}
         </div>
         <div>
-          <h4 className="text-sm font-semibold text-white">{title}</h4>
-          <p className="text-xs text-gray-400 mt-1 leading-relaxed">{description}</p>
+          <h4 className="text-sm font-serif font-bold text-[#202020]">{title}</h4>
+          <p className="text-xs text-[#555555] mt-1 leading-relaxed">{description}</p>
         </div>
       </div>
     </Modal>

@@ -64,7 +64,7 @@ export const StudentAcademicStructureCard: React.FC<StudentAcademicStructureCard
   ];
 
   return (
-    <Card className="bg-[#11141C] border-[#1E2330]">
+    <Card className="bg-white border-slate-200">
       <CardHeader>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2.5">
@@ -97,11 +97,11 @@ export const StudentAcademicStructureCard: React.FC<StudentAcademicStructureCard
               return (
                 <div
                   key={idx}
-                  className="p-4 rounded-xl bg-[#171A23] border border-[#222838] flex flex-col justify-between hover:border-teal-500/40 transition-all duration-200 group"
+                  className="p-4 rounded-xl bg-slate-50 border border-slate-200 flex flex-col justify-between hover:border-teal-500/40 transition-all duration-200 group"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-3">
-                      <div className="w-8 h-8 rounded-lg bg-[#222838] group-hover:bg-teal-500/20 text-teal-400 flex items-center justify-center transition-colors">
+                      <div className="w-8 h-8 rounded-lg bg-slate-100 group-hover:bg-teal-500/20 text-teal-400 flex items-center justify-center transition-colors">
                         <Icon className="w-4 h-4" />
                       </div>
                       <span className="text-[10px] font-mono text-gray-400">
@@ -119,7 +119,7 @@ export const StudentAcademicStructureCard: React.FC<StudentAcademicStructureCard
                     </h4>
                   </div>
 
-                  <div className="mt-4 pt-3 border-t border-[#222838] flex items-center justify-between">
+                  <div className="mt-4 pt-3 border-t border-slate-200 flex items-center justify-between">
                     <span className="font-mono text-[10px] text-teal-400 font-semibold truncate max-w-[80px]">
                       {step.code}
                     </span>

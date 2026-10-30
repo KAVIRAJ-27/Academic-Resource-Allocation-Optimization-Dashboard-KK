@@ -61,15 +61,15 @@ export const PrincipalDepartmentTable: React.FC<PrincipalDepartmentTableProps> =
   };
 
   return (
-    <Card className="mb-6">
+    <Card className="mb-6 border-[#D8C9A8] bg-white shadow-none">
       <CardHeader>
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
             <div className="flex items-center gap-2">
-              <Layers className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-              <CardTitle>Academic Department Overview & Comparison</CardTitle>
+              <Layers className="w-5 h-5 text-[#B8A16A]" />
+              <CardTitle className="text-base font-serif font-bold text-[#202020]">Academic Department Overview & Comparison</CardTitle>
             </div>
-            <CardDescription>
+            <CardDescription className="text-xs text-[#77736A]">
               Institution-wide comparative metrics across academic departments based on live database records.
             </CardDescription>
           </div>
@@ -79,7 +79,7 @@ export const PrincipalDepartmentTable: React.FC<PrincipalDepartmentTableProps> =
               placeholder="Search departments..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              leftIcon={<Search className="w-4 h-4 text-slate-400" />}
+              leftIcon={<Search className="w-4 h-4 text-[#77736A]" />}
             />
           </div>
         </div>
@@ -88,57 +88,57 @@ export const PrincipalDepartmentTable: React.FC<PrincipalDepartmentTableProps> =
       <CardContent className="p-0">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-sm">
-            <thead className="bg-slate-50 dark:bg-slate-800/60 border-y border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wider">
+            <thead className="bg-[#F8F6F0] border-y border-[#E8E0D0] text-xs text-[#555555] font-serif font-semibold tracking-wider">
               <tr>
                 <th
-                  className="px-4 py-3 cursor-pointer hover:text-slate-700 dark:hover:text-slate-200 select-none"
+                  className="px-4 py-3 cursor-pointer hover:text-[#202020] select-none"
                   onClick={() => handleSort('departmentName')}
                 >
                   Department {renderSortIcon('departmentName')}
                 </th>
                 <th className="px-4 py-3">Status</th>
                 <th
-                  className="px-4 py-3 text-right cursor-pointer hover:text-slate-700 dark:hover:text-slate-200 select-none"
+                  className="px-4 py-3 text-right cursor-pointer hover:text-[#202020] select-none"
                   onClick={() => handleSort('studentCount')}
                 >
                   Students {renderSortIcon('studentCount')}
                 </th>
                 <th
-                  className="px-4 py-3 text-right cursor-pointer hover:text-slate-700 dark:hover:text-slate-200 select-none"
+                  className="px-4 py-3 text-right cursor-pointer hover:text-[#202020] select-none"
                   onClick={() => handleSort('facultyCount')}
                 >
                   Faculty {renderSortIcon('facultyCount')}
                 </th>
                 <th
-                  className="px-4 py-3 text-right cursor-pointer hover:text-slate-700 dark:hover:text-slate-200 select-none"
+                  className="px-4 py-3 text-right cursor-pointer hover:text-[#202020] select-none"
                   onClick={() => handleSort('programCount')}
                 >
                   Programs {renderSortIcon('programCount')}
                 </th>
                 <th
-                  className="px-4 py-3 text-right cursor-pointer hover:text-slate-700 dark:hover:text-slate-200 select-none"
+                  className="px-4 py-3 text-right cursor-pointer hover:text-[#202020] select-none"
                   onClick={() => handleSort('subjectCount')}
                 >
                   Subjects {renderSortIcon('subjectCount')}
                 </th>
                 <th
-                  className="px-4 py-3 text-right cursor-pointer hover:text-slate-700 dark:hover:text-slate-200 select-none"
+                  className="px-4 py-3 text-right cursor-pointer hover:text-[#202020] select-none"
                   onClick={() => handleSort('pendingRequestCount')}
                 >
                   Pending Reqs {renderSortIcon('pendingRequestCount')}
                 </th>
                 <th
-                  className="px-4 py-3 text-right cursor-pointer hover:text-slate-700 dark:hover:text-slate-200 select-none"
+                  className="px-4 py-3 text-right cursor-pointer hover:text-[#202020] select-none"
                   onClick={() => handleSort('activeAllocationCount')}
                 >
                   Active Alloc {renderSortIcon('activeAllocationCount')}
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+            <tbody className="divide-y divide-[#E8E0D0]">
               {filteredAndSorted.length === 0 ? (
                 <tr>
-                  <td colSpan={8} className="text-center py-8 text-slate-500 dark:text-slate-400">
+                  <td colSpan={8} className="text-center py-8 text-[#77736A] font-medium">
                     No departments found.
                   </td>
                 </tr>
@@ -146,13 +146,13 @@ export const PrincipalDepartmentTable: React.FC<PrincipalDepartmentTableProps> =
                 filteredAndSorted.map((dept) => (
                   <tr
                     key={dept.departmentId}
-                    className="hover:bg-slate-50/60 dark:hover:bg-slate-800/40 transition-colors"
+                    className="hover:bg-[#F4F0E6] transition-colors"
                   >
                     <td className="px-4 py-3.5">
-                      <div className="font-semibold text-slate-900 dark:text-white">
+                      <div className="font-semibold text-[#202020]">
                         {dept.departmentName}
                       </div>
-                      <span className="text-xs text-slate-400 font-mono">{dept.departmentCode}</span>
+                      <span className="text-xs text-[#77736A] font-mono">{dept.departmentCode}</span>
                     </td>
                     <td className="px-4 py-3.5">
                       <Badge
@@ -163,34 +163,34 @@ export const PrincipalDepartmentTable: React.FC<PrincipalDepartmentTableProps> =
                         {dept.status || 'ACTIVE'}
                       </Badge>
                     </td>
-                    <td className="px-4 py-3.5 text-right font-medium text-slate-800 dark:text-slate-200">
+                    <td className="px-4 py-3.5 text-right font-medium text-[#202020]">
                       {dept.studentCount.toLocaleString()}
                     </td>
-                    <td className="px-4 py-3.5 text-right font-medium text-slate-800 dark:text-slate-200">
+                    <td className="px-4 py-3.5 text-right font-medium text-[#202020]">
                       {dept.facultyCount.toLocaleString()}
                     </td>
-                    <td className="px-4 py-3.5 text-right font-medium text-slate-800 dark:text-slate-200">
+                    <td className="px-4 py-3.5 text-right font-medium text-[#202020]">
                       {dept.programCount}
                     </td>
-                    <td className="px-4 py-3.5 text-right font-medium text-slate-800 dark:text-slate-200">
+                    <td className="px-4 py-3.5 text-right font-medium text-[#202020]">
                       {dept.subjectCount}
                     </td>
                     <td className="px-4 py-3.5 text-right">
                       {dept.pendingRequestCount > 0 ? (
-                        <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-amber-100 text-amber-800 dark:bg-amber-950/60 dark:text-amber-400">
+                        <span className="px-2 py-0.5 rounded text-xs font-semibold bg-[#FAF7F0] border border-[#E8DEC8] text-[#A87928]">
                           {dept.pendingRequestCount}
                         </span>
                       ) : (
-                        <span className="text-xs text-slate-400">0</span>
+                        <span className="text-xs text-[#77736A]">0</span>
                       )}
                     </td>
                     <td className="px-4 py-3.5 text-right">
                       {dept.activeAllocationCount > 0 ? (
-                        <span className="px-2 py-0.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-400">
+                        <span className="px-2 py-0.5 rounded text-xs font-semibold bg-[#F0F5F2] border border-[#B6D1C1] text-[#3F7655]">
                           {dept.activeAllocationCount}
                         </span>
                       ) : (
-                        <span className="text-xs text-slate-400">0</span>
+                        <span className="text-xs text-[#77736A]">0</span>
                       )}
                     </td>
                   </tr>

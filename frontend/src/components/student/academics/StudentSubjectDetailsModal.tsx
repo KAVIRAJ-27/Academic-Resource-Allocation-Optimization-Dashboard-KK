@@ -81,8 +81,8 @@ export const StudentSubjectDetailsModal: React.FC<StudentSubjectDetailsModalProp
             </div>
 
             {/* Academic Program Scope Card */}
-            <div className="p-3.5 rounded-xl bg-[#171A23] border border-[#222838] space-y-2">
-              <span className="text-[10px] font-mono text-gray-400 uppercase tracking-wider block">
+            <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+              <span className="text-[10px] font-mono text-slate-600 font-bold uppercase tracking-wider block">
                 Degree & Department Affiliation
               </span>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
@@ -104,9 +104,9 @@ export const StudentSubjectDetailsModal: React.FC<StudentSubjectDetailsModalProp
             </div>
 
             {/* Faculty Instructor Details */}
-            <div className="p-3.5 rounded-xl bg-[#171A23] border border-[#222838] space-y-3">
+            <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-mono text-gray-400 uppercase tracking-wider">
+                <span className="text-[10px] font-mono text-slate-600 font-bold uppercase tracking-wider">
                   Course Faculty Instructor
                 </span>
                 {subject.facultyName && (
@@ -148,7 +148,7 @@ export const StudentSubjectDetailsModal: React.FC<StudentSubjectDetailsModalProp
             </div>
 
             {/* Cohort Section Assignment */}
-            <div className="p-3 rounded-xl bg-[#141822] border border-[#1E2330] flex items-center justify-between text-xs">
+            <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between text-xs">
               <span className="text-gray-400">Enrolled Section</span>
               <span className="font-semibold text-gray-200">
                 {subject.sectionName ? `Section ${subject.sectionName}` : 'All Sections'}

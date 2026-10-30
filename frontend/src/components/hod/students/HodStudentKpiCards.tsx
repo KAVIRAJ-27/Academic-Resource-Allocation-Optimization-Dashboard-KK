@@ -65,7 +65,7 @@ export const HodStudentKpiCards: React.FC<HodStudentKpiCardsProps> = ({
           >
             <div>
               <p className="text-xs font-medium text-gray-400">{card.title}</p>
-              <h3 className="text-2xl font-bold text-white mt-1">{card.value}</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mt-1">{card.value}</h3>
               <p className="text-xs text-gray-500 mt-1">{card.subtitle}</p>
             </div>
             <div className={`p-3 rounded-xl ${card.bgColor} ${card.color} border ${card.borderColor}`}>

@@ -61,17 +61,17 @@ export const PrincipalApprovalsPage: React.FC = () => {
     <PageContainer>
       <div className="space-y-6 pb-12">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-5">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#E8E0D0] pb-5">
           <div>
             <div className="flex items-center gap-2.5">
-              <div className="p-2 rounded-xl bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400">
+              <div className="p-2 rounded-xl bg-[#F4F0E6] border border-[#D8C9A8] text-[#B8A16A]">
                 <ShieldCheck className="w-5 h-5" />
               </div>
-              <h1 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
+              <h1 className="text-2xl font-serif font-bold text-[#202020] tracking-tight">
                 Institution Approvals Management
               </h1>
             </div>
-            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+            <p className="text-sm text-[#555555] mt-1">
               Review and process institution-wide academic resource requests requiring Principal authorization
             </p>
           </div>
@@ -99,7 +99,7 @@ export const PrincipalApprovalsPage: React.FC = () => {
 
         {/* Error Alert */}
         {error && (
-          <div className="p-4 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900/50 flex items-center gap-3 text-red-700 dark:text-red-400 text-sm">
+          <div className="p-4 rounded-xl bg-[#B44747]/10 border border-[#B44747]/20 flex items-center gap-3 text-[#B44747] text-sm">
             <AlertCircle className="w-5 h-5 flex-shrink-0" />
             <div className="flex-1">{error}</div>
             <Button variant="ghost" size="sm" onClick={refresh}>
@@ -109,19 +109,19 @@ export const PrincipalApprovalsPage: React.FC = () => {
         )}
 
         {/* Filters */}
-        <Card className="border border-slate-200 dark:border-slate-800 shadow-sm">
+        <Card className="border border-[#D8C9A8] shadow-none">
           <CardContent className="p-4">
             <div className="flex flex-wrap items-center justify-between gap-4">
               {/* Status Filter Tabs */}
-              <div className="flex flex-wrap items-center gap-1.5 bg-slate-100 dark:bg-slate-800/80 p-1 rounded-xl">
+              <div className="flex flex-wrap items-center gap-1.5 bg-[#F8F6F0] p-1 rounded-xl border border-[#E8E0D0]">
                 {['ALL', 'PENDING', 'APPROVED', 'REJECTED', 'CANCELLED'].map((st) => (
                   <button
                     key={st}
                     onClick={() => setStatusFilter(st)}
                     className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-colors ${
                       statusFilter === st
-                        ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-white shadow-sm'
-                        : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                        ? 'bg-white text-[#202020] border border-[#D8C9A8] shadow-none'
+                        : 'text-[#77736A] hover:text-[#202020]'
                     }`}
                   >
                     {st}
@@ -131,24 +131,24 @@ export const PrincipalApprovalsPage: React.FC = () => {
 
               {/* Date Filters */}
               <div className="flex items-center gap-2 text-xs">
-                <div className="flex items-center gap-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-2.5 py-1">
-                  <Calendar className="w-3.5 h-3.5 text-slate-400" />
+                <div className="flex items-center gap-1.5 bg-white border border-[#D9D2C3] rounded-lg px-2.5 py-1">
+                  <Calendar className="w-3.5 h-3.5 text-[#77736A]" />
                   <input
                     type="date"
                     value={fromDate}
                     onChange={(e) => setFromDate(e.target.value)}
-                    className="bg-transparent text-slate-700 dark:text-slate-200 text-xs focus:outline-none"
+                    className="bg-transparent text-[#202020] text-xs focus:outline-none"
                     placeholder="From date"
                   />
                 </div>
-                <span className="text-slate-400 text-xs">to</span>
-                <div className="flex items-center gap-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-2.5 py-1">
-                  <Calendar className="w-3.5 h-3.5 text-slate-400" />
+                <span className="text-[#77736A] text-xs">to</span>
+                <div className="flex items-center gap-1.5 bg-white border border-[#D9D2C3] rounded-lg px-2.5 py-1">
+                  <Calendar className="w-3.5 h-3.5 text-[#77736A]" />
                   <input
                     type="date"
                     value={toDate}
                     onChange={(e) => setToDate(e.target.value)}
-                    className="bg-transparent text-slate-700 dark:text-slate-200 text-xs focus:outline-none"
+                    className="bg-transparent text-[#202020] text-xs focus:outline-none"
                     placeholder="To date"
                   />
                 </div>
@@ -171,7 +171,7 @@ export const PrincipalApprovalsPage: React.FC = () => {
         </Card>
 
         {/* Approvals Table */}
-        <Card className="border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+        <Card className="border border-[#D8C9A8] shadow-sm overflow-hidden">
           <CardContent className="p-0">
             {loading && approvals.length === 0 ? (
               <div className="p-6 space-y-3">
@@ -181,11 +181,11 @@ export const PrincipalApprovalsPage: React.FC = () => {
               </div>
             ) : approvals.length === 0 ? (
               <div className="p-12 text-center">
-                <Clock className="w-12 h-12 mx-auto text-slate-300 dark:text-slate-600 mb-3" />
-                <h3 className="text-base font-semibold text-slate-900 dark:text-white">
+                <Clock className="w-12 h-12 mx-auto text-[#B8A16A] mb-3" />
+                <h3 className="text-base font-serif font-bold text-[#202020]">
                   No Approvals Found
                 </h3>
-                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 max-w-sm mx-auto">
+                <p className="text-xs text-[#555555] mt-1 max-w-sm mx-auto">
                   There are currently no resource request approvals matching your filter criteria.
                 </p>
               </div>
@@ -193,7 +193,7 @@ export const PrincipalApprovalsPage: React.FC = () => {
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs">
                   <thead>
-                    <tr className="bg-slate-50 dark:bg-slate-800/60 border-b border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 font-semibold">
+                    <tr className="bg-[#F8F6F0] border-b border-[#E8E0D0] text-[#555555] font-semibold">
                       <th className="py-3 px-4">Approval ID</th>
                       <th className="py-3 px-4">Request</th>
                       <th className="py-3 px-4">Department</th>
@@ -205,38 +205,38 @@ export const PrincipalApprovalsPage: React.FC = () => {
                       <th className="py-3 px-4 text-right">Action</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                  <tbody className="divide-y divide-[#E8E0D0]">
                     {approvals.map((appr) => (
                       <tr
                         key={appr.id}
-                        className="hover:bg-slate-50/70 dark:hover:bg-slate-800/40 transition-colors"
+                        className="hover:bg-[#F4F0E6] transition-colors"
                       >
-                        <td className="py-3 px-4 font-mono font-medium text-slate-900 dark:text-white">
+                        <td className="py-3 px-4 font-mono font-medium text-[#202020]">
                           #{appr.id}
                         </td>
                         <td className="py-3 px-4">
-                          <span className="font-mono font-medium text-indigo-600 dark:text-indigo-400">
+                          <span className="font-mono font-medium text-[#B8A16A]">
                             Req #{appr.requestId}
                           </span>
                         </td>
-                        <td className="py-3 px-4 font-medium text-slate-900 dark:text-white">
-                          <div>{appr.departmentName || 'N/A'}</div>
+                        <td className="py-3 px-4 font-medium text-[#202020]">
+                          <div className="font-bold">{appr.departmentName || 'N/A'}</div>
                           {appr.departmentCode && (
-                            <span className="text-[10px] font-mono text-slate-400 uppercase">
+                            <span className="text-[10px] font-mono text-[#77736A] font-medium uppercase">
                               {appr.departmentCode}
                             </span>
                           )}
                         </td>
                         <td className="py-3 px-4">
-                          <div className="font-medium text-slate-900 dark:text-white">
+                          <div className="font-bold text-[#202020]">
                             {appr.requesterName || 'N/A'}
                           </div>
-                          <div className="text-[11px] text-slate-400">
+                          <div className="text-[11px] text-[#77736A] font-medium">
                             {appr.requesterEmail || ''}
                           </div>
                         </td>
                         <td className="py-3 px-4 text-center">
-                          <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                          <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-[#F8F6F0] border border-[#E8E0D0] text-[#555555]">
                             {appr.approvalLevel}
                           </span>
                         </td>
@@ -246,20 +246,20 @@ export const PrincipalApprovalsPage: React.FC = () => {
                         <td className="py-3 px-4">
                           {appr.approverName ? (
                             <div>
-                              <span className="font-medium text-slate-900 dark:text-white">
+                              <span className="font-bold text-[#202020]">
                                 {appr.approverName}
                               </span>
                               {appr.comments && (
-                                <p className="text-[11px] text-slate-400 italic truncate max-w-xs">
+                                <p className="text-[11px] text-[#77736A] font-medium italic truncate max-w-xs">
                                   "{appr.comments}"
                                 </p>
                               )}
                             </div>
                           ) : (
-                            <span className="text-slate-400 italic">Pending Decision</span>
+                            <span className="text-[#77736A] font-medium italic">Pending Decision</span>
                           )}
                         </td>
-                        <td className="py-3 px-4 text-slate-500 dark:text-slate-400 whitespace-nowrap">
+                        <td className="py-3 px-4 text-[#77736A] font-medium whitespace-nowrap">
                           {new Date(appr.createdAt).toLocaleDateString()}
                         </td>
                         <td className="py-3 px-4 text-right">
@@ -282,10 +282,10 @@ export const PrincipalApprovalsPage: React.FC = () => {
 
             {/* Pagination Controls */}
             {totalPages > 1 && (
-              <div className="p-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+              <div className="p-4 border-t border-[#E8E0D0] flex items-center justify-between text-xs text-[#555555]">
                 <div>
-                  Showing page <span className="font-semibold text-slate-900 dark:text-white">{page + 1}</span> of{' '}
-                  <span className="font-semibold text-slate-900 dark:text-white">{totalPages}</span> ({totalElements} total approvals)
+                  Showing page <span className="font-semibold text-[#202020]">{page + 1}</span> of{' '}
+                  <span className="font-semibold text-[#202020]">{totalPages}</span> ({totalElements} total approvals)
                 </div>
                 <div className="flex items-center gap-1.5">
                   <Button

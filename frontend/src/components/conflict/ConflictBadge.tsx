@@ -25,18 +25,18 @@ export const ConflictBadge: React.FC<ConflictBadgeProps> = ({
     case 'ERROR':
       return (
         <span
-          className={`inline-flex items-center gap-1.5 rounded-full bg-rose-500/15 text-rose-400 border border-rose-500/30 ${sizeClasses}`}
+          className={`inline-flex items-center gap-1.5 rounded bg-[#FBF0F0] text-[#B44747] border border-[#ECC0C0] ${sizeClasses}`}
         >
-          <AlertCircle size={iconSize} className="text-rose-400 shrink-0" />
+          <AlertCircle size={iconSize} className="text-[#B44747] shrink-0" />
           <span>{displayLabel}</span>
         </span>
       );
     case 'WARNING':
       return (
         <span
-          className={`inline-flex items-center gap-1.5 rounded-full bg-amber-500/15 text-amber-400 border border-amber-500/30 ${sizeClasses}`}
+          className={`inline-flex items-center gap-1.5 rounded bg-[#FAF7F0] text-[#A87928] border border-[#E8DEC8] ${sizeClasses}`}
         >
-          <AlertTriangle size={iconSize} className="text-amber-400 shrink-0" />
+          <AlertTriangle size={iconSize} className="text-[#A87928] shrink-0" />
           <span>{displayLabel}</span>
         </span>
       );
@@ -44,9 +44,9 @@ export const ConflictBadge: React.FC<ConflictBadgeProps> = ({
     default:
       return (
         <span
-          className={`inline-flex items-center gap-1.5 rounded-full bg-sky-500/15 text-sky-400 border border-sky-500/30 ${sizeClasses}`}
+          className={`inline-flex items-center gap-1.5 rounded bg-[#EFF3F6] text-[#657C91] border border-[#C2D1DD] ${sizeClasses}`}
         >
-          <Info size={iconSize} className="text-sky-400 shrink-0" />
+          <Info size={iconSize} className="text-[#657C91] shrink-0" />
           <span>{displayLabel}</span>
         </span>
       );

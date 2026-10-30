@@ -21,10 +21,10 @@ interface AllocationChartProps {
 }
 
 const STATUS_COLORS: Record<string, string> = {
-  ACTIVE: '#10B981',
-  COMPLETED: '#3B82F6',
-  CANCELLED: '#EF4444',
-  PENDING: '#F59E0B',
+  ACTIVE: '#3F7655',
+  COMPLETED: '#B8A16A',
+  CANCELLED: '#B44747',
+  PENDING: '#A87928',
 };
 
 export const AllocationChart: React.FC<AllocationChartProps> = ({
@@ -45,15 +45,15 @@ export const AllocationChart: React.FC<AllocationChartProps> = ({
 
   if ((type === 'pie' && pieData.length === 0) || (type === 'bar' && barData.length === 0)) {
     return (
-      <div className="flex h-64 flex-col items-center justify-center rounded-2xl border border-slate-800/80 bg-slate-900/40 p-6 text-center">
-        <p className="text-xs text-slate-400">No allocation data available for the selected filters.</p>
+      <div className="flex h-64 flex-col items-center justify-center rounded-2xl border border-[#D8C9A8] bg-white p-6 text-center shadow-card">
+        <p className="text-xs font-medium text-[#77736A]">No allocation data available for the selected filters.</p>
       </div>
     );
   }
 
   return (
-    <div className="rounded-2xl border border-slate-800/80 bg-slate-900/60 p-5 backdrop-blur-md">
-      <h3 className="mb-4 text-xs font-semibold uppercase tracking-wider text-slate-300">{title}</h3>
+    <div className="rounded-2xl border border-[#D8C9A8] bg-white p-5 shadow-card">
+      <h3 className="mb-4 text-xs font-serif font-bold uppercase tracking-wider text-[#202020]">{title}</h3>
       <div className="h-64 w-full">
         <ResponsiveContainer width="100%" height="100%">
           {type === 'pie' ? (
@@ -70,40 +70,44 @@ export const AllocationChart: React.FC<AllocationChartProps> = ({
                 {pieData.map((entry, index) => (
                   <Cell
                     key={`cell-${index}`}
-                    fill={STATUS_COLORS[entry.name] || '#8B5CF6'}
+                    fill={STATUS_COLORS[entry.name] || '#B8A16A'}
                   />
                 ))}
               </Pie>
               <Tooltip
                 contentStyle={{
-                  backgroundColor: '#0F172A',
-                  borderColor: '#334155',
+                  backgroundColor: '#FFFFFF',
+                  borderColor: '#D8C9A8',
                   borderRadius: '12px',
+                  boxShadow: '0 4px 10px -1px rgba(184, 161, 106, 0.15)',
                   fontSize: '12px',
-                  color: '#F8FAFC',
+                  color: '#202020',
+                  fontWeight: 600,
                 }}
               />
               <Legend
                 verticalAlign="bottom"
                 height={36}
-                formatter={(val) => <span className="text-xs text-slate-300">{val}</span>}
+                formatter={(val) => <span className="text-xs font-semibold text-[#555555]">{val}</span>}
               />
             </PieChart>
           ) : (
             <BarChart data={barData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#1E2330" vertical={false} />
-              <XAxis dataKey="name" stroke="#64748B" fontSize={11} tickLine={false} />
-              <YAxis stroke="#64748B" fontSize={11} tickLine={false} />
+              <CartesianGrid strokeDasharray="3 3" stroke="#E8E0D0" vertical={false} />
+              <XAxis dataKey="name" stroke="#77736A" fontSize={11} tickLine={false} />
+              <YAxis stroke="#77736A" fontSize={11} tickLine={false} />
               <Tooltip
                 contentStyle={{
-                  backgroundColor: '#0F172A',
-                  borderColor: '#334155',
+                  backgroundColor: '#FFFFFF',
+                  borderColor: '#D8C9A8',
                   borderRadius: '12px',
+                  boxShadow: '0 4px 10px -1px rgba(184, 161, 106, 0.15)',
                   fontSize: '12px',
-                  color: '#F8FAFC',
+                  color: '#202020',
+                  fontWeight: 600,
                 }}
               />
-              <Bar dataKey="allocations" fill="#3B82F6" radius={[6, 6, 0, 0]} />
+              <Bar dataKey="allocations" fill="#B8A16A" radius={[6, 6, 0, 0]} />
             </BarChart>
           )}
         </ResponsiveContainer>

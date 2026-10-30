@@ -30,7 +30,7 @@ export const HodAssignmentsTable: React.FC<HodAssignmentsTableProps> = ({
       {/* Header */}
       <div className="p-5 border-b border-gray-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h3 className="text-base font-semibold text-white">Department Course Assignments</h3>
+          <h3 className="text-base font-semibold text-slate-900">Department Course Assignments</h3>
           <p className="text-xs text-gray-400 mt-0.5">
             Active faculty-to-course teaching assignments for your department ({assignments.length} total)
           </p>
@@ -52,7 +52,7 @@ export const HodAssignmentsTable: React.FC<HodAssignmentsTableProps> = ({
       <div className="overflow-x-auto">
         <table className="w-full text-left text-xs border-collapse">
           <thead>
-            <tr className="border-b border-gray-800 bg-gray-900/60 text-gray-400 font-semibold uppercase tracking-wider text-[10px]">
+            <tr className="border-b border-gray-800 bg-gray-900/60 text-slate-600 font-bold font-semibold uppercase tracking-wider text-[10px]">
               <th className="py-3 px-4">Subject</th>
               <th className="py-3 px-4">Assigned Faculty</th>
               <th className="py-3 px-4">Program</th>
@@ -64,10 +64,10 @@ export const HodAssignmentsTable: React.FC<HodAssignmentsTableProps> = ({
           <tbody className="divide-y divide-gray-800/60">
             {filteredAssignments.length === 0 ? (
               <tr>
-                <td colSpan={6} className="py-16 text-center text-gray-400">
+                <td colSpan={6} className="py-16 text-center text-slate-600 font-medium">
                   <BookOpen className="w-10 h-10 mx-auto mb-2 text-gray-600 opacity-60" />
-                  <p className="font-semibold text-gray-300 text-sm">No course assignments found</p>
-                  <p className="text-gray-500 mt-1 max-w-sm mx-auto">
+                  <p className="font-semibold text-slate-700 font-medium text-sm">No course assignments found</p>
+                  <p className="text-slate-500 font-medium mt-1 max-w-sm mx-auto">
                     {search
                       ? 'No assignments matched the current search query.'
                       : 'No faculty subject assignments have been recorded for this department.'}
@@ -83,23 +83,23 @@ export const HodAssignmentsTable: React.FC<HodAssignmentsTableProps> = ({
                   </td>
                   <td className="py-3.5 px-4">
                     <div className="font-medium text-teal-300">{a.facultyName}</div>
-                    <div className="text-[11px] text-gray-400 font-mono">{a.employeeId}</div>
+                    <div className="text-[11px] text-slate-600 font-medium font-mono">{a.employeeId}</div>
                   </td>
-                  <td className="py-3.5 px-4 text-gray-300">
+                  <td className="py-3.5 px-4 text-slate-700 font-medium">
                     <div>{a.programName || '—'}</div>
-                    <div className="text-[11px] text-gray-500 font-mono">{a.programCode}</div>
+                    <div className="text-[11px] text-slate-500 font-medium font-mono">{a.programCode}</div>
                   </td>
                   <td className="py-3.5 px-4 text-center">
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-gray-800/60 border border-gray-700/60 text-[11px] font-medium text-gray-300">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-gray-800/60 border border-gray-700/60 text-[11px] font-medium text-slate-700 font-medium">
                       <span>{a.semesterName || '—'}</span>
-                      <span className="text-gray-500">•</span>
+                      <span className="text-slate-500 font-medium">•</span>
                       <span className="text-teal-400 font-semibold">Sec {a.sectionName || 'All'}</span>
                     </span>
                   </td>
                   <td className="py-3.5 px-4 text-center font-bold text-teal-400">
                     {a.credits || '—'}
                   </td>
-                  <td className="py-3.5 px-4 text-right text-gray-400 font-mono text-[11px]">
+                  <td className="py-3.5 px-4 text-right text-slate-600 font-medium font-mono text-[11px]">
                     {a.academicYear || 'Current Year'}
                   </td>
                 </tr>

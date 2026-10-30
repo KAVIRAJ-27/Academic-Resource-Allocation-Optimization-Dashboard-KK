@@ -16,12 +16,12 @@ interface WorkloadChartProps {
 }
 
 const WORKLOAD_COLORS: Record<string, string> = {
-  NORMAL: '#10B981',
-  BALANCED: '#10B981',
-  LOW: '#64748B',
-  UNDERUTILIZED: '#64748B',
-  HIGH: '#F59E0B',
-  OVERLOADED: '#EF4444',
+  NORMAL: '#3F7655',
+  BALANCED: '#3F7655',
+  LOW: '#77736A',
+  UNDERUTILIZED: '#77736A',
+  HIGH: '#A87928',
+  OVERLOADED: '#B44747',
 };
 
 export const WorkloadChart: React.FC<WorkloadChartProps> = ({
@@ -35,35 +35,37 @@ export const WorkloadChart: React.FC<WorkloadChartProps> = ({
 
   if (chartData.length === 0) {
     return (
-      <div className="flex h-64 flex-col items-center justify-center rounded-2xl border border-slate-800/80 bg-slate-900/40 p-6 text-center">
-        <p className="text-xs text-slate-400">No faculty workload data available.</p>
+      <div className="flex h-64 flex-col items-center justify-center rounded-2xl border border-[#D8C9A8] bg-white p-6 text-center shadow-card">
+        <p className="text-xs font-medium text-[#77736A]">No faculty workload data available.</p>
       </div>
     );
   }
 
   return (
-    <div className="rounded-2xl border border-slate-800/80 bg-slate-900/60 p-5 backdrop-blur-md">
-      <h3 className="mb-4 text-xs font-semibold uppercase tracking-wider text-slate-300">{title}</h3>
+    <div className="rounded-2xl border border-[#D8C9A8] bg-white p-5 shadow-card">
+      <h3 className="mb-4 text-xs font-serif font-bold uppercase tracking-wider text-[#202020]">{title}</h3>
       <div className="h-64 w-full">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={chartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#1E2330" vertical={false} />
-            <XAxis dataKey="name" stroke="#64748B" fontSize={11} tickLine={false} />
-            <YAxis stroke="#64748B" fontSize={11} tickLine={false} />
+            <CartesianGrid strokeDasharray="3 3" stroke="#E8E0D0" vertical={false} />
+            <XAxis dataKey="name" stroke="#77736A" fontSize={11} tickLine={false} />
+            <YAxis stroke="#77736A" fontSize={11} tickLine={false} />
             <Tooltip
               contentStyle={{
-                backgroundColor: '#0F172A',
-                borderColor: '#334155',
+                backgroundColor: '#FFFFFF',
+                borderColor: '#D8C9A8',
                 borderRadius: '12px',
+                boxShadow: '0 4px 10px -1px rgba(184, 161, 106, 0.15)',
                 fontSize: '12px',
-                color: '#F8FAFC',
+                color: '#202020',
+                fontWeight: 600,
               }}
             />
             <Bar dataKey="count" radius={[6, 6, 0, 0]}>
               {chartData.map((entry, index) => (
                 <Cell
                   key={`cell-${index}`}
-                  fill={WORKLOAD_COLORS[entry.name.toUpperCase()] || '#8B5CF6'}
+                  fill={WORKLOAD_COLORS[entry.name.toUpperCase()] || '#B8A16A'}
                 />
               ))}
             </Bar>
